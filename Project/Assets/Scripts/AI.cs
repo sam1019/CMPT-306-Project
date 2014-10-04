@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AI : MonoBehaviour {
 
-	public int HP = 25;
+public class AI : Player {
+
+	public new int HP;
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+	
+	}
+	public override void TurnUpdate (){
+
+	}
+	public override void DisplayHP () {
 	
 	}
 }

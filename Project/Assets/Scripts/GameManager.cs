@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	public GameObject Players;
 	public static GameManager instance;
@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 	public List <Player> playerList = new List<Player>();
 	public List <AI> AIList = new List<AI> ();
 	public Transform mapTransform;
-	private int map1Size = 22; //The size of the map 1
+	private int mapiSize; //The size of the map i 
 
 	public int currentPlayerIndex = 0;//Iterates throught the player list
 	public int currentAIIndex =0; //Iterates throught the AI list
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		//If player is not dead enable the GUI 
 		if (playerList[currentPlayerIndex].HP > 0) {
-			playerList[currentPlayerIndex].enabledGUI();
+			playerList[currentPlayerIndex].DisplayHP();
 		}
 		//If player  is dead delete game object
 		else if(playerList[currentPlayerIndex].HP <= 0){
@@ -56,16 +56,16 @@ public class GameManager : MonoBehaviour {
 	public void disablePathHighlight(){
 	
 	}
-	void generateMap(){
+	public void generateMap(){
 		loadMapFromXml();
 	}
-	void loadMapFromXml() {
+	public void loadMapFromXml() {
 	}
 
-	void spawnPlayers(){
+	public void spawnPlayers(){
 	
 	}
-	void spawnAI(){
+	public void spawnAI(){
 	
 	}
 
