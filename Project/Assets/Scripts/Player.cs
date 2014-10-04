@@ -6,10 +6,10 @@ public class Player : MonoBehaviour, PlayerInterface {
 
 	public int HP;
 
-	public Vector2 gridPosition;
+	public Vector2 gridPosition = Vector2.zero;
 	public Vector3 destination;
 
-	public int moveSpeed;
+	public int moveSpeed=10;
 	public int movementRange;
 	public int attackRange;
 
@@ -27,6 +27,11 @@ public class Player : MonoBehaviour, PlayerInterface {
 	//How many moves the players can make before the turn is over
 	public int actionPoints;
 
+
+	void Awake(){
+		//Setting the destination to it's spawn
+		destination = transform.position;
+	}
 	// virtual keyword allows child classes to override the method
 
 	// Use this for initialization
@@ -48,6 +53,16 @@ public class Player : MonoBehaviour, PlayerInterface {
 	// virtual keyword allows child classes to override the method
 	public virtual void TurnUpdate(){
 
+		//Moving the player to destination
+		if (Vector3.Distance(destination, transform.position) > 0.1f) {
+			transform.position += (destination - transform.position).normalized * moveSpeed * Time.deltaTime;
+
+			//Used to check if the player has reached it's destination, if so next turn
+			if (Vector3.Distance(destination, transform.position) <= 0.1f) {
+				transform.position = destination;
+				GameManager.instance.nextTurn();
+			}
+		}
 	}
 
 	

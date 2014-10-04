@@ -15,7 +15,7 @@ public class AI : Player {
 	
 	}
 	public override void TurnUpdate (){
-
+		base.TurnUpdate ();
 	}
 	public override void DisplayHP () {
 	

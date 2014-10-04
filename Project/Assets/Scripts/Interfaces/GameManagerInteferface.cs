@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface GameManagerInteferface {
 	void AttackPlayer ();
-	void MovePlayer ();
+	void MovePlayer (Tile destination);
 	void enablePathHighlight();
 	void disablePathHighlight();
 	void generateMap ();
