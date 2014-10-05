@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 				                                     , Quaternion.Euler(new Vector3()))).GetComponent<Tile>();
 				//Quaternion.Euler(new Vector3()) is used as the default rotation, I found it to work the best
 
-				//tile.gridPosition = new Vector2(i,j);
+				tile.gridPosition = new Vector2(i,j);
 				row.Add (tile);
 			}
 			map.Add(row);
