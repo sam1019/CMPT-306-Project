@@ -8,23 +8,26 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public static GameManager instance;
 	public GameObject TilePrefab;
 	public GameObject AIPrefab;
-	public List <Player> playerList = new List<Player>();
-	public List <AI> AIList = new List<AI> ();
-	public List <List<Tile>> map = new List<List<Tile>> ();
+	public List <Player> playerList;
+	public List <List<Tile>> map;
 	public Transform mapTransform;
+	UserPlayer player;
 	public int mapSize = 11; //The size of the map i 
 
 	private const float PLAYER_HEIGHT = 1.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = 1.0f;
-	public int currentPlayerIndex = 0;//Iterates throught the player list
-	public int currentAIIndex =0; //Iterates throught the AI list
+	int currentPlayerIndex = 0;//Iterates throught the player list
+	int currentAIIndex =0; //Iterates throught the AI list
 
 
 	void Awake(){
 		instance = this;
+
 	
 	}
 	void Start () {
+		playerList = new List<Player> ();
+		int currentPlayerIndex = 0;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
@@ -32,7 +35,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 
 	void Update () {
-		//playerList [currentPlayerIndex].TurnUpdate ();
+		playerList[currentPlayerIndex].TurnUpdate();
+
 		/*
 		//If player is not dead enable the GUI 
 		if (playerList[currentPlayerIndex].HP > 0) {
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 	}
 	public void MovePlayer(Tile destination){
-		playerList [currentPlayerIndex].destination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
+		player.destination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
 	}
 	public void enablePathHighlight(){
 
@@ -99,25 +103,23 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	}
 
 	public void spawnPlayers(){
-		Player player;
-		//Spawn player and add it to the list
-		player = ((GameObject)Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2),PLAYER_HEIGHT, -0+Mathf.Floor(mapSize/2))
-		                                     , Quaternion.Euler(new Vector3()))).GetComponent<Player>();
-
-		playerList.Add (player);
 
 		//Spawn player and add it to the list
-		player = ((GameObject)Instantiate(PlayerPrefab, new Vector3((mapSize-1) - Mathf.Floor(mapSize/2),PLAYER_HEIGHT, -(mapSize-1) + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<Player>();
+		player = ((GameObject)Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2),1.5f, -0 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
 		
-		playerList.Add (player);
-		Player AI;
-		AI = ((GameObject)Instantiate(AIPrefab, new Vector3((mapSize-1) - Mathf.Floor(mapSize/2),AI_HEIGHT, mapSize-1 - Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AI>();
+		playerList.Add(player);
 		
-		playerList.Add (AI);
+		player = ((GameObject)Instantiate(PlayerPrefab, new Vector3((mapSize-1) - Mathf.Floor(mapSize/2),PLAYER_HEIGHT, -(mapSize-1) + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
+		
+		playerList.Add(player);
+
+
 
 	}
 	public void spawnAI(){
-	
+		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
+		
+		playerList.Add(aiplayer);
 	}
 
 }
