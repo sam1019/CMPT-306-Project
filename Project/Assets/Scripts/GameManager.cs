@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public GameObject TilePrefab;
 	public GameObject AIPrefab;
 	public List <Player> playerList;
+	public List<AiPlayer> aiList;
 	public List <List<Tile>> map;
 	public Transform mapTransform;
 	UserPlayer player;
@@ -16,18 +17,19 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	private const float PLAYER_HEIGHT = 1.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = 1.0f;
-	int currentPlayerIndex = 0;//Iterates throught the player list
-	int currentAIIndex =0; //Iterates throught the AI list
+	int currentPlayerIndex;//Iterates throught the player list
+	int currentAIIndex; //Iterates throught the AI list
 
 
 	void Awake(){
 		instance = this;
 
-	
 	}
 	void Start () {
 		playerList = new List<Player> ();
-		int currentPlayerIndex = 0;
+		aiList = new List<AiPlayer> ();
+		currentPlayerIndex = 0;
+		currentAIIndex = 0;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
@@ -67,9 +69,13 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public void AttackPlayer(){
 	
 	}
+
+	//Moves the player to the selected tile by player
 	public void MovePlayer(Tile destination){
 		playerList[currentPlayerIndex].destination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
 	}
+
+	//For future implementation that shows all tile range the player can move to
 	public void enablePathHighlight(){
 
 	}
@@ -77,6 +83,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public void disablePathHighlight(){
 	
 	}
+
 	/* Used to spawn the map 
 	 * Map is made up of multiple spawned cubes
 	 * The 0,0 coordinate the very center cube
@@ -91,6 +98,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 				Tile tile = ((GameObject)Instantiate(TilePrefab, new Vector3(i - Mathf.Floor(mapSize/2),0, -j + Mathf.Floor(mapSize/2))
 				                                     , Quaternion.Euler(new Vector3()))).GetComponent<Tile>();
 
+				//Quaternion.Euler(new Vector3()) is used as the default rotation, I found it to work the best
 				tile.gridPosition = new Vector2(i, j);
 
 				row.Add (tile);
@@ -99,9 +107,14 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 			map.Add(row);
 		}
 	}
+
+	//For future implementation
+	//Reads from xml file and generates a map
 	public void loadMapFromXml() {
+
 	}
 
+	//Spawns players at specific map location, depending on the map
 	public void spawnPlayers(){
 
 		//Spawn player and add it to the list
@@ -113,10 +126,12 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		
 		playerList.Add(player);
 
-
-
 	}
+
+	//Spawns AI(s) at specific map location, depending on the map
 	public void spawnAI(){
+
+		//Spawn AI and add it to list
 		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
 		
 		playerList.Add(aiplayer);

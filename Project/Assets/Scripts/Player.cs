@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//This class acts a interface class that inherits from MonoBehaviour
 public class Player : MonoBehaviour {
 	
 	public Vector3 destination;

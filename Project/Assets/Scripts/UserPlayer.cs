@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/*Generic Player*/
+
 public class UserPlayer : Player {
-
-
-
-
+	
 	void Awake(){
 		//Setting the destination to it's spawn
 		destination = transform.position;
