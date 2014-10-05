@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 
 	void Update () {
-		//playerList[currentPlayerIndex].TurnUpdate();
+
+		//BUG IS HERE
+		playerList[currentPlayerIndex].TurnUpdate();
 
 		/*
 		//If player is not dead enable the GUI 
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
 		if (currentPlayerIndex + 1 < playerList.Count) {
-			currentPlayerIndex++						;
+			currentPlayerIndex++;
 		} else {
 			currentPlayerIndex = 0;
 		}
@@ -94,11 +96,14 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		for (int i = 0; i < mapSize; i++) {
 			List <Tile> row = new List<Tile>();
 			for (int j = 0; j < mapSize; j++) {
+				Tile tile = new Tile();
 				//Tiles spawn around the center tile
-				Tile tile = ((GameObject)Instantiate(TilePrefab, new Vector3(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2),0)
+				tile = ((GameObject)Instantiate(TilePrefab, new Vector3(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2),0)
 				                                     , Quaternion.Euler(new Vector3()))).GetComponent<Tile>();
 				//Quaternion.Euler(new Vector3()) is used as the default rotation, I found it to work the best
-				//tile.gridPosition = new Vector2(i, j);
+
+				//BUG IS HERE
+				tile.gridPosition = new Vector2(i,j);
 				row.Add (tile);
 			}
 			map.Add(row);
