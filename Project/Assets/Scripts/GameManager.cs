@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 	}
 	public void MovePlayer(Tile destination){
-		player.destination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
+		playerList[currentPlayerIndex].destination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
 	}
 	public void enablePathHighlight(){
 

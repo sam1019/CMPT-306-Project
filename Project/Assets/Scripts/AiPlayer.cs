@@ -14,6 +14,7 @@ public class AiPlayer : Player {
 	
 	}
 	public override void TurnUpdate (){
+		GameManager.instance.nextTurn();
 		base.TurnUpdate ();
 	}
 
