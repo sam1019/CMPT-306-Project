@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public interface PlayerInterface {
+	
+	void DisplayHP();
 
-   	void DisplayHP();
-
-	void roleName(string playerName);
+	void roleName();
 
 	void GetPositionX();
 
@@ -18,4 +18,5 @@ public interface PlayerInterface {
 	void TurnOnGUI ();
 
 	void OnGUI();
+
 }
