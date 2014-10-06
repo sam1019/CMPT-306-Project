@@ -14,17 +14,12 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	UserPlayer player;
 	public int mapSize = 11; //The size of the map i 
 
-<<<<<<< HEAD
-	private const float PLAYER_HEIGHT = -1.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
-	private const float AI_HEIGHT = -1.0f;
-	int currentPlayerIndex;//Iterates throught the player list
-	int currentAIIndex; //Iterates throught the AI list
-=======
+
+
 	private const float PLAYER_HEIGHT = 1.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = 1.0f;
 	int currentPlayerIndex = 0;//Iterates throught the player list
 	int currentAIIndex =0; //Iterates throught the AI list
->>>>>>> parent of 44a8fb6... Added comments
 
 
 	void Awake(){
@@ -101,26 +96,19 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 				//Tiles spawn around the center tile
 				tile = ((GameObject)Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2))
 				                                     , Quaternion.Euler(new Vector3()))).GetComponent<Tile>();
-<<<<<<< HEAD
 				//Quaternion.Euler(new Vector3()) is used as the default rotation, I found it to work the best
-=======
 
-				tile.gridPosition = new Vector2(i, j);
->>>>>>> parent of 44a8fb6... Added comments
+				//tile.gridPosition = new Vector2(i, j);
 
-				tile.gridPosition = new Vector2(i,j);
+//				tile.gridPosition = new Vector2(i,j);
 				row.Add (tile);
 			}
 			map.Add(row);
 		}
 	}
-<<<<<<< HEAD
-
 
 	//For future implementation
 	//Reads from xml file and generates a map
-=======
->>>>>>> parent of 44a8fb6... Added comments
 	public void loadMapFromXml() {
 	}
 
@@ -137,14 +125,14 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 
 
-<<<<<<< HEAD
+
 		//Spawn AI and add it to list
 		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2), -4 + Mathf.Floor(mapSize/2), AI_HEIGHT), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
-=======
+
 	}
 	public void spawnAI(){
 		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
->>>>>>> parent of 44a8fb6... Added comments
+
 		
 		playerList.Add(aiplayer);
 	}
