@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+/*Generic Player*/
 public class UserPlayer : Player {
 
+<<<<<<< HEAD
 	//Role Name
 	public string playerName = "Guardian";
 	
@@ -11,6 +12,11 @@ public class UserPlayer : Player {
 	private float bottonWidth;
 	private float buttonWidth;
 	
+=======
+
+
+
+>>>>>>> FETCH_HEAD
 	void Awake(){
 		//Setting the destination to it's spawn
 		moveDestination = transform.position;
