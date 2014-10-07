@@ -11,13 +11,14 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public GameObject tile;
 	public List <GameObject> playerList;
 	public List <List<GameObject>> map;
+	public List <GameObject> aiList;
 	public Transform mapTransform;
 	GameObject player;
 	Tile grid;
 	public int mapSize = 11; //The size of the map i 
 
 
-	private const float PLAYER_HEIGHT = -0.25f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
+	private const float PLAYER_HEIGHT = -0.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = -0.25f;
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	}
 	void Start () {
 		playerList = new List<GameObject> ();
+		aiList = new List<GameObject> ();
 		int currentPlayerIndex = 0;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
@@ -44,26 +46,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		GameObject temp = playerList [currentPlayerIndex];
 		UserPlayer user  = temp.GetComponent<UserPlayer>();
 		user.TurnUpdate ();
-//		UserPlayer user = (UserPlayer) playerList [currentPlayerIndex].GetComponent<UserPlayer> ();
-//		user.TurnUpdate ();
 
-
-//		playerList[currentPlayerIndex].TurnUpdate();
-
-
-		/*
-		//If player is not dead enable the GUI 
-		if (playerList[currentPlayerIndex].HP > 0) {
-			playerList[currentPlayerIndex].DisplayHP();
-		}
-		//If player  is dead delete game object
-		else if(playerList[currentPlayerIndex].HP <= 0){
-			Destroy(playerList[currentPlayerIndex].gameObject);
-		}
-		//If AI is dead, delete game object
-		else if(AIList[currentPlayerIndex].HP <= 0){
-			Destroy(AIList[currentAIIndex].gameObject);
-		} */
 	}
 
 	public void nextTurn() {
@@ -82,8 +65,10 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 	}
 	public void MovePlayer(Tile destination){
-//		playerList[currentPlayerIndex].moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
-//        playerList[currentPlayerIndex].gridPosition = destination.gridPosition;
+		GameObject temp = playerList [currentPlayerIndex];
+		UserPlayer user  = temp.GetComponent<UserPlayer>();
+		user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
+		user.gridPosition = destination.gridPosition;
 	}
 	public void enablePathHighlight(){
 
@@ -146,9 +131,10 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	}
 	public void spawnAI(){
+
 		GameObject aiplayer = Instantiate(AIPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		
-		playerList.Add(aiplayer);
+		aiList.Add(aiplayer);
 	}
 
 }
