@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public List <List<GameObject>> map;
 	public Transform mapTransform;
 	GameObject player;
-	UserPlayer user;
+	Tile grid;
 	public int mapSize = 11; //The size of the map i 
 
 
@@ -38,10 +38,15 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 
 	void Update () {
+		if (playerList [currentPlayerIndex] == null) {
+			print ("NULL");		
+		}
+		GameObject temp = playerList [currentPlayerIndex];
+		UserPlayer user  = temp.GetComponent<UserPlayer>();
+		user.TurnUpdate ();
+//		UserPlayer user = (UserPlayer) playerList [currentPlayerIndex].GetComponent<UserPlayer> ();
+//		user.TurnUpdate ();
 
-
-		//BUG IS HERE
-		//playerList[currentPlayerIndex].TurnUpdate();
 
 //		playerList[currentPlayerIndex].TurnUpdate();
 
@@ -128,6 +133,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		player = Instantiate(PlayerPrefab, new Vector3(12 - Mathf.Floor(mapSize/2), -12 + Mathf.Floor(mapSize/2),PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
 
+		print (player.transform.position.x);
+		print (player.transform.position.y);
 
 
 
