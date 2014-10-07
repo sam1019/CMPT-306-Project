@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour {
 		transform.renderer.material.color = Color.green;
 
 		//Use for debugging
-		Debug.Log("Mouse position is (" + gridPosition.x + "," + gridPosition.y +")");
+		//Debug.Log("Mouse position is (" + gridPosition.x + "," + gridPosition.y +")");
 	}
 	
 	void OnMouseExit() {

@@ -2,12 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-<<<<<<< HEAD
-//This class acts a interface class that inherits from MonoBehaviour
-public class Player : MonoBehaviour, PlayerInterface {
-=======
+
 public class Player : MonoBehaviour {
->>>>>>> FETCH_HEAD
+
 	
 	public Vector3 moveDestination;
 	public float moveSpeed = 10.0f;

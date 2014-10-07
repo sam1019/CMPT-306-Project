@@ -8,26 +8,20 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public static GameManager instance;
 	public GameObject TilePrefab;
 	public GameObject AIPrefab;
-	public List <Player> playerList;
-	public List <List<Tile>> map;
+	public GameObject tile;
+	public List <GameObject> playerList;
+	public List <List<GameObject>> map;
 	public Transform mapTransform;
-	UserPlayer player;
+	GameObject player;
+	UserPlayer user;
 	public int mapSize = 11; //The size of the map i 
 
-<<<<<<< HEAD
-	private const float PLAYER_HEIGHT = 1.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
-	private const float AI_HEIGHT = 1.0f;
+
+	private const float PLAYER_HEIGHT = -0.25f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
+	private const float AI_HEIGHT = -0.25f;
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
-=======
-
-
-	private const float PLAYER_HEIGHT = 1.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
-	private const float AI_HEIGHT = 1.0f;
-	int currentPlayerIndex = 0;//Iterates throught the player list
-	int currentAIIndex =0; //Iterates throught the AI list
->>>>>>> FETCH_HEAD
-
+	
 
 	void Awake(){
 		instance = this;
@@ -35,7 +29,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 	}
 	void Start () {
-		playerList = new List<Player> ();
+		playerList = new List<GameObject> ();
 		int currentPlayerIndex = 0;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
@@ -44,13 +38,13 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 
 	void Update () {
-<<<<<<< HEAD
+
 
 		//BUG IS HERE
 		//playerList[currentPlayerIndex].TurnUpdate();
-=======
-		playerList[currentPlayerIndex].TurnUpdate();
->>>>>>> Han
+
+//		playerList[currentPlayerIndex].TurnUpdate();
+
 
 		/*
 		//If player is not dead enable the GUI 
@@ -83,8 +77,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 	}
 	public void MovePlayer(Tile destination){
-		playerList[currentPlayerIndex].moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
-        playerList[currentPlayerIndex].gridPosition = destination.gridPosition;
+//		playerList[currentPlayerIndex].moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
+//        playerList[currentPlayerIndex].gridPosition = destination.gridPosition;
 	}
 	public void enablePathHighlight(){
 
@@ -98,34 +92,20 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	 * The 0,0 coordinate the very center cube
 	 */
 	public void generateMap(){
-		map = new List<List<Tile>>();
-		Tile tile = new Tile();
+		map = new List<List<GameObject>>();
+	
 		for (int i = 0; i < mapSize; i++) {
-			List <Tile> row = new List<Tile>();
+			List <GameObject> row = new List<GameObject>();
 			for (int j = 0; j < mapSize; j++) {
 
-<<<<<<< HEAD
 				//Tiles spawn around the center tile
-				tile = ((GameObject)Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2))
-=======
-				//Cubes spawn around the center cube, whose position is (0,0)
-				Tile tile = ((GameObject)Instantiate(TilePrefab, new Vector3(i - Mathf.Floor(mapSize/2),0, -j + Mathf.Floor(mapSize/2))
->>>>>>> Han
-				                                     , Quaternion.Euler(new Vector3()))).GetComponent<Tile>();
+				tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+			
+				//tile. = new Vector2(i, j);
 
-				//Quaternion.Euler(new Vector3()) is used as the default rotation, I found it to work the best
-				tile.gridPosition = new Vector2(i, j);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-				tile.gridPosition = new Vector2(i,j);
-=======
->>>>>>> Han
-=======
-				//tile.gridPosition = new Vector2(i, j);
+				//tile.gridPosition = new Vector2(i,j);
 
-//				tile.gridPosition = new Vector2(i,j);
->>>>>>> FETCH_HEAD
 				row.Add (tile);
 			}
 			//Add each cube to a list
@@ -141,28 +121,25 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public void spawnPlayers(){
 
 		//Spawn player and add it to the list
-		player = ((GameObject)Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2),1.5f, -0 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
+		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		
 		playerList.Add(player);
 		
-		player = ((GameObject)Instantiate(PlayerPrefab, new Vector3((mapSize-1) - Mathf.Floor(mapSize/2),PLAYER_HEIGHT, -(mapSize-1) + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<UserPlayer>();
-		
+		player = Instantiate(PlayerPrefab, new Vector3(12 - Mathf.Floor(mapSize/2), -12 + Mathf.Floor(mapSize/2),PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
 
 
 
 
 		//Spawn AI and add it to list
-<<<<<<< HEAD
-		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
-=======
-		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2), -4 + Mathf.Floor(mapSize/2), AI_HEIGHT), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
+
+		//AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
+
+		//AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2), -4 + Mathf.Floor(mapSize/2), AI_HEIGHT), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
 
 	}
 	public void spawnAI(){
-		AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
-
->>>>>>> FETCH_HEAD
+		GameObject aiplayer = Instantiate(AIPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		
 		playerList.Add(aiplayer);
 	}
