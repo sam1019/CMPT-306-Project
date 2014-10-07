@@ -18,11 +18,14 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public int mapSize = 11; //The size of the map i 
 
 
-	private const float PLAYER_HEIGHT = -0.5f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
+	private const float PLAYER_HEIGHT = -1.0f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = -0.25f;
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
 	
+
+	public bool IsPause; 
+	public int scores;	
 
 	void Awake(){
 		instance = this;
@@ -36,6 +39,9 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
+
+		IsPause = true;
+		scores = 0;
 	}
 	
 
@@ -122,13 +128,6 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		print (player.transform.position.y);
 
 
-
-		//Spawn AI and add it to list
-
-		//AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2),AI_HEIGHT, -4 + Mathf.Floor(mapSize/2)), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
-
-		//AiPlayer aiplayer = ((GameObject)Instantiate(AIPrefab, new Vector3(9 - Mathf.Floor(mapSize/2), -4 + Mathf.Floor(mapSize/2), AI_HEIGHT), Quaternion.Euler(new Vector3()))).GetComponent<AiPlayer>();
-
 	}
 	public void spawnAI(){
 
@@ -137,4 +136,45 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		aiList.Add(aiplayer);
 	}
 
+	//added panel from here 
+	void OnGUI()
+	{	
+		
+		//Pause 
+		if (GUI.Button (new Rect (100, 140, 80, 20), "Pause")) // make the GUI button with name "pause"
+		{if (IsPause)											// if its pause, timeScale = 0
+			{Time.timeScale=0;
+				IsPause =false;	
+				//set the pause to false again
+				//need to enable something actions here
+			}
+			else{
+				Time.timeScale=1;
+				
+				IsPause=true;
+			}
+		}
+		
+		if (GUI.Button (new Rect (100,240, 80, 20), "Save"))// this function to save the game
+		{
+			PlayerPrefs.SetInt("save player",currentPlayerIndex);
+			PlayerPrefs.Save();
+		}
+		
+		if (GUI.Button (new Rect (100,340, 80, 20), "End Turn"))// this function to save the game
+		{
+			PlayerPrefs.SetInt("End turn",currentPlayerIndex);
+			this.nextTurn();
+		}
+		
+		
+		//here is the GUI for outputing score, now do nothing yet.
+		GUI.Label (new Rect (10, 10, 50, 20), "Score:" + scores.ToString ());// we will add the player's scores here
+		GUI.Label (new Rect (10, 30, 50, 20), "Lives:" + scores.ToString ());// we will add the lives here depending on the player, by passing variable from player attack
+		
+		//here is the GUI to show the next turn
+		GUI.Label (new Rect (Screen.width - 100, 0, 100, 50), "End turn:"+ scores.ToString ());
+
+		
+	}	
 }
