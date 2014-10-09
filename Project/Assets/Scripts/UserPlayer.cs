@@ -52,7 +52,7 @@ public class UserPlayer : Player {
 			
 			//Used to check if the player has reached it's destination, if so next turn
 			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
-				transform.position = moveDestination;
+				transform.position = moveDestination + Vector3.back;
 				GameManager.instance.nextTurn();
 			}
 		}
