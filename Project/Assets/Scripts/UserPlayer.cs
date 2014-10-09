@@ -26,13 +26,18 @@ public class UserPlayer : Player {
 	public override void Update () {
 		//basic charactor color is blue
 		//When a charactor is chosen, it's color will turn to cyan
-		if(GameManager.instance.playerList.Count >0){
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex] == this) {
+		if(GameManager.instance.playerList.Count > 0){
+			//
+			//Bug is here
+			//
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>() == this) {
 				transform.renderer.material.color = Color.cyan;
+				//print ("cyan");
 			}
 			//Otherwise charactor is blue
 			else {
 				transform.renderer.material.color = Color.blue;
+				//print ("blue");
 			}
 			//If player is dead change to black
 			if(this.HP <= 0){

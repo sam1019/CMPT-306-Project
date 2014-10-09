@@ -10,7 +10,7 @@ public class AiPlayer : Player {
 	}
 	
 	// Update is called once per frame
-	public  void Update () {
+	public override void Update () {
 		if (this.HP <= 0) {
 			this.transform.renderer.material.color = Color.black;
 		} 

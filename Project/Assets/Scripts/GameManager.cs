@@ -29,13 +29,12 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	void Awake(){
 		instance = this;
-
-	
 	}
+
 	void Start () {
 		playerList = new List<GameObject> ();
 		aiList = new List<GameObject> ();
-		int currentPlayerIndex = 0;
+		currentPlayerIndex = 0;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
@@ -61,21 +60,24 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
 		if (currentPlayerIndex + 1 < playerList.Count) {
-			currentPlayerIndex++						;
+			currentPlayerIndex++;
 		} else {
 			currentPlayerIndex = 0;
 		}
 	}
 
-	public void AttackPlayer(){
-	
-	}
+	//To realize the player movement
 	public void MovePlayer(Tile destination){
 		GameObject temp = playerList [currentPlayerIndex];
 		UserPlayer user  = temp.GetComponent<UserPlayer>();
-		user.moveDestination = destination.transform.position+ PLAYER_HEIGHT * Vector3.up;
+		user.moveDestination = destination.transform.position;//+ PLAYER_HEIGHT * Vector3.up;
 		user.gridPosition = destination.gridPosition;
 	}
+
+	public void AttackPlayer(){
+		
+	}
+
 	public void enablePathHighlight(){
 
 	}
@@ -98,8 +100,6 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 				tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 			
 				//tile. = new Vector2(i, j);
-
-
 				//tile.gridPosition = new Vector2(i,j);
 
 				row.Add (tile);
@@ -116,11 +116,11 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	public void spawnPlayers(){
 
-		//Spawn player and add it to the list
+		//Spawn first player and add it to the list
 		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		
 		playerList.Add(player);
-		
+
+		//Spawn second player and add it to the list
 		player = Instantiate(PlayerPrefab, new Vector3(12 - Mathf.Floor(mapSize/2), -12 + Mathf.Floor(mapSize/2),PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
 
@@ -150,7 +150,6 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 			}
 			else{
 				Time.timeScale=1;
-				
 				IsPause=true;
 			}
 		}

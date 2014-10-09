@@ -3,34 +3,34 @@ using System.Collections;
 using System.Collections.Generic;
 
 //This class acts a interface class that inherits from MonoBehaviour
-public class Player : MonoBehaviour{
+public class Player : MonoBehaviour {
 	
 	public Vector3 moveDestination;
 	public float moveSpeed = 10.0f;
-
+	
 	public Vector2 gridPosition = Vector2.zero;
-
+	
 	//charactor movement range & attack range in each actoin
 	public int movementRange= 5;
 	public int attackRange = 1;
-
+	
 	//boolean to judge moveing and attack condition
 	public bool moving= false;
 	public bool attacking=false;
-
+	
 	public float HP=100.0f;
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
 	//public int damageBase = 5;
 	//public float damageRollSides = 6;
 	public int actionPoints = 1;
-
-
+	
+	
 	//For movement in GameManager.MovePlayer()
 	public List<Vector3> positionQueue = new List<Vector3>();
-
 	
-
+	
+	
 	void Awake () {
 		moveDestination = transform.position;
 	}
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour{
 			this.transform.renderer.material.color = Color.black;
 		} 
 	}
-
+	
 	//Each charactor in each turn can do 2 actions in total
 	public virtual void TurnUpdate () {
 		if (actionPoints <= 0) {
@@ -59,22 +59,21 @@ public class Player : MonoBehaviour{
 			GameManager.instance.nextTurn();
 		}
 	}
-
+	
 	public virtual void TurnOnGUI(){
-
+		
 	}
 
-	//Display HP and its movement
+	//Display HP
 	public void OnGUI(){
-		Vector3 location = Camera.main.WorldToScreenPoint(transform.position)+ Vector3.up*30+ Vector3.left*15;
+		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
 		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}
 
-
 //	public void roleName (){
-//
+//		
 //	}
-
+	
 	public void GetPositionX(){
 	}
 	
@@ -84,6 +83,6 @@ public class Player : MonoBehaviour{
 	public void isMoved(){
 		//return null;
 	}
-
-
+	
+	
 }
