@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public void MovePlayer(Tile destination){
 		GameObject temp = playerList [currentPlayerIndex];
 		UserPlayer user  = temp.GetComponent<UserPlayer>();
-		user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.up;
+		user.moveDestination = destination.transform.position+ PLAYER_HEIGHT * Vector3.up;
 		user.gridPosition = destination.gridPosition;
 	}
 	public void enablePathHighlight(){
