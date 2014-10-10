@@ -13,7 +13,8 @@ public class AiPlayer : Player {
 	public override void Update () {
 		if (this.HP <= 0) {
 			this.transform.renderer.material.color = Color.black;
-		} 
+			Destroy(this.transform.gameObject);
+		}
 	}
 	public override void TurnUpdate (){
 		GameManager.instance.nextTurn();

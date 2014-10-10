@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
 	
-
+	//Use for Panel
 	public bool IsPause; 
 	public int scores;	
 
@@ -45,13 +45,22 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 
 	void Update () {
-		if (playerList [currentPlayerIndex] == null) {
-			print ("NULL");		
+		if(playerList.Count == 0){
+			Application.Quit(); //Temp game over
 		}
-		GameObject temp = playerList [currentPlayerIndex];
-		UserPlayer user  = temp.GetComponent<UserPlayer>();
-		user.TurnUpdate ();
+		if( playerList.Count > 0){
+			GameObject temp = playerList [currentPlayerIndex];
+			UserPlayer user  = temp.GetComponent<UserPlayer>();
+			user.TurnUpdate ();
+			//
+			//used for testing, make the currently selected player lose health
+			//
+			//user.HP-=1; 
 
+			if (user.HP <= 0){
+				playerList.RemoveAt(currentPlayerIndex);
+			}
+		}
 	}
 
 	public void nextTurn() {
@@ -68,10 +77,12 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	//To realize the player movement
 	public void MovePlayer(Tile destination){
-		GameObject temp = playerList [currentPlayerIndex];
-		UserPlayer user  = temp.GetComponent<UserPlayer>();
-		user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-		user.gridPosition = destination.gridPosition;
+		if (playerList.Count > 0) {
+			GameObject temp = playerList [currentPlayerIndex];
+			UserPlayer user = temp.GetComponent<UserPlayer> ();
+			user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+			user.gridPosition = destination.gridPosition;
+		}
 	}
 
 	public void AttackPlayer(){
@@ -136,12 +147,12 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		aiList.Add(aiplayer);
 	}
 
-	//added panel from here 
+	//Added panel from here for genearl game control
 	void OnGUI()
 	{	
 		
-		//Pause 
-		if (GUI.Button (new Rect (100, 140, 80, 20), "Pause")) // make the GUI button with name "pause"
+		//Pause Button
+		if (GUI.Button (new Rect (100, 10, 80, 20), "Pause")) // make the GUI button with name "pause"
 		{if (IsPause)											// if its pause, timeScale = 0
 			{Time.timeScale=0;
 				IsPause =false;	
@@ -153,26 +164,28 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 				IsPause=true;
 			}
 		}
-		
-		if (GUI.Button (new Rect (100,240, 80, 20), "Save"))// this function to save the game
+
+		//Save botton
+		if (GUI.Button (new Rect (100, 30, 80, 20), "Save"))// this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
 		}
-		
-		if (GUI.Button (new Rect (100,340, 80, 20), "End Turn"))// this function to save the game
+
+		//End turn botton
+		if (GUI.Button (new Rect (100, 50, 80, 20), "End Turn"))// this function to save the game
 		{
 			PlayerPrefs.SetInt("End turn",currentPlayerIndex);
 			this.nextTurn();
 		}
 		
 		
-		//here is the GUI for outputing score, now do nothing yet.
-		GUI.Label (new Rect (10, 10, 50, 20), "Score:" + scores.ToString ());// we will add the player's scores here
-		GUI.Label (new Rect (10, 30, 50, 20), "Lives:" + scores.ToString ());// we will add the lives here depending on the player, by passing variable from player attack
+		//Here is the GUI for outputing score, now do nothing yet.
+		GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());// we will add the player's scores here
+		GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString ());// we will add the lives here depending on the player, by passing variable from player attack
 		
-		//here is the GUI to show the next turn
-		GUI.Label (new Rect (Screen.width - 100, 0, 100, 50), "End turn:"+ scores.ToString ());
+		//Here is the GUI to show the next turn
+		GUI.Label (new Rect (Screen.width - 100, 50, 100, 50), "End turn:"+ scores.ToString ());
 
 		
 	}	

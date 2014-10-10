@@ -15,36 +15,27 @@ public class UserPlayer : Player {
 		//Setting the destination to it's spawn
 		moveDestination = transform.position;
 	}
-	// virtual keyword allows child classes to override the method
 	
 	// Use this for initialization
-	public  void Start () {
+	void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
-		//basic charactor color is blue
+		//Basic charactor color is blue
 		//When a charactor is chosen, it's color will turn to cyan
-		if(GameManager.instance.playerList.Count > 0){
-			//
-			//Bug is here
-			//
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>() == this) {
+		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
+		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>() == this && GameManager.instance.playerList.Count > 0) {
 				transform.renderer.material.color = Color.cyan;
-				//print ("cyan");
 			}
 			//Otherwise charactor is blue
 			else {
 				transform.renderer.material.color = Color.blue;
-				//print ("blue");
 			}
-			//If player is dead change to black
-			if(this.HP <= 0){
-				this.transform.renderer.material.color = Color.black;
-			}
-			base.Update();
 		}
+		base.Update();
 	}
 	
 	
@@ -57,11 +48,11 @@ public class UserPlayer : Player {
 			
 			//Used to check if the player has reached it's destination, if so next turn
 			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
-				transform.position = moveDestination;
+				transform.position = moveDestination;// + Vector3.back;
 				GameManager.instance.nextTurn();
 			}
+			base.TurnUpdate ();
 		}
-		base.TurnUpdate ();
 	}
 	
 	
@@ -93,7 +84,7 @@ public class UserPlayer : Player {
 		return HP;
 	}
 	
-	public string roleName(){
+	public override string roleName(){
 		return playerName;
 	}
 }

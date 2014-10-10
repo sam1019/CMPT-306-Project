@@ -39,18 +39,22 @@ public class Player : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+	// virtual keyword allows child classes to override the method
 	public virtual void Update () {
 		//Checks if player is dead or not
-		if (this.HP <= 0) {
-			//Returns a rotation that rotates z degrees around the z axis, 
-			//x degrees around the x axis, and y degrees around the y axis (in that order).
-			//transform.rotation = Quaternion.Euler(new Vector2(90,0));
-			this.transform.renderer.material.color = Color.black;
-		} 
+//		if (this.HP <= 0) {
+//			//Returns a rotation that rotates z degrees around the z axis, 
+//			//x degrees around the x axis, and y degrees around the y axis (in that order).
+//			//transform.rotation = Quaternion.Euler(new Vector2(90,0));
+//			this.transform.renderer.material.color = Color.black;
+//			//Delay a second after the play die
+//			Destroy(this.transform.gameObject, 1.0f);
+//		} 
 	}
 	
 	//Each charactor in each turn can do 2 actions in total
+	// virtual keyword allows child classes to override the method
 	public virtual void TurnUpdate () {
 		if (actionPoints <= 0) {
 			actionPoints = 1;
@@ -61,7 +65,6 @@ public class Player : MonoBehaviour {
 	}
 	
 	public virtual void TurnOnGUI(){
-		
 	}
 
 	//Display HP
@@ -70,9 +73,9 @@ public class Player : MonoBehaviour {
 		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}
 
-//	public void roleName (){
-//		
-//	}
+	public virtual string roleName (){
+		return null;
+	}
 	
 	public void GetPositionX(){
 	}
