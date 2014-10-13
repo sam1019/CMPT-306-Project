@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 				user.HP-=1;  //used for testing, make the currently selected player lose health
 				if (user.HP <= 0){
+					Destroy(playerList[currentPlayerIndex]);
 					playerList.RemoveAt(currentPlayerIndex);
 					playerCount -=1;
 				}
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 				AI.HP-=1;
 				AI.TurnUpdate ();
 				if (AI.HP <= 0){
+					Destroy(playerList[currentPlayerIndex]);
 					playerList.RemoveAt(currentPlayerIndex);
 					aiCount -=1;
 				}
