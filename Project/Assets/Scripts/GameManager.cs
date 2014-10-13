@@ -159,8 +159,6 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		Tile mapTemp;
 		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
-		print ("~~~~~~~~~~~~~~~~~~~~~");
-		print ( Mathf.Floor (mapSize / 2));
 		/*
 		print (player.transform.position.x);
 		print (player.transform.position.y); */
@@ -168,7 +166,6 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		playerTemp = player.GetComponent<UserPlayer> ();
 		x = (int) playerTemp.gridPosition.x;
 		y = (int) playerTemp.gridPosition.x;
-		print (x + " B " + y);
 		mapTemp = map [x] [y].GetComponent<Tile>();
 		mapTemp.isOccupied = true;
 
@@ -179,8 +176,6 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		playerTemp = player.GetComponent<UserPlayer> ();
 		x = (int) playerTemp.gridPosition.x;
 		y = (int) playerTemp.gridPosition.x;
-
-		print (x + " A " + y);
 		mapTemp = map [x] [y].GetComponent<Tile>();
 		mapTemp.isOccupied = true;
 
