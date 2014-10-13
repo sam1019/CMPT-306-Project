@@ -77,11 +77,18 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 	//To realize the player movement
 	public void MovePlayer(Tile destination){
-		if (playerList.Count > 0) {
+		UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
+		int x = (int)Playertemp.gridPosition.x;
+		int y = (int)Playertemp.gridPosition.y;
+		print (x + " " + y);
+		Tile Maptemp = map [x] [y].GetComponent<Tile>();
+		Maptemp.isOccupied = false;
+		if (playerList.Count > 0 && !destination.isOccupied) {
 			GameObject temp = playerList [currentPlayerIndex];
 			UserPlayer user = temp.GetComponent<UserPlayer> ();
 			user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 			user.gridPosition = destination.gridPosition;
+			destination.isOccupied=true;
 		}
 	}
 
@@ -109,7 +116,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 				//Tiles spawn around the center tile
 				tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-			
+				Tile maptemp = tile.GetComponent<Tile>();
+				maptemp.gridPosition = new Vector2(i,j);
 				//tile. = new Vector2(i, j);
 				//tile.gridPosition = new Vector2(i,j);
 
@@ -126,17 +134,40 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	}
 
 	public void spawnPlayers(){
-
 		//Spawn first player and add it to the list
+		int x, y;
+		UserPlayer playerTemp;
+		Tile mapTemp;
 		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
+		print ("~~~~~~~~~~~~~~~~~~~~~");
+		print ( Mathf.Floor (mapSize / 2));
+		/*
+		print (player.transform.position.x);
+		print (player.transform.position.y); */
+
+		playerTemp = player.GetComponent<UserPlayer> ();
+		x = (int) playerTemp.gridPosition.x;
+		y = (int) playerTemp.gridPosition.x;
+		print (x + " B " + y);
+		mapTemp = map [x] [y].GetComponent<Tile>();
+		mapTemp.isOccupied = true;
 
 		//Spawn second player and add it to the list
 		player = Instantiate(PlayerPrefab, new Vector3(12 - Mathf.Floor(mapSize/2), -12 + Mathf.Floor(mapSize/2),PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
 
+		playerTemp = player.GetComponent<UserPlayer> ();
+		x = (int) playerTemp.gridPosition.x;
+		y = (int) playerTemp.gridPosition.x;
+
+		print (x + " A " + y);
+		mapTemp = map [x] [y].GetComponent<Tile>();
+		mapTemp.isOccupied = true;
+
+		/*
 		print (player.transform.position.x);
-		print (player.transform.position.y);
+		print (player.transform.position.y); */
 
 
 	}
