@@ -61,44 +61,163 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 		if( playerList.Count > 0){
 			
+			//getHumanTurn();
 			GameObject temp = playerList [currentPlayerIndex];
 			if(temp.GetComponent<UserPlayer>() != null){
-				UserPlayer user  = temp.GetComponent<UserPlayer>();
-				user.TurnUpdate ();
-
-				user.HP-=1;  //used for testing, make the currently selected player lose health
-				if (user.HP <= 0){
+				UserPlayer player  = temp.GetComponent<UserPlayer>();
+				player.TurnUpdate ();
+				
+				if (player.HP <= 0){
 					Destroy(playerList[currentPlayerIndex]);
 					playerList.RemoveAt(currentPlayerIndex);
 					playerCount -=1;
 				}
-
+				
 			}
-		
-			if( temp.GetComponent<AiPlayer>() != null){
-				AiPlayer AI  = temp.GetComponent<AiPlayer>();
-				AI.HP-=1;
-				AI.TurnUpdate ();
-				if (AI.HP <= 0){
+			else if(temp.GetComponent<AiPlayer>() != null){
+				AiPlayer ai  = temp.GetComponent<AiPlayer>();
+				ai.TurnUpdate ();
+				
+				if (ai.HP <= 0){
 					Destroy(playerList[currentPlayerIndex]);
 					playerList.RemoveAt(currentPlayerIndex);
-					aiCount -=1;
+					playerCount -=1;
 				}
+				
 			}
-
 		}
 
 	}
 
+	public void getHumanTurn(){
+		GameObject temp = playerList [currentPlayerIndex];
+		if(temp.GetComponent<Tank>() != null){
+			Tank tank  = temp.GetComponent<Tank>();
+			tank.TurnUpdate ();
+			
+			if (tank.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				playerCount -=1;
+			}
+			
+		}
+		else if(temp.GetComponent<Soldier>() != null){
+			Soldier soldier  = temp.GetComponent<Soldier>();
+			soldier.TurnUpdate ();
+			
+			if (soldier.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				playerCount -=1;
+			}
+			
+		}
+
+		else if(temp.GetComponent<Medic>() != null){
+			Medic medic  = temp.GetComponent<Medic>();
+			medic.TurnUpdate ();
+			
+			if (medic.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				playerCount -=1;
+			}	
+		}
+		else if(temp.GetComponent<Specialist>() != null){
+			Specialist spec  = temp.GetComponent<Specialist>();
+			spec.TurnUpdate ();		
+			if (spec.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				playerCount -=1;
+			}	
+		}
+		else if(temp.GetComponent<Helicopter>() != null){
+			Helicopter heli  = temp.GetComponent<Helicopter>();
+			heli.TurnUpdate ();
+			
+			if (heli.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				playerCount -=1;
+			}	
+		}
+		else if(temp.GetComponent<Jet>() != null){
+			Jet jet  = temp.GetComponent<Jet>();
+			jet.TurnUpdate ();
+			
+			if (jet.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				playerCount -=1;
+			}	
+		}
+		else{
+			getAlienTurn();
+		}
+		
+		
+		
+
+	}
+	public void getAlienTurn(){
+		GameObject temp = playerList [currentPlayerIndex];
+
+		if(temp.GetComponent<AlienShip>() != null){
+			AlienShip ship  = temp.GetComponent<AlienShip>();
+			ship.TurnUpdate ();
+			if (ship.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				aiCount -=1;
+			}
+		}
+
+		else if (temp.GetComponent<AlienSoldier>() != null){
+			AlienSoldier alienSoldier  = temp.GetComponent<AlienSoldier>();
+			alienSoldier.TurnUpdate ();
+			if (alienSoldier.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				aiCount -=1;
+			}
+		}
+
+		else if (temp.GetComponent<AlienSupport>() != null){
+			AlienSupport alienSupport  = temp.GetComponent<AlienSupport>();
+			alienSupport.TurnUpdate ();
+			if (alienSupport.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				aiCount -=1;
+			}
+		}
+		else if (temp.GetComponent<Berserker>() != null){
+			Berserker berserker  = temp.GetComponent<Berserker>();
+			berserker.TurnUpdate ();
+			if (berserker.HP <= 0){
+				Destroy(playerList[currentPlayerIndex]);
+				playerList.RemoveAt(currentPlayerIndex);
+				aiCount -=1;
+			}
+		}
+	}
 	public void nextTurn() {
 
 		/*Iterating through the list, the current index is the current player's turn
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
-
+		if (playerList.Count ==1) {
+			currentPlayerIndex =  0;
+		}
 		if (currentPlayerIndex + 1 < playerList.Count) {
 			currentPlayerIndex++;
 		} 
+		else {
+			currentPlayerIndex=0;
+		} 
+		 
 
 
 
@@ -107,17 +226,18 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	//To realize the player movement
 	public void MovePlayer(Tile destination){
 		if (playerList.Count > 0 && !destination.isOccupied) {
-			UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
-			int x = (int)Playertemp.gridPosition.x;
-			int y = (int)Playertemp.gridPosition.y;
-			print (x + " " + y);
-			Tile Maptemp = map [x] [y].GetComponent<Tile>();
-			Maptemp.isOccupied = false;
-			GameObject temp = playerList [currentPlayerIndex];
-			UserPlayer user = temp.GetComponent<UserPlayer> ();
-			user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-			user.gridPosition = destination.gridPosition;
-			destination.isOccupied=true;
+			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null){
+				UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
+				int x = (int)Playertemp.gridPosition.x;
+				int y = (int)Playertemp.gridPosition.y;
+
+				Tile Maptemp = map [x] [y].GetComponent<Tile>();
+				Maptemp.isOccupied = false;
+
+				Playertemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				Playertemp.gridPosition = destination.gridPosition;
+				destination.isOccupied=true;
+			}
 		}
 	}
 

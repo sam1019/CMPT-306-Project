@@ -47,8 +47,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Aliens\AiPlayer.cs" />
+     <Compile Include="Assets\Scripts\Aliens\AlienShip.cs" />
+     <Compile Include="Assets\Scripts\Aliens\AlienSoldier.cs" />
+     <Compile Include="Assets\Scripts\Aliens\AlienSupport.cs" />
      <Compile Include="Assets\Scripts\Aliens\Berserker.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Human\Helicopter.cs" />
+     <Compile Include="Assets\Scripts\Human\Jet.cs" />
+     <Compile Include="Assets\Scripts\Human\Medic.cs" />
+     <Compile Include="Assets\Scripts\Human\Soldier.cs" />
+     <Compile Include="Assets\Scripts\Human\Specialist.cs" />
+     <Compile Include="Assets\Scripts\Human\Tank.cs" />
      <Compile Include="Assets\Scripts\Interfaces\GameManagerInteferface.cs" />
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
