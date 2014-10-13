@@ -46,7 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AiPlayer.cs" />
+     <Compile Include="Assets\Scripts\Aliens\AiPlayer.cs" />
+     <Compile Include="Assets\Scripts\Aliens\Berserker.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Interfaces\GameManagerInteferface.cs" />
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />

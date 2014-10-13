@@ -8,8 +8,16 @@ public class UserPlayer : Player {
 	public string playerName = "Guardian";
 	
 	//A 2D Rectangle defined by x, y position and width, height.
+	public int attackRange = 1;
 	private float bottonWidth;
 	private float buttonWidth;
+	public int movementRange= 5;
+	public float HP=100.0f;
+	public float attackHitRate = 0.8f;
+	public float defenseReduceRate = 0.2f;
+	//public int damageBase = 5;
+	//public float damageRollSides = 6;
+
 	
 	void Awake(){
 		//Setting the destination to it's spawn
@@ -86,6 +94,14 @@ public class UserPlayer : Player {
 	
 	public override string roleName(){
 		return playerName;
+	}
+	public virtual void TurnOnGUI(){
+	}
+	
+	//Display HP
+	public void OnGUI(){
+		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
+		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}
 }
 

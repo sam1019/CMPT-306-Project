@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Aliens\AiPlayer.cs">
     <Files>
-      <File FileName="..\..\..\CMPT 306\As3\Assets\Scripts\PlayerControl.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\CMPT 306\As3\Assets\Scripts\spawnZombie.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\CMPT 306\As3\Assets\Scripts\zombieControl.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\CMPT 306\As3\Assets\Scripts\Rocket.cs" Line="29" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="10" Column="22" />
+      <File FileName="..\..\..\CMPT 306\As3\Assets\Scripts\PlayerControl.cs" Line="106" Column="1" />
+      <File FileName="Assets\Scripts\UserPlayer.cs" Line="92" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="13" Column="58" />
+      <File FileName="Assets\Scripts\Aliens\AiPlayer.cs" Line="28" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

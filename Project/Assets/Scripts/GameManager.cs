@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	GameObject player;
 	Tile grid;
 	public int mapSize = 11; //The size of the map i 
-
+	public bool playerTurn;
+	public bool aiTurn;
 
 	private const float PLAYER_HEIGHT = -1.0f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = -0.25f;
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		playerList = new List<GameObject> ();
 		aiList = new List<GameObject> ();
 		currentPlayerIndex = 0;
+		currentAIIndex = 0;
+		aiTurn = false;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
@@ -48,18 +51,22 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		if(playerList.Count == 0){
 			Application.Quit(); //Temp game over
 		}
-		if( playerList.Count > 0){
+
+		if( playerList.Count > 0 && aiTurn==false){
 			GameObject temp = playerList [currentPlayerIndex];
 			UserPlayer user  = temp.GetComponent<UserPlayer>();
 			user.TurnUpdate ();
-			//
-			//used for testing, make the currently selected player lose health
-			//
-			//user.HP-=1; 
+
+			//user.HP-=1;  //used for testing, make the currently selected player lose health
 
 			if (user.HP <= 0){
 				playerList.RemoveAt(currentPlayerIndex);
 			}
+		}
+		if (aiList.Count > 0 && aiTurn) {
+			GameObject aiTemp = aiList [currentAIIndex];
+			AiPlayer AI  = aiTemp.GetComponent<AiPlayer>();
+			AI.TurnUpdate ();
 		}
 	}
 
@@ -68,11 +75,23 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		/*Iterating through the list, the current index is the current player's turn
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
-		if (currentPlayerIndex + 1 < playerList.Count) {
+		if (currentPlayerIndex + 1 < playerList.Count && !aiTurn) {
 			currentPlayerIndex++;
-		} else {
+		} 
+		else if(currentPlayerIndex + 1 >= playerList.Count && !aiTurn){
 			currentPlayerIndex = 0;
+			aiTurn=true;
 		}
+		if (currentAIIndex + 1 < aiList.Count && aiTurn) {
+			currentAIIndex++;
+			print("AI TURN");
+		} 
+		else if (currentAIIndex + 1 >= aiList.Count && aiTurn) {
+			currentAIIndex = 0;
+			aiTurn=false;			
+
+		}
+
 	}
 
 	//To realize the player movement
