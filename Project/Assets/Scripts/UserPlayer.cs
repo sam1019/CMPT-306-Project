@@ -43,6 +43,9 @@ public class UserPlayer : Player {
 				transform.renderer.material.color = Color.blue;
 			}
 		}
+		if (this.HP <= 0) {
+			transform.renderer.material.color = Color.black;		
+		}
 		base.Update();
 	}
 	

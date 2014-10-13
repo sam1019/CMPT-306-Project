@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	GameObject player;
 	Tile grid;
 	public int mapSize = 11; //The size of the map i 
-	public bool playerTurn;
-	public bool aiTurn;
+
+	public int playerCount;
+	public int aiCount;
 
 	private const float PLAYER_HEIGHT = -1.0f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = -0.25f;
@@ -37,7 +38,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		aiList = new List<GameObject> ();
 		currentPlayerIndex = 0;
 		currentAIIndex = 0;
-		aiTurn = false;
+		playerCount = 0;
+		aiCount = 0;
 		generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
@@ -48,26 +50,42 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	
 
 	void Update () {
-		if(playerList.Count == 0){
+		if(playerCount <= 0){
+			print ("You lose");
+			Application.Quit(); //Temp game over
+		}
+		if(aiCount <= 0){
+			print ("You win");
 			Application.Quit(); //Temp game over
 		}
 
-		if( playerList.Count > 0 && aiTurn==false){
+		if( playerList.Count > 0){
+			
 			GameObject temp = playerList [currentPlayerIndex];
-			UserPlayer user  = temp.GetComponent<UserPlayer>();
-			user.TurnUpdate ();
+			if(temp.GetComponent<UserPlayer>() != null){
+				UserPlayer user  = temp.GetComponent<UserPlayer>();
+				user.TurnUpdate ();
 
-			//user.HP-=1;  //used for testing, make the currently selected player lose health
+				user.HP-=1;  //used for testing, make the currently selected player lose health
+				if (user.HP <= 0){
+					playerList.RemoveAt(currentPlayerIndex);
+					playerCount -=1;
+				}
 
-			if (user.HP <= 0){
-				playerList.RemoveAt(currentPlayerIndex);
 			}
+		
+			if( temp.GetComponent<AiPlayer>() != null){
+				AiPlayer AI  = temp.GetComponent<AiPlayer>();
+				AI.HP-=1;
+				AI.TurnUpdate ();
+				if (AI.HP <= 0){
+					playerList.RemoveAt(currentPlayerIndex);
+					aiCount -=1;
+				}
+			}
+
 		}
-		if (aiList.Count > 0 && aiTurn) {
-			GameObject aiTemp = aiList [currentAIIndex];
-			AiPlayer AI  = aiTemp.GetComponent<AiPlayer>();
-			AI.TurnUpdate ();
-		}
+
 	}
 
 	public void nextTurn() {
@@ -75,34 +93,24 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		/*Iterating through the list, the current index is the current player's turn
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
-		if (currentPlayerIndex + 1 < playerList.Count && !aiTurn) {
+
+		if (currentPlayerIndex + 1 < playerList.Count) {
 			currentPlayerIndex++;
 		} 
-		else if(currentPlayerIndex + 1 >= playerList.Count && !aiTurn){
-			currentPlayerIndex = 0;
-			aiTurn=true;
-		}
-		if (currentAIIndex + 1 < aiList.Count && aiTurn) {
-			currentAIIndex++;
-			print("AI TURN");
-		} 
-		else if (currentAIIndex + 1 >= aiList.Count && aiTurn) {
-			currentAIIndex = 0;
-			aiTurn=false;			
 
-		}
+
 
 	}
 
 	//To realize the player movement
 	public void MovePlayer(Tile destination){
-		UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
-		int x = (int)Playertemp.gridPosition.x;
-		int y = (int)Playertemp.gridPosition.y;
-		print (x + " " + y);
-		Tile Maptemp = map [x] [y].GetComponent<Tile>();
-		Maptemp.isOccupied = false;
 		if (playerList.Count > 0 && !destination.isOccupied) {
+			UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
+			int x = (int)Playertemp.gridPosition.x;
+			int y = (int)Playertemp.gridPosition.y;
+			print (x + " " + y);
+			Tile Maptemp = map [x] [y].GetComponent<Tile>();
+			Maptemp.isOccupied = false;
 			GameObject temp = playerList [currentPlayerIndex];
 			UserPlayer user = temp.GetComponent<UserPlayer> ();
 			user.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
@@ -159,6 +167,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		Tile mapTemp;
 		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
+		playerCount += 1;
 		/*
 		print (player.transform.position.x);
 		print (player.transform.position.y); */
@@ -172,6 +181,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		//Spawn second player and add it to the list
 		player = Instantiate(PlayerPrefab, new Vector3(12 - Mathf.Floor(mapSize/2), -12 + Mathf.Floor(mapSize/2),PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
+		playerCount += 1;
 
 		playerTemp = player.GetComponent<UserPlayer> ();
 		x = (int) playerTemp.gridPosition.x;
@@ -188,8 +198,9 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 	public void spawnAI(){
 
 		GameObject aiplayer = Instantiate(AIPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		
-		aiList.Add(aiplayer);
+		playerList.Add(aiplayer);
+		aiCount += 1;
+		//aiList.Add(aiplayer);
 	}
 
 	//Added panel from here for genearl game control
