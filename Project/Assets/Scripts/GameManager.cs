@@ -61,7 +61,8 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 
 		if( playerList.Count > 0){
 			
-			//getHumanTurn();
+			//getHumanTurn(); //For the future
+
 			GameObject temp = playerList [currentPlayerIndex];
 			if(temp.GetComponent<UserPlayer>() != null){
 				UserPlayer player  = temp.GetComponent<UserPlayer>();
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		}
 
 	}
-
+	//Can possibly refactor code in the future
 	public void getHumanTurn(){
 		GameObject temp = playerList [currentPlayerIndex];
 		if(temp.GetComponent<Tank>() != null){
@@ -161,6 +162,7 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		
 
 	}
+	//Can possibly refactor code in the future
 	public void getAlienTurn(){
 		GameObject temp = playerList [currentPlayerIndex];
 
@@ -217,26 +219,143 @@ public class GameManager : MonoBehaviour,  GameManagerInteferface {
 		else {
 			currentPlayerIndex=0;
 		} 
-		 
-
-
 
 	}
 
+	public bool canPlayerMove(Tile destination){
+		return (playerList.Count > 0 && !destination.isOccupied);
+	}
+
+	public void setOccupied(Tile destination, Player player){
+		int x, y;
+
+		//Grid postion correlates to the map list indexes
+		x = (int) player.gridPosition.x;
+		y = (int) player.gridPosition.y;
+
+		//Setting the old position to unoccupied
+		Tile Maptemp = map [x] [y].GetComponent<Tile>();
+		Maptemp.isOccupied = false;
+
+		//Setting new position to occupied
+		destination.isOccupied=true;
+	}
+
 	//To realize the player movement
+	//Can possibly refactor code in the future
 	public void MovePlayer(Tile destination){
-		if (playerList.Count > 0 && !destination.isOccupied) {
+		if (canPlayerMove(destination)) {
 			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null){
 				UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
-				int x = (int)Playertemp.gridPosition.x;
-				int y = (int)Playertemp.gridPosition.y;
-
-				Tile Maptemp = map [x] [y].GetComponent<Tile>();
-				Maptemp.isOccupied = false;
-
 				Playertemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				Playertemp.gridPosition = destination.gridPosition;
-				destination.isOccupied=true;
+				setOccupied(destination, (Player) Playertemp);
+		
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){
+				Tank tankTemp = playerList [currentPlayerIndex].GetComponent<Tank>();
+				tankTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				tankTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) tankTemp); //Redundant cast? Have not tested
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null){
+				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
+				soldierTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				soldierTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) soldierTemp); //Redundant cast? Have not tested
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Medic>() != null){
+				Medic medicTemp = playerList [currentPlayerIndex].GetComponent<Medic>();
+				medicTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				medicTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) medicTemp); //Redundant cast? Have not tested
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null){
+				Specialist specTemp = playerList [currentPlayerIndex].GetComponent<Specialist>();
+				specTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				specTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) specTemp); //Redundant cast? Have not tested
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Jet>() != null){
+				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
+				jetTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				jetTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) jetTemp); //Redundant cast? Have not tested
+				
+			}
+		}
+
+
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null){
+				Helicopter heliTemp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
+				heliTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				heliTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) heliTemp); //Redundant cast? Have not tested
+				
+			}
+		}
+	}
+
+	//Can possibly refactor code in the future
+	public void moveAlien(Tile destination){
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
+				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
+				alienTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				alienTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) alienTemp);
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<AlienSupport>() != null){
+				AlienSupport alienSupTemp = playerList [currentPlayerIndex].GetComponent<AlienSupport>();
+				alienSupTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				alienSupTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) alienSupTemp);
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){
+				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
+				alienShipTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				alienShipTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) alienShipTemp);
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
+				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
+				alienTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				alienTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) alienTemp);
+				
+			}
+		}
+		if (canPlayerMove(destination)) {
+			if(playerList [currentPlayerIndex].GetComponent<Berserker>() != null){
+				Berserker berserkerTemp = playerList [currentPlayerIndex].GetComponent<Berserker>();
+				berserkerTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
+				berserkerTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) berserkerTemp);
+				
 			}
 		}
 	}
