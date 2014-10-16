@@ -5,6 +5,11 @@ public class Tile : MonoBehaviour {
 	
 	public Vector2 gridPosition = Vector2.zero;
 	public bool isOccupied = false;
+	//
+	//Preformed attributes for future implement
+	//
+	//public GameObject visual;
+	//public int movementCost = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -31,9 +36,21 @@ public class Tile : MonoBehaviour {
 	
 	
 	void OnMouseDown() {
-
-		GameManager.instance.MovePlayer(this);
-		GameManager.instance.whatPlayerClassIsAttacking (this);
+		if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>().moving) {
+			GameManager.instance.MovePlayer(this);
+			transform.renderer.material.color = Color.yellow;
+		} 
+		else if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>().attacking) {
+			GameManager.instance.whatPlayerClassIsAttacking(this);
+		} 
+		else {
+//			impassible = impassible ? false : true;
+//			if (impassible) {
+//				visual.transform.renderer.materials[0].color = new Color(.5f, .5f, 0.0f);
+//			} else {
+//				visual.transform.renderer.materials[0].color = Color.white;
+//			}
+		}
 		
 	}
 }

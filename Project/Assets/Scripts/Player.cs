@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 	public bool moving= false;
 	public bool attacking=false;
 
-	public int actionPoints = 1;
+	public int actionPoints = 2;
 
 	
 	
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour {
 	// virtual keyword allows child classes to override the method
 	public virtual void TurnUpdate () {
 		if (actionPoints <= 0) {
-			actionPoints = 1;
+			actionPoints = 2;
 			moving = false;
 			attacking = false;			
 			GameManager.instance.nextTurn();
@@ -61,6 +61,8 @@ public class Player : MonoBehaviour {
 	}
 	
 
+	public virtual void TurnOnGUI(){
+	}
 
 	public virtual string roleName (){
 		return null;

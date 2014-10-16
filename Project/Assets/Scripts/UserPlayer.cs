@@ -59,14 +59,61 @@ public class UserPlayer : Player {
 			
 			//Used to check if the player has reached it's destination, if so next turn
 			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
-				transform.position = moveDestination;// + Vector3.back;
+				transform.position = moveDestination;
 				GameManager.instance.nextTurn();
 			}
 			base.TurnUpdate ();
 		}
 	}
 	
-	
+
+	public override void TurnOnGUI () {
+		float buttonHeight = 50;
+		float buttonWidth = 100;
+		
+		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
+		if (GUI.Button(buttonRect, "Move")) {
+			if (!moving) {
+				//GameManager.instance.removeTileHighlights();
+				moving = true;
+				attacking = false;
+				//GameManager.instance.highlightTilesAt(gridPosition, Color.blue, movementPerActionPoint, false);
+			} else {
+				moving = false;
+				attacking = false;
+				//GameManager.instance.removeTileHighlights();
+			}
+		}
+		
+		//attack button
+		buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
+		
+		if (GUI.Button(buttonRect, "Attack")) {
+			if (!attacking) {
+				//GameManager.instance.removeTileHighlights();
+				moving = false;
+				attacking = true;
+				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
+			} else {
+				moving = false;
+				attacking = false;
+				//GameManager.instance.removeTileHighlights();
+			}
+		}
+		
+		//end turn button
+		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
+		
+		if (GUI.Button(buttonRect, "End Turn")) {
+			//GameManager.instance.removeTileHighlights();
+			actionPoints = 2;
+			moving = false;
+			attacking = false;			
+			GameManager.instance.nextTurn();
+		}
+		base.TurnOnGUI ();
+	}
+
 	public bool isHit;
 	public bool isDefend;
 	
@@ -100,8 +147,7 @@ public class UserPlayer : Player {
 	public override string roleName(){
 		return playerName;
 	}
-	public virtual void TurnOnGUI(){
-	}
+
 	
 	//Display HP
 	public void OnGUI(){

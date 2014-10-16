@@ -471,14 +471,19 @@ public class GameManager : MonoBehaviour {
 	public void spawnAI(){
 
 		GameObject aiplayer = Instantiate(AIPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(aiplayer);
-		aiCount += 1;
-		//aiList.Add(aiplayer);
+//		playerList.Add(aiplayer);
+//		aiCount += 1;
+		aiList.Add(aiplayer);
 	}
 
 	//Added panel from here for genearl game control
 	void OnGUI()
 	{	
+
+		//Move Button
+		if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
+			playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
+		}
 		
 		//Pause Button
 		if (GUI.Button (new Rect (100, 10, 80, 20), "Pause")) // make the GUI button with name "pause"
@@ -501,20 +506,10 @@ public class GameManager : MonoBehaviour {
 			PlayerPrefs.Save();
 		}
 
-		//End turn botton
-		if (GUI.Button (new Rect (100, 50, 80, 20), "End Turn"))// this function to save the game
-		{
-			PlayerPrefs.SetInt("End turn",currentPlayerIndex);
-			this.nextTurn();
-		}
-		
 		
 		//Here is the GUI for outputing score, now do nothing yet.
 		GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());// we will add the player's scores here
 		GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString ());// we will add the lives here depending on the player, by passing variable from player attack
-		
-		//Here is the GUI to show the next turn
-		GUI.Label (new Rect (Screen.width - 100, 50, 100, 50), "End turn:"+ scores.ToString ());
 
 		
 	}	
