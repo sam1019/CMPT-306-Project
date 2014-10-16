@@ -24,4 +24,8 @@ public class Specialist : Player {
 	void Update () {
 		
 	}
+
+	public void attack(Tile range){
+	
+	}
 }

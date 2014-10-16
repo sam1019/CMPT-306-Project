@@ -24,4 +24,8 @@ public class Soldier : Player {
 	void Update () {
 		
 	}
+
+	public void attack(Tile range){
+		
+	}
 }

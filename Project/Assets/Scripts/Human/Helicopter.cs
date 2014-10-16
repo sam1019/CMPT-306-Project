@@ -24,4 +24,8 @@ public class Helicopter : Player {
 	void Update () {
 		
 	}
+
+	public void attack(Tile range){
+		
+	}
 }

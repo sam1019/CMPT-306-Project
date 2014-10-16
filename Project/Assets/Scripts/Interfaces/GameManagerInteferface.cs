@@ -2,7 +2,7 @@
 using System.Collections;
 
 public interface GameManagerInteferface {
-	void AttackPlayer ();
+	void AttackPlayer (Tile destination);
 	void MovePlayer (Tile destination);
 	void enablePathHighlight();
 	void disablePathHighlight();

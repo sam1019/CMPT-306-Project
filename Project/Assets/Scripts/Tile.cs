@@ -31,7 +31,9 @@ public class Tile : MonoBehaviour {
 	
 	
 	void OnMouseDown() {
+
 		GameManager.instance.MovePlayer(this);
+		GameManager.instance.whatPlayerClassIsAttacking (this);
+		
 	}
-	
 }

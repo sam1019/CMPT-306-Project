@@ -91,6 +91,41 @@ public class Tank : Player {
 		}
 		return HP;
 	}
+	public void attack(Tile range){
+		UserPlayer target = null;
+		foreach (GameObject p in GameManager.instance.playerList) {
+			UserPlayer temp = p.GetComponent<UserPlayer>();
+			if (temp.gridPosition == range.gridPosition) {
+				target = temp;
+			}
+		}
+		
+		if (target != null) {
+			UserPlayer playerTemp = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>();
+			if (playerTemp.gridPosition.x >= target.gridPosition.x - 1 && playerTemp.gridPosition.x <= target.gridPosition.x + 1 &&
+			    playerTemp.gridPosition.y >= target.gridPosition.y - 1 && playerTemp.gridPosition.y <= target.gridPosition.y + 1) {
+				playerTemp.actionPoints--;
+				
+				playerTemp.attacking = false;			
+				
+				//attack logic
+				//roll to hit
+				bool hit = Random.Range(0.0f, 1.0f) <= playerTemp.attackHitRate;
+				
+				if (hit) {
+					//damage logic
+					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
+					
+					target.HP -= amountOfDamage;
+					
+				} else {
+					
+				}
+			} else {
+				Debug.Log ("Target is not adjacent!");
+			}
+		}
+	}
 	
 	public override string roleName(){
 		return className;

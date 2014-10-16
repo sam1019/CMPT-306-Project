@@ -24,4 +24,8 @@ public class Jet : Player {
 	void Update () {
 		
 	}
+
+	public void attack(Tile range){
+		
+	}
 }

@@ -29,7 +29,7 @@ public class UserPlayer : Player {
 		
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frame 
 	public override void Update () {
 		//Basic charactor color is blue
 		//When a charactor is chosen, it's color will turn to cyan
@@ -94,7 +94,9 @@ public class UserPlayer : Player {
 		}
 		return HP;
 	}
+	public void tempAttack(Tile range){
 	
+	}
 	public override string roleName(){
 		return playerName;
 	}

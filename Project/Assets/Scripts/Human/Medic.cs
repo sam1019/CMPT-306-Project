@@ -24,4 +24,8 @@ public class Medic : Player {
 	void Update () {
 		
 	}
+
+	public void attack(Tile range){
+		
+	}
 }
