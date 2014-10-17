@@ -164,8 +164,8 @@ public class UserPlayer : Player {
 		targetY = (int)target.gridPosition.y;
 		print (playerX+ " " + playerY);
 		print (targetX+ " " + targetY);
-		return(playerX >= targetX - 3 && playerX <= targetX + 3 &&
-		       playerY >= targetY - 3 && playerY <= targetY + 3);
+		return(playerX >= targetX - attackRange && playerX <= targetX + attackRange &&
+		       playerY >= targetY - attackRange && playerY <= targetY + attackRange);
 	}
 
 	public void tempAttack(Tile tile){
@@ -213,7 +213,7 @@ public class UserPlayer : Player {
 					print ("Missed, you suck");
 				}
 			} else {
-				Debug.Log ("Target is not adjacent!");
+				Debug.Log ("Target is out of range!");
 			}
 		}
 	}

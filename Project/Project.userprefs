@@ -1,13 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\UserPlayer.cs" Line="173" Column="5" />
-      <File FileName="Assets\Scripts\Human\Tank.cs" Line="95" Column="3" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="475" Column="37" />
-      <File FileName="Assets\Scripts\Tile.cs" Line="43" Column="123" />
-      <File FileName="Assets\Scripts\Player.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\Aliens\AiPlayer.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="396" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
