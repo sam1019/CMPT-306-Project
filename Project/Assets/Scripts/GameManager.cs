@@ -472,7 +472,7 @@ public class GameManager : MonoBehaviour {
 		aiCount += 1;
 		aiList.Add(aiplayer);
 		AiPlayer temp = aiplayer.GetComponent<AiPlayer> ();
-		temp.gridPosition = new Vector2 (5, 6);
+		temp.gridPosition = new Vector2 (6, 6);
 	}
 
 	//Added panel from here for genearl game control
@@ -481,11 +481,14 @@ public class GameManager : MonoBehaviour {
 
 		//Move Button
 		//Throws null exception because when it is AI turn, UserPlayer script is not attached to it, will fix
-		if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
-			playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
-
-
+		if(playerList[currentPlayerIndex].GetComponent<UserPlayer>()!=null){
+			if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
+				
+				
+			}
 		}
+
 		
 		//Pause Button
 		if (GUI.Button (new Rect (100, 10, 80, 20), "Pause")) // make the GUI button with name "pause"

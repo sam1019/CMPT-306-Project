@@ -40,7 +40,7 @@ public class Tile : MonoBehaviour {
 			GameManager.instance.MovePlayer(this);
 			transform.renderer.material.color = Color.yellow;
 		} 
-		else if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>().attacking) {
+		else if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>().isAttacking) {
 			GameManager.instance.whatPlayerClassIsAttacking(this);
 		} 
 		else {

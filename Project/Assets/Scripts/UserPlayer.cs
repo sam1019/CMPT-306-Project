@@ -94,14 +94,7 @@ public class UserPlayer : Player {
 				//GameManager.instance.removeTileHighlights();
 				moving = false;
 				isAttacking = true;
-				Tile temp = getGridPosition();
-				if(temp==null){
-					print("Tile null");
-				}
-				else{
-					print ("Tile not null");
-				}
-				tempAttack(temp);
+
 				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
 			} else {
 				moving = false;
@@ -169,11 +162,21 @@ public class UserPlayer : Player {
 		playerY = (int)playerTemp.gridPosition.y;
 		targetX = (int)target.gridPosition.x;
 		targetY = (int)target.gridPosition.y;
-		return(playerX >= targetX - attackRange && playerX <= targetX + attackRange &&
-		       playerY >= targetY - attackRange && playerY <= targetY + attackRange);
+		print (playerX+ " " + playerY);
+		print (targetX+ " " + targetY);
+		return(playerX >= targetX - 3 && playerX <= targetX + 3 &&
+		       playerY >= targetY - 3 && playerY <= targetY + 3);
 	}
 
 	public void tempAttack(Tile tile){
+		print ("Pew");
+		/*
+		Tile temp = getGridPosition();
+		if(temp==null){
+			print("Tile null");
+		}
+		tempAttack(temp); */
+		print (tile.gridPosition.ToString());
 		AiPlayer target = null;
 		foreach (GameObject p in GameManager.instance.playerList) {
 			if(p.GetComponent<AiPlayer>() != null){
@@ -181,7 +184,11 @@ public class UserPlayer : Player {
 				if (temp.gridPosition == tile.gridPosition) {
 					target = temp;
 				}
+				else{
+					print("Target not found");
+				}
 			}
+
 
 		}
 		
@@ -201,9 +208,9 @@ public class UserPlayer : Player {
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
-					
+					GameManager.instance.nextTurn();
 				} else {
-					
+					print ("Missed, you suck");
 				}
 			} else {
 				Debug.Log ("Target is not adjacent!");
