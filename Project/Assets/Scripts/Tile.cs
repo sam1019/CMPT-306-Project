@@ -10,6 +10,7 @@ public class Tile : MonoBehaviour {
 	//
 	//public GameObject visual;
 	//public int movementCost = 1;
+	//
 	
 	// Use this for initialization
 	void Start () {
