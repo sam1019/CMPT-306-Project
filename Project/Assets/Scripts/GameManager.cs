@@ -359,34 +359,34 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	public void whatPlayerClassIsAttacking(Tile destTile){
+	public void whatPlayerClassIsAttacking(Tile targetTile){
 		if (playerList [currentPlayerIndex].GetComponent<UserPlayer> () != null) {
 			UserPlayer temp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
-			temp.tempAttack(destTile);						
+			temp.tempAttack(targetTile);						
 		}	
 		else if (playerList [currentPlayerIndex].GetComponent<Soldier> () != null) {
 			Soldier temp = playerList [currentPlayerIndex].GetComponent<Soldier>();
-			temp.attack(destTile);						
+			temp.attack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Medic> () != null) {
 			Medic temp = playerList [currentPlayerIndex].GetComponent<Medic>();
-			temp.attack(destTile);						
+			temp.attack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Specialist> () != null) {
 			Specialist temp = playerList [currentPlayerIndex].GetComponent<Specialist>();
-			temp.attack(destTile);						
+			temp.attack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Tank> () != null) {
 			Tank temp = playerList [currentPlayerIndex].GetComponent<Tank>();
-			temp.attack(destTile);						
+			temp.getEnemyToAttack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Jet> () != null) {
 			Jet temp = playerList [currentPlayerIndex].GetComponent<Jet>();
-			temp.attack(destTile);						
+			temp.getEnemyToAttack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Helicopter> () != null) {
 			Helicopter temp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
-			temp.attack(destTile);						
+			temp.attack(targetTile);						
 		}
 
 		else{

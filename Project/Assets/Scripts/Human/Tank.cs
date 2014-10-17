@@ -91,7 +91,66 @@ public class Tank : Player {
 		}
 		return HP;
 	}
-	public void attack(Tile range){
+	/*
+	 * Gets current player's grid position
+	 */ 
+	public Tile getGridPosition(){
+		int x = (int) this.gridPosition.x;
+		int y = (int)this.gridPosition.y;
+		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
+		return tile;
+	}
+
+
+	public void getEnemyToAttack(Tile tile){
+		foreach (GameObject p in GameManager.instance.playerList) {
+			if(p.GetComponent<AlienShip>() != null){
+				AlienShip target = null;
+				AlienShip temp = p.GetComponent<AlienShip>();
+				
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					TankAttack.attackAlienShip(target);
+				}
+				else{
+					print("Target not found");
+				}
+			}
+			else if(p.GetComponent<AlienSoldier>() != null){
+				AlienSoldier target = null;
+				AlienSoldier temp = p.GetComponent<AlienSoldier>();				
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					TankAttack.attackAlienSoldier(target);
+				}
+				else{
+					print("Target not found");
+				}
+			}
+			else if(p.GetComponent<AlienSupport>() != null){
+				AlienSupport target = null;
+				AlienSupport temp = p.GetComponent<AlienSupport>();				
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					TankAttack.attackAlienSupport(target);
+				}
+				else{
+					print("Target not found");
+				}
+			}
+			else if(p.GetComponent<Berserker>() != null){
+				Berserker target = null;
+				Berserker temp = p.GetComponent<Berserker>();				
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					TankAttack.attackAlienBerserker(target);
+				}
+				else{
+					print("Target not found");
+				}
+			}
+						
+		}
 
 	}
 	

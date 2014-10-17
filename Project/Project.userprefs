@@ -1,8 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Human\Jet.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameManager.cs" Line="396" Column="3" />
+      <File FileName="Assets\Scripts\UserPlayer.cs" Line="186" Column="4" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Human\Tank.cs" Line="156" Column="2" />
+      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HumanAttack\TankAttack.cs" Line="150" Column="3" />
+      <File FileName="Assets\Scripts\HumanAttack\JetAttack.cs" Line="139" Column="34" />
+      <File FileName="Assets\Scripts\Human\Jet.cs" Line="11" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\Human\Soldier.cs" />
      <Compile Include="Assets\Scripts\Human\Specialist.cs" />
      <Compile Include="Assets\Scripts\Human\Tank.cs" />
+     <Compile Include="Assets\Scripts\HumanAttack\JetAttack.cs" />
+     <Compile Include="Assets\Scripts\HumanAttack\TankAttack.cs" />
      <Compile Include="Assets\Scripts\Interfaces\GameManagerInteferface.cs" />
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

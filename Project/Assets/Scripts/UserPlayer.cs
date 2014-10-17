@@ -13,7 +13,7 @@ public class UserPlayer : Player {
 	private float buttonWidth;
 	public int movementRange= 5;
 	public float HP=100.0f;
-	public float attackHitRate = 0.8f;
+	public float attackHitRate = 0.9f;
 	public float defenseReduceRate = 0.2f;
 	public bool isAttacking =false;
 	//public int damageBase = 5;
@@ -169,19 +169,12 @@ public class UserPlayer : Player {
 	}
 
 	public void tempAttack(Tile tile){
-		print ("Pew");
-		/*
-		Tile temp = getGridPosition();
-		if(temp==null){
-			print("Tile null");
-		}
-		tempAttack(temp); */
-		print (tile.gridPosition.ToString());
 		AiPlayer target = null;
 		foreach (GameObject p in GameManager.instance.playerList) {
 			if(p.GetComponent<AiPlayer>() != null){
 				AiPlayer temp = p.GetComponent<AiPlayer>();
-				if (temp.gridPosition == tile.gridPosition) {
+
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 				}
 				else{
@@ -208,10 +201,11 @@ public class UserPlayer : Player {
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
-					GameManager.instance.nextTurn();
 				} else {
 					print ("Missed, you suck");
 				}
+				
+				GameManager.instance.nextTurn();
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
