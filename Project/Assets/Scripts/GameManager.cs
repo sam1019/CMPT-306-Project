@@ -234,7 +234,6 @@ public class GameManager : MonoBehaviour {
 		Tile Maptemp = map [x] [y].GetComponent<Tile>();
 		map [x] [y].GetComponent<Tile> ().isOccupied = false;
 		Maptemp.isOccupied = false;
-		print (x + " " + y);
 		//Setting new position to occupied
 		destination.isOccupied=true;
 	}
@@ -418,8 +417,6 @@ public class GameManager : MonoBehaviour {
 				tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				Tile maptemp = tile.GetComponent<Tile>();
 				maptemp.gridPosition = new Vector2(i,j);
-				//tile. = new Vector2(i, j);
-				//tile.gridPosition = new Vector2(i,j);
 
 				row.Add (tile);
 			}
@@ -471,9 +468,11 @@ public class GameManager : MonoBehaviour {
 	public void spawnAI(){
 
 		GameObject aiplayer = Instantiate(AIPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-//		playerList.Add(aiplayer);
-//		aiCount += 1;
+		playerList.Add(aiplayer);
+		aiCount += 1;
 		aiList.Add(aiplayer);
+		AiPlayer temp = aiplayer.GetComponent<AiPlayer> ();
+		temp.gridPosition = new Vector2 (5, 6);
 	}
 
 	//Added panel from here for genearl game control
@@ -481,8 +480,11 @@ public class GameManager : MonoBehaviour {
 	{	
 
 		//Move Button
+		//Throws null exception because when it is AI turn, UserPlayer script is not attached to it, will fix
 		if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
 			playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
+
+
 		}
 		
 		//Pause Button

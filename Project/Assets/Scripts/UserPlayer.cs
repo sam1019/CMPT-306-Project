@@ -15,6 +15,7 @@ public class UserPlayer : Player {
 	public float HP=100.0f;
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
+	public bool isAttacking =false;
 	//public int damageBase = 5;
 	//public float damageRollSides = 6;
 
@@ -66,7 +67,12 @@ public class UserPlayer : Player {
 		}
 	}
 	
-
+	public Tile getGridPosition(){
+		int x = (int) this.gridPosition.x;
+		int y = (int)this.gridPosition.y;
+		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
+		return tile;
+	}
 	public override void TurnOnGUI () {
 		float buttonHeight = 50;
 		float buttonWidth = 100;
@@ -76,11 +82,11 @@ public class UserPlayer : Player {
 			if (!moving) {
 				//GameManager.instance.removeTileHighlights();
 				moving = true;
-				attacking = false;
+				isAttacking = false;
 				//GameManager.instance.highlightTilesAt(gridPosition, Color.blue, movementPerActionPoint, false);
 			} else {
 				moving = false;
-				attacking = false;
+				isAttacking = false;
 				//GameManager.instance.removeTileHighlights();
 			}
 		}
@@ -89,14 +95,22 @@ public class UserPlayer : Player {
 		buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
 		
 		if (GUI.Button(buttonRect, "Attack")) {
-			if (!attacking) {
+			if (!isAttacking) {
 				//GameManager.instance.removeTileHighlights();
 				moving = false;
-				attacking = true;
+				isAttacking = true;
+				Tile temp = getGridPosition();
+				if(temp==null){
+					print("Tile null");
+				}
+				else{
+					print ("Tile not null");
+				}
+				tempAttack(temp);
 				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
 			} else {
 				moving = false;
-				attacking = false;
+				isAttacking = false;
 				//GameManager.instance.removeTileHighlights();
 			}
 		}
@@ -108,7 +122,7 @@ public class UserPlayer : Player {
 			//GameManager.instance.removeTileHighlights();
 			actionPoints = 2;
 			moving = false;
-			attacking = false;			
+			isAttacking = false;			
 			GameManager.instance.nextTurn();
 		}
 		base.TurnOnGUI ();
@@ -141,8 +155,40 @@ public class UserPlayer : Player {
 		}
 		return HP;
 	}
-	public void tempAttack(Tile range){
-	
+	public void tempAttack(Tile tile){
+		AiPlayer target = null;
+		foreach (GameObject p in GameManager.instance.playerList) {
+			AiPlayer temp = p.GetComponent<AiPlayer>();
+			if (temp.gridPosition == tile.gridPosition) {
+				target = temp;
+			}
+		}
+		
+		if (target != null) {
+			UserPlayer playerTemp = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>();
+			if (playerTemp.gridPosition.x >= target.gridPosition.x - 1 && playerTemp.gridPosition.x <= target.gridPosition.x + 1 &&
+			    playerTemp.gridPosition.y >= target.gridPosition.y - 1 && playerTemp.gridPosition.y <= target.gridPosition.y + 1) {
+				playerTemp.actionPoints--;
+				
+				playerTemp.attacking = false;			
+				
+				//attack logic
+				//roll to hit
+				bool hit = Random.Range(0.0f, 1.0f) <= playerTemp.attackHitRate;
+				
+				if (hit) {
+					//damage logic
+					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
+					
+					target.HP -= amountOfDamage;
+					
+				} else {
+					
+				}
+			} else {
+				Debug.Log ("Target is not adjacent!");
+			}
+		}
 	}
 	public override string roleName(){
 		return playerName;
