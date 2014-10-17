@@ -67,12 +67,7 @@ public class UserPlayer : Player {
 		}
 	}
 	
-	public Tile getGridPosition(){
-		int x = (int) this.gridPosition.x;
-		int y = (int)this.gridPosition.y;
-		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
-		return tile;
-	}
+
 	public override void TurnOnGUI () {
 		float buttonHeight = 50;
 		float buttonWidth = 100;
@@ -155,10 +150,29 @@ public class UserPlayer : Player {
 		}
 		return HP;
 	}
-	public bool isTargetInRange(UserPlayer playerTemp, AiPlayer target){
-		return(playerTemp.gridPosition.x >= target.gridPosition.x - 1 && playerTemp.gridPosition.x <= target.gridPosition.x + 1 &&
-		        playerTemp.gridPosition.y >= target.gridPosition.y - 1 && playerTemp.gridPosition.y <= target.gridPosition.y + 1);
+	/*
+	 * Gets current player's grid position
+	 */ 
+	public Tile getGridPosition(){
+		int x = (int) this.gridPosition.x;
+		int y = (int)this.gridPosition.y;
+		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
+		return tile;
 	}
+
+	/*
+	 *Checks if target is within attacking range of player 
+	 */
+	public bool isTargetInRange(UserPlayer playerTemp, AiPlayer target){
+		int playerX, playerY, targetX, targetY;
+		playerX = (int)playerTemp.gridPosition.x;
+		playerY = (int)playerTemp.gridPosition.y;
+		targetX = (int)target.gridPosition.x;
+		targetY = (int)target.gridPosition.y;
+		return(playerX >= targetX - attackRange && playerX <= targetX + attackRange &&
+		       playerY >= targetY - attackRange && playerY <= targetY + attackRange);
+	}
+
 	public void tempAttack(Tile tile){
 		AiPlayer target = null;
 		foreach (GameObject p in GameManager.instance.playerList) {
