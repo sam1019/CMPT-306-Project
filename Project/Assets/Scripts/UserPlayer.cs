@@ -155,19 +155,25 @@ public class UserPlayer : Player {
 		}
 		return HP;
 	}
+	public bool isTargetInRange(UserPlayer playerTemp, AiPlayer target){
+		return(playerTemp.gridPosition.x >= target.gridPosition.x - 1 && playerTemp.gridPosition.x <= target.gridPosition.x + 1 &&
+		        playerTemp.gridPosition.y >= target.gridPosition.y - 1 && playerTemp.gridPosition.y <= target.gridPosition.y + 1);
+	}
 	public void tempAttack(Tile tile){
 		AiPlayer target = null;
 		foreach (GameObject p in GameManager.instance.playerList) {
-			AiPlayer temp = p.GetComponent<AiPlayer>();
-			if (temp.gridPosition == tile.gridPosition) {
-				target = temp;
+			if(p.GetComponent<AiPlayer>() != null){
+				AiPlayer temp = p.GetComponent<AiPlayer>();
+				if (temp.gridPosition == tile.gridPosition) {
+					target = temp;
+				}
 			}
+
 		}
 		
 		if (target != null) {
 			UserPlayer playerTemp = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>();
-			if (playerTemp.gridPosition.x >= target.gridPosition.x - 1 && playerTemp.gridPosition.x <= target.gridPosition.x + 1 &&
-			    playerTemp.gridPosition.y >= target.gridPosition.y - 1 && playerTemp.gridPosition.y <= target.gridPosition.y + 1) {
+			if(isTargetInRange(playerTemp,target)){
 				playerTemp.actionPoints--;
 				
 				playerTemp.attacking = false;			
