@@ -158,9 +158,6 @@ public class GameManager : MonoBehaviour {
 		else{
 			getAlienTurn();
 		}
-		
-		
-		
 
 	}
 	//Can possibly refactor code in the future
@@ -386,7 +383,7 @@ public class GameManager : MonoBehaviour {
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Helicopter> () != null) {
 			Helicopter temp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
-			temp.attack(targetTile);						
+			temp.getEnemyToAttack(targetTile);						
 		}
 
 		else{
