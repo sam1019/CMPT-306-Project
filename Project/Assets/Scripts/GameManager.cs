@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
 			Application.Quit(); //Temp game over
 		}
 		if(aiCount <= 0){
-			//print ("You win");
+			print ("You win");
 			Application.Quit(); //Temp game over
 		}
 
@@ -237,7 +237,6 @@ public class GameManager : MonoBehaviour {
 		
 			}
 			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){
-				print ("IAM HERE");
 				Tank tankTemp = playerList [currentPlayerIndex].GetComponent<Tank>();
 			//	setOccupied(destination, (Player) tankTemp); //Redundant cast? Have not tested
 				tankTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;

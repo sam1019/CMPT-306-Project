@@ -149,6 +149,18 @@ public class Tank : Player {
 					print("Target not found");
 				}
 			}
+			/**********TEST class************/
+			else if(p.GetComponent<AiPlayer>() != null){
+				AiPlayer target = null;
+				AiPlayer temp = p.GetComponent<AiPlayer>();				
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					TankAttack.attackAIPlayer(target);
+				}
+				else{
+					print("Target not found");
+				}
+			}
 						
 		}
 
