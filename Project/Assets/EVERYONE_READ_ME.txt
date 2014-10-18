@@ -12,3 +12,5 @@ or if you want to access the fields (variables).
 temp.fieldIWantToAcess; 
 or set the field (variables)
 temp.fieldIWantToAcess = new value;
+
+REMEBER Tile temp = map[i index][j index].getComponent<Tile>(); WILL BE null if the GameObject does not contain the Script "Tile"
