@@ -53,7 +53,7 @@ public class Tank : Player {
 		//Moving the player to destination
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
-			
+			moving=false;
 			//Used to check if the player has reached it's destination, if so next turn
 			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
 				transform.position = moveDestination;// + Vector3.back;
@@ -172,13 +172,15 @@ public class Tank : Player {
 	public virtual void TurnOnGUI(){
 		float buttonHeight = 50;
 		float buttonWidth = 100;
-		
+
+		//move button
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
 			if (!moving) {
 				//GameManager.instance.removeTileHighlights();
 				moving = true;
 				isAttacking = false;
+				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 				//GameManager.instance.highlightTilesAt(gridPosition, Color.blue, movementPerActionPoint, false);
 			} else {
 				moving = false;
@@ -195,7 +197,7 @@ public class Tank : Player {
 				//GameManager.instance.removeTileHighlights();
 				moving = false;
 				isAttacking = true;
-				
+				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
 			} else {
 				moving = false;

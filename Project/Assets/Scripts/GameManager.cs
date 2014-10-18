@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
 	public GameObject tankPrefab;
@@ -383,13 +384,47 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-	public void enablePathHighlight(){
-
+	public void highlightTilesAt(Vector2 originLocation, Color highlightColor, int distance) {
+		highlightTilesAt(originLocation, highlightColor, distance, true);
 	}
-
-	public void disablePathHighlight(){
 	
+	public void highlightTilesAt(Vector2 originLocation, Color highlightColor, int distance, bool ignorePlayers) {
+		
+
 	}
+	//Null exception here, will fix later
+	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
+
+		if(originLocationX-range> 0 && originLocationY-range> 0 && originLocationX+range < this.mapSize && originLocationY+range<this.mapSize){
+			this.map [originLocationX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+			this.map [originLocationX] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+
+			this.map [originLocationX-range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+			this.map [originLocationX+range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+
+			this.map [originLocationX-range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+			this.map [originLocationX+range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+
+			this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+			this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+
+		}
+	}
+	//Null exception here, will fix later
+	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
+		this.map [originLocationX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		this.map [originLocationX] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		
+		this.map [originLocationX-range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		this.map [originLocationX+range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		
+		this.map [originLocationX-range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		this.map [originLocationX+range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		
+		this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+	}
+
 	/* Used to spawn the map 
 	 * Map is made up of multiple spawned cubes
 	 * The 0,0 coordinate the very center cube
@@ -420,17 +455,21 @@ public class GameManager : MonoBehaviour {
 
 	public void spawnPlayers(){
 		//Spawn first player and add it to the list
-		int x, y;
+		GameObject tank;
 
-		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(player);
+		tank = Instantiate(tankPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		playerList.Add(tank);
+		Tank tankTemp = tank.GetComponent<Tank> ();
+		tankTemp.gridPosition = new Vector2 (0, 0);
 		playerCount += 1;
 
 		/********************Spawning tank*****************************/
-		GameObject tank;
+
 		tank = Instantiate(tankPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(tank);
 		playerCount += 1;
+
+
 
 		/*
 		print (player.transform.position.x);

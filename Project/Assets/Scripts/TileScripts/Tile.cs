@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Tile : MonoBehaviour {
 	
 	public Vector2 gridPosition = Vector2.zero;
 	public bool isOccupied = false;
+	public List<Tile> neighbors = new List<Tile>();
+	public GameObject visual;
+
 	//
 	//Preformed attributes for future implement
 	//
@@ -14,7 +18,7 @@ public class Tile : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		neighbors = new List<Tile>();
 	}
 	
 	// Update is called once per frame
