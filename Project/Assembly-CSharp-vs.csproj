@@ -54,6 +54,9 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\HelicopterAttack.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\JetAttack.cs" />
+     <Compile Include="Assets\Scripts\HumanAttackScripts\MedicAttack.cs" />
+     <Compile Include="Assets\Scripts\HumanAttackScripts\SoldierAttack.cs" />
+     <Compile Include="Assets\Scripts\HumanAttackScripts\SpecialistAttack.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\TankAttack.cs" />
      <Compile Include="Assets\Scripts\HumanUnitScripts\Helicopter.cs" />
      <Compile Include="Assets\Scripts\HumanUnitScripts\Jet.cs" />

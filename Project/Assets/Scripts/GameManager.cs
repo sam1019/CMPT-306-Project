@@ -347,11 +347,11 @@ public class GameManager : MonoBehaviour {
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Medic> () != null) {
 			Medic temp = playerList [currentPlayerIndex].GetComponent<Medic>();
-			temp.attack(targetTile);						
+			temp.getEnemyToAttack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Specialist> () != null) {
 			Specialist temp = playerList [currentPlayerIndex].GetComponent<Specialist>();
-			temp.attack(targetTile);						
+			temp.getEnemyToAttack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Tank> () != null) {
 			Tank temp = playerList [currentPlayerIndex].GetComponent<Tank>();

@@ -147,4 +147,32 @@ public class HelicopterAttack : MonoBehaviour {
 			}
 		}
 	}
+	public static void attackAIPlayer(AiPlayer target){
+		if (target != null) {
+			Tank tank = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Tank>();
+			if(isTargetInRange((int)tank.gridPosition.x, (int)tank.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, tank.attackRange)){
+				tank.actionPoints--;
+				
+				tank.attacking = false;			
+				
+				//attack logic
+				//roll to hit
+				bool hit = Random.Range(0.0f, 1.0f) <= tank.attackHitRate;
+				
+				if (hit) {
+					//damage logic
+					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
+					
+					target.HP -= amountOfDamage;
+				} else {
+					print ("Missed");
+				}
+				
+				GameManager.instance.nextTurn();
+			} else {
+				Debug.Log ("Target is out of range!");
+			}
+		}
+	}
 }

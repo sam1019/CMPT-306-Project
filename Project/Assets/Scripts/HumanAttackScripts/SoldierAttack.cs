@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JetAttack : MonoBehaviour {
+public class SoldierAttack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -25,16 +25,16 @@ public class JetAttack : MonoBehaviour {
 	 */
 	public static void attackAlienSoldier(AlienSoldier target){
 		if (target != null) {
-			Jet jet = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>();
-			if(isTargetInRange((int)jet.gridPosition.x, (int)jet.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, jet.attackRange)){
-				jet.actionPoints--;
+			Soldier soldier = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>();
+			if(isTargetInRange((int)soldier.gridPosition.x, (int)soldier.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, soldier.attackRange)){
+				soldier.actionPoints--;
 				
-				jet.attacking = false;			
+				soldier.attacking = false;			
 				
 				//attack logic
 				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= jet.attackHitRate;
+				bool hit = Random.Range(0.0f, 1.0f) <= soldier.attackHitRate;
 				
 				if (hit) {
 					//damage logic
@@ -57,16 +57,16 @@ public class JetAttack : MonoBehaviour {
 	 */
 	public static void attackAlienShip(AlienShip target){
 		if (target != null) {
-			Jet jet = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>();
-			if(isTargetInRange((int)jet.gridPosition.x, (int)jet.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, jet.attackRange)){
-				jet.actionPoints--;
+			Soldier soldier = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>();
+			if(isTargetInRange((int)soldier.gridPosition.x, (int)soldier.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, soldier.attackRange)){
+				soldier.actionPoints--;
 				
-				jet.attacking = false;			
+				soldier.attacking = false;			
 				
 				//attack logic
 				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= jet.attackHitRate;
+				bool hit = Random.Range(0.0f, 1.0f) <= soldier.attackHitRate;
 				
 				if (hit) {
 					//damage logic
@@ -89,16 +89,16 @@ public class JetAttack : MonoBehaviour {
 	 */
 	public static void attackAlienSupport(AlienSupport target){
 		if (target != null) {
-			Jet jet = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>();
-			if(isTargetInRange((int)jet.gridPosition.x, (int)jet.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, jet.attackRange)){
-				jet.actionPoints--;
+			Soldier soldier = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>();
+			if(isTargetInRange((int)soldier.gridPosition.x, (int)soldier.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, soldier.attackRange)){
+				soldier.actionPoints--;
 				
-				jet.attacking = false;			
+				soldier.attacking = false;			
 				
 				//attack logic
 				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= jet.attackHitRate;
+				bool hit = Random.Range(0.0f, 1.0f) <= soldier.attackHitRate;
 				
 				if (hit) {
 					//damage logic
@@ -121,16 +121,16 @@ public class JetAttack : MonoBehaviour {
 	 */
 	public static void attackAlienBerserker(Berserker target){
 		if (target != null) {
-			Jet jet = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>();
-			if(isTargetInRange((int)jet.gridPosition.x, (int)jet.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, jet.attackRange)){
-				jet.actionPoints--;
+			Soldier soldier = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>();
+			if(isTargetInRange((int)soldier.gridPosition.x, (int)soldier.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, soldier.attackRange)){
+				soldier.actionPoints--;
 				
-				jet.attacking = false;			
+				soldier.attacking = false;			
 				
 				//attack logic
 				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= jet.attackHitRate;
+				bool hit = Random.Range(0.0f, 1.0f) <= soldier.attackHitRate;
 				
 				if (hit) {
 					//damage logic
@@ -147,18 +147,19 @@ public class JetAttack : MonoBehaviour {
 			}
 		}
 	}
+	
 	public static void attackAIPlayer(AiPlayer target){
 		if (target != null) {
-			Tank tank = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Tank>();
-			if(isTargetInRange((int)tank.gridPosition.x, (int)tank.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, tank.attackRange)){
-				tank.actionPoints--;
+			Soldier soldier = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>();
+			if(isTargetInRange((int)soldier.gridPosition.x, (int)soldier.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, soldier.attackRange)){
+				soldier.actionPoints--;
 				
-				tank.attacking = false;			
+				soldier.attacking = false;			
 				
 				//attack logic
 				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= tank.attackHitRate;
+				bool hit = Random.Range(0.0f, 1.0f) <= soldier.attackHitRate;
 				
 				if (hit) {
 					//damage logic

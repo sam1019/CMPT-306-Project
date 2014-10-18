@@ -2,18 +2,18 @@
 using System.Collections;
 
 public class Tank : Player {
-
+	
 	// Use this for initialization
 	public const string className = "Tank";
 	public const float baseDamage = 45.0f;
 	public const float baseDefense = 40.0f;
 	public int movementRange=2;
 	public float HP;
-
+	
 	public int attackRange = 1;
 	private float bottonWidth;
 	private float buttonWidth;
-
+	
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
 	public bool isAttacking =false;
@@ -21,7 +21,7 @@ public class Tank : Player {
 		//Setting the destination to it's spawn
 		moveDestination = transform.position;
 	}
-
+	
 	void Start () {
 		HP = 150.0f;
 	}
@@ -100,8 +100,8 @@ public class Tank : Player {
 		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
 		return tile;
 	}
-
-
+	
+	
 	public void getEnemyToAttack(Tile tile){
 		foreach (GameObject p in GameManager.instance.playerList) {
 			if(p.GetComponent<AlienShip>() != null){
@@ -161,9 +161,9 @@ public class Tank : Player {
 					print("Target not found");
 				}
 			}
-						
+			
 		}
-
+		
 	}
 	
 	public override string roleName(){
