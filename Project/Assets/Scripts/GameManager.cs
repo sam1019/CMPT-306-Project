@@ -343,7 +343,7 @@ public class GameManager : MonoBehaviour {
 		}	
 		else if (playerList [currentPlayerIndex].GetComponent<Soldier> () != null) {
 			Soldier temp = playerList [currentPlayerIndex].GetComponent<Soldier>();
-			temp.tempAttack(targetTile);						
+			temp.getEnemyToAttack(targetTile);						
 		}
 		else if (playerList [currentPlayerIndex].GetComponent<Medic> () != null) {
 			Medic temp = playerList [currentPlayerIndex].GetComponent<Medic>();
