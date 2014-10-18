@@ -8,7 +8,7 @@ public class Soldier : Player {
 	public const float baseDefense = 15.0f;
 	public int movementRange=3;
 	public float HP;
-	
+	public bool isAttacking =false;
 	public int attackRange = 1;
 	private float bottonWidth;
 	private float buttonWidth;

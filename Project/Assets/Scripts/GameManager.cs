@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
-
+	public GameObject tankPrefab;
 	public GameObject PlayerPrefab;
 	public static GameManager instance;
 	public GameObject TilePrefab;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 		IsPause = true;
 		scores = 0;
 	}
-	
+
 
 	void Update () {
 		if(playerCount <= 0){
@@ -55,27 +55,16 @@ public class GameManager : MonoBehaviour {
 			Application.Quit(); //Temp game over
 		}
 		if(aiCount <= 0){
-			print ("You win");
+			//print ("You win");
 			Application.Quit(); //Temp game over
 		}
 
 		if( playerList.Count > 0){
 			
-			//getHumanTurn(); //For the future
+			getHumanTurn(); //For the future
 
 			GameObject temp = playerList [currentPlayerIndex];
-			if(temp.GetComponent<UserPlayer>() != null){
-				UserPlayer player  = temp.GetComponent<UserPlayer>();
-				player.TurnUpdate ();
-				
-				if (player.HP <= 0){
-					Destroy(playerList[currentPlayerIndex]);
-					playerList.RemoveAt(currentPlayerIndex);
-					playerCount -=1;
-				}
-				
-			}
-			else if(temp.GetComponent<AiPlayer>() != null){
+			if(temp.GetComponent<AiPlayer>() != null){
 				AiPlayer ai  = temp.GetComponent<AiPlayer>();
 				ai.TurnUpdate ();
 				
@@ -247,62 +236,54 @@ public class GameManager : MonoBehaviour {
 
 		
 			}
-		}
-		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){
+				print ("IAM HERE");
 				Tank tankTemp = playerList [currentPlayerIndex].GetComponent<Tank>();
-				setOccupied(destination, (Player) tankTemp); //Redundant cast? Have not tested
+			//	setOccupied(destination, (Player) tankTemp); //Redundant cast? Have not tested
 				tankTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				tankTemp.gridPosition = destination.gridPosition;
 				
 			}
-		}
-		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null){
+
+			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null){
 				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
 				setOccupied(destination, (Player) soldierTemp); //Redundant cast? Have not tested
 				soldierTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				soldierTemp.gridPosition = destination.gridPosition;
 				
 			}
-		}
-		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Medic>() != null){
+
+			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null){
 				Medic medicTemp = playerList [currentPlayerIndex].GetComponent<Medic>();
 				setOccupied(destination, (Player) medicTemp); //Redundant cast? Have not tested
 				medicTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				medicTemp.gridPosition = destination.gridPosition;
 				
 			}
-		}
-		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null){
 				Specialist specTemp = playerList [currentPlayerIndex].GetComponent<Specialist>();
 				setOccupied(destination, (Player) specTemp); //Redundant cast? Have not tested
 				specTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				specTemp.gridPosition = destination.gridPosition;
 				
 			}
-		}
-		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Jet>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null){
 				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
 				setOccupied(destination, (Player) jetTemp); //Redundant cast? Have not tested
 				jetTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				jetTemp.gridPosition = destination.gridPosition;
 				
 			}
-		}
-
-
-		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null){
 				Helicopter heliTemp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
 				setOccupied(destination, (Player) heliTemp); //Redundant cast? Have not tested
 				heliTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				heliTemp.gridPosition = destination.gridPosition;
 				
 			}
+		}
+		else{
+			print ("Cannot move there");
 		}
 	}
 
@@ -435,26 +416,12 @@ public class GameManager : MonoBehaviour {
 		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
 		playerCount += 1;
-		/*
-		print (player.transform.position.x);
-		print (player.transform.position.y); */
 
-		playerTemp = player.GetComponent<UserPlayer> ();
-		x = (int) playerTemp.gridPosition.x;
-		y = (int) playerTemp.gridPosition.x;
-		mapTemp = map [x] [y].GetComponent<Tile>();
-		mapTemp.isOccupied = true;
-
-		//Spawn second player and add it to the list
-		player = Instantiate(PlayerPrefab, new Vector3(12 - Mathf.Floor(mapSize/2), -12 + Mathf.Floor(mapSize/2),PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(player);
+		/********************Spawning tank*****************************/
+		GameObject tank;
+		tank = Instantiate(tankPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		playerList.Add(tank);
 		playerCount += 1;
-
-		playerTemp = player.GetComponent<UserPlayer> ();
-		x = (int) playerTemp.gridPosition.x;
-		y = (int) playerTemp.gridPosition.x;
-		mapTemp = map [x] [y].GetComponent<Tile>();
-		mapTemp.isOccupied = true;
 
 		/*
 		print (player.transform.position.x);
@@ -481,6 +448,13 @@ public class GameManager : MonoBehaviour {
 		if(playerList[currentPlayerIndex].GetComponent<UserPlayer>()!=null){
 			if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
 				playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
+				
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Tank>()!=null){
+				if (playerList[currentPlayerIndex].GetComponent<Tank>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<Tank>().TurnOnGUI();
 				
 				
 			}

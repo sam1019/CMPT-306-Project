@@ -8,7 +8,7 @@ public class Helicopter : Player {
 	public const float baseDefense = 20.0f;
 	public int movementRange = 4;
 	public float HP;
-	
+	public bool isAttacking =false;
 	public int attackRange = 2;
 	private float bottonWidth;
 	private float buttonWidth;

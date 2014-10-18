@@ -8,6 +8,7 @@ public class Specialist : Player {
 	public const float baseDefense = 10.0f;
 	public int movementRange=5;
 	public float HP;
+	public bool isAttacking =false;
 	
 	public int attackRange = 3;
 	private float bottonWidth;

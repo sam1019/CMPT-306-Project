@@ -8,7 +8,7 @@ public class Jet : Player {
 	public const float baseDefense = 15.0f;
 	public int movementRange = 5;
 	public float HP;
-	
+	public bool isAttacking =false;
 	public int attackRange = 2;
 	private float bottonWidth;
 	private float buttonWidth;

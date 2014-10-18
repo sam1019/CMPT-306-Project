@@ -16,7 +16,7 @@ public class Tank : Player {
 
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
-
+	public bool isAttacking =false;
 	void Awake(){
 		//Setting the destination to it's spawn
 		moveDestination = transform.position;
@@ -32,7 +32,7 @@ public class Tank : Player {
 		//When a charactor is chosen, it's color will turn to cyan
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer>() == this && GameManager.instance.playerList.Count > 0) {
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Tank>() == this && GameManager.instance.playerList.Count > 0) {
 				transform.renderer.material.color = Color.cyan;
 			}
 			//Otherwise charactor is blue
@@ -158,6 +158,51 @@ public class Tank : Player {
 		return className;
 	}
 	public virtual void TurnOnGUI(){
+		float buttonHeight = 50;
+		float buttonWidth = 100;
+		
+		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
+		if (GUI.Button(buttonRect, "Move")) {
+			if (!moving) {
+				//GameManager.instance.removeTileHighlights();
+				moving = true;
+				isAttacking = false;
+				//GameManager.instance.highlightTilesAt(gridPosition, Color.blue, movementPerActionPoint, false);
+			} else {
+				moving = false;
+				isAttacking = false;
+				//GameManager.instance.removeTileHighlights();
+			}
+		}
+		
+		//attack button
+		buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
+		
+		if (GUI.Button(buttonRect, "Attack")) {
+			if (!isAttacking) {
+				//GameManager.instance.removeTileHighlights();
+				moving = false;
+				isAttacking = true;
+				
+				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
+			} else {
+				moving = false;
+				isAttacking = false;
+				//GameManager.instance.removeTileHighlights();
+			}
+		}
+		
+		//end turn button
+		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
+		
+		if (GUI.Button(buttonRect, "End Turn")) {
+			//GameManager.instance.removeTileHighlights();
+			actionPoints = 2;
+			moving = false;
+			isAttacking = false;			
+			GameManager.instance.nextTurn();
+		}
+		base.TurnOnGUI ();
 	}
 	
 	//Display HP
