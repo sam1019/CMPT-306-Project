@@ -64,7 +64,18 @@ public class GameManager : MonoBehaviour {
 			getHumanTurn(); //For the future
 
 			GameObject temp = playerList [currentPlayerIndex];
-			if(temp.GetComponent<AiPlayer>() != null){
+			if(temp.GetComponent<UserPlayer>() != null){
+				UserPlayer player  = temp.GetComponent<UserPlayer>();
+				player.TurnUpdate ();
+				
+				if (player.HP <= 0){
+					Destroy(playerList[currentPlayerIndex]);
+					playerList.RemoveAt(currentPlayerIndex);
+					playerCount -=1;
+				}
+				
+			}
+			else if(temp.GetComponent<AiPlayer>() != null){
 				AiPlayer ai  = temp.GetComponent<AiPlayer>();
 				ai.TurnUpdate ();
 				
@@ -410,8 +421,7 @@ public class GameManager : MonoBehaviour {
 	public void spawnPlayers(){
 		//Spawn first player and add it to the list
 		int x, y;
-		UserPlayer playerTemp;
-		Tile mapTemp;
+
 		player = Instantiate(PlayerPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(player);
 		playerCount += 1;
