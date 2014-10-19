@@ -4,28 +4,33 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class GameManager : MonoBehaviour {
-	public GameObject tankPrefab;
-	public GameObject PlayerPrefab;
 	public static GameManager instance;
+	
+	/*Prefabs needed for game*/
 	public GameObject TilePrefab;
 	public GameObject AIPrefab;
 	public GameObject tile;
 	public GameObject jetPrefab; 
 	public GameObject soldierPrefab;
+	public GameObject AlienTroopPrefab;
+	public GameObject alienShipPrefab;
+	public GameObject berserkerPrefab;
+	public GameObject tankPrefab;
+	public GameObject PlayerPrefab;
+	
 	public List <GameObject> playerList;
 	public List <List<GameObject>> map;
 	public List <GameObject> aiList;
 	public Transform mapTransform;
-	public GameObject AlienTroopPrefab;
-	public GameObject alienShipPrefab;
-	public GameObject berserkerPrefab;
+	
+		
 	GameObject player;
 	Tile grid;
 	public int mapSize = 11; //The size of the map i 
-
+	
 	public int playerCount;
 	public int aiCount;
-
+	
 	private const float PLAYER_HEIGHT = -1.0f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = -0.25f;
 	public int currentPlayerIndex;//Iterates throught the player list
@@ -520,52 +525,54 @@ public class GameManager : MonoBehaviour {
 
 
 	}
+	/*
+	 *Finds the class of the current player unit to disable the button GUI 
+	 */
 	public void whoToTurnOnGui(){
-		if(playerList[currentPlayerIndex].GetComponent<UserPlayer>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
-				playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
+		
+		/*********Test player unit************/
+		if(playerList[currentPlayerIndex].GetComponent<UserPlayer>()!=null){ //Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI(); //Turn on the GUI for player
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Tank>()!=null){ //Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<Tank>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<Tank>().TurnOnGUI();//Turn on the GUI for player
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Jet>()!=null){//Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<Jet>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<Jet>().TurnOnGUI(); //Turn on the GUI for player
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Soldier>()!=null){ //Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<Soldier>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<Soldier>().TurnOnGUI(); //Turn on the GUI for player
 				
 				
 			}
 		}
-		else if(playerList[currentPlayerIndex].GetComponent<Tank>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<Tank>().HP > 0){
-				playerList[currentPlayerIndex].GetComponent<Tank>().TurnOnGUI();
+		else if(playerList[currentPlayerIndex].GetComponent<Medic>()!=null){ //Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<Medic>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<Medic>().TurnOnGUI(); //Turn on the GUI for player
 				
 				
 			}
 		}
-		else if(playerList[currentPlayerIndex].GetComponent<Jet>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<Jet>().HP > 0){
-				playerList[currentPlayerIndex].GetComponent<Jet>().TurnOnGUI();
-				
-				
-			}
-		}
-		else if(playerList[currentPlayerIndex].GetComponent<Soldier>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<Soldier>().HP > 0){
-				playerList[currentPlayerIndex].GetComponent<Soldier>().TurnOnGUI();
-				
-				
-			}
-		}
-		else if(playerList[currentPlayerIndex].GetComponent<Medic>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<Medic>().HP > 0){
-				playerList[currentPlayerIndex].GetComponent<Medic>().TurnOnGUI();
-				
-				
-			}
-		}
-		else if(playerList[currentPlayerIndex].GetComponent<Specialist>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<Specialist>().HP > 0){
+		else if(playerList[currentPlayerIndex].GetComponent<Specialist>()!=null){ //Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<Specialist>().HP > 0){ //Get the script
 				playerList[currentPlayerIndex].GetComponent<Specialist>().TurnOnGUI();
 				
 				
 			}
 		}
-		else if(playerList[currentPlayerIndex].GetComponent<Helicopter>()!=null){
-			if (playerList[currentPlayerIndex].GetComponent<Helicopter>().HP > 0){
-				playerList[currentPlayerIndex].GetComponent<Helicopter>().TurnOnGUI();
+		else if(playerList[currentPlayerIndex].GetComponent<Helicopter>()!=null){ //Checks if script is attached
+			if (playerList[currentPlayerIndex].GetComponent<Helicopter>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<Helicopter>().TurnOnGUI(); //Turn on the GUI for player
 				
 				
 			}
