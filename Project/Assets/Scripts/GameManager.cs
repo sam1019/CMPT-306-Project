@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject TilePrefab;
 	public GameObject AIPrefab;
 	public GameObject tile;
-	public GameObject jetPrefab;
+	public GameObject jetPrefab; 
 	public GameObject soldierPrefab;
 	public List <GameObject> playerList;
 	public List <List<GameObject>> map;
