@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,7 +8,8 @@ public class Tile : MonoBehaviour {
 	public bool isOccupied = false;
 	public List<Tile> neighbors = new List<Tile>();
 	public GameObject visual;
-
+    private Color tempColorRecord;
+    
 	//
 	//Preformed attributes for future implement
 	//
@@ -27,7 +28,9 @@ public class Tile : MonoBehaviour {
 	}
 	
 	void OnMouseEnter() {
-		//When hovering over tile it changes the color
+        //First record the origianl tile color
+		//When hovering over tile it changes the color to become green
+		tempColorRecord = transform.renderer.material.color;
 		transform.renderer.material.color = Color.green;
 
 		//Use for debugging
@@ -35,8 +38,8 @@ public class Tile : MonoBehaviour {
 	}
 	
 	void OnMouseExit() {
-		//When NOT hovering over tile it changes the color
-		transform.renderer.material.color = Color.white;
+		//When NOT hovering over tile it changes to the original color
+		transform.renderer.material.color = tempColorRecord;
 	}
 	public bool isPlayerMoving(){
 		if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer> () != null) {
