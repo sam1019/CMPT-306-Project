@@ -157,16 +157,20 @@ public class Soldier : Player {
 		
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
+			//if not moving, first disable all Highlight 
+			//enable Move Highlight
 			if (!moving) {
-				//GameManager.instance.disableMoveHightLight(););
+				GameManager.instance.disableHightLight();
 				moving = true;
 				isAttacking = false;
 				//Enables highlight path hightlight
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
-			} else {
+			} 
+			//otherwise disable all Highlight
+			else {
 				moving = false;
 				isAttacking = false;
-				//GameManager.instance.disableMoveHightLight();
+				GameManager.instance.disableHightLight();
 			}
 		}
 		
@@ -174,26 +178,28 @@ public class Soldier : Player {
 		buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
 		
 		if (GUI.Button(buttonRect, "Attack")) {
+			//if not attacking, first disable all Highlight 
+			//enable Attack Highlig
 			if (!isAttacking) {
-				//GameManager.instance.removeTileHighlights();
+				GameManager.instance.disableHightLight();
 				moving = false;
 				isAttacking = true;
 				//Enables attack hightlight range
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
-			} else {
+			} 
+			//otherwise disable all Highlight
+			else {
 				moving = false;
 				isAttacking = false;
-				//GameManager.instance.removeTileHighlights();
+				GameManager.instance.disableHightLight();
 			}
 		}
 		
 		//end turn button
 		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
 		
-		if (GUI.Button(buttonRect, "End Turn")) {
-			//when end turn, disable move HightLight
-			//GameManager.instance.disableMoveHightLight(); 
-			actionPoints = 2;
+		if (GUI.Button(buttonRect, "End Turn")) { 
+			//actionPoints = 2;
 			moving = false;
 			isAttacking = false;			
 			GameManager.instance.nextTurn();
