@@ -188,7 +188,7 @@ public class Soldier : Player {
 		
 		if (GUI.Button(buttonRect, "End Turn")) {
 			//when end turn, disable move HightLight
-			//GameManager.instance.disableMoveHightLight();
+			//GameManager.instance.disableMoveHightLight(); 
 			actionPoints = 2;
 			moving = false;
 			isAttacking = false;			
