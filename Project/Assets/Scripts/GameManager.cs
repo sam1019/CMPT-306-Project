@@ -113,16 +113,20 @@ public class GameManager : MonoBehaviour {
 		aiCount -=1;
 	}
 
+	/*
+	 * Finds the current player player's type 
+	 * (Ex. Tank, Soldier, Medic,etc)
+	 */
 	//Can possibly refactor code in the future
 	public void getHumanTurn(){
 		GameObject temp = playerList [currentPlayerIndex];
-		if(temp.GetComponent<Tank>() != null){
+		if(temp.GetComponent<Tank>() != null){ //Check what script is attached to prefab
 			Tank tank  = temp.GetComponent<Tank>();
-			if (tank.HP <= 0){
+			if (tank.HP <= 0){ //Check if player is not dead
 				deletePlayer();
 			}
 			tank.TurnUpdate ();			
-						
+			
 		}
 		else if(temp.GetComponent<Soldier>() != null){
 			Soldier soldier  = temp.GetComponent<Soldier>();
@@ -171,35 +175,38 @@ public class GameManager : MonoBehaviour {
 		}
 
 	}
+	/*
+	 * Finds the current AI's type 
+	 */
 	//Can possibly refactor code in the future
 	public void getAlienTurn(){
 		GameObject temp = playerList [currentPlayerIndex];
-
-		if(temp.GetComponent<AlienShip>() != null){
-			AlienShip ship  = temp.GetComponent<AlienShip>();
-			if (ship.HP <= 0){
-				deleteAI();
+		
+		if(temp.GetComponent<AlienShip>() != null){ //Checks for what script AI has attached
+			AlienShip ship  = temp.GetComponent<AlienShip>(); //Get the current player script
+			if (ship.HP <= 0){ //If AI is dead, remove from game
+				deleteAI(); 
 			}
-			ship.TurnUpdate ();
-
+			ship.TurnUpdate (); //AI's turn
+			
 		}
-
+		
 		else if (temp.GetComponent<AlienSoldier>() != null){
 			AlienSoldier alienSoldier  = temp.GetComponent<AlienSoldier>();
 			if (alienSoldier.HP <= 0){
 				deleteAI();
 			}
 			alienSoldier.TurnUpdate ();
-
+			
 		}
-
+		
 		else if (temp.GetComponent<AlienSupport>() != null){
 			AlienSupport alienSupport  = temp.GetComponent<AlienSupport>();
 			if (alienSupport.HP <= 0){
 				deleteAI();
 			}
 			alienSupport.TurnUpdate ();
-
+			
 		}
 		else if (temp.GetComponent<Berserker>() != null){
 			Berserker berserker  = temp.GetComponent<Berserker>();
@@ -207,7 +214,7 @@ public class GameManager : MonoBehaviour {
 				deleteAI();
 			}
 			berserker.TurnUpdate ();
-		
+			
 		}
 	}
 	public void nextTurn() {
@@ -228,17 +235,21 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	/*
+	 * Checks if tile selected by player is occupied or not
+	 * If occupied player cannot move to tile
+	 */
 	public bool canPlayerMove(Tile destination){
 		return (playerList.Count > 0 && !destination.isOccupied);
 	}
-
+	
 	public void setOccupied(Tile destination, Player player){
 		int x, y;
-
+		
 		//Grid postion correlates to the map list indexes
 		x = (int) player.gridPosition.x;
 		y = (int) player.gridPosition.y;
-
+		
 		//Setting the old position to unoccupied
 		Tile Maptemp = map [x] [y].GetComponent<Tile>();
 		map [x] [y].GetComponent<Tile> ().isOccupied = false;
@@ -250,57 +261,59 @@ public class GameManager : MonoBehaviour {
 	//To realize the player movement
 	//Can possibly refactor code in the future
 	public void MovePlayer(Tile destination){
-		if (canPlayerMove(destination)) {
+		if (canPlayerMove(destination)) { // If tile is unoccupied player can move to there
+			
+			/****Test unit******/
 			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null){
 				UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
 				setOccupied(destination, (Player) Playertemp);
 				Playertemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
 				Playertemp.gridPosition = destination.gridPosition;
-
-		
+				
+				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){ //Checks for what script is attached to player
 				Tank tankTemp = playerList [currentPlayerIndex].GetComponent<Tank>();
-			//	setOccupied(destination, (Player) tankTemp); //Redundant cast? Have not tested
-				tankTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				tankTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) tankTemp); //Sets new tile location occupied
+				tankTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
+				tankTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-
-			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null){
+			
+			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null){ //Checks for what script is attached to player
 				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
-				setOccupied(destination, (Player) soldierTemp); //Redundant cast? Have not tested
-				soldierTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				soldierTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) soldierTemp);  //Sets new tile location occupied
+				soldierTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
+				soldierTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-
-			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null){
+			
+			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null){ //Checks for what script is attached to player
 				Medic medicTemp = playerList [currentPlayerIndex].GetComponent<Medic>();
-				setOccupied(destination, (Player) medicTemp); //Redundant cast? Have not tested
-				medicTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				medicTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) medicTemp);   //Sets new tile location occupied
+				medicTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
+				medicTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null){ //Checks for what script is attached to player
 				Specialist specTemp = playerList [currentPlayerIndex].GetComponent<Specialist>();
-				setOccupied(destination, (Player) specTemp); //Redundant cast? Have not tested
-				specTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				specTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) specTemp); //Sets new tile location occupied
+				specTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
+				specTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null){ //Checks for what script is attached to player
 				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
-				setOccupied(destination, (Player) jetTemp); //Redundant cast? Have not tested
-				jetTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				jetTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) jetTemp); //Sets new tile location occupied
+				jetTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
+				jetTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null){
+			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null){ //Checks for what script is attached to player
 				Helicopter heliTemp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
-				setOccupied(destination, (Player) heliTemp); //Redundant cast? Have not tested
-				heliTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				heliTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) heliTemp);  //Sets new tile location occupied
+				heliTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
+				heliTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
 		}
@@ -310,85 +323,96 @@ public class GameManager : MonoBehaviour {
 	}
 
 	//Can possibly refactor code in the future
+	/*
+	 * Moves AI units
+	 */
 	public void moveAlien(Tile destination){
-		if (canPlayerMove(destination)) {
+		if (canPlayerMove(destination)) { //Checks if player can move to tile
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
-				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
-				setOccupied(destination, (Player) alienTemp);
-				alienTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				alienTemp.gridPosition = destination.gridPosition;
+				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
+				setOccupied(destination, (Player) alienTemp); //Sets destination tile as occupied
+				alienTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player to new tile
+				alienTemp.gridPosition = destination.gridPosition; //Sets the new grid postion of unit 
 				
 			}
 		}
 		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<AlienSupport>() != null){
+			if(playerList [currentPlayerIndex].GetComponent<AlienSupport>() != null){  //Checks if script is attached to player
 				AlienSupport alienSupTemp = playerList [currentPlayerIndex].GetComponent<AlienSupport>();
-				setOccupied(destination, (Player) alienSupTemp);
-				alienSupTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				alienSupTemp.gridPosition = destination.gridPosition;
+				setOccupied(destination, (Player) alienSupTemp); //Sets destination tile as occupied
+				alienSupTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player to new tile
+				alienSupTemp.gridPosition = destination.gridPosition; //Sets the new grid postion of unit 
 				
 			}
 		}
 		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){
+			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){  //Checks if script is attached to player
 				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
-				setOccupied(destination, (Player) alienShipTemp);
-				alienShipTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				alienShipTemp.gridPosition = destination.gridPosition;
-								
+				setOccupied(destination, (Player) alienShipTemp); //Sets destination tile as occupied
+				alienShipTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player to new tile
+				alienShipTemp.gridPosition = destination.gridPosition; //Sets the new grid postion of unit 
+				
 			}
 		}
 		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
+			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){  //Checks if script is attached to player
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
-				setOccupied(destination, (Player) alienTemp);
-				alienTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				alienTemp.gridPosition = destination.gridPosition;
-								
+				setOccupied(destination, (Player) alienTemp); //Sets destination tile as occupied
+				alienTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player to new tile
+				alienTemp.gridPosition = destination.gridPosition; //Sets the new grid postion of unit 
+				
 			}
 		}
 		if (canPlayerMove(destination)) {
-			if(playerList [currentPlayerIndex].GetComponent<Berserker>() != null){
+			if(playerList [currentPlayerIndex].GetComponent<Berserker>() != null){  //Checks if script is attached to player
 				Berserker berserkerTemp = playerList [currentPlayerIndex].GetComponent<Berserker>();
-				setOccupied(destination, (Player) berserkerTemp);
-				berserkerTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
-				berserkerTemp.gridPosition = destination.gridPosition;
-								
+				setOccupied(destination, (Player) berserkerTemp); //Sets destination tile as occupied
+				berserkerTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player to new tile
+				berserkerTemp.gridPosition = destination.gridPosition; //Sets the new grid postion of unit 
+				
 			}
 		}
-	}
+	}		
 
 
+	/*
+	 * Checks what script is attached to the current player's turn  
+	 * Then calls the attack function of that player's class
+	 * Attacks the unit on the target tile
+	 */
+	//Can possibly refactor in the future
 	public void whatPlayerClassIsAttacking(Tile targetTile){
-		if (playerList [currentPlayerIndex].GetComponent<UserPlayer> () != null) {
-			UserPlayer temp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
-			temp.tempAttack(targetTile);						
+		
+		/******Test player unit**********/
+		if (playerList [currentPlayerIndex].GetComponent<UserPlayer> () != null) { //Checks if script is attached to player
+			UserPlayer temp = playerList [currentPlayerIndex].GetComponent<UserPlayer>(); //Get the script of the player
+			temp.tempAttack(targetTile); //Calls the attack function of the class				
 		}	
-		else if (playerList [currentPlayerIndex].GetComponent<Soldier> () != null) {
-			Soldier temp = playerList [currentPlayerIndex].GetComponent<Soldier>();
-			temp.getEnemyToAttack(targetTile);						
+		else if (playerList [currentPlayerIndex].GetComponent<Soldier> () != null) { //Checks if script is attached to player
+			Soldier temp = playerList [currentPlayerIndex].GetComponent<Soldier>();//Get the script of the player
+			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class			 			
 		}
-		else if (playerList [currentPlayerIndex].GetComponent<Medic> () != null) {
-			Medic temp = playerList [currentPlayerIndex].GetComponent<Medic>();
-			temp.getEnemyToAttack(targetTile);						
+		else if (playerList [currentPlayerIndex].GetComponent<Medic> () != null) {//Checks if script is attached to player
+			Medic temp = playerList [currentPlayerIndex].GetComponent<Medic>();//Get the script of the player
+			temp.getEnemyToAttack(targetTile); //Calls the attack function of the class								
 		}
-		else if (playerList [currentPlayerIndex].GetComponent<Specialist> () != null) {
+		else if (playerList [currentPlayerIndex].GetComponent<Specialist> () != null) {//Checks if script is attached to player
 			Specialist temp = playerList [currentPlayerIndex].GetComponent<Specialist>();
+			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class							
+		}
+		else if (playerList [currentPlayerIndex].GetComponent<Tank> () != null) {//Checks if script is attached to player
+			Tank temp = playerList [currentPlayerIndex].GetComponent<Tank>();//Get the script of the player
 			temp.getEnemyToAttack(targetTile);						
 		}
-		else if (playerList [currentPlayerIndex].GetComponent<Tank> () != null) {
-			Tank temp = playerList [currentPlayerIndex].GetComponent<Tank>();
-			temp.getEnemyToAttack(targetTile);						
+		else if (playerList [currentPlayerIndex].GetComponent<Jet> () != null) {//Checks if script is attached to player
+			Jet temp = playerList [currentPlayerIndex].GetComponent<Jet>();//Get the script of the player
+			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class							
 		}
-		else if (playerList [currentPlayerIndex].GetComponent<Jet> () != null) {
-			Jet temp = playerList [currentPlayerIndex].GetComponent<Jet>();
-			temp.getEnemyToAttack(targetTile);						
+		else if (playerList [currentPlayerIndex].GetComponent<Helicopter> () != null) {//Checks if script is attached to player
+			Helicopter temp = playerList [currentPlayerIndex].GetComponent<Helicopter>();//Get the script of the player
+			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class						
 		}
-		else if (playerList [currentPlayerIndex].GetComponent<Helicopter> () != null) {
-			Helicopter temp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
-			temp.getEnemyToAttack(targetTile);						
-		}
-
+		
 		else{
 			Debug.Log("Something went wrong");
 		}
@@ -416,8 +440,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	//Null exception here, will fix later
-	//When click move botton, the available path for player will Highlighted
+	//When click move botton, the available range for player will Highlighted
+	/*
+	 * Partially working, will fix for future
+	 * Shows outer limit but does not fill in square
+	 */
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
 		print (originLocationX + "and" + originLocationY);
 		
@@ -434,7 +461,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	//After the movement, hightlight paht set to be disable
+	//After the movement, highlight path will be disabled
 	public void disableHightLight(){
 		for (int i = 0; i < mapSize; i++) {
 			for (int j = 0; j < mapSize; j++) {

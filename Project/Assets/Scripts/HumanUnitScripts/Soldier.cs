@@ -96,48 +96,51 @@ public class Soldier : Player {
 	}
 	
 	
+	/*
+	 * Finds the enemy's class on the selected tile to attack
+	 */
 	public void getEnemyToAttack(Tile tile){
-		foreach (GameObject p in GameManager.instance.playerList) {
+		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 			if(p.GetComponent<AlienShip>() != null){
 				AlienShip target = null;
-				AlienShip temp = p.GetComponent<AlienShip>();
+				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
 				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SoldierAttack.attackAlienShip(target);
+					SoldierAttack.attackAlienShip(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<AlienSoldier>() != null){
+			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
 				AlienSoldier target = null;
-				AlienSoldier temp = p.GetComponent<AlienSoldier>();				
+				AlienSoldier temp = p.GetComponent<AlienSoldier>();	 //Gets enemy script			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SoldierAttack.attackAlienSoldier(target);
+					SoldierAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<AlienSupport>() != null){
+			else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
 				AlienSupport target = null;
-				AlienSupport temp = p.GetComponent<AlienSupport>();				
+				AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SoldierAttack.attackAlienSupport(target);
+					SoldierAttack.attackAlienSupport(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<Berserker>() != null){
+			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
 				Berserker target = null;
-				Berserker temp = p.GetComponent<Berserker>();				
+				Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	 			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SoldierAttack.attackAlienBerserker(target);
+					SoldierAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
 				}
 			}
 			/**********TEST class************/
-			else if(p.GetComponent<AiPlayer>() != null){
+			else if(p.GetComponent<AiPlayer>() != null){ //Checks for enemy class on tile target
 				AiPlayer target = null;
 				AiPlayer temp = p.GetComponent<AiPlayer>();				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SoldierAttack.attackAIPlayer(target);
+					SoldierAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 				}
 			}
 			
