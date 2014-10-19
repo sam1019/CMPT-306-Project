@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour {
 		/*Iterating through the list, the current index is the current player's turn
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
-		this.disableMoveHightLight ();
+		this.disableHightLight ();
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
 		}
@@ -430,7 +430,7 @@ public class GameManager : MonoBehaviour {
 
 
 	//After the movement, hightlight paht set to be disable
-	public void disableMoveHightLight(){
+	public void disableHightLight(){
 		for (int i = 0; i < mapSize; i++) {
 			for (int j = 0; j < mapSize; j++) {
 				this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.white;
