@@ -162,6 +162,7 @@ public class Medic : Player {
 				//GameManager.instance.disableMoveHightLight();;
 				moving = true;
 				isAttacking = false;
+				//Enables highlight path hightlight
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} else {
 				moving = false;
@@ -178,7 +179,7 @@ public class Medic : Player {
 				//GameManager.instance.removeTileHighlights();
 				moving = false;
 				isAttacking = true;
-				
+				//Enables attack hightlight range
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 			} else {
 				moving = false;

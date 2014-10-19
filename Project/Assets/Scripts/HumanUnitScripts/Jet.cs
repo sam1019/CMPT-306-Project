@@ -164,6 +164,7 @@ public class Jet : Player {
 				GameManager.instance.disableHightLight();
 				moving = true;
 				isAttacking = false;
+				//Enables highlight path hightlight
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} 
 			//otherwise disable all Highlight
@@ -183,6 +184,7 @@ public class Jet : Player {
 			if (!isAttacking) {
 				moving = false;
 				isAttacking = true;
+				//Enables attack hightlight range
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 
 			} 

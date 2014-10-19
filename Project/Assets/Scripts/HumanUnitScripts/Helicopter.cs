@@ -160,6 +160,7 @@ public class Helicopter : Player {
 				//GameManager.instance.disableMoveHightLight();
 				moving = true;
 				isAttacking = false;
+				//Enable path highlight
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} else {
 				moving = false;
@@ -176,7 +177,7 @@ public class Helicopter : Player {
 				//GameManager.instance.removeTileHighlights();
 				moving = false;
 				isAttacking = true;
-				
+				//Enable hightlight for attack range
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 			} else {
 				moving = false;
