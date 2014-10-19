@@ -20,10 +20,19 @@ public class Berserker : Player {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (this.HP <= 0) {
-			this.transform.renderer.material.color = Color.black;
-			Destroy(this.transform.gameObject);
-		}
+	public override void Update () {
+		
+	}
+	public override void TurnUpdate (){
+		GameManager.instance.nextTurn();
+		base.TurnUpdate ();
+	}
+	public virtual void TurnOnGUI(){
+	}
+	
+	//Display HP
+	public void OnGUI(){
+		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
+		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}
 }
