@@ -68,9 +68,6 @@
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\TileScripts\Tile.cs" />
-     <Compile Include="Assets\Scripts\TileScripts\TileHighlight.cs" />
-     <Compile Include="Assets\Scripts\TileScripts\TilePath.cs" />
-     <Compile Include="Assets\Scripts\TileScripts\TilePathFinder.cs" />
      <Compile Include="Assets\Scripts\UserPlayer.cs" />
      <None Include="Assets\EVERYONE_READ_ME.txt" />
   </ItemGroup>

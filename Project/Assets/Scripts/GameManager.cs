@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour {
 	public GameObject TilePrefab;
 	public GameObject AIPrefab;
 	public GameObject tile;
+	public GameObject jetPrefab;
+	public GameObject soldierPrefab;
 	public List <GameObject> playerList;
 	public List <List<GameObject>> map;
 	public List <GameObject> aiList;
 	public Transform mapTransform;
+	public GameObject AlienTroopPrefab;
 	GameObject player;
 	Tile grid;
 	public int mapSize = 11; //The size of the map i 
@@ -384,14 +387,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-	public void highlightTilesAt(Vector2 originLocation, Color highlightColor, int distance) {
-		highlightTilesAt(originLocation, highlightColor, distance, true);
-	}
-	
-	public void highlightTilesAt(Vector2 originLocation, Color highlightColor, int distance, bool ignorePlayers) {
-		
 
-	}
 	//Null exception here, will fix later
 	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
 
@@ -412,6 +408,19 @@ public class GameManager : MonoBehaviour {
 	}
 	//Null exception here, will fix later
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
+		int startX = originLocationX - range;
+		if (startX <= 0) {
+			startX = originLocationX;
+		}
+		int startY = originLocationY - range; 
+		if (startY <= 0) {
+			startY = originLocationY;
+		}
+		while (startX<(range*2)+1) {
+			this.map [startX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+			startX+=1;
+
+		}
 		this.map [originLocationX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 		this.map [originLocationX] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 		
@@ -423,6 +432,9 @@ public class GameManager : MonoBehaviour {
 		
 		this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 		this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+	}
+	public void disablePathHighlight(){
+
 	}
 
 	/* Used to spawn the map 
@@ -455,6 +467,7 @@ public class GameManager : MonoBehaviour {
 
 	public void spawnPlayers(){
 		//Spawn first player and add it to the list
+		/********************Spawning tank*****************************/
 		GameObject tank;
 
 		tank = Instantiate(tankPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
@@ -463,36 +476,30 @@ public class GameManager : MonoBehaviour {
 		tankTemp.gridPosition = new Vector2 (0, 0);
 		playerCount += 1;
 
-		/********************Spawning tank*****************************/
 
-		tank = Instantiate(tankPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(tank);
+		GameObject jet;
+		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		playerList.Add(jet);
 		playerCount += 1;
 
-
-
-		/*
-		print (player.transform.position.x);
-		print (player.transform.position.y); */
+		GameObject soldier;
+		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		playerList.Add(soldier);
+		playerCount += 1;
 
 
 	}
 	public void spawnAI(){
 
-		GameObject aiplayer = Instantiate(AIPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		GameObject aiplayer = Instantiate(AlienTroopPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(aiplayer);
 		aiCount += 1;
 		aiList.Add(aiplayer);
-		AiPlayer temp = aiplayer.GetComponent<AiPlayer> ();
+		AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
 		temp.gridPosition = new Vector2 (6, 6);
+
 	}
-
-	//Added panel from here for genearl game control
-	void OnGUI()
-	{	
-
-		//Move Button
-		//Throws null exception because when it is AI turn, UserPlayer script is not attached to it, will fix
+	public void whoToTurnOnGui(){
 		if(playerList[currentPlayerIndex].GetComponent<UserPlayer>()!=null){
 			if (playerList[currentPlayerIndex].GetComponent<UserPlayer>().HP > 0){
 				playerList[currentPlayerIndex].GetComponent<UserPlayer>().TurnOnGUI();
@@ -501,12 +508,55 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		else if(playerList[currentPlayerIndex].GetComponent<Tank>()!=null){
-				if (playerList[currentPlayerIndex].GetComponent<Tank>().HP > 0){
+			if (playerList[currentPlayerIndex].GetComponent<Tank>().HP > 0){
 				playerList[currentPlayerIndex].GetComponent<Tank>().TurnOnGUI();
 				
 				
 			}
 		}
+		else if(playerList[currentPlayerIndex].GetComponent<Jet>()!=null){
+			if (playerList[currentPlayerIndex].GetComponent<Jet>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<Jet>().TurnOnGUI();
+				
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Soldier>()!=null){
+			if (playerList[currentPlayerIndex].GetComponent<Soldier>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<Soldier>().TurnOnGUI();
+				
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Medic>()!=null){
+			if (playerList[currentPlayerIndex].GetComponent<Medic>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<Medic>().TurnOnGUI();
+				
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Specialist>()!=null){
+			if (playerList[currentPlayerIndex].GetComponent<Specialist>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<Specialist>().TurnOnGUI();
+				
+				
+			}
+		}
+		else if(playerList[currentPlayerIndex].GetComponent<Helicopter>()!=null){
+			if (playerList[currentPlayerIndex].GetComponent<Helicopter>().HP > 0){
+				playerList[currentPlayerIndex].GetComponent<Helicopter>().TurnOnGUI();
+				
+				
+			}
+		}
+	}
+	//Added panel from here for genearl game control
+	void OnGUI()
+	{	
+
+		//Move Button
+		whoToTurnOnGui ();
+
 
 		
 		//Pause Button

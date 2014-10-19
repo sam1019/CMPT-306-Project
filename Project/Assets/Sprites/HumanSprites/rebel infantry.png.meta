@@ -1,0 +1,5272 @@
+fileFormatVersion: 2
+guid: 1a668ba7a77a00e4aa4ddc05add31c45
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rebel infantry_0
+    21300002: rebel infantry_1
+    21300004: rebel infantry_2
+    21300006: rebel infantry_3
+    21300008: rebel infantry_4
+    21300010: rebel infantry_5
+    21300012: rebel infantry_6
+    21300014: rebel infantry_7
+    21300016: rebel infantry_8
+    21300018: rebel infantry_9
+    21300020: rebel infantry_10
+    21300022: rebel infantry_11
+    21300024: rebel infantry_12
+    21300026: rebel infantry_13
+    21300028: rebel infantry_14
+    21300030: rebel infantry_15
+    21300032: rebel infantry_16
+    21300034: rebel infantry_17
+    21300036: rebel infantry_18
+    21300038: rebel infantry_19
+    21300040: rebel infantry_20
+    21300042: rebel infantry_21
+    21300044: rebel infantry_22
+    21300046: rebel infantry_23
+    21300048: rebel infantry_24
+    21300050: rebel infantry_25
+    21300052: rebel infantry_26
+    21300054: rebel infantry_27
+    21300056: rebel infantry_28
+    21300058: rebel infantry_29
+    21300060: rebel infantry_30
+    21300062: rebel infantry_31
+    21300064: rebel infantry_32
+    21300066: rebel infantry_33
+    21300068: rebel infantry_34
+    21300070: rebel infantry_35
+    21300072: rebel infantry_36
+    21300074: rebel infantry_37
+    21300076: rebel infantry_38
+    21300078: rebel infantry_39
+    21300080: rebel infantry_40
+    21300082: rebel infantry_41
+    21300084: rebel infantry_42
+    21300086: rebel infantry_43
+    21300088: rebel infantry_44
+    21300090: rebel infantry_45
+    21300092: rebel infantry_46
+    21300094: rebel infantry_47
+    21300096: rebel infantry_48
+    21300098: rebel infantry_49
+    21300100: rebel infantry_50
+    21300102: rebel infantry_51
+    21300104: rebel infantry_52
+    21300106: rebel infantry_53
+    21300108: rebel infantry_54
+    21300110: rebel infantry_55
+    21300112: rebel infantry_56
+    21300114: rebel infantry_57
+    21300116: rebel infantry_58
+    21300118: rebel infantry_59
+    21300120: rebel infantry_60
+    21300122: rebel infantry_61
+    21300124: rebel infantry_62
+    21300126: rebel infantry_63
+    21300128: rebel infantry_64
+    21300130: rebel infantry_65
+    21300132: rebel infantry_66
+    21300134: rebel infantry_67
+    21300136: rebel infantry_68
+    21300138: rebel infantry_69
+    21300140: rebel infantry_70
+    21300142: rebel infantry_71
+    21300144: rebel infantry_72
+    21300146: rebel infantry_73
+    21300148: rebel infantry_74
+    21300150: rebel infantry_75
+    21300152: rebel infantry_76
+    21300154: rebel infantry_77
+    21300156: rebel infantry_78
+    21300158: rebel infantry_79
+    21300160: rebel infantry_80
+    21300162: rebel infantry_81
+    21300164: rebel infantry_82
+    21300166: rebel infantry_83
+    21300168: rebel infantry_84
+    21300170: rebel infantry_85
+    21300172: rebel infantry_86
+    21300174: rebel infantry_87
+    21300176: rebel infantry_88
+    21300178: rebel infantry_89
+    21300180: rebel infantry_90
+    21300182: rebel infantry_91
+    21300184: rebel infantry_92
+    21300186: rebel infantry_93
+    21300188: rebel infantry_94
+    21300190: rebel infantry_95
+    21300192: rebel infantry_96
+    21300194: rebel infantry_97
+    21300196: rebel infantry_98
+    21300198: rebel infantry_99
+    21300200: rebel infantry_100
+    21300202: rebel infantry_101
+    21300204: rebel infantry_102
+    21300206: rebel infantry_103
+    21300208: rebel infantry_104
+    21300210: rebel infantry_105
+    21300212: rebel infantry_106
+    21300214: rebel infantry_107
+    21300216: rebel infantry_108
+    21300218: rebel infantry_109
+    21300220: rebel infantry_110
+    21300222: rebel infantry_111
+    21300224: rebel infantry_112
+    21300226: rebel infantry_113
+    21300228: rebel infantry_114
+    21300230: rebel infantry_115
+    21300232: rebel infantry_116
+    21300234: rebel infantry_117
+    21300236: rebel infantry_118
+    21300238: rebel infantry_119
+    21300240: rebel infantry_120
+    21300242: rebel infantry_121
+    21300244: rebel infantry_122
+    21300246: rebel infantry_123
+    21300248: rebel infantry_124
+    21300250: rebel infantry_125
+    21300252: rebel infantry_126
+    21300254: rebel infantry_127
+    21300256: rebel infantry_128
+    21300258: rebel infantry_129
+    21300260: rebel infantry_130
+    21300262: rebel infantry_131
+    21300264: rebel infantry_132
+    21300266: rebel infantry_133
+    21300268: rebel infantry_134
+    21300270: rebel infantry_135
+    21300272: rebel infantry_136
+    21300274: rebel infantry_137
+    21300276: rebel infantry_138
+    21300278: rebel infantry_139
+    21300280: rebel infantry_140
+    21300282: rebel infantry_141
+    21300284: rebel infantry_142
+    21300286: rebel infantry_143
+    21300288: rebel infantry_144
+    21300290: rebel infantry_145
+    21300292: rebel infantry_146
+    21300294: rebel infantry_147
+    21300296: rebel infantry_148
+    21300298: rebel infantry_149
+    21300300: rebel infantry_150
+    21300302: rebel infantry_151
+    21300304: rebel infantry_152
+    21300306: rebel infantry_153
+    21300308: rebel infantry_154
+    21300310: rebel infantry_155
+    21300312: rebel infantry_156
+    21300314: rebel infantry_157
+    21300316: rebel infantry_158
+    21300318: rebel infantry_159
+    21300320: rebel infantry_160
+    21300322: rebel infantry_161
+    21300324: rebel infantry_162
+    21300326: rebel infantry_163
+    21300328: rebel infantry_164
+    21300330: rebel infantry_165
+    21300332: rebel infantry_166
+    21300334: rebel infantry_167
+    21300336: rebel infantry_168
+    21300338: rebel infantry_169
+    21300340: rebel infantry_170
+    21300342: rebel infantry_171
+    21300344: rebel infantry_172
+    21300346: rebel infantry_173
+    21300348: rebel infantry_174
+    21300350: rebel infantry_175
+    21300352: rebel infantry_176
+    21300354: rebel infantry_177
+    21300356: rebel infantry_178
+    21300358: rebel infantry_179
+    21300360: rebel infantry_180
+    21300362: rebel infantry_181
+    21300364: rebel infantry_182
+    21300366: rebel infantry_183
+    21300368: rebel infantry_184
+    21300370: rebel infantry_185
+    21300372: rebel infantry_186
+    21300374: rebel infantry_187
+    21300376: rebel infantry_188
+    21300378: rebel infantry_189
+    21300380: rebel infantry_190
+    21300382: rebel infantry_191
+    21300384: rebel infantry_192
+    21300386: rebel infantry_193
+    21300388: rebel infantry_194
+    21300390: rebel infantry_195
+    21300392: rebel infantry_196
+    21300394: rebel infantry_197
+    21300396: rebel infantry_198
+    21300398: rebel infantry_199
+    21300400: rebel infantry_200
+    21300402: rebel infantry_201
+    21300404: rebel infantry_202
+    21300406: rebel infantry_203
+    21300408: rebel infantry_204
+    21300410: rebel infantry_205
+    21300412: rebel infantry_206
+    21300414: rebel infantry_207
+    21300416: rebel infantry_208
+    21300418: rebel infantry_209
+    21300420: rebel infantry_210
+    21300422: rebel infantry_211
+    21300424: rebel infantry_212
+    21300426: rebel infantry_213
+    21300428: rebel infantry_214
+    21300430: rebel infantry_215
+    21300432: rebel infantry_216
+    21300434: rebel infantry_217
+    21300436: rebel infantry_218
+    21300438: rebel infantry_219
+    21300440: rebel infantry_220
+    21300442: rebel infantry_221
+    21300444: rebel infantry_222
+    21300446: rebel infantry_223
+    21300448: rebel infantry_224
+    21300450: rebel infantry_225
+    21300452: rebel infantry_226
+    21300454: rebel infantry_227
+    21300456: rebel infantry_228
+    21300458: rebel infantry_229
+    21300460: rebel infantry_230
+    21300462: rebel infantry_231
+    21300464: rebel infantry_232
+    21300466: rebel infantry_233
+    21300468: rebel infantry_234
+    21300470: rebel infantry_235
+    21300472: rebel infantry_236
+    21300474: rebel infantry_237
+    21300476: rebel infantry_238
+    21300478: rebel infantry_239
+    21300480: rebel infantry_240
+    21300482: rebel infantry_241
+    21300484: rebel infantry_242
+    21300486: rebel infantry_243
+    21300488: rebel infantry_244
+    21300490: rebel infantry_245
+    21300492: rebel infantry_246
+    21300494: rebel infantry_247
+    21300496: rebel infantry_248
+    21300498: rebel infantry_249
+    21300500: rebel infantry_250
+    21300502: rebel infantry_251
+    21300504: rebel infantry_252
+    21300506: rebel infantry_253
+    21300508: rebel infantry_254
+    21300510: rebel infantry_255
+    21300512: rebel infantry_256
+    21300514: rebel infantry_257
+    21300516: rebel infantry_258
+    21300518: rebel infantry_259
+    21300520: rebel infantry_260
+    21300522: rebel infantry_261
+    21300524: rebel infantry_262
+    21300526: rebel infantry_263
+    21300528: rebel infantry_264
+    21300530: rebel infantry_265
+    21300532: rebel infantry_266
+    21300534: rebel infantry_267
+    21300536: rebel infantry_268
+    21300538: rebel infantry_269
+    21300540: rebel infantry_270
+    21300542: rebel infantry_271
+    21300544: rebel infantry_272
+    21300546: rebel infantry_273
+    21300548: rebel infantry_274
+    21300550: rebel infantry_275
+    21300552: rebel infantry_276
+    21300554: rebel infantry_277
+    21300556: rebel infantry_278
+    21300558: rebel infantry_279
+    21300560: rebel infantry_280
+    21300562: rebel infantry_281
+    21300564: rebel infantry_282
+    21300566: rebel infantry_283
+    21300568: rebel infantry_284
+    21300570: rebel infantry_285
+    21300572: rebel infantry_286
+    21300574: rebel infantry_287
+    21300576: rebel infantry_288
+    21300578: rebel infantry_289
+    21300580: rebel infantry_290
+    21300582: rebel infantry_291
+    21300584: rebel infantry_292
+    21300586: rebel infantry_293
+    21300588: rebel infantry_294
+    21300590: rebel infantry_295
+    21300592: rebel infantry_296
+    21300594: rebel infantry_297
+    21300596: rebel infantry_298
+    21300598: rebel infantry_299
+    21300600: rebel infantry_300
+    21300602: rebel infantry_301
+    21300604: rebel infantry_302
+    21300606: rebel infantry_303
+    21300608: rebel infantry_304
+    21300610: rebel infantry_305
+    21300612: rebel infantry_306
+    21300614: rebel infantry_307
+    21300616: rebel infantry_308
+    21300618: rebel infantry_309
+    21300620: rebel infantry_310
+    21300622: rebel infantry_311
+    21300624: rebel infantry_312
+    21300626: rebel infantry_313
+    21300628: rebel infantry_314
+    21300630: rebel infantry_315
+    21300632: rebel infantry_316
+    21300634: rebel infantry_317
+    21300636: rebel infantry_318
+    21300638: rebel infantry_319
+    21300640: rebel infantry_320
+    21300642: rebel infantry_321
+    21300644: rebel infantry_322
+    21300646: rebel infantry_323
+    21300648: rebel infantry_324
+    21300650: rebel infantry_325
+    21300652: rebel infantry_326
+    21300654: rebel infantry_327
+    21300656: rebel infantry_328
+    21300658: rebel infantry_329
+    21300660: rebel infantry_330
+    21300662: rebel infantry_331
+    21300664: rebel infantry_332
+    21300666: rebel infantry_333
+    21300668: rebel infantry_334
+    21300670: rebel infantry_335
+    21300672: rebel infantry_336
+    21300674: rebel infantry_337
+    21300676: rebel infantry_338
+    21300678: rebel infantry_339
+    21300680: rebel infantry_340
+    21300682: rebel infantry_341
+    21300684: rebel infantry_342
+    21300686: rebel infantry_343
+    21300688: rebel infantry_344
+    21300690: rebel infantry_345
+    21300692: rebel infantry_346
+    21300694: rebel infantry_347
+    21300696: rebel infantry_348
+    21300698: rebel infantry_349
+    21300700: rebel infantry_350
+    21300702: rebel infantry_351
+    21300704: rebel infantry_352
+    21300706: rebel infantry_353
+    21300708: rebel infantry_354
+    21300710: rebel infantry_355
+    21300712: rebel infantry_356
+    21300714: rebel infantry_357
+    21300716: rebel infantry_358
+    21300718: rebel infantry_359
+    21300720: rebel infantry_360
+    21300722: rebel infantry_361
+    21300724: rebel infantry_362
+    21300726: rebel infantry_363
+    21300728: rebel infantry_364
+    21300730: rebel infantry_365
+    21300732: rebel infantry_366
+    21300734: rebel infantry_367
+    21300736: rebel infantry_368
+    21300738: rebel infantry_369
+    21300740: rebel infantry_370
+    21300742: rebel infantry_371
+    21300744: rebel infantry_372
+    21300746: rebel infantry_373
+    21300748: rebel infantry_374
+    21300750: rebel infantry_375
+    21300752: rebel infantry_376
+    21300754: rebel infantry_377
+    21300756: rebel infantry_378
+    21300758: rebel infantry_379
+    21300760: rebel infantry_380
+    21300762: rebel infantry_381
+    21300764: rebel infantry_382
+    21300766: rebel infantry_383
+    21300768: rebel infantry_384
+    21300770: rebel infantry_385
+    21300772: rebel infantry_386
+    21300774: rebel infantry_387
+    21300776: rebel infantry_388
+    21300778: rebel infantry_389
+    21300780: rebel infantry_390
+    21300782: rebel infantry_391
+    21300784: rebel infantry_392
+    21300786: rebel infantry_393
+    21300788: rebel infantry_394
+    21300790: rebel infantry_395
+    21300792: rebel infantry_396
+    21300794: rebel infantry_397
+    21300796: rebel infantry_398
+    21300798: rebel infantry_399
+    21300800: rebel infantry_400
+    21300802: rebel infantry_401
+    21300804: rebel infantry_402
+    21300806: rebel infantry_403
+    21300808: rebel infantry_404
+    21300810: rebel infantry_405
+    21300812: rebel infantry_406
+    21300814: rebel infantry_407
+    21300816: rebel infantry_408
+    21300818: rebel infantry_409
+    21300820: rebel infantry_410
+    21300822: rebel infantry_411
+    21300824: rebel infantry_412
+    21300826: rebel infantry_413
+    21300828: rebel infantry_414
+    21300830: rebel infantry_415
+    21300832: rebel infantry_416
+    21300834: rebel infantry_417
+    21300836: rebel infantry_418
+    21300838: rebel infantry_419
+    21300840: rebel infantry_420
+    21300842: rebel infantry_421
+    21300844: rebel infantry_422
+    21300846: rebel infantry_423
+    21300848: rebel infantry_424
+    21300850: rebel infantry_425
+    21300852: rebel infantry_426
+    21300854: rebel infantry_427
+    21300856: rebel infantry_428
+    21300858: rebel infantry_429
+    21300860: rebel infantry_430
+    21300862: rebel infantry_431
+    21300864: rebel infantry_432
+    21300866: rebel infantry_433
+    21300868: rebel infantry_434
+    21300870: rebel infantry_435
+    21300872: rebel infantry_436
+    21300874: rebel infantry_437
+    21300876: rebel infantry_438
+    21300878: rebel infantry_439
+    21300880: rebel infantry_440
+    21300882: rebel infantry_441
+    21300884: rebel infantry_442
+    21300886: rebel infantry_443
+    21300888: rebel infantry_444
+    21300890: rebel infantry_445
+    21300892: rebel infantry_446
+    21300894: rebel infantry_447
+    21300896: rebel infantry_448
+    21300898: rebel infantry_449
+    21300900: rebel infantry_450
+    21300902: rebel infantry_451
+    21300904: rebel infantry_452
+    21300906: rebel infantry_453
+    21300908: rebel infantry_454
+    21300910: rebel infantry_455
+    21300912: rebel infantry_456
+    21300914: rebel infantry_457
+    21300916: rebel infantry_458
+    21300918: rebel infantry_459
+    21300920: rebel infantry_460
+    21300922: rebel infantry_461
+    21300924: rebel infantry_462
+    21300926: rebel infantry_463
+    21300928: rebel infantry_464
+    21300930: rebel infantry_465
+    21300932: rebel infantry_466
+    21300934: rebel infantry_467
+    21300936: rebel infantry_468
+    21300938: rebel infantry_469
+    21300940: rebel infantry_470
+    21300942: rebel infantry_471
+    21300944: rebel infantry_472
+    21300946: rebel infantry_473
+    21300948: rebel infantry_474
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rebel infantry_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1208
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1208
+        width: 21
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1208
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 1208
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 1208
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1208
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_6
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1208
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_7
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1208
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_8
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1208
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_9
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 1208
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_10
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1208
+        width: 26
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_11
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1208
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_12
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_13
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_14
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_15
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_16
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 1194
+        width: 24
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_17
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_18
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_19
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 1208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_20
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 1208
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_21
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1208
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_22
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 1208
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_23
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 1208
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1154
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_25
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1154
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_26
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1154
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_27
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 1154
+        width: 46
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_28
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 1154
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_29
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1154
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_30
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1154
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_31
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1154
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_32
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1154
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_33
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1154
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_34
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 1174
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_35
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 1178
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_36
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 1154
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_37
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 1154
+        width: 63
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_38
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1192
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_39
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1099
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_40
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1099
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_41
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 1099
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_42
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1099
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_43
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 1099
+        width: 66
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_44
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1099
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_45
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1099
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_46
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1123
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_47
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 1099
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_48
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 1121
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_49
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1099
+        width: 78
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_50
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1133
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_51
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1133
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_52
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 1099
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_53
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1134
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_54
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1099
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_55
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1099
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_56
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1099
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_57
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1099
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_58
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1099
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_59
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1122
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_60
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1120
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_61
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 1120
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_62
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1040
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_63
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1075
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_64
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1040
+        width: 60
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_65
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1040
+        width: 59
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_66
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1040
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_67
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1040
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_68
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1040
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_69
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1040
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_70
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1040
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_71
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1040
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_72
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1061
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_73
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 1040
+        width: 40
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_74
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1040
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_75
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1040
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_76
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1040
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_77
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 1040
+        width: 35
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_78
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1040
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_79
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1040
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_80
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1015
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_81
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 983
+        width: 47
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_82
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 983
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_83
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 983
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_84
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 983
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_85
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 983
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_86
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 983
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_87
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 983
+        width: 66
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_88
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 983
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_89
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1007
+        width: 33
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_90
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 983
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_91
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1005
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_92
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 983
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_93
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1017
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_94
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 1017
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_95
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 983
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_96
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1018
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_97
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 983
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_98
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1018
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_99
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 983
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_100
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 983
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_101
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 983
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_102
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1006
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_103
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1004
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_104
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1004
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_105
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1004
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_106
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 926
+        width: 60
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_107
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 926
+        width: 59
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_108
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 926
+        width: 60
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_109
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 926
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_110
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 926
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_111
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 926
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_112
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 926
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_113
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 926
+        width: 40
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_114
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 954
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_115
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 963
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_116
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 926
+        width: 40
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_117
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 926
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_118
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 926
+        width: 40
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_119
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 926
+        width: 49
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_120
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 877
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_121
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 877
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_122
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 877
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_123
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 877
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_124
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 877
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_125
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 877
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_126
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 877
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_127
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 877
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_128
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 877
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_129
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 877
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_130
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 877
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_131
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 877
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_132
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 877
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_133
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 877
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_134
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 877
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_135
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 877
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_136
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 877
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_137
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 877
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_138
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 877
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_139
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 877
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_140
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 877
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_141
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 877
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_142
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 877
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_143
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 826
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_144
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 826
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_145
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 826
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_146
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 826
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_147
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 826
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_148
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 826
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_149
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 826
+        width: 29
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_150
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 826
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_151
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 826
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_152
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 826
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_153
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 826
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_154
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 826
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_155
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 826
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_156
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 826
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_157
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 826
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_158
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 826
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_159
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 826
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_160
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 826
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_161
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 826
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_162
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 826
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_163
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 777
+        width: 21
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_164
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 826
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_165
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 726
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_166
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 726
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_167
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 757
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_168
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 757
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_169
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 757
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_170
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 749
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_171
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 745
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_172
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 723
+        width: 55
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_173
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 727
+        width: 40
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_174
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 726
+        width: 42
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_175
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 727
+        width: 39
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_176
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 745
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_177
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 741
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_178
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 738
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_179
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 723
+        width: 43
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_180
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 723
+        width: 44
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_181
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 723
+        width: 42
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_182
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 723
+        width: 44
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_183
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 735
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_184
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 723
+        width: 47
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_185
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 723
+        width: 47
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_186
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 723
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_187
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 723
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_188
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 723
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_189
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 669
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_190
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 669
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_191
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 669
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_192
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 669
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_193
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 669
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_194
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 669
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_195
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 633
+        width: 59
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_196
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 690
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_197
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 671
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_198
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 686
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_199
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 672
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_200
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 687
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_201
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 684
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_202
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 669
+        width: 47
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_203
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 696
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_204
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 674
+        width: 46
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_205
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 669
+        width: 46
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_206
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 669
+        width: 57
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_207
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 669
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_208
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 669
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_209
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 669
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_210
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 684
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_211
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 669
+        width: 46
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_212
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 617
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_213
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 564
+        width: 31
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_214
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 630
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_215
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 617
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_216
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 564
+        width: 63
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_217
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 617
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_218
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 648
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_219
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 644
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_220
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 619
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_221
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 622
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_222
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 617
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_223
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 621
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_224
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 592
+        width: 39
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_225
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 620
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_226
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 567
+        width: 55
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_227
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 619
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_228
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 617
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_229
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 619
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_230
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 633
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_231
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 624
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_232
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 632
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_233
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 636
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_234
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 631
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_235
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 636
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_236
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 629
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_237
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 622
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_238
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 629
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_239
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 629
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_240
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 563
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_241
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 563
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_242
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 571
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_243
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 563
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_244
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 563
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_245
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 563
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_246
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 563
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_247
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 563
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_248
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 563
+        width: 43
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_249
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 571
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_250
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 592
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_251
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 579
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_252
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 565
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_253
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 563
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_254
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 589
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_255
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 563
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_256
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 563
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_257
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 563
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_258
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 563
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_259
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 567
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_260
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 506
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_261
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 518
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_262
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 508
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_263
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 510
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_264
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 512
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_265
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 506
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_266
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 506
+        width: 68
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_267
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 524
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_268
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 526
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_269
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 507
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_270
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 462
+        width: 36
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_271
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 506
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_272
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 506
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_273
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 506
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_274
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 506
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_275
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 506
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_276
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 506
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_277
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 506
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_278
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 506
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_279
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 506
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_280
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 506
+        width: 43
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_281
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 506
+        width: 49
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_282
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 506
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_283
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 506
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_284
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 506
+        width: 48
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_285
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 506
+        width: 47
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_286
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 506
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_287
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 443
+        width: 43
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_288
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 443
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_289
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 459
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_290
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 460
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_291
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 451
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_292
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 443
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_293
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 443
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_294
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 443
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_295
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 443
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_296
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 427
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_297
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 397
+        width: 39
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_298
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 443
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_299
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 422
+        width: 36
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_300
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 424
+        width: 36
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_301
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 443
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_302
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 443
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_303
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 443
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_304
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 443
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_305
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 443
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_306
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 393
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_307
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 393
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_308
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 393
+        width: 35
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_309
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 393
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_310
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 393
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_311
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 393
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_312
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 393
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_313
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 393
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_314
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 393
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_315
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 393
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_316
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 413
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_317
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 415
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_318
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 393
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_319
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 393
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_320
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 393
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_321
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 397
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_322
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 393
+        width: 48
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_323
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 393
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_324
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 393
+        width: 48
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_325
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 341
+        width: 47
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_326
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 341
+        width: 48
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_327
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 341
+        width: 33
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_328
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 341
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_329
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 341
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_330
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 341
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_331
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 341
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_332
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 341
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_333
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 341
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_334
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 341
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_335
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 341
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_336
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 341
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_337
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 341
+        width: 22
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_338
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 341
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_339
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 341
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_340
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 341
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_341
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 341
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_342
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 341
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_343
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 341
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_344
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 341
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_345
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 341
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_346
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 341
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_347
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 341
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_348
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 341
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_349
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 341
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_350
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 283
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_351
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 283
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_352
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 283
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_353
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 283
+        width: 78
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_354
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 283
+        width: 79
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_355
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 283
+        width: 81
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_356
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 283
+        width: 81
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_357
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 283
+        width: 80
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_358
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 283
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_359
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 283
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_360
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 228
+        width: 77
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_361
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 228
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_362
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 228
+        width: 80
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_363
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 228
+        width: 80
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_364
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 228
+        width: 77
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_365
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 228
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_366
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 228
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_367
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 228
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_368
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 228
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_369
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 228
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_370
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 173
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_371
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 173
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_372
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 173
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_373
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 173
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_374
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 173
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_375
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 173
+        width: 77
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_376
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 173
+        width: 79
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_377
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 173
+        width: 79
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_378
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 173
+        width: 78
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_379
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 173
+        width: 81
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_380
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 117
+        width: 81
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_381
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 117
+        width: 84
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_382
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 117
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_383
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 117
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_384
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 117
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_385
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 117
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_386
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 117
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_387
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 117
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_388
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 117
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_389
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 117
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_390
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 117
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_391
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 117
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_392
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 117
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_393
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 117
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_394
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 117
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_395
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 117
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_396
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 117
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_397
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 117
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_398
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 117
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_399
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 117
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_400
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_401
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 64
+        width: 41
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_402
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 64
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_403
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 64
+        width: 48
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_404
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 64
+        width: 50
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_405
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 64
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_406
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 64
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_407
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 63
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_408
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 63
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_409
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 64
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_410
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 64
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_411
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 64
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_412
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 64
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_413
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 64
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_414
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 64
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_415
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 64
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_416
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 64
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_417
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 64
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_418
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 64
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_419
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 64
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_420
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 64
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_421
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 8
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_422
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 8
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_423
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 8
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_424
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 8
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_425
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 8
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_426
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 8
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_427
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 8
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_428
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 8
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_429
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 8
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_430
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 8
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_431
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 8
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_432
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 8
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_433
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 8
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_434
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 8
+        width: 12
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_435
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 21
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_436
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 21
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_437
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 21
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_438
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_439
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 21
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_440
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 21
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_441
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 21
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_442
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_443
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 19
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_444
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 21
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_445
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 21
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_446
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 10
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_447
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_448
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 21
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_449
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 21
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_450
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 21
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_451
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 19
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_452
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 21
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_453
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 19
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_454
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 21
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_455
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 21
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_456
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 8
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_457
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 10
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_458
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 10
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_459
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 9
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_460
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 10
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_461
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 10
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_462
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 10
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_463
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_464
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 10
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_465
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_466
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 10
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_467
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_468
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_469
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_470
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_471
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_472
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 10
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_473
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 8
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rebel infantry_474
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 30
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

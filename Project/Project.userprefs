@@ -1,12 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TileScripts\TilePathFinder.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HumanUnitScripts\Helicopter.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameManager.cs" Line="408" Column="3" />
-      <File FileName="Assets\Scripts\TileScripts\Tile.cs" Line="11" Column="2" />
-      <File FileName="Assets\Scripts\TileScripts\TilePathFinder.cs" Line="40" Column="27" />
-      <File FileName="Assets\Scripts\TileScripts\TilePath.cs" Line="4" Column="19" />
-      <File FileName="Assets\Scripts\TileScripts\TileHighlight.cs" Line="12" Column="79" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="486" Column="58" />
+      <File FileName="Assets\Scripts\TileScripts\Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HumanUnitScripts\Tank.cs" Line="200" Column="5" />
+      <File FileName="Assets\Scripts\Aliens\AlienSoldier.cs" Line="27" Column="37" />
+      <File FileName="Assets\Scripts\Aliens\AiPlayer.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\HumanUnitScripts\Jet.cs" Line="190" Column="5" />
+      <File FileName="Assets\Scripts\HumanUnitScripts\Medic.cs" Line="176" Column="5" />
+      <File FileName="Assets\Scripts\HumanUnitScripts\Helicopter.cs" Line="175" Column="118" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

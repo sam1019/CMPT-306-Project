@@ -173,7 +173,7 @@ public class Soldier : Player {
 				//GameManager.instance.removeTileHighlights();
 				moving = true;
 				isAttacking = false;
-				//GameManager.instance.highlightTilesAt(gridPosition, Color.blue, movementPerActionPoint, false);
+				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} else {
 				moving = false;
 				isAttacking = false;
@@ -190,7 +190,7 @@ public class Soldier : Player {
 				moving = false;
 				isAttacking = true;
 				
-				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
+				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 			} else {
 				moving = false;
 				isAttacking = false;
