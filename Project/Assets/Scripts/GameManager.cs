@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public List <GameObject> aiList;
 	public Transform mapTransform;
 	public GameObject AlienTroopPrefab;
+	public GameObject alienShipPrefab;
 	GameObject player;
 	Tile grid;
 	public int mapSize = 11; //The size of the map i 
@@ -497,6 +498,14 @@ public class GameManager : MonoBehaviour {
 		aiList.Add(aiplayer);
 		AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
 		temp.gridPosition = new Vector2 (6, 6);
+
+		GameObject ship = Instantiate(alienShipPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2)+1, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		playerList.Add(ship);
+		aiCount += 1;
+		aiList.Add(ship);
+		AlienShip shipTemp = ship.GetComponent<AlienShip> ();
+		shipTemp.gridPosition = new Vector2 (6,5);
+
 
 	}
 	public void whoToTurnOnGui(){
