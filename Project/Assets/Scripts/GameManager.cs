@@ -408,44 +408,55 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	List<Vector2> highLightTileVector;
 	//Null exception here, will fix later
 	//When click move botton, the available path for player will Highlighted
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
-		int startX = originLocationX - range;
-		if (startX <= 0) {
-			startX = originLocationX;
-		}
-		int startY = originLocationY - range; 
-		if (startY <= 0) {
-			startY = originLocationY;
-		}
-		while (startX<(range*2)+1) {
-			this.map [startX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-			startX+=1;
-
-		}
-		this.map [originLocationX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-		this.map [originLocationX] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		print (originLocationX + "and" + originLocationY);
 		
-		this.map [originLocationX-range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-		this.map [originLocationX+range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-		
-		this.map [originLocationX-range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-		this.map [originLocationX+range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-		
-		this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-		this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+		for (int i = 0; i < mapSize; i++) {
+			for (int j = 0; j < mapSize; j++) {
+				if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
+				   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
+				   && Mathf.Abs(i - j) <= Mathf.Abs(originLocationX - originLocationY) + range &&  Mathf.Abs(i - j) >= Mathf.Abs(originLocationX - originLocationY) - range){
+					this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+				}
+			}
+		}
+//		int startX = originLocationX - range;
+//		if (startX <= 0) {
+//			startX = originLocationX;
+//		}
+//		int startY = originLocationY - range; 
+//		if (startY <= 0) {
+//			startY = originLocationY;
+//		}
+//		while (startX<(range*2)+1) {
+//			this.map [startX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//			startX+=1;
+//
+//		}
+//		this.map [originLocationX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		this.map [originLocationX] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		
+//		this.map [originLocationX-range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		this.map [originLocationX+range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		
+//		this.map [originLocationX-range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		this.map [originLocationX+range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		
+//		this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+//		this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 	}
 
-	//Wait for Lujie Duan's enableMoveHighlight method
+
 	//After the movement, hightlight paht set to be disable
-//	public void disableMoveHightLight(){
-//		int count = highLightTileVector.Count;
-//		foreach(Vector2 element in highLightTileVector) {
-//			this.map[(int)element.x][(int)element.y].GetComponent<Tile>().transform.renderer.material.color = Color.clear;
-//		}
-//	}
+	public void disableMoveHightLight(){
+		for (int i = 0; i < mapSize; i++) {
+			for (int j = 0; j < mapSize; j++) {
+				this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.clear;
+			}
+		}
+	}
 
 	/* Used to spawn the map 
 	 * Map is made up of multiple spawned cubes
