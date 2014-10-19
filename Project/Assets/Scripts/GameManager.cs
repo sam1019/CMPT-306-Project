@@ -516,7 +516,7 @@ public class GameManager : MonoBehaviour {
 		aiCount += 1;
 		aiList.Add(berserk);
 		Berserker berserkTemp = berserk.GetComponent<Berserker> ();
-		berserkTemp.gridPosition = new Vector2 (6,7);
+		berserkTemp.gridPosition = new Vector2 (7,6);
 
 
 	}

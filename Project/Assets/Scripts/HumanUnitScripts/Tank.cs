@@ -112,9 +112,6 @@ public class Tank : Player {
 					target = temp;
 					TankAttack.attackAlienShip(target);
 				}
-				else{
-					print("Target not found");
-				}
 			}
 			else if(p.GetComponent<AlienSoldier>() != null){
 				AlienSoldier target = null;
@@ -122,9 +119,6 @@ public class Tank : Player {
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					TankAttack.attackAlienSoldier(target);
-				}
-				else{
-					print("Target not found");
 				}
 			}
 			else if(p.GetComponent<AlienSupport>() != null){
@@ -134,9 +128,6 @@ public class Tank : Player {
 					target = temp;
 					TankAttack.attackAlienSupport(target);
 				}
-				else{
-					print("Target not found");
-				}
 			}
 			else if(p.GetComponent<Berserker>() != null){
 				Berserker target = null;
@@ -144,9 +135,6 @@ public class Tank : Player {
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					TankAttack.attackAlienBerserker(target);
-				}
-				else{
-					print("Target not found");
 				}
 			}
 			/**********TEST class************/
@@ -156,9 +144,6 @@ public class Tank : Player {
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					TankAttack.attackAIPlayer(target);
-				}
-				else{
-					print("Target not found");
 				}
 			}
 			

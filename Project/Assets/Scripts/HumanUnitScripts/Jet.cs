@@ -105,9 +105,6 @@ public class Jet : Player {
 					target = temp;
 					JetAttack.attackAlienShip(target);
 				}
-				else{
-					print("Target not found");
-				}
 			}
 			else if(p.GetComponent<AlienSoldier>() != null){
 				AlienSoldier target = null;
@@ -115,9 +112,6 @@ public class Jet : Player {
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAlienSoldier(target);
-				}
-				else{
-					print("Target not found");
 				}
 			}
 			else if(p.GetComponent<AlienSupport>() != null){
@@ -127,9 +121,6 @@ public class Jet : Player {
 					target = temp;
 					JetAttack.attackAlienSupport(target);
 				}
-				else{
-					print("Target not found");
-				}
 			}
 			else if(p.GetComponent<Berserker>() != null){
 				Berserker target = null;
@@ -137,9 +128,6 @@ public class Jet : Player {
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAlienBerserker(target);
-				}
-				else{
-					print("Target not found");
 				}
 			}
 			/**********TEST class************/
@@ -149,9 +137,6 @@ public class Jet : Player {
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAIPlayer(target);
-				}
-				else{
-					print("Target not found");
 				}
 			}
 			
