@@ -87,6 +87,7 @@ public class Helicopter : Player {
 	/*
 	 * Gets current player's grid position
 	 */ 
+	//Used for testing, may not need for future
 	public Tile getGridPosition(){
 		int x = (int) this.gridPosition.x;
 		int y = (int)this.gridPosition.y;
@@ -94,49 +95,51 @@ public class Helicopter : Player {
 		return tile;
 	}
 	
-	
+	/*
+	 * Finds the enemy's class on the selected tile to attack
+	 */
 	public void getEnemyToAttack(Tile tile){
 		foreach (GameObject p in GameManager.instance.playerList) {
-			if(p.GetComponent<AlienShip>() != null){
+			if(p.GetComponent<AlienShip>() != null){ //Checks for enemy class on tile target
 				AlienShip target = null;
-				AlienShip temp = p.GetComponent<AlienShip>();
+				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script				
 				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					HelicopterAttack.attackAlienShip(target);
+					HelicopterAttack.attackAlienShip(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<AlienSoldier>() != null){
+			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
 				AlienSoldier target = null;
-				AlienSoldier temp = p.GetComponent<AlienSoldier>();				
+				AlienSoldier temp = p.GetComponent<AlienSoldier>();	 //Gets enemy script							
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					HelicopterAttack.attackAlienSoldier(target);
+					HelicopterAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<AlienSupport>() != null){
+			else if(p.GetComponent<AlienSupport>() != null){  //Checks for enemy class on tile target
 				AlienSupport target = null;
-				AlienSupport temp = p.GetComponent<AlienSupport>();				
+				AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script							
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					HelicopterAttack.attackAlienSupport(target);
+					HelicopterAttack.attackAlienSupport(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<Berserker>() != null){
+			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
 				Berserker target = null;
-				Berserker temp = p.GetComponent<Berserker>();				
+				Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script								
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					HelicopterAttack.attackAlienBerserker(target);
+					HelicopterAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
 				}
 			}
 			/**********TEST class************/
-			else if(p.GetComponent<AiPlayer>() != null){
+			else if(p.GetComponent<AiPlayer>() != null){  //Checks for enemy class on tile target
 				AiPlayer target = null;
-				AiPlayer temp = p.GetComponent<AiPlayer>();				
+				AiPlayer temp = p.GetComponent<AiPlayer>(); //Gets enemy script				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					HelicopterAttack.attackAIPlayer(target);
+					HelicopterAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 				}
 			}
 			
