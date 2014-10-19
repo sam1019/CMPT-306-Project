@@ -113,16 +113,20 @@ public class GameManager : MonoBehaviour {
 		aiCount -=1;
 	}
 
+	/*
+	 * Finds the current player player's type 
+	 * (Ex. Tank, Soldier, Medic,etc)
+	 */
 	//Can possibly refactor code in the future
 	public void getHumanTurn(){
 		GameObject temp = playerList [currentPlayerIndex];
-		if(temp.GetComponent<Tank>() != null){
+		if(temp.GetComponent<Tank>() != null){ //Check what script is attached to prefab
 			Tank tank  = temp.GetComponent<Tank>();
-			if (tank.HP <= 0){
+			if (tank.HP <= 0){ //Check if player is not dead
 				deletePlayer();
 			}
 			tank.TurnUpdate ();			
-						
+			
 		}
 		else if(temp.GetComponent<Soldier>() != null){
 			Soldier soldier  = temp.GetComponent<Soldier>();
@@ -171,35 +175,38 @@ public class GameManager : MonoBehaviour {
 		}
 
 	}
+	/*
+	 * Finds the current AI's type 
+	 */
 	//Can possibly refactor code in the future
 	public void getAlienTurn(){
 		GameObject temp = playerList [currentPlayerIndex];
-
-		if(temp.GetComponent<AlienShip>() != null){
-			AlienShip ship  = temp.GetComponent<AlienShip>();
-			if (ship.HP <= 0){
-				deleteAI();
+		
+		if(temp.GetComponent<AlienShip>() != null){ //Checks for what script AI has attached
+			AlienShip ship  = temp.GetComponent<AlienShip>(); //Get the current player script
+			if (ship.HP <= 0){ //If AI is dead, remove from game
+				deleteAI(); 
 			}
-			ship.TurnUpdate ();
-
+			ship.TurnUpdate (); //AI's turn
+			
 		}
-
+		
 		else if (temp.GetComponent<AlienSoldier>() != null){
 			AlienSoldier alienSoldier  = temp.GetComponent<AlienSoldier>();
 			if (alienSoldier.HP <= 0){
 				deleteAI();
 			}
 			alienSoldier.TurnUpdate ();
-
+			
 		}
-
+		
 		else if (temp.GetComponent<AlienSupport>() != null){
 			AlienSupport alienSupport  = temp.GetComponent<AlienSupport>();
 			if (alienSupport.HP <= 0){
 				deleteAI();
 			}
 			alienSupport.TurnUpdate ();
-
+			
 		}
 		else if (temp.GetComponent<Berserker>() != null){
 			Berserker berserker  = temp.GetComponent<Berserker>();
@@ -207,7 +214,7 @@ public class GameManager : MonoBehaviour {
 				deleteAI();
 			}
 			berserker.TurnUpdate ();
-		
+			
 		}
 	}
 	public void nextTurn() {
@@ -228,17 +235,21 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	/*
+	 * Checks if tile selected by player is occupied or not
+	 * If occupied player cannot move to tile
+	 */
 	public bool canPlayerMove(Tile destination){
 		return (playerList.Count > 0 && !destination.isOccupied);
 	}
-
+	
 	public void setOccupied(Tile destination, Player player){
 		int x, y;
-
+		
 		//Grid postion correlates to the map list indexes
 		x = (int) player.gridPosition.x;
 		y = (int) player.gridPosition.y;
-
+		
 		//Setting the old position to unoccupied
 		Tile Maptemp = map [x] [y].GetComponent<Tile>();
 		map [x] [y].GetComponent<Tile> ().isOccupied = false;
