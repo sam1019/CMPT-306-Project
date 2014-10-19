@@ -471,59 +471,70 @@ public class GameManager : MonoBehaviour {
 	public void loadMapFromXml() {
 	}
 
+	/*
+	 * Spawns players onto the map and increment player count
+	 * Currently spawned at fixed locations
+	 */
 	public void spawnPlayers(){
 		//Spawn first player and add it to the list
 		/********************Spawning tank*****************************/
 		GameObject tank;
-
+		
 		tank = Instantiate(tankPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(tank);
+		playerList.Add(tank); //Add to player list
 		Tank tankTemp = tank.GetComponent<Tank> ();
-		tankTemp.gridPosition = new Vector2 (0, 0);
-		playerCount += 1;
-
+		tankTemp.gridPosition = new Vector2 (0, 0); //Setting grid position to their fixed spawn location
+		playerCount += 1; //Increment player count
+		
 		/********************Spawning Jet*****************************/
 		GameObject jet;
 		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(jet);
+		playerList.Add(jet); //Add to player list
 		Jet jetTemp=jet.GetComponent<Jet> ();
-		jetTemp.gridPosition = new Vector2 (0, 11);
-		playerCount += 1;
-
+		jetTemp.gridPosition = new Vector2 (0, 11); //Setting grid position to their fixed spawn location
+		playerCount += 1; //Increment player count
+		
 		/********************Spawning solider*****************************/
 		GameObject soldier;
 		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(soldier);
+		playerList.Add(soldier); //Add to player list
 		Soldier soldierTemp=soldier.GetComponent<Soldier> ();
-		soldierTemp.gridPosition = new Vector2 (0, 10);
-		playerCount += 1;
-
-
+		soldierTemp.gridPosition = new Vector2 (0, 10); //Setting grid position to their fixed spawn location
+		playerCount += 1; //Increment player count
+		
+		
 	}
+	/*
+	 * Spawns AI onto the map and increment AI count
+	 * Currently spawned at fixed locations
+	 */
 	public void spawnAI(){
-
+		
+		/********************Spawning alien solider*****************************/
 		GameObject aiplayer = Instantiate(AlienTroopPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(aiplayer);
-		aiCount += 1;
-		aiList.Add(aiplayer);
+		playerList.Add(aiplayer); //Add to playerlist
+		aiCount += 1; //Increment AI count
+		aiList.Add(aiplayer); //Add to ailist
 		AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
-		temp.gridPosition = new Vector2 (6, 6);
-
+		temp.gridPosition = new Vector2 (6, 6); //Set the grid postion to the fixed spawn point
+		
+		/********************Spawning alien ship*****************************/
 		GameObject ship = Instantiate(alienShipPrefab, new Vector3(6 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2)+1, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(ship);
-		aiCount += 1;
-		aiList.Add(ship);
+		playerList.Add(ship); //Add to playerlist
+		aiCount += 1; //Increment AI count
+		aiList.Add(ship); //Add to ailist
 		AlienShip shipTemp = ship.GetComponent<AlienShip> ();
-		shipTemp.gridPosition = new Vector2 (6,5);
-
+		shipTemp.gridPosition = new Vector2 (6,5); //Set the grid postion to the fixed spawn point
+		
+		/********************Spawning alien berserker*****************************/
 		GameObject berserk = Instantiate(berserkerPrefab, new Vector3(6+1 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(berserk);
-		aiCount += 1;
-		aiList.Add(berserk);
+		playerList.Add(berserk); //Add to playerlist
+		aiCount += 1; //Increment AI count
+		aiList.Add(berserk); //Add to ailist
 		Berserker berserkTemp = berserk.GetComponent<Berserker> ();
-		berserkTemp.gridPosition = new Vector2 (7,6);
-
-
+		berserkTemp.gridPosition = new Vector2 (7,6); //Set the grid postion to the fixed spawn point
+		
+		
 	}
 	/*
 	 *Finds the class of the current player unit to disable the button GUI 
