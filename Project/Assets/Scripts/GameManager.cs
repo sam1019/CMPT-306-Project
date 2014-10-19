@@ -361,11 +361,7 @@ public class GameManager : MonoBehaviour {
 				
 			}
 		}
-	}		berserkerTemp.gridPosition = destination.gridPosition;
-								
-			}
-		}
-	}
+	}		
 
 
 	/*
