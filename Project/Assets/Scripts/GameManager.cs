@@ -480,12 +480,16 @@ public class GameManager : MonoBehaviour {
 		GameObject jet;
 		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(jet);
+		Jet jetTemp=jet.GetComponent<Jet> ();
+		jetTemp.gridPosition = new Vector2 (0, 11);
 		playerCount += 1;
 
 		/********************Spawning solider*****************************/
 		GameObject soldier;
 		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(soldier);
+		Soldier soldierTemp=soldier.GetComponent<Soldier> ();
+		soldierTemp.gridPosition = new Vector2 (0, 10);
 		playerCount += 1;
 
 
