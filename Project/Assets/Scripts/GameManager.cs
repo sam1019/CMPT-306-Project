@@ -389,6 +389,7 @@ public class GameManager : MonoBehaviour {
 
 
 	//Null exception here, will fix later
+	//When click move botton, the available range for player will Highlighted
 	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
 
 		if(originLocationX-range> 0 && originLocationY-range> 0 && originLocationX+range < this.mapSize && originLocationY+range<this.mapSize){
@@ -406,7 +407,10 @@ public class GameManager : MonoBehaviour {
 
 		}
 	}
+
+	List<Vector2> highLightTileVector;
 	//Null exception here, will fix later
+	//When click move botton, the available path for player will Highlighted
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
 		int startX = originLocationX - range;
 		if (startX <= 0) {
@@ -433,9 +437,15 @@ public class GameManager : MonoBehaviour {
 		this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 		this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 	}
-	public void disablePathHighlight(){
 
-	}
+	//Wait for Lujie Duan's enableMoveHighlight method
+	//After the movement, hightlight paht set to be disable
+//	public void disableMoveHightLight(){
+//		int count = highLightTileVector.Count;
+//		foreach(Vector2 element in highLightTileVector) {
+//			this.map[(int)element.x][(int)element.y].GetComponent<Tile>().transform.renderer.material.color = Color.clear;
+//		}
+//	}
 
 	/* Used to spawn the map 
 	 * Map is made up of multiple spawned cubes
@@ -476,12 +486,13 @@ public class GameManager : MonoBehaviour {
 		tankTemp.gridPosition = new Vector2 (0, 0);
 		playerCount += 1;
 
-
+		/********************Spawning Jet*****************************/
 		GameObject jet;
 		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(jet);
 		playerCount += 1;
 
+		/********************Spawning solider*****************************/
 		GameObject soldier;
 		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(soldier);
@@ -556,8 +567,6 @@ public class GameManager : MonoBehaviour {
 
 		//Move Button
 		whoToTurnOnGui ();
-
-
 		
 		//Pause Button
 		if (GUI.Button (new Rect (100, 10, 80, 20), "Pause")) // make the GUI button with name "pause"
@@ -580,7 +589,6 @@ public class GameManager : MonoBehaviour {
 			PlayerPrefs.Save();
 		}
 
-		
 		//Here is the GUI for outputing score, now do nothing yet.
 		GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());// we will add the player's scores here
 		GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString ());// we will add the lives here depending on the player, by passing variable from player attack

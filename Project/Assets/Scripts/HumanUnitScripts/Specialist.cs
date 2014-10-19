@@ -171,14 +171,14 @@ public class Specialist : Player {
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
 			if (!moving) {
-				//GameManager.instance.removeTileHighlights();
+				//GameManager.instance.disableMoveHightLight();
 				moving = true;
 				isAttacking = false;
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} else {
 				moving = false;
 				isAttacking = false;
-				//GameManager.instance.removeTileHighlights();
+				//GameManager.instance.disableMoveHightLight();
 			}
 		}
 		
@@ -203,7 +203,8 @@ public class Specialist : Player {
 		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
 		
 		if (GUI.Button(buttonRect, "End Turn")) {
-			//GameManager.instance.removeTileHighlights();
+			//when end turn, disable move HightLight
+			//GameManager.instance.disableMoveHightLight(
 			actionPoints = 2;
 			moving = false;
 			isAttacking = false;			

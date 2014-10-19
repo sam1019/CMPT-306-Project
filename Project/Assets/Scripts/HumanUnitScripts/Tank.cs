@@ -176,16 +176,17 @@ public class Tank : Player {
 		//move button
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
+			//if not moving, enable Move Highlight
 			if (!moving) {
-				//GameManager.instance.removeTileHighlights();
+				//GameManager.instance.disableMoveHightLight();
 				moving = true;
 				isAttacking = false;
-				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
-				//GameManager.instance.highlightTilesAt(gridPosition, Color.blue, movementPerActionPoint, false);
-			} else {
+				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);;
+			} 
+			else {
 				moving = false;
 				isAttacking = false;
-				//GameManager.instance.removeTileHighlights();
+				//GameManager.instance.disableMoveHightLight();
 			}
 		}
 		
@@ -198,7 +199,7 @@ public class Tank : Player {
 				moving = false;
 				isAttacking = true;
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
-				//GameManager.instance.highlightTilesAt(gridPosition, Color.red, attackRange);
+
 			} else {
 				moving = false;
 				isAttacking = false;
@@ -210,7 +211,8 @@ public class Tank : Player {
 		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
 		
 		if (GUI.Button(buttonRect, "End Turn")) {
-			//GameManager.instance.removeTileHighlights();
+			//when end turn, disable move HightLight
+			//GameManager.instance.disableMoveHightLight();
 			actionPoints = 2;
 			moving = false;
 			isAttacking = false;			
