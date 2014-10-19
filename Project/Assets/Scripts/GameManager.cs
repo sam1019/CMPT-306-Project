@@ -208,6 +208,7 @@ public class GameManager : MonoBehaviour {
 		/*Iterating through the list, the current index is the current player's turn
 		 *When it reaches the length of the list goes back to player at index 0 turn 
 		 */
+		this.disableMoveHightLight ();
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
 		}
@@ -422,30 +423,7 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
-//		int startX = originLocationX - range;
-//		if (startX <= 0) {
-//			startX = originLocationX;
-//		}
-//		int startY = originLocationY - range; 
-//		if (startY <= 0) {
-//			startY = originLocationY;
-//		}
-//		while (startX<(range*2)+1) {
-//			this.map [startX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//			startX+=1;
-//
-//		}
-//		this.map [originLocationX] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		this.map [originLocationX] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		
-//		this.map [originLocationX-range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		this.map [originLocationX+range] [originLocationY].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		
-//		this.map [originLocationX-range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		this.map [originLocationX+range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		
-//		this.map [originLocationX-range] [originLocationY+range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
-//		this.map [originLocationX+range] [originLocationY-range].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+
 	}
 
 
@@ -453,7 +431,7 @@ public class GameManager : MonoBehaviour {
 	public void disableMoveHightLight(){
 		for (int i = 0; i < mapSize; i++) {
 			for (int j = 0; j < mapSize; j++) {
-				this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.clear;
+				this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.white;
 			}
 		}
 	}
