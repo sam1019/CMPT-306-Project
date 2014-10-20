@@ -96,51 +96,49 @@ public class Specialist : Player {
 		return tile;
 	}
 	
-	/*
-	 * Finds the enemy's class on the selected tile to attack
-	 */
+	
 	public void getEnemyToAttack(Tile tile){
-		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+		foreach (GameObject p in GameManager.instance.playerList) {
 			if(p.GetComponent<AlienShip>() != null){
 				AlienShip target = null;
-				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
+				AlienShip temp = p.GetComponent<AlienShip>();
 				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SpecialistAttack.attackAlienShip(target); //Attacks the specific enemy unit
+					SpecialistAttack.attackAlienShip(target);
 				}
 			}
-			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
+			else if(p.GetComponent<AlienSoldier>() != null){
 				AlienSoldier target = null;
-				AlienSoldier temp = p.GetComponent<AlienSoldier>(); //Gets enemy script		 		
+				AlienSoldier temp = p.GetComponent<AlienSoldier>();				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SpecialistAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+					SpecialistAttack.attackAlienSoldier(target);
 				}
 			}
-			else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
+			else if(p.GetComponent<AlienSupport>() != null){
 				AlienSupport target = null;
-				AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script			
+				AlienSupport temp = p.GetComponent<AlienSupport>();				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SpecialistAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+					SpecialistAttack.attackAlienSupport(target);
 				}
 			}
-			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
+			else if(p.GetComponent<Berserker>() != null){
 				Berserker target = null;
-				Berserker temp = p.GetComponent<Berserker>();	//Gets enemy script 			
+				Berserker temp = p.GetComponent<Berserker>();				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SpecialistAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+					SpecialistAttack.attackAlienBerserker(target);
 				}
 			}
 			/**********TEST class************/
 			else if(p.GetComponent<AiPlayer>() != null){
 				AiPlayer target = null;
-				AiPlayer temp = p.GetComponent<AiPlayer>();	//Gets enemy script		
+				AiPlayer temp = p.GetComponent<AiPlayer>();				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					SpecialistAttack.attackAIPlayer(target); //Attacks the specific enemy unit
+					SpecialistAttack.attackAIPlayer(target);
 				}
 			}
 			
@@ -163,7 +161,6 @@ public class Specialist : Player {
 				GameManager.instance.disableHightLight();
 				moving = true;
 				isAttacking = false;
-				//Enables path hightlight
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} 
 			//otherwise disable all Highlight
@@ -184,7 +181,7 @@ public class Specialist : Player {
 				GameManager.instance.disableHightLight();
 				moving = false;
 				isAttacking = true;
-				//Enables attack hightlight range
+				
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 			} 
 			//otherwise disable all Highlight

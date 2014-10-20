@@ -1,8 +1,16 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
       <File FileName="Assets/Scripts/GameManager.cs" Line="447" Column="69" />
+=======
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HumanUnitScripts/Jet.cs">
+    <Files>
+      <File FileName="Assets/Scripts/HumanUnitScripts/Jet.cs" Line="17" Column="40" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="386" Column="3" />
+>>>>>>> animation
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

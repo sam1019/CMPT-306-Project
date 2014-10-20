@@ -1,0 +1,4029 @@
+fileFormatVersion: 2
+guid: 8f60ceecfe3b4b945b621917fe8c8810
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: soldiers2pt25lq_0
+    21300002: soldiers2pt25lq_1
+    21300004: soldiers2pt25lq_2
+    21300006: soldiers2pt25lq_3
+    21300008: soldiers2pt25lq_4
+    21300010: soldiers2pt25lq_5
+    21300012: soldiers2pt25lq_6
+    21300014: soldiers2pt25lq_7
+    21300016: soldiers2pt25lq_8
+    21300018: soldiers2pt25lq_9
+    21300020: soldiers2pt25lq_10
+    21300022: soldiers2pt25lq_11
+    21300024: soldiers2pt25lq_12
+    21300026: soldiers2pt25lq_13
+    21300028: soldiers2pt25lq_14
+    21300030: soldiers2pt25lq_15
+    21300032: soldiers2pt25lq_16
+    21300034: soldiers2pt25lq_17
+    21300036: soldiers2pt25lq_18
+    21300038: soldiers2pt25lq_19
+    21300040: soldiers2pt25lq_20
+    21300042: soldiers2pt25lq_21
+    21300044: soldiers2pt25lq_22
+    21300046: soldiers2pt25lq_23
+    21300048: soldiers2pt25lq_24
+    21300050: soldiers2pt25lq_25
+    21300052: soldiers2pt25lq_26
+    21300054: soldiers2pt25lq_27
+    21300056: soldiers2pt25lq_28
+    21300058: soldiers2pt25lq_29
+    21300060: soldiers2pt25lq_30
+    21300062: soldiers2pt25lq_31
+    21300064: soldiers2pt25lq_32
+    21300066: soldiers2pt25lq_33
+    21300068: soldiers2pt25lq_34
+    21300070: soldiers2pt25lq_35
+    21300072: soldiers2pt25lq_36
+    21300074: soldiers2pt25lq_37
+    21300076: soldiers2pt25lq_38
+    21300078: soldiers2pt25lq_39
+    21300080: soldiers2pt25lq_40
+    21300082: soldiers2pt25lq_41
+    21300084: soldiers2pt25lq_42
+    21300086: soldiers2pt25lq_43
+    21300088: soldiers2pt25lq_44
+    21300090: soldiers2pt25lq_45
+    21300092: soldiers2pt25lq_46
+    21300094: soldiers2pt25lq_47
+    21300096: soldiers2pt25lq_48
+    21300098: soldiers2pt25lq_49
+    21300100: soldiers2pt25lq_50
+    21300102: soldiers2pt25lq_51
+    21300104: soldiers2pt25lq_52
+    21300106: soldiers2pt25lq_53
+    21300108: soldiers2pt25lq_54
+    21300110: soldiers2pt25lq_55
+    21300112: soldiers2pt25lq_56
+    21300114: soldiers2pt25lq_57
+    21300116: soldiers2pt25lq_58
+    21300118: soldiers2pt25lq_59
+    21300120: soldiers2pt25lq_60
+    21300122: soldiers2pt25lq_61
+    21300124: soldiers2pt25lq_62
+    21300126: soldiers2pt25lq_63
+    21300128: soldiers2pt25lq_64
+    21300130: soldiers2pt25lq_65
+    21300132: soldiers2pt25lq_66
+    21300134: soldiers2pt25lq_67
+    21300136: soldiers2pt25lq_68
+    21300138: soldiers2pt25lq_69
+    21300140: soldiers2pt25lq_70
+    21300142: soldiers2pt25lq_71
+    21300144: soldiers2pt25lq_72
+    21300146: soldiers2pt25lq_73
+    21300148: soldiers2pt25lq_74
+    21300150: soldiers2pt25lq_75
+    21300152: soldiers2pt25lq_76
+    21300154: soldiers2pt25lq_77
+    21300156: soldiers2pt25lq_78
+    21300158: soldiers2pt25lq_79
+    21300160: soldiers2pt25lq_80
+    21300162: soldiers2pt25lq_81
+    21300164: soldiers2pt25lq_82
+    21300166: soldiers2pt25lq_83
+    21300168: soldiers2pt25lq_84
+    21300170: soldiers2pt25lq_85
+    21300172: soldiers2pt25lq_86
+    21300174: soldiers2pt25lq_87
+    21300176: soldiers2pt25lq_88
+    21300178: soldiers2pt25lq_89
+    21300180: soldiers2pt25lq_90
+    21300182: soldiers2pt25lq_91
+    21300184: soldiers2pt25lq_92
+    21300186: soldiers2pt25lq_93
+    21300188: soldiers2pt25lq_94
+    21300190: soldiers2pt25lq_95
+    21300192: soldiers2pt25lq_96
+    21300194: soldiers2pt25lq_97
+    21300196: soldiers2pt25lq_98
+    21300198: soldiers2pt25lq_99
+    21300200: soldiers2pt25lq_100
+    21300202: soldiers2pt25lq_101
+    21300204: soldiers2pt25lq_102
+    21300206: soldiers2pt25lq_103
+    21300208: soldiers2pt25lq_104
+    21300210: soldiers2pt25lq_105
+    21300212: soldiers2pt25lq_106
+    21300214: soldiers2pt25lq_107
+    21300216: soldiers2pt25lq_108
+    21300218: soldiers2pt25lq_109
+    21300220: soldiers2pt25lq_110
+    21300222: soldiers2pt25lq_111
+    21300224: soldiers2pt25lq_112
+    21300226: soldiers2pt25lq_113
+    21300228: soldiers2pt25lq_114
+    21300230: soldiers2pt25lq_115
+    21300232: soldiers2pt25lq_116
+    21300234: soldiers2pt25lq_117
+    21300236: soldiers2pt25lq_118
+    21300238: soldiers2pt25lq_119
+    21300240: soldiers2pt25lq_120
+    21300242: soldiers2pt25lq_121
+    21300244: soldiers2pt25lq_122
+    21300246: soldiers2pt25lq_123
+    21300248: soldiers2pt25lq_124
+    21300250: soldiers2pt25lq_125
+    21300252: soldiers2pt25lq_126
+    21300254: soldiers2pt25lq_127
+    21300256: soldiers2pt25lq_128
+    21300258: soldiers2pt25lq_129
+    21300260: soldiers2pt25lq_130
+    21300262: soldiers2pt25lq_131
+    21300264: soldiers2pt25lq_132
+    21300266: soldiers2pt25lq_133
+    21300268: soldiers2pt25lq_134
+    21300270: soldiers2pt25lq_135
+    21300272: soldiers2pt25lq_136
+    21300274: soldiers2pt25lq_137
+    21300276: soldiers2pt25lq_138
+    21300278: soldiers2pt25lq_139
+    21300280: soldiers2pt25lq_140
+    21300282: soldiers2pt25lq_141
+    21300284: soldiers2pt25lq_142
+    21300286: soldiers2pt25lq_143
+    21300288: soldiers2pt25lq_144
+    21300290: soldiers2pt25lq_145
+    21300292: soldiers2pt25lq_146
+    21300294: soldiers2pt25lq_147
+    21300296: soldiers2pt25lq_148
+    21300298: soldiers2pt25lq_149
+    21300300: soldiers2pt25lq_150
+    21300302: soldiers2pt25lq_151
+    21300304: soldiers2pt25lq_152
+    21300306: soldiers2pt25lq_153
+    21300308: soldiers2pt25lq_154
+    21300310: soldiers2pt25lq_155
+    21300312: soldiers2pt25lq_156
+    21300314: soldiers2pt25lq_157
+    21300316: soldiers2pt25lq_158
+    21300318: soldiers2pt25lq_159
+    21300320: soldiers2pt25lq_160
+    21300322: soldiers2pt25lq_161
+    21300324: soldiers2pt25lq_162
+    21300326: soldiers2pt25lq_163
+    21300328: soldiers2pt25lq_164
+    21300330: soldiers2pt25lq_165
+    21300332: soldiers2pt25lq_166
+    21300334: soldiers2pt25lq_167
+    21300336: soldiers2pt25lq_168
+    21300338: soldiers2pt25lq_169
+    21300340: soldiers2pt25lq_170
+    21300342: soldiers2pt25lq_171
+    21300344: soldiers2pt25lq_172
+    21300346: soldiers2pt25lq_173
+    21300348: soldiers2pt25lq_174
+    21300350: soldiers2pt25lq_175
+    21300352: soldiers2pt25lq_176
+    21300354: soldiers2pt25lq_177
+    21300356: soldiers2pt25lq_178
+    21300358: soldiers2pt25lq_179
+    21300360: soldiers2pt25lq_180
+    21300362: soldiers2pt25lq_181
+    21300364: soldiers2pt25lq_182
+    21300366: soldiers2pt25lq_183
+    21300368: soldiers2pt25lq_184
+    21300370: soldiers2pt25lq_185
+    21300372: soldiers2pt25lq_186
+    21300374: soldiers2pt25lq_187
+    21300376: soldiers2pt25lq_188
+    21300378: soldiers2pt25lq_189
+    21300380: soldiers2pt25lq_190
+    21300382: soldiers2pt25lq_191
+    21300384: soldiers2pt25lq_192
+    21300386: soldiers2pt25lq_193
+    21300388: soldiers2pt25lq_194
+    21300390: soldiers2pt25lq_195
+    21300392: soldiers2pt25lq_196
+    21300394: soldiers2pt25lq_197
+    21300396: soldiers2pt25lq_198
+    21300398: soldiers2pt25lq_199
+    21300400: soldiers2pt25lq_200
+    21300402: soldiers2pt25lq_201
+    21300404: soldiers2pt25lq_202
+    21300406: soldiers2pt25lq_203
+    21300408: soldiers2pt25lq_204
+    21300410: soldiers2pt25lq_205
+    21300412: soldiers2pt25lq_206
+    21300414: soldiers2pt25lq_207
+    21300416: soldiers2pt25lq_208
+    21300418: soldiers2pt25lq_209
+    21300420: soldiers2pt25lq_210
+    21300422: soldiers2pt25lq_211
+    21300424: soldiers2pt25lq_212
+    21300426: soldiers2pt25lq_213
+    21300428: soldiers2pt25lq_214
+    21300430: soldiers2pt25lq_215
+    21300432: soldiers2pt25lq_216
+    21300434: soldiers2pt25lq_217
+    21300436: soldiers2pt25lq_218
+    21300438: soldiers2pt25lq_219
+    21300440: soldiers2pt25lq_220
+    21300442: soldiers2pt25lq_221
+    21300444: soldiers2pt25lq_222
+    21300446: soldiers2pt25lq_223
+    21300448: soldiers2pt25lq_224
+    21300450: soldiers2pt25lq_225
+    21300452: soldiers2pt25lq_226
+    21300454: soldiers2pt25lq_227
+    21300456: soldiers2pt25lq_228
+    21300458: soldiers2pt25lq_229
+    21300460: soldiers2pt25lq_230
+    21300462: soldiers2pt25lq_231
+    21300464: soldiers2pt25lq_232
+    21300466: soldiers2pt25lq_233
+    21300468: soldiers2pt25lq_234
+    21300470: soldiers2pt25lq_235
+    21300472: soldiers2pt25lq_236
+    21300474: soldiers2pt25lq_237
+    21300476: soldiers2pt25lq_238
+    21300478: soldiers2pt25lq_239
+    21300480: soldiers2pt25lq_240
+    21300482: soldiers2pt25lq_241
+    21300484: soldiers2pt25lq_242
+    21300486: soldiers2pt25lq_243
+    21300488: soldiers2pt25lq_244
+    21300490: soldiers2pt25lq_245
+    21300492: soldiers2pt25lq_246
+    21300494: soldiers2pt25lq_247
+    21300496: soldiers2pt25lq_248
+    21300498: soldiers2pt25lq_249
+    21300500: soldiers2pt25lq_250
+    21300502: soldiers2pt25lq_251
+    21300504: soldiers2pt25lq_252
+    21300506: soldiers2pt25lq_253
+    21300508: soldiers2pt25lq_254
+    21300510: soldiers2pt25lq_255
+    21300512: soldiers2pt25lq_256
+    21300514: soldiers2pt25lq_257
+    21300516: soldiers2pt25lq_258
+    21300518: soldiers2pt25lq_259
+    21300520: soldiers2pt25lq_260
+    21300522: soldiers2pt25lq_261
+    21300524: soldiers2pt25lq_262
+    21300526: soldiers2pt25lq_263
+    21300528: soldiers2pt25lq_264
+    21300530: soldiers2pt25lq_265
+    21300532: soldiers2pt25lq_266
+    21300534: soldiers2pt25lq_267
+    21300536: soldiers2pt25lq_268
+    21300538: soldiers2pt25lq_269
+    21300540: soldiers2pt25lq_270
+    21300542: soldiers2pt25lq_271
+    21300544: soldiers2pt25lq_272
+    21300546: soldiers2pt25lq_273
+    21300548: soldiers2pt25lq_274
+    21300550: soldiers2pt25lq_275
+    21300552: soldiers2pt25lq_276
+    21300554: soldiers2pt25lq_277
+    21300556: soldiers2pt25lq_278
+    21300558: soldiers2pt25lq_279
+    21300560: soldiers2pt25lq_280
+    21300562: soldiers2pt25lq_281
+    21300564: soldiers2pt25lq_282
+    21300566: soldiers2pt25lq_283
+    21300568: soldiers2pt25lq_284
+    21300570: soldiers2pt25lq_285
+    21300572: soldiers2pt25lq_286
+    21300574: soldiers2pt25lq_287
+    21300576: soldiers2pt25lq_288
+    21300578: soldiers2pt25lq_289
+    21300580: soldiers2pt25lq_290
+    21300582: soldiers2pt25lq_291
+    21300584: soldiers2pt25lq_292
+    21300586: soldiers2pt25lq_293
+    21300588: soldiers2pt25lq_294
+    21300590: soldiers2pt25lq_295
+    21300592: soldiers2pt25lq_296
+    21300594: soldiers2pt25lq_297
+    21300596: soldiers2pt25lq_298
+    21300598: soldiers2pt25lq_299
+    21300600: soldiers2pt25lq_300
+    21300602: soldiers2pt25lq_301
+    21300604: soldiers2pt25lq_302
+    21300606: soldiers2pt25lq_303
+    21300608: soldiers2pt25lq_304
+    21300610: soldiers2pt25lq_305
+    21300612: soldiers2pt25lq_306
+    21300614: soldiers2pt25lq_307
+    21300616: soldiers2pt25lq_308
+    21300618: soldiers2pt25lq_309
+    21300620: soldiers2pt25lq_310
+    21300622: soldiers2pt25lq_311
+    21300624: soldiers2pt25lq_312
+    21300626: soldiers2pt25lq_313
+    21300628: soldiers2pt25lq_314
+    21300630: soldiers2pt25lq_315
+    21300632: soldiers2pt25lq_316
+    21300634: soldiers2pt25lq_317
+    21300636: soldiers2pt25lq_318
+    21300638: soldiers2pt25lq_319
+    21300640: soldiers2pt25lq_320
+    21300642: soldiers2pt25lq_321
+    21300644: soldiers2pt25lq_322
+    21300646: soldiers2pt25lq_323
+    21300648: soldiers2pt25lq_324
+    21300650: soldiers2pt25lq_325
+    21300652: soldiers2pt25lq_326
+    21300654: soldiers2pt25lq_327
+    21300656: soldiers2pt25lq_328
+    21300658: soldiers2pt25lq_329
+    21300660: soldiers2pt25lq_330
+    21300662: soldiers2pt25lq_331
+    21300664: soldiers2pt25lq_332
+    21300666: soldiers2pt25lq_333
+    21300668: soldiers2pt25lq_334
+    21300670: soldiers2pt25lq_335
+    21300672: soldiers2pt25lq_336
+    21300674: soldiers2pt25lq_337
+    21300676: soldiers2pt25lq_338
+    21300678: soldiers2pt25lq_339
+    21300680: soldiers2pt25lq_340
+    21300682: soldiers2pt25lq_341
+    21300684: soldiers2pt25lq_342
+    21300686: soldiers2pt25lq_343
+    21300688: soldiers2pt25lq_344
+    21300690: soldiers2pt25lq_345
+    21300692: soldiers2pt25lq_346
+    21300694: soldiers2pt25lq_347
+    21300696: soldiers2pt25lq_348
+    21300698: soldiers2pt25lq_349
+    21300700: soldiers2pt25lq_350
+    21300702: soldiers2pt25lq_351
+    21300704: soldiers2pt25lq_352
+    21300706: soldiers2pt25lq_353
+    21300708: soldiers2pt25lq_354
+    21300710: soldiers2pt25lq_355
+    21300712: soldiers2pt25lq_356
+    21300714: soldiers2pt25lq_357
+    21300716: soldiers2pt25lq_358
+    21300718: soldiers2pt25lq_359
+    21300720: soldiers2pt25lq_360
+    21300722: soldiers2pt25lq_361
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: soldiers2pt25lq_0
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 846
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_1
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 846
+        width: 63
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_2
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 846
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_3
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 888
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_4
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 889
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_5
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 888
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_6
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 846
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 846
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_8
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 846
+        width: 72
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_9
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 868
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_10
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 880
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_11
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 881
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_12
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 881
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_13
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 846
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_14
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 846
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_15
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 846
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_16
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 846
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_17
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 846
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_18
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 846
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_19
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 846
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_20
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 862
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_21
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 862
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_22
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 861
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_23
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 863
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_24
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 860
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_25
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 860
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_26
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 794
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_27
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 794
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_28
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 794
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_29
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 787
+        width: 55
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_30
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 784
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_31
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 783
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_32
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 794
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_33
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 792
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_34
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 794
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_35
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 794
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_36
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 794
+        width: 50
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_37
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 794
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_38
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 794
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_39
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 794
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_40
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 794
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_41
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 795
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_42
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 795
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_43
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 795
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_44
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 802
+        width: 35
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_45
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 800
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_46
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 761
+        width: 54
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_47
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 746
+        width: 54
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_48
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 746
+        width: 71
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_49
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 754
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_50
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 746
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_51
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 768
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_52
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 746
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_53
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 768
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_54
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 768
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_55
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 761
+        width: 14
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_56
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 749
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_57
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 749
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_58
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 753
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_59
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 749
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_60
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 751
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_61
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 747
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_62
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 746
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_63
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 678
+        width: 54
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_64
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 691
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_65
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 726
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_66
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 727
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_67
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 726
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_68
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 722
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_69
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 694
+        width: 4
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_70
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 693
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_71
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 695
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_72
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 700
+        width: 54
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_73
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 695
+        width: 51
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_74
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 695
+        width: 48
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_75
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 695
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_76
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 695
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_77
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 700
+        width: 50
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_78
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 695
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_79
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 693
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_80
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 691
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_81
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 691
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_82
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 691
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_83
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 691
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_84
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 691
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_85
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 691
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_86
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 691
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_87
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 639
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_88
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 639
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_89
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 639
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_90
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 679
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_91
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 678
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_92
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 680
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_93
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 639
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_94
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 639
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_95
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 639
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_96
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 639
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_97
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 639
+        width: 45
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_98
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 639
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_99
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 639
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_100
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 639
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_101
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 639
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_102
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 639
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_103
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 639
+        width: 55
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_104
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 639
+        width: 59
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_105
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 661
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_106
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 672
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_107
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 673
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_108
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 661
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_109
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 601
+        width: 54
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_110
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 656
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_111
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 658
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_112
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 652
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_113
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 652
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_114
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 584
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_115
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 584
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_116
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 584
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_117
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 584
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_118
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 584
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_119
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 571
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_120
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 569
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_121
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 569
+        width: 39
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_122
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 572
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_123
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 579
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_124
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 584
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_125
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 520
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_126
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 575
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_127
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 570
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_128
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 521
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_129
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 521
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_130
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 521
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_131
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 521
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_132
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 521
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_133
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 521
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_134
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 521
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_135
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 521
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_136
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 521
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_137
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 521
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_138
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 521
+        width: 52
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_139
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 521
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_140
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 521
+        width: 4
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_141
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 521
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_142
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 521
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_143
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 521
+        width: 23
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_144
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 521
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_145
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 521
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_146
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 521
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_147
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 521
+        width: 21
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_148
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 521
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_149
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 521
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_150
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 521
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_151
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 521
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_152
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 521
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_153
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 521
+        width: 4
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_154
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 465
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_155
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 465
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_156
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 465
+        width: 30
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_157
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 465
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_158
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 465
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_159
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 466
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_160
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 466
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_161
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 466
+        width: 31
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_162
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 466
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_163
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 466
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_164
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 466
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_165
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 466
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_166
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 451
+        width: 29
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_167
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 366
+        width: 33
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_168
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 467
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_169
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 467
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_170
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 467
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_171
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 417
+        width: 32
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_172
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 436
+        width: 54
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_173
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 416
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_174
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 416
+        width: 43
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_175
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 416
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_176
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 416
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_177
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 416
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_178
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 402
+        width: 59
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_179
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 416
+        width: 57
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_180
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 402
+        width: 69
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_181
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 421
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_182
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 425
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_183
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 425
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_184
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 420
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_185
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 416
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_186
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 417
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_187
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 417
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_188
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 417
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_189
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 421
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_190
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 349
+        width: 55
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_191
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 366
+        width: 29
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_192
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 386
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_193
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 400
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_194
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 402
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_195
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 389
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_196
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 402
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_197
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 402
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_198
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 389
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_199
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 402
+        width: 14
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_200
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 383
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_201
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 366
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_202
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 366
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_203
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 366
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_204
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 366
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_205
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 366
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_206
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 366
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_207
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 366
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_208
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 366
+        width: 31
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_209
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 366
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_210
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 366
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_211
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 384
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_212
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 387
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_213
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 366
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_214
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 384
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_215
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 387
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_216
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 366
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_217
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 380
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_218
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 366
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_219
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 380
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_220
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 366
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_221
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 366
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_222
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 369
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_223
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 372
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_224
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 369
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_225
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 372
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_226
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 369
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_227
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 370
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_228
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 368
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_229
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 371
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_230
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 370
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_231
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 373
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_232
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 371
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_233
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 374
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_234
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 366
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_235
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 366
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_236
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 368
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_237
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 368
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_238
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 315
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_239
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 315
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_240
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 315
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_241
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 315
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_242
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 315
+        width: 47
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_243
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 315
+        width: 58
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_244
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 315
+        width: 58
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_245
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 315
+        width: 69
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_246
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 315
+        width: 76
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_247
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 240
+        width: 61
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_248
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 315
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_249
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 315
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_250
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 315
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_251
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 315
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_252
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 315
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_253
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 315
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_254
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 315
+        width: 4
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_255
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 271
+        width: 55
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_256
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 240
+        width: 87
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_257
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 240
+        width: 80
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_258
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 240
+        width: 78
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_259
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 240
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_260
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 240
+        width: 74
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_261
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 240
+        width: 70
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_262
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 240
+        width: 65
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_263
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 240
+        width: 4
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_264
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 240
+        width: 39
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_265
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 240
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_266
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 240
+        width: 38
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_267
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 181
+        width: 51
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_268
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 240
+        width: 50
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_269
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 240
+        width: 50
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_270
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 240
+        width: 69
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_271
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 181
+        width: 55
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_272
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 202
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_273
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 208
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_274
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 208
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_275
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 210
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_276
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 211
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_277
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 203
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_278
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 202
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_279
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 208
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_280
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 208
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_281
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 200
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_282
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 200
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_283
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 200
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_284
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 200
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_285
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 155
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_286
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 157
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_287
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 155
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_288
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 112
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_289
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 112
+        width: 4
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_290
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 112
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_291
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 112
+        width: 72
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_292
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 141
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_293
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 147
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_294
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 151
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_295
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 147
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_296
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 112
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_297
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 112
+        width: 4
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_298
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 112
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_299
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 112
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_300
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 112
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_301
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 134
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_302
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 132
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_303
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 127
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_304
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 132
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_305
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 127
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_306
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 130
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_307
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 126
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_308
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 130
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_309
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 126
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_310
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 60
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_311
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 60
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_312
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 60
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_313
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 60
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_314
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 60
+        width: 30
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_315
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 89
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_316
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 60
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_317
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 92
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_318
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 94
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_319
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 60
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_320
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 60
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_321
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 60
+        width: 29
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_322
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 60
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_323
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 60
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_324
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 60
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_325
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_326
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_327
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_328
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 60
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_329
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_330
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_331
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_332
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_333
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 60
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_334
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 60
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_335
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 11
+        width: 79
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_336
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 11
+        width: 96
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_337
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 11
+        width: 96
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_338
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 12
+        width: 98
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_339
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 12
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_340
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 40
+        width: 34
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_341
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 40
+        width: 29
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_342
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 39
+        width: 51
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_343
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 40
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_344
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 39
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_345
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 39
+        width: 71
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_346
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 40
+        width: 40
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_347
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 29
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_348
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 29
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_349
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 29
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_350
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 29
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_351
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 29
+        width: 58
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_352
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 29
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_353
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 26
+        width: 68
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_354
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 28
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_355
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 17
+        width: 28
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_356
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 15
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_357
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 17
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_358
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 17
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_359
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 15
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_360
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 17
+        width: 23
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: soldiers2pt25lq_361
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 14
+        width: 43
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

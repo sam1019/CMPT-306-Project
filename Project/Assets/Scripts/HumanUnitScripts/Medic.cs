@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Medic : Player {
-
+	
 	public const string className = "Medic";
 	public const float baseDamage = 7.5f;
 	public const float baseDefense = 10.0f;
@@ -146,7 +146,7 @@ public class Medic : Player {
 		}
 		
 	}
-
+	
 	//Return the class name of unit
 	public override string roleName(){
 		return className;

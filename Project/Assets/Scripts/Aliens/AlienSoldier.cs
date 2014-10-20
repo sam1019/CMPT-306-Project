@@ -15,9 +15,12 @@ public class AlienSoldier : Player {
 	
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
+
+	private Animator anim;
 	
 	void Start () {
 		HP = 100.0f;
+		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame

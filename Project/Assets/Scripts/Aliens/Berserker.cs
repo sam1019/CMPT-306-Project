@@ -12,10 +12,13 @@ public class Berserker : Player {
 	public int movementRange = 3;
 	public float HP;
 
+	private Animator anim;
+
 	void Start () {
 
 		HP = 200.0f;
 		movementRange = 5;
+		anim = gameObject.GetComponent<Animator> ();
 
 	}
 	
