@@ -411,12 +411,8 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-<<<<<<< HEAD
+
 	//When click move botton, the available range for player will Highlighted
-=======
-	//Null exception here, will fix later
-	//When click move botton, the available path for player will Highlighted
->>>>>>> animation
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
 
 		/* Iterate through the map to highlight the tiles that in its move range
@@ -502,31 +498,21 @@ public class GameManager : MonoBehaviour {
 		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(jet);
 		Jet jetTemp=jet.GetComponent<Jet> ();
-<<<<<<< HEAD
+
 		jetTemp.gridPosition = new Vector2 (0, 12); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
 		
-=======
-		jetTemp.gridPosition = new Vector2 (0, 11);
-		playerCount += 1;
 
->>>>>>> animation
 		/********************Spawning solider*****************************/
 		GameObject soldier;
 		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(soldier);
 		Soldier soldierTemp=soldier.GetComponent<Soldier> ();
-<<<<<<< HEAD
+
 		soldierTemp.gridPosition = new Vector2 (0, 11); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
-		
-		
-=======
-		soldierTemp.gridPosition = new Vector2 (0, 10);
-		playerCount += 1;
+				
 
-
->>>>>>> animation
 	}
 	public void spawnAI(){
 
