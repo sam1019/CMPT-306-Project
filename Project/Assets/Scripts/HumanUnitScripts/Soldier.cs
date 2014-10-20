@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Soldier : Player {
-
+	
 	public const string className = "Soldier";
 	public const float baseDamage = 15.0f;
 	public const float baseDefense = 15.0f;

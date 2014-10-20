@@ -39,7 +39,6 @@ public class SpecialistAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
-					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -47,7 +46,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn();
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -72,7 +71,6 @@ public class SpecialistAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
-					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -80,7 +78,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn();
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -105,7 +103,6 @@ public class SpecialistAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
-					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -113,7 +110,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn();
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -138,7 +135,6 @@ public class SpecialistAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
-					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -146,7 +142,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn();
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -168,7 +164,6 @@ public class SpecialistAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
-					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -176,7 +171,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn();
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
