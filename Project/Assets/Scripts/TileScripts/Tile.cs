@@ -30,7 +30,7 @@ public class Tile : MonoBehaviour {
 	void OnMouseEnter() {
         //First record the origianl tile color
 		//When hovering over tile it changes the color to become green
-
+		//if it in move range set it to be blue
 		if(transform.renderer.material.color==Color.blue){
 			tempColorRecord = transform.renderer.material.color;
 			transform.renderer.material.color = Color.blue;
@@ -96,6 +96,7 @@ public class Tile : MonoBehaviour {
 	}
 	
 	void OnMouseDown() {
+		//Once click mouse left botton, reset the tile color to white
 		if (Input.GetMouseButtonDown(0)) {
 			tempColorRecord=Color.white;
 		}

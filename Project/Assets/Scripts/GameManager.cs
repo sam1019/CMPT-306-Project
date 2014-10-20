@@ -267,7 +267,7 @@ public class GameManager : MonoBehaviour {
 			int j=(int)destination.gridPosition.y;
 
 			/****Test unit******/
-			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){
+			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){//Checks for what script is attached to player and check player move only in highlight tile
 				UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
 				setOccupied(destination, (Player) Playertemp);
 				Playertemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward;
@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour {
 				
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player and check player move only in highlight tile
 				Tank tankTemp = playerList [currentPlayerIndex].GetComponent<Tank>();
 				setOccupied(destination, (Player) tankTemp); //Sets new tile location occupied
 				tankTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
@@ -283,7 +283,7 @@ public class GameManager : MonoBehaviour {
 				
 			}
 			
-			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player and check player move only in highlight tile
 				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
 				setOccupied(destination, (Player) soldierTemp);  //Sets new tile location occupied
 				soldierTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
@@ -291,28 +291,28 @@ public class GameManager : MonoBehaviour {
 				
 			}
 			
-			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player and check player move only in highlight tile
 				Medic medicTemp = playerList [currentPlayerIndex].GetComponent<Medic>();
 				setOccupied(destination, (Player) medicTemp);   //Sets new tile location occupied
 				medicTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
 				medicTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player and check player move only in highlight tile
 				Specialist specTemp = playerList [currentPlayerIndex].GetComponent<Specialist>();
 				setOccupied(destination, (Player) specTemp); //Sets new tile location occupied
 				specTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
 				specTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player and check player move only in highlight tile
 				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
 				setOccupied(destination, (Player) jetTemp); //Sets new tile location occupied
 				jetTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
 				jetTemp.gridPosition = destination.gridPosition; //Sets new grid position for unit
 				
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player and check player move only in highlight tile
 				Helicopter heliTemp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
 				setOccupied(destination, (Player) heliTemp);  //Sets new tile location occupied
 				heliTemp.moveDestination = destination.transform.position + PLAYER_HEIGHT * Vector3.forward; //Moves player unit
