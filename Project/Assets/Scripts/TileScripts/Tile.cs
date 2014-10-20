@@ -102,7 +102,7 @@ public class Tile : MonoBehaviour {
 		}
 		if (isPlayerMoving()) {
 			GameManager.instance.MovePlayer(this);
-			transform.renderer.material.color = Color.yellow;
+			transform.renderer.material.color = Color.green;
 		} 
 		else if (isPlayerAttacking()) {
 			GameManager.instance.whatPlayerClassIsAttacking(this);
