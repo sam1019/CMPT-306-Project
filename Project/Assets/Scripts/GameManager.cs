@@ -565,13 +565,14 @@ public class GameManager : MonoBehaviour {
 		AlienShip shipTemp = ship.GetComponent<AlienShip> ();
 		shipTemp.gridPosition = new Vector2 (6,5); //Set the grid postion to the fixed spawn point
 		
-		/********************Spawning alien berserker*****************************/
+		/*******************Spawning alien berserker*****************************/
+
 		GameObject berserk = Instantiate(berserkerPrefab, new Vector3(6+1 - Mathf.Floor(mapSize/2), -6 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(berserk); //Add to playerlist
 		aiCount += 1; //Increment AI count
 		aiList.Add(berserk); //Add to ailist
 		Berserker berserkTemp = berserk.GetComponent<Berserker> ();
-		berserkTemp.gridPosition = new Vector2 (7,6); //Set the grid postion to the fixed spawn point
+		berserkTemp.gridPosition = new Vector2 (7,6); //Set the grid postion to the fixed spawn point 
 		
 		
 	}
