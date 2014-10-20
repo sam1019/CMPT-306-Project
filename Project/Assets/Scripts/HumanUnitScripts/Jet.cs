@@ -30,13 +30,13 @@ public class Jet : Player {
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
 			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>() == this && GameManager.instance.playerList.Count > 0) {
+				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.cyan;
-				anim.SetBool("focus", true);
 			}
 			//Otherwise charactor is blue
 			else {
+				anim.SetBool("focus", false);//when out its turn, play idle animation
 				transform.renderer.material.color = Color.blue;
-				anim.SetBool("focus", false);
 			}
 		}
 		if (this.HP <= 0) {
@@ -54,7 +54,7 @@ public class Jet : Player {
 			
 			//Used to check if the player has reached it's destination, if so next turn
 			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
-				transform.position = moveDestination;// + Vector3.back;
+				transform.position = moveDestination;
 				GameManager.instance.nextTurn();
 			}
 			base.TurnUpdate ();
@@ -92,6 +92,7 @@ public class Jet : Player {
 	/*
 	 * Gets current player's grid position
 	 */ 
+	//Used for testing, may not need for future
 	public Tile getGridPosition(){
 		int x = (int) this.gridPosition.x;
 		int y = (int)this.gridPosition.y;
@@ -99,59 +100,63 @@ public class Jet : Player {
 		return tile;
 	}
 	
-	
+	/*
+	 * Finds the enemy's class on the selected tile to attack
+	 */
 	public void getEnemyToAttack(Tile tile){
-		foreach (GameObject p in GameManager.instance.playerList) {
+		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 			if(p.GetComponent<AlienShip>() != null){
 				AlienShip target = null;
-				AlienShip temp = p.GetComponent<AlienShip>();
+				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
 				
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					JetAttack.attackAlienShip(target);
+					JetAttack.attackAlienShip(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<AlienSoldier>() != null){
+			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
 				AlienSoldier target = null;
-				AlienSoldier temp = p.GetComponent<AlienSoldier>();				
+				AlienSoldier temp = p.GetComponent<AlienSoldier>();	//Gets enemy script			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					JetAttack.attackAlienSoldier(target);
+					JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<AlienSupport>() != null){
+			else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
 				AlienSupport target = null;
-				AlienSupport temp = p.GetComponent<AlienSupport>();				
+				AlienSupport temp = p.GetComponent<AlienSupport>();	//Gets enemy script			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					JetAttack.attackAlienSupport(target);
+					JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
 				}
 			}
-			else if(p.GetComponent<Berserker>() != null){
+			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
 				Berserker target = null;
-				Berserker temp = p.GetComponent<Berserker>();				
+				Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	 			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					JetAttack.attackAlienBerserker(target);
+					JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
 				}
 			}
 			/**********TEST class************/
-			else if(p.GetComponent<AiPlayer>() != null){
+			else if(p.GetComponent<AiPlayer>() != null){ //Checks for enemy class on tile target
 				AiPlayer target = null;
-				AiPlayer temp = p.GetComponent<AiPlayer>();				
+				AiPlayer temp = p.GetComponent<AiPlayer>();	 //Gets enemy script			
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
-					JetAttack.attackAIPlayer(target);
+					JetAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 				}
 			}
 			
 		}
 		
 	}
-	
+
+	//Return the class name of unit
 	public override string roleName(){
 		return className;
 	}
+
 	public virtual void TurnOnGUI(){
 		float buttonHeight = 50;
 		float buttonWidth = 100;
@@ -164,6 +169,7 @@ public class Jet : Player {
 				GameManager.instance.disableHightLight();
 				moving = true;
 				isAttacking = false;
+				//Enables highlight path hightlight
 				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 			} 
 			//otherwise disable all Highlight
@@ -183,6 +189,7 @@ public class Jet : Player {
 			if (!isAttacking) {
 				moving = false;
 				isAttacking = true;
+				//Enables attack hightlight range
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
 
 			} 

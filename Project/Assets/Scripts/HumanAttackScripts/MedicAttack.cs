@@ -38,6 +38,7 @@ public class MedicAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -45,7 +46,7 @@ public class MedicAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -70,6 +71,7 @@ public class MedicAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -77,7 +79,7 @@ public class MedicAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -102,6 +104,7 @@ public class MedicAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -109,7 +112,7 @@ public class MedicAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -134,6 +137,7 @@ public class MedicAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -141,7 +145,7 @@ public class MedicAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -163,6 +167,7 @@ public class MedicAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -170,7 +175,7 @@ public class MedicAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
