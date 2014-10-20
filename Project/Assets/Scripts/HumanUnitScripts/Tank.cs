@@ -17,6 +17,9 @@ public class Tank : Player {
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
 	public bool isAttacking =false;
+
+	private Animator anim;
+
 	void Awake(){
 		//Setting the destination to it's spawn
 		moveDestination = transform.position;
@@ -24,6 +27,7 @@ public class Tank : Player {
 	
 	void Start () {
 		HP = 150.0f;
+		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -33,11 +37,14 @@ public class Tank : Player {
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
 			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Tank>() == this && GameManager.instance.playerList.Count > 0) {
+				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.cyan;
+
 			}
 			//Otherwise charactor is blue
 			else {
 				transform.renderer.material.color = Color.blue;
+				anim.SetBool("focus", false);//when out its turn, play idle animation
 			}
 		}
 		if (this.HP <= 0) {

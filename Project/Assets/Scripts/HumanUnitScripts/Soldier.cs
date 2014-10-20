@@ -15,9 +15,12 @@ public class Soldier : Player {
 	
 	public float attackHitRate = 0.75f;
 	public float defenseReduceRate = 0.2f;
+
+	private Animator anim;
 	
 	void Start () {
 		HP = 100.0f;
+		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -28,10 +31,12 @@ public class Soldier : Player {
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
 			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>() == this && GameManager.instance.playerList.Count > 0) {
 				transform.renderer.material.color = Color.cyan;
+				anim.SetBool("focus", true); //when in its turn, play animation
 			}
 			//Otherwise charactor is blue
 			else {
 				transform.renderer.material.color = Color.blue;
+				anim.SetBool("focus", false);//when out its turn, play idle animation
 			}
 		}
 		if (this.HP <= 0) {

@@ -15,9 +15,12 @@ public class Jet : Player {
 	
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
+
+	private Animator anim;
 	
 	void Start () {
 		HP = 120.0f;
+		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -28,10 +31,12 @@ public class Jet : Player {
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
 			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>() == this && GameManager.instance.playerList.Count > 0) {
 				transform.renderer.material.color = Color.cyan;
+				anim.SetBool("focus", true);
 			}
 			//Otherwise charactor is blue
 			else {
 				transform.renderer.material.color = Color.blue;
+				anim.SetBool("focus", false);
 			}
 		}
 		if (this.HP <= 0) {
