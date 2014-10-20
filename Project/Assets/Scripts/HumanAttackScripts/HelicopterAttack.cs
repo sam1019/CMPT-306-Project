@@ -38,7 +38,7 @@ public class HelicopterAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
-					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
+					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6)); //Arbitrary numbers for now
 					
 					target.HP -= amountOfDamage;
 				} else {
@@ -60,7 +60,7 @@ public class HelicopterAttack : MonoBehaviour {
 			Helicopter heli = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Helicopter>();
 			if(isTargetInRange((int)heli.gridPosition.x, (int)heli.gridPosition.y,
 			                   (int)target.gridPosition.x,(int)target.gridPosition.y, heli.attackRange)){
-				heli.actionPoints--;
+				heli.actionPoints--; //Decrement action points
 				
 				heli.attacking = false;			
 				
@@ -70,6 +70,7 @@ public class HelicopterAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -77,7 +78,7 @@ public class HelicopterAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -92,7 +93,7 @@ public class HelicopterAttack : MonoBehaviour {
 			Helicopter heli = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Helicopter>();
 			if(isTargetInRange((int)heli.gridPosition.x, (int)heli.gridPosition.y,
 			                   (int)target.gridPosition.x,(int)target.gridPosition.y, heli.attackRange)){
-				heli.actionPoints--;
+				heli.actionPoints--; //Decrement action points
 				
 				heli.attacking = false;			
 				
@@ -102,6 +103,7 @@ public class HelicopterAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -109,7 +111,7 @@ public class HelicopterAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -124,7 +126,7 @@ public class HelicopterAttack : MonoBehaviour {
 			Helicopter heli = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Helicopter>();
 			if(isTargetInRange((int)heli.gridPosition.x, (int)heli.gridPosition.y,
 			                   (int)target.gridPosition.x,(int)target.gridPosition.y, heli.attackRange)){
-				heli.actionPoints--;
+				heli.actionPoints--; //Decrement action points
 				
 				heli.attacking = false;			
 				
@@ -134,6 +136,7 @@ public class HelicopterAttack : MonoBehaviour {
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -141,7 +144,7 @@ public class HelicopterAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -149,19 +152,20 @@ public class HelicopterAttack : MonoBehaviour {
 	}
 	public static void attackAIPlayer(AiPlayer target){
 		if (target != null) {
-			Tank tank = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Tank>();
-			if(isTargetInRange((int)tank.gridPosition.x, (int)tank.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, tank.attackRange)){
-				tank.actionPoints--;
+			Helicopter heli = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Helicopter>();
+			if(isTargetInRange((int)heli.gridPosition.x, (int)heli.gridPosition.y,
+			                   (int)target.gridPosition.x,(int)target.gridPosition.y, heli.attackRange)){
+				heli.actionPoints--; //Decrement action points
 				
-				tank.attacking = false;			
+				heli.attacking = false;			
 				
 				//attack logic
 				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= tank.attackHitRate;
+				bool hit = Random.Range(0.0f, 1.0f) <= heli.attackHitRate;
 				
 				if (hit) {
 					//damage logic
+					//In future damage dealt will take in account for target's defense
 					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
 					
 					target.HP -= amountOfDamage;
@@ -169,7 +173,7 @@ public class HelicopterAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn();
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}

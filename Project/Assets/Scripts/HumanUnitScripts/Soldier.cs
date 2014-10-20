@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Soldier : Player {
-	
+
 	public const string className = "Soldier";
 	public const float baseDamage = 15.0f;
 	public const float baseDefense = 15.0f;
@@ -30,13 +30,13 @@ public class Soldier : Player {
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
 			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Soldier>() == this && GameManager.instance.playerList.Count > 0) {
-				transform.renderer.material.color = Color.cyan;
 				anim.SetBool("focus", true); //when in its turn, play animation
+				transform.renderer.material.color = Color.cyan;
 			}
 			//Otherwise charactor is blue
 			else {
-				transform.renderer.material.color = Color.blue;
 				anim.SetBool("focus", false);//when out its turn, play idle animation
+				transform.renderer.material.color = Color.blue;
 			}
 		}
 		if (this.HP <= 0) {

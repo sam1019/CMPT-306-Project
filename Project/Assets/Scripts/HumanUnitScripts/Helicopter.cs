@@ -39,7 +39,7 @@ public class Helicopter : Player {
 		}
 		base.Update();
 	}
-	
+
 	// virtual keyword allows child classes to override the method
 	public override void TurnUpdate(){
 		
