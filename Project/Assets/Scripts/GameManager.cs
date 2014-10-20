@@ -441,19 +441,31 @@ public class GameManager : MonoBehaviour {
 	}
 
 	//When click move botton, the available range for player will Highlighted
-	/*
-	 * Partially working, will fix for future
-	 * Shows outer limit but does not fill in square
-	 */
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
-		print (originLocationX + "and" + originLocationY);
-		
-		for (int i = 0; i < mapSize; i++) {
-			for (int j = 0; j < mapSize; j++) {
-				if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-				   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
-				   && Mathf.Abs(i - j) <= Mathf.Abs(originLocationX - originLocationY) + range &&  Mathf.Abs(i - j) >= Mathf.Abs(originLocationX - originLocationY) - range){
-					this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+
+		/* Iterate through the map to highlight the tiles that in its move range
+		 * different part of the map has different methods to choose tiles
+		 */
+
+		if (originLocationX >= originLocationY) {
+			for (int i = 0; i < mapSize; i++) {
+				for (int j = 0; j < mapSize; j++) {
+					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
+					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
+					   && (i - j) <= Mathf.Abs(originLocationX - originLocationY) + range &&  (i - j) >= Mathf.Abs(originLocationX - originLocationY) - range){
+						this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+					}
+				}
+			}
+		}
+		else if(originLocationX < originLocationY){
+			for (int i = 0; i < mapSize; i++) {
+				for (int j = 0; j < mapSize; j++) {
+					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
+					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
+					   && (i - j) <= (originLocationX - originLocationY + range) &&  (i - j) >= (originLocationX - originLocationY - range)){
+						this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+					}
 				}
 			}
 		}
@@ -518,7 +530,7 @@ public class GameManager : MonoBehaviour {
 		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(jet); //Add to player list
 		Jet jetTemp=jet.GetComponent<Jet> ();
-		jetTemp.gridPosition = new Vector2 (0, 11); //Setting grid position to their fixed spawn location
+		jetTemp.gridPosition = new Vector2 (0, 12); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
 		
 		/********************Spawning solider*****************************/
@@ -526,7 +538,7 @@ public class GameManager : MonoBehaviour {
 		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(soldier); //Add to player list
 		Soldier soldierTemp=soldier.GetComponent<Soldier> ();
-		soldierTemp.gridPosition = new Vector2 (0, 10); //Setting grid position to their fixed spawn location
+		soldierTemp.gridPosition = new Vector2 (0, 11); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
 		
 		
