@@ -655,4 +655,4 @@ public class GameManager : MonoBehaviour {
 		// we will add the lives here depending on the player, by passing variable from player attack
 		GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString ());
 	}	
-} 
+}
