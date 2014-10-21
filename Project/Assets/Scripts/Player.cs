@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	public Vector3 moveDestination;
 	public float moveSpeed = 10.0f;
 	public Vector2 gridPosition = Vector2.zero;
-	public float HP;
+	//public float HP;
 
 	//boolean to judge moveing and attack condition
 	public bool moving= false;

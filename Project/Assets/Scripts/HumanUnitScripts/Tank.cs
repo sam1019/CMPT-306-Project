@@ -176,7 +176,7 @@ public class Tank : Player {
 		return className;
 	}
 
-	public virtual void TurnOnGUI(){
+	public override void TurnOnGUI(){
 
 		float buttonHeight = 50;
 		float buttonWidth = 100;

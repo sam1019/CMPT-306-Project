@@ -25,7 +25,7 @@ public class Jet : Player {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
 
 		// Basic charactor color is blue
 		// When a charactor is chosen, it's color will turn to cyan
@@ -164,7 +164,7 @@ public class Jet : Player {
 		return className;
 	}
 
-	public virtual void TurnOnGUI(){
+	public override void TurnOnGUI(){
 
 		float buttonHeight = 50;
 		float buttonWidth = 100;

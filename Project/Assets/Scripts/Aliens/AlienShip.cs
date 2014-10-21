@@ -32,7 +32,7 @@ public class AlienShip : Player {
 		GameManager.instance.nextTurn();
 		base.TurnUpdate ();
 	}
-	public virtual void TurnOnGUI(){}
+	public override void TurnOnGUI(){}
 	
 	//Display HP
 	public void OnGUI(){

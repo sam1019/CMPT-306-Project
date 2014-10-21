@@ -14,10 +14,10 @@ public class AlienSupport : Player {
 	public float HP;
 
 
-	void Start () {
+	 void Start () {
 		HP = 100.0f;
 	}
 	
 	// Update is called once per frame
-	void Update () {}
+	public override void Update () {}
 }

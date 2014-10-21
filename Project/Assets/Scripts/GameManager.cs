@@ -274,39 +274,42 @@ public class GameManager : MonoBehaviour {
 	public void MovePlayer(Tile destination){
 		
 		if (canPlayerMove(destination)) { // If tile is unoccupied player can move to there
-			
+
+			int i=(int)destination.gridPosition.x;
+			int j=(int)destination.gridPosition.y;
+
 			/****Test unit******/
-			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null){
+			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){
 				
 				UserPlayer Playertemp = playerList [currentPlayerIndex].GetComponent<UserPlayer>();
 				MoveHelper(Playertemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Tank>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
 				
 				Tank tankTemp = playerList [currentPlayerIndex].GetComponent<Tank>();
 				MoveHelper(tankTemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Soldier>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
 				
 				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
 				MoveHelper(soldierTemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
 				
 				Medic medicTemp = playerList [currentPlayerIndex].GetComponent<Medic>();
 				MoveHelper(medicTemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
 				
 				Specialist specTemp = playerList [currentPlayerIndex].GetComponent<Specialist>();
 				MoveHelper(specTemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
 				
 				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
 				MoveHelper(jetTemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null){ //Checks for what script is attached to player
+			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.blue){ //Checks for what script is attached to player
 				
 				Helicopter heliTemp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
 				MoveHelper(heliTemp, destination);
