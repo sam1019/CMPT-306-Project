@@ -2,45 +2,52 @@
 using System.Collections;
 
 public class Helicopter : Player {
-	
+
+	// character properties
 	public const string className = "Helicopter";
 	public const float baseDamage = 20.0f;
 	public const float baseDefense = 20.0f;
-	public int movementRange = 4;
-	public float HP;
 	public bool isAttacking =false;
 	public int attackRange = 2;
-	private float bottonWidth;
-	private float buttonWidth;
-	
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
-	
+	public bool isHit;
+	public bool isDefend;
+	public int movementRange;
+	public float HP;
+
+
 	void Start () {
+
 		HP = 120.0f;
+		movementRange = 4;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Basic charactor color is blue
-		//When a charactor is chosen, it's color will turn to cyan
-		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
+
+		// Basic charactor color is blue
+		// When a charactor is chosen, it's color will turn to cyan
+		// When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Helicopter>() == this && GameManager.instance.playerList.Count > 0) {
+
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Helicopter>() == this 
+			    && GameManager.instance.playerList.Count > 0) {
+
 				transform.renderer.material.color = Color.cyan;
 			}
-			//Otherwise charactor is blue
+			// Otherwise charactor is blue
 			else {
 				transform.renderer.material.color = Color.blue;
 			}
 		}
+
 		if (this.HP <= 0) {
 			transform.renderer.material.color = Color.black;		
 		}
 		base.Update();
 	}
-
-	// virtual keyword allows child classes to override the method
+	
 	public override void TurnUpdate(){
 		
 		//Moving the player to destination
@@ -56,12 +63,9 @@ public class Helicopter : Player {
 		}
 	}
 	
-	
-	public bool isHit;
-	public bool isDefend;
-	
 	//Hit rate
 	public bool Hit(){
+
 		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
 			isHit=true;
 		}
@@ -73,6 +77,7 @@ public class Helicopter : Player {
 	
 	//HP is decrease after every hit
 	public float HPChange (){
+
 		//if hit, do damage; otherwise no damage
 		if(isHit==true){
 			if(isDefend==false){
@@ -84,11 +89,13 @@ public class Helicopter : Player {
 		}
 		return HP;
 	}
+
 	/*
 	 * Gets current player's grid position
 	 */ 
 	//Used for testing, may not need for future
 	public Tile getGridPosition(){
+
 		int x = (int) this.gridPosition.x;
 		int y = (int)this.gridPosition.y;
 		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
@@ -142,18 +149,20 @@ public class Helicopter : Player {
 					HelicopterAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 				}
 			}
-			
 		}
-		
 	}
 	
 	public override string roleName(){
+
 		return className;
 	}
+
 	public virtual void TurnOnGUI(){
+
 		float buttonHeight = 50;
 		float buttonWidth = 100;
-		
+
+		// move button
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
 			//if not moving, first disable all Highlight 
@@ -207,6 +216,7 @@ public class Helicopter : Player {
 	
 	//Display HP
 	public void OnGUI(){
+
 		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
 		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}

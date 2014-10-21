@@ -30,13 +30,20 @@ public class Tile : MonoBehaviour {
 	void OnMouseEnter() {
         //First record the origianl tile color
 		//When hovering over tile it changes the color to become green
-		tempColorRecord = transform.renderer.material.color;
-		transform.renderer.material.color = Color.green;
+		//if it in move range set it to be blue
+		if(transform.renderer.material.color==Color.blue){
+			tempColorRecord = transform.renderer.material.color;
+			transform.renderer.material.color = Color.blue;
+		}
+		else{
+			tempColorRecord = transform.renderer.material.color;
+			transform.renderer.material.color = Color.green;
+		}
 
 		//Use for debugging
 		//Debug.Log("Mouse position is (" + gridPosition.x + "," + gridPosition.y +")");
 	}
-	
+
 	void OnMouseExit() {
 		//When NOT hovering over tile it changes to the original color
 		transform.renderer.material.color = tempColorRecord;
@@ -89,22 +96,17 @@ public class Tile : MonoBehaviour {
 	}
 	
 	void OnMouseDown() {
+		//Once click mouse left botton, reset the tile color to white
+		if (Input.GetMouseButtonDown(0)) {
+			tempColorRecord=Color.white;
+		}
 		if (isPlayerMoving()) {
 			GameManager.instance.MovePlayer(this);
-			transform.renderer.material.color = Color.yellow;
+			transform.renderer.material.color = Color.green;
 		} 
 		else if (isPlayerAttacking()) {
 			GameManager.instance.whatPlayerClassIsAttacking(this);
-		} 
-		/*
-		else {
-			impassible = impassible ? false : true;
-			if (impassible) {
-				visual.transform.renderer.materials[0].color = new Color(.5f, .5f, 0.0f);
-			} else {
-				visual.transform.renderer.materials[0].color = Color.white;
-			}
-		}*/
-		
+		}
 	}
+
 }

@@ -3,31 +3,36 @@ using System.Collections;
 
 public class Specialist : Player {
 
+	// character properties
 	public const string className = "Specialist";
 	public const float baseDamage = 75.0f;
 	public const float baseDefense = 10.0f;
-	public int movementRange=5;
-	public float HP;
 	public bool isAttacking =false;
-	
 	public int attackRange = 3;
-	private float bottonWidth;
-	private float buttonWidth;
-	
 	public float attackHitRate = 0.95f;
 	public float defenseReduceRate = 0.2f;
+	public bool isHit;
+	public bool isDefend;
+	public int movementRange;
+	public float HP;
 	
 	void Start () {
+
 		HP = 75.0f;
+		movementRange = 5;
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
+
 		//Basic charactor color is blue
 		//When a charactor is chosen, it's color will turn to cyan
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Specialist>() == this && GameManager.instance.playerList.Count > 0) {
+
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Specialist>() == this 
+			    && GameManager.instance.playerList.Count > 0) {
+
 				transform.renderer.material.color = Color.cyan;
 			}
 			//Otherwise charactor is blue
@@ -35,14 +40,13 @@ public class Specialist : Player {
 				transform.renderer.material.color = Color.blue;
 			}
 		}
+
 		if (this.HP <= 0) {
 			transform.renderer.material.color = Color.black;		
 		}
 		base.Update();
 	}
 	
-	
-	// virtual keyword allows child classes to override the method
 	public override void TurnUpdate(){
 		
 		//Moving the player to destination
@@ -58,12 +62,9 @@ public class Specialist : Player {
 		}
 	}
 	
-	
-	public bool isHit;
-	public bool isDefend;
-	
 	//Hit rate
 	public bool Hit(){
+
 		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
 			isHit=true;
 		}
@@ -75,8 +76,10 @@ public class Specialist : Player {
 	
 	//HP is decrease after every hit
 	public float HPChange (){
+
 		//if hit, do damage; otherwise no damage
 		if(isHit==true){
+
 			if(isDefend==false){
 				HP=HP-10.0f;
 			}
@@ -86,10 +89,12 @@ public class Specialist : Player {
 		}
 		return HP;
 	}
+
 	/*
 	 * Gets current player's grid position
 	 */ 
 	public Tile getGridPosition(){
+
 		int x = (int) this.gridPosition.x;
 		int y = (int)this.gridPosition.y;
 		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
@@ -100,7 +105,9 @@ public class Specialist : Player {
 	 * Finds the enemy's class on the selected tile to attack
 	 */
 	public void getEnemyToAttack(Tile tile){
+
 		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+
 			if(p.GetComponent<AlienShip>() != null){
 				AlienShip target = null;
 				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
@@ -112,7 +119,8 @@ public class Specialist : Player {
 			}
 			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
 				AlienSoldier target = null;
-				AlienSoldier temp = p.GetComponent<AlienSoldier>(); //Gets enemy script		 		
+				AlienSoldier temp = p.GetComponent<AlienSoldier>(); //Gets enemy script
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					SpecialistAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
@@ -120,7 +128,8 @@ public class Specialist : Player {
 			}
 			else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
 				AlienSupport target = null;
-				AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script			
+				AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script	
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					SpecialistAttack.attackAlienSupport(target); //Attacks the specific enemy unit
@@ -128,7 +137,8 @@ public class Specialist : Player {
 			}
 			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
 				Berserker target = null;
-				Berserker temp = p.GetComponent<Berserker>();	//Gets enemy script 			
+				Berserker temp = p.GetComponent<Berserker>();	//Gets enemy script 		
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					SpecialistAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
@@ -139,22 +149,24 @@ public class Specialist : Player {
 				AiPlayer target = null;
 				AiPlayer temp = p.GetComponent<AiPlayer>();	//Gets enemy script		
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+
 					target = temp;
 					SpecialistAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 				}
 			}
-			
 		}
-		
 	}
 	
 	public override string roleName(){
+
 		return className;
 	}
 	public virtual void TurnOnGUI(){
+
 		float buttonHeight = 50;
 		float buttonWidth = 100;
-		
+
+		// move button
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
 			//if not moving, first disable all Highlight 
@@ -209,6 +221,7 @@ public class Specialist : Player {
 	
 	//Display HP
 	public void OnGUI(){
+
 		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
 		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}

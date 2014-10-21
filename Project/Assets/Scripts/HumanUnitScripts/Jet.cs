@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Jet : Player {
 
+	// character properties
 	public const string className = "Jet";
 	public const float baseDamage = 25.0f;
 	public const float baseDefense = 15.0f;
@@ -10,26 +11,30 @@ public class Jet : Player {
 	public float HP;
 	public bool isAttacking =false;
 	public int attackRange = 2;
-	private float bottonWidth;
-	private float buttonWidth;
-	
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
-
+	public bool isHit;
+	public bool isDefend;
 	private Animator anim;
-	
+
+
 	void Start () {
+
 		HP = 120.0f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//Basic charactor color is blue
-		//When a charactor is chosen, it's color will turn to cyan
-		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
+
+		// Basic charactor color is blue
+		// When a charactor is chosen, it's color will turn to cyan
+		// When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>() == this && GameManager.instance.playerList.Count > 0) {
+
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>() == this 
+			    && GameManager.instance.playerList.Count > 0) {
+
 				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.cyan;
 			}
@@ -44,8 +49,7 @@ public class Jet : Player {
 		}
 		base.Update();
 	}
-	
-	// virtual keyword allows child classes to override the method
+
 	public override void TurnUpdate(){
 		
 		//Moving the player to destination
@@ -61,11 +65,7 @@ public class Jet : Player {
 		}
 	}
 	
-	
-	public bool isHit;
-	public bool isDefend;
-	
-	//Hit rate
+	// Hit rate
 	public bool Hit(){
 		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
 			isHit=true;
@@ -76,7 +76,7 @@ public class Jet : Player {
 		return isHit;
 	}
 	
-	//HP is decrease after every hit
+	// HP is decrease after every hit
 	public float HPChange (){
 		//if hit, do damage; otherwise no damage
 		if(isHit==true){
@@ -89,11 +89,13 @@ public class Jet : Player {
 		}
 		return HP;
 	}
+
 	/*
 	 * Gets current player's grid position
 	 */ 
-	//Used for testing, may not need for future
+	// TODO: Used for testing, may not need for future
 	public Tile getGridPosition(){
+
 		int x = (int) this.gridPosition.x;
 		int y = (int)this.gridPosition.y;
 		Tile tile = GameManager.instance.map [x] [y].GetComponent<Tile> ();
@@ -104,7 +106,9 @@ public class Jet : Player {
 	 * Finds the enemy's class on the selected tile to attack
 	 */
 	public void getEnemyToAttack(Tile tile){
+
 		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+
 			if(p.GetComponent<AlienShip>() != null){
 				AlienShip target = null;
 				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
@@ -116,7 +120,8 @@ public class Jet : Player {
 			}
 			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
 				AlienSoldier target = null;
-				AlienSoldier temp = p.GetComponent<AlienSoldier>();	//Gets enemy script			
+				AlienSoldier temp = p.GetComponent<AlienSoldier>();	//Gets enemy script		
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
@@ -125,6 +130,7 @@ public class Jet : Player {
 			else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
 				AlienSupport target = null;
 				AlienSupport temp = p.GetComponent<AlienSupport>();	//Gets enemy script			
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
@@ -132,7 +138,8 @@ public class Jet : Player {
 			}
 			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
 				Berserker target = null;
-				Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	 			
+				Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
@@ -141,26 +148,28 @@ public class Jet : Player {
 			/**********TEST class************/
 			else if(p.GetComponent<AiPlayer>() != null){ //Checks for enemy class on tile target
 				AiPlayer target = null;
-				AiPlayer temp = p.GetComponent<AiPlayer>();	 //Gets enemy script			
+				AiPlayer temp = p.GetComponent<AiPlayer>();	 //Gets enemy script
+
 				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 					target = temp;
 					JetAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 				}
 			}
-			
 		}
-		
 	}
 
 	//Return the class name of unit
 	public override string roleName(){
+
 		return className;
 	}
 
 	public virtual void TurnOnGUI(){
+
 		float buttonHeight = 50;
 		float buttonWidth = 100;
-		
+
+		// move button
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if (GUI.Button(buttonRect, "Move")) {
 			//if not moving, first disable all Highlight 
@@ -215,6 +224,7 @@ public class Jet : Player {
 	
 	//Display HP
 	public void OnGUI(){
+
 		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
 		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}
