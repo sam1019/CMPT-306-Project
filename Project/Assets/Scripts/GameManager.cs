@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		
 		instance = this;
+
+		loadMapFromCsv (); // testing read from file!!
 	}
 	
 	void Start () {
@@ -538,7 +540,19 @@ public class GameManager : MonoBehaviour {
 	// TODO: For future implementation
 	// Reads from xml file and generates a map
 	public void loadMapFromXml() { }
-	
+
+	// TODO: For future implementation
+	// Reads from CSV file and generates a map
+	public void loadMapFromCsv() {
+		List<Dictionary<string,object>> data = ReadCSV.Read ("Level_1");
+		
+		for(var i=0; i < data.Count; i++) {
+			print ("type " + data[i]["type"] + " " +
+			       "x " + data[i]["x"] + " " +
+			       "y " + data[i]["y"]);
+		}
+	}
+
 	/*
 	 * Spawns players onto the map and increment player count
 	 * Currently spawned at fixed locations

@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Interfaces\GameManagerInteferface.cs" />
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\ReadCSV.cs" />
      <Compile Include="Assets\Scripts\TileScripts\Tile.cs" />
      <Compile Include="Assets\Scripts\UserPlayer.cs" />
      <None Include="Assets\EVERYONE_READ_ME.txt" />
