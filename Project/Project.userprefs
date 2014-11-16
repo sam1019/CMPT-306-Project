@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TileScripts\CSVReader.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scenes/LevelSelect.cs">
     <Files>
-      <File FileName="Assets\Scripts\TileScripts\CSVReader.cs" Line="11" Column="16" />
+      <File FileName="Assets/Scripts/Scenes/LevelSelect.cs" Line="41" Column="36" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="629" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
