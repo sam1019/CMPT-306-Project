@@ -3,7 +3,7 @@ CMPT-306-Project
 
 CMPT 306 class project --- tactics game.
 
-Contibutors (Alphabetical Order):
+Contributors (Alphabetical Order):
 1. David
 2. Duan
 3. Han
