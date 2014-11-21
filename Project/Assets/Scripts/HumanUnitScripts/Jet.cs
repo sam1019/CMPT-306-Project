@@ -196,6 +196,7 @@ public class Jet : Player {
 			//if not attacking, first disable all Highlight 
 			//enable Attack Highlight
 			if (!isAttacking) {
+				GameManager.instance.disableHightLight();
 				moving = false;
 				isAttacking = true;
 				//Enables attack hightlight range
