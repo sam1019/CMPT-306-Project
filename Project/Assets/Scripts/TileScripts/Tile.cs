@@ -35,6 +35,9 @@ public class Tile : MonoBehaviour {
 			tempColorRecord = transform.renderer.material.color;
 			transform.renderer.material.color = Color.magenta;
 		}
+		else if(transform.renderer.material.color==Color.blue){
+
+		}
 		else{
 			tempColorRecord = transform.renderer.material.color;
 			transform.renderer.material.color = Color.green;
@@ -47,7 +50,12 @@ public class Tile : MonoBehaviour {
 	void OnMouseExit() {
 		//When NOT hovering over tile it changes to the original color
 		if (transform.renderer.material.color == Color.green) {
-			transform.renderer.material.color = Color.white;
+			if(tempColorRecord== Color.red){
+				transform.renderer.material.color = Color.red;
+			}
+			else{
+				transform.renderer.material.color = Color.white;
+			}
 		}
 		else if(transform.renderer.material.color == Color.magenta){
 			transform.renderer.material.color = Color.blue;
