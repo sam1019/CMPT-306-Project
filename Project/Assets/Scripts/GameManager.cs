@@ -413,24 +413,43 @@ public class GameManager : MonoBehaviour {
 		
 	}
 	
-	// highlight a tile according to x and y
+	// highlight a tile according to x and y for attacking range
 	private void highlightAttackedTile(int x, int y) {
 		this.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
 	}
+
+	// highlight a tile according to x and y for move range
+	private void highlightMoveTile(int x, int y) {
+		this.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+	}
 	
-	// TODO: Null exception here, will fix later
+
 	// When click move botton, the available range for player will Highlighted
 	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
 		
-		if(originLocationX-range> 0 && originLocationY-range> 0 && originLocationX+range < this.mapSize && originLocationY+range<this.mapSize){
-			highlightAttackedTile(originLocationX, originLocationY-range);
-			highlightAttackedTile(originLocationX, originLocationY+range);
-			highlightAttackedTile(originLocationX-range, originLocationY);
-			highlightAttackedTile(originLocationX+range, originLocationY);
-			highlightAttackedTile(originLocationX-range, originLocationY-range);
-			highlightAttackedTile(originLocationX+range, originLocationY+range);
-			highlightAttackedTile(originLocationX-range, originLocationY+range);
-			highlightAttackedTile(originLocationX+range, originLocationY-range);
+		/* Iterate through the map to highlight the tiles that in its attack range
+		 * different part of the map has different methods to choose tiles
+		 */
+		if (originLocationX >= originLocationY) {
+			for (int i = 0; i < mapSize; i++) {
+				for (int j = 0; j < mapSize; j++) {
+					if (i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
+						&& i <= originLocationX + range && i >= originLocationX - range && j <= originLocationY + range && j >= originLocationY - range
+						&& (i - j) <= Mathf.Abs (originLocationX - originLocationY) + range && (i - j) >= Mathf.Abs (originLocationX - originLocationY) - range) {
+							highlightAttackedTile (i, j);
+						}
+				}
+			}
+		} else if (originLocationX < originLocationY) {
+			for (int i = 0; i < mapSize; i++) {
+				for (int j = 0; j < mapSize; j++) {
+					if (i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
+						&& i <= originLocationX + range && i >= originLocationX - range && j <= originLocationY + range && j >= originLocationY - range
+						&& (i - j) <= (originLocationX - originLocationY + range) && (i - j) >= (originLocationX - originLocationY - range)) {
+							highlightAttackedTile (i, j);
+						}
+				}
+			}
 		}
 	}
 	
@@ -448,7 +467,7 @@ public class GameManager : MonoBehaviour {
 					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
 					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
 					   && (i - j) <= Mathf.Abs(originLocationX - originLocationY) + range &&  (i - j) >= Mathf.Abs(originLocationX - originLocationY) - range){
-						this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+						highlightMoveTile(i,j);
 					}
 				}
 			}
@@ -460,7 +479,7 @@ public class GameManager : MonoBehaviour {
 					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
 					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
 					   && (i - j) <= (originLocationX - originLocationY + range) &&  (i - j) >= (originLocationX - originLocationY - range)){
-						this.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
+						highlightMoveTile(i,j);
 					}
 				}
 			}
