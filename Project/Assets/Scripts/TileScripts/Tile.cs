@@ -33,7 +33,7 @@ public class Tile : MonoBehaviour {
 		//if it in move range set it to be blue
 		if(transform.renderer.material.color==Color.blue){
 			tempColorRecord = transform.renderer.material.color;
-			transform.renderer.material.color = Color.blue;
+			transform.renderer.material.color = Color.magenta;
 		}
 		else{
 			tempColorRecord = transform.renderer.material.color;
@@ -46,7 +46,13 @@ public class Tile : MonoBehaviour {
 
 	void OnMouseExit() {
 		//When NOT hovering over tile it changes to the original color
-		transform.renderer.material.color = tempColorRecord;
+		if (transform.renderer.material.color == Color.green) {
+			transform.renderer.material.color = Color.white;
+		}
+		else if(transform.renderer.material.color == Color.magenta){
+			transform.renderer.material.color = Color.blue;
+		}
+
 	}
 	public bool isPlayerMoving(){
 		if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<UserPlayer> () != null) {
@@ -97,12 +103,11 @@ public class Tile : MonoBehaviour {
 	
 	void OnMouseDown() {
 		//Once click mouse left botton, reset the tile color to white
-		if (Input.GetMouseButtonDown(0)) {
-			tempColorRecord=Color.white;
-		}
+//		if (Input.GetMouseButtonDown(0)&& !this.isOccupied) {
+//			tempColorRecord=Color.white;
+//		}
 		if (isPlayerMoving()) {
 			GameManager.instance.MovePlayer(this);
-			transform.renderer.material.color = Color.green;
 		} 
 		else if (isPlayerAttacking()) {
 			GameManager.instance.whatPlayerClassIsAttacking(this);
