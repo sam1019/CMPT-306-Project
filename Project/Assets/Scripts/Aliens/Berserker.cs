@@ -27,8 +27,15 @@ public class Berserker : Player {
 	public override void Update () {}
 
 	public override void TurnUpdate (){
-		GameManager.instance.nextTurn();
-		base.TurnUpdate ();
+		moveDestination = new Vector3 (-3.0f, -3.0f, -1.0f);
+		if (Vector3.Distance(moveDestination, transform.position) > 0.1f){
+			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
+			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
+				transform.position = moveDestination;
+				GameManager.instance.nextTurn();
+			}
+			base.TurnUpdate();
+		}
 	}
 
 	public override void TurnOnGUI(){}

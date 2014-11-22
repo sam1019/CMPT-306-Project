@@ -28,9 +28,18 @@ public class AlienShip : Player {
 	public override void Update () {}
 
 	public override void TurnUpdate (){
+//		Tile distination = new Tile (5, -5, 0);
+		moveDestination = new Vector3 (5.0f, 5.0f, -1.0f);
+		if (Vector3.Distance(moveDestination, transform.position) > 0.1f){
+			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
+			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
+				transform.position = moveDestination;
+				GameManager.instance.nextTurn();
+			}
+			base.TurnUpdate();
+		}
 
-		GameManager.instance.nextTurn();
-		base.TurnUpdate ();
+
 	}
 	public override void TurnOnGUI(){}
 	
