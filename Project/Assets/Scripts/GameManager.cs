@@ -267,7 +267,6 @@ public class GameManager : MonoBehaviour {
 		setOccupied(dest, (Player) obj);													//Sets new tile location occupied
 		obj.moveDestination = dest.transform.position + PLAYER_HEIGHT * Vector3.forward;	//Moves player unit
 		obj.gridPosition = dest.gridPosition;												//Sets new grid position for unit
-		print(obj.moveDestination);
 	}
 	
 	// To realize the player movement
