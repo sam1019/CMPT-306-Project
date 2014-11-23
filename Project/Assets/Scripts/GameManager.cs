@@ -645,27 +645,19 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void OnGUI() {	
-		
+		float widthScale = 0.08f;
+
 		//Move Button
 		whoToTurnOnGui ();
 		
 		//Pause Button
-		if (GUI.Button (new Rect (100, 10, 80, 20), "Pause")) // make the GUI button with name "pause"
+		if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale, 20), "Restart")) // make the GUI button with name "pause"
 		{
-			if (IsPause) {
-				Time.timeScale=0;
-				IsPause =false;	
-				// set the pause to false again
-				// TODO: need to enable something actions here
-			}
-			else {
-				Time.timeScale=1;
-				IsPause=true;
-			}
+			Application.LoadLevel(Application.loadedLevel);
 		}
 		
 		//Save botton
-		if (GUI.Button (new Rect (100, 30, 80, 20), "Save")) // this function to save the game
+		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Save")) // this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
@@ -673,8 +665,8 @@ public class GameManager : MonoBehaviour {
 		
 		//Here is the GUI for outputing score, now do nothing yet.
 		// we will add the player's scores here
-		GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
+		//GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
 		// we will add the lives here depending on the player, by passing variable from player attack
-		GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString ());
+		//GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString 
 	}	
 }
