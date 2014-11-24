@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		
 		instance = this;
+
+		loadMapFromCsv ();
 	}
 	
 	void Start () {
@@ -522,8 +524,10 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// TODO: For future implementation
-	// Reads from xml file and generates a map
-	public void loadMapFromXml() { }
+	// Reads from CSV file and generates a map
+	public void loadMapFromCsv() {
+		CSVReader.read ("map1");
+	}
 	
 	/*
 	 * Spawns players onto the map and increment player count

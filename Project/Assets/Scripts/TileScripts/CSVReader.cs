@@ -4,11 +4,11 @@ using System.Linq;
 
 public class CSVReader {
 
-	public string mapFileName;
-	public TextAsset csvFile; 
-	public void Start()
+
+	public static void read(string fileName)
 	{
-		string[,] grid = SplitCsvGrid(csvFile.text);
+		TextAsset data = Resources.Load (fileName) as TextAsset;
+		string[,] grid = SplitCsvGrid(data.text);
 		Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
 		
 		DebugOutputGrid(grid); 
