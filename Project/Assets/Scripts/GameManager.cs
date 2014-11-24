@@ -560,6 +560,14 @@ public class GameManager : MonoBehaviour {
 	 */
 	// TODO: will refactor the code
 	public void spawnPlayers(){
+		/********************Spawning Jet*****************************/
+		GameObject jet;
+		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		playerList.Add(jet); //Add to player list
+		humanList.Add(jet); //Add to Human list
+		Jet jetTemp=jet.GetComponent<Jet> ();
+		jetTemp.gridPosition = new Vector2 (0, 12); //Setting grid position to their fixed spawn location
+		playerCount += 1; //Increment player count
 		
 		//Spawn first player and add it to the list
 		/********************Spawning tank*****************************/
@@ -569,15 +577,6 @@ public class GameManager : MonoBehaviour {
 		humanList.Add(tank); //Add to Human list
 		Tank tankTemp = tank.GetComponent<Tank> ();
 		tankTemp.gridPosition = new Vector2 (0, 0); //Setting grid position to their fixed spawn location
-		playerCount += 1; //Increment player count
-		
-		/********************Spawning Jet*****************************/
-		GameObject jet;
-		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
-		playerList.Add(jet); //Add to player list
-		humanList.Add(jet); //Add to Human list
-		Jet jetTemp=jet.GetComponent<Jet> ();
-		jetTemp.gridPosition = new Vector2 (0, 12); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
 		
 		/********************Spawning solider*****************************/
