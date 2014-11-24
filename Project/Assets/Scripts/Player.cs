@@ -16,7 +16,17 @@ public class Player : MonoBehaviour {
 	public bool moving= false;
 	public bool attacking=false;
 	public int actionPoints = 2;
-	
+
+	public int movementRange;
+	public int attackRange;
+
+	public float HP;
+	public float baseHP;
+	public float baseDamage;
+	public float baseDefense;
+	public float attackBonus;
+	public int K = 100; // reference on Google Drive; it's used for culculating demage	
+
 	//For movement in GameManager.MovePlayer()
 	public List<Vector3> positionQueue = new List<Vector3>();
 

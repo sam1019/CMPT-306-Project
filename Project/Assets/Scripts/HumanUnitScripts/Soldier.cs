@@ -5,22 +5,21 @@ public class Soldier : Player {
 
 	// character properties
 	public const string className = "Soldier";
-	public const float baseDamage = 15.0f;
-	public const float baseDefense = 15.0f;
 	public bool isAttacking =false;
 	public int attackRange = 1;
 	public float attackHitRate = 0.75f;
 	public float defenseReduceRate = 0.2f;
 	public bool isHit;
 	public bool isDefend;
-	public int movementRange;
-	public float HP;
 	private Animator anim;
 
 
 	void Start () {
-		HP = 100.0f;
-		movementRange = 3;
+		this.HP = 100.0f;
+		this.baseHP = 100.0f;
+		this.baseDamage = 15.0f;
+		this.baseDefense = 15.0f;
+		this.movementRange = 3;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	

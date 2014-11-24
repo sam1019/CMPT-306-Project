@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
 	public int playerCount;
 	public int aiCount;
 	public List <GameObject> playerList;
+	public List <GameObject> humanList;
 	public List <GameObject> aiList;
 	private const float PLAYER_HEIGHT = -1.0f; 	//Used to spawn game objects 1.5 above the map so they are not in collision
 	private const float AI_HEIGHT = -0.25f;
@@ -518,6 +519,7 @@ public class GameManager : MonoBehaviour {
 		GameObject tank;
 		tank = Instantiate(tankPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(tank); //Add to player list
+		humanList.Add(tank); //Add to Human list
 		Tank tankTemp = tank.GetComponent<Tank> ();
 		tankTemp.gridPosition = new Vector2 (0, 0); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
@@ -526,6 +528,7 @@ public class GameManager : MonoBehaviour {
 		GameObject jet;
 		jet = Instantiate(jetPrefab, new Vector3(-6, -6,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(jet); //Add to player list
+		humanList.Add(jet); //Add to Human list
 		Jet jetTemp=jet.GetComponent<Jet> ();
 		jetTemp.gridPosition = new Vector2 (0, 12); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
@@ -534,6 +537,7 @@ public class GameManager : MonoBehaviour {
 		GameObject soldier;
 		soldier = Instantiate(soldierPrefab, new Vector3(-6, -5,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(soldier); //Add to player list
+		humanList.Add(soldier); //Add to Human list
 		Soldier soldierTemp=soldier.GetComponent<Soldier> ();
 		soldierTemp.gridPosition = new Vector2 (0, 11); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
