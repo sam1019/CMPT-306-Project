@@ -2,7 +2,18 @@ fileFormatVersion: 2
 guid: 2da2383faabc7ed47a1f872f40c1a350
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - TilePrefab: {instanceID: 0}
+  - AIPrefab: {instanceID: 0}
+  - tile: {instanceID: 0}
+  - jetPrefab: {instanceID: 0}
+  - soldierPrefab: {instanceID: 0}
+  - AlienTroopPrefab: {instanceID: 0}
+  - alienShipPrefab: {instanceID: 0}
+  - berserkerPrefab: {instanceID: 0}
+  - tankPrefab: {instanceID: 0}
+  - PlayerPrefab: {instanceID: 0}
+  - mapTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -2,16 +2,18 @@
 using System.Collections;
 using System.Linq;
 
-public class CSVReader : MonoBehaviour {
+public class CSVReader {
 
-	public string mapFileName;
-	public TextAsset csvFile; 
-	public void Start()
+
+	public static string[,] read(string fileName)
 	{
-		string[,] grid = SplitCsvGrid(csvFile.text);
+		TextAsset data = Resources.Load (fileName) as TextAsset;
+		string[,] grid = SplitCsvGrid(data.text);
 		Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
 		
 		DebugOutputGrid(grid); 
+
+		return grid;
 	}
 	
 	// outputs the content of a 2D array, useful for checking the importer
