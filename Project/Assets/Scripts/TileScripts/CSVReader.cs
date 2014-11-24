@@ -5,13 +5,15 @@ using System.Linq;
 public class CSVReader {
 
 
-	public static void read(string fileName)
+	public static string[,] read(string fileName)
 	{
 		TextAsset data = Resources.Load (fileName) as TextAsset;
 		string[,] grid = SplitCsvGrid(data.text);
 		Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
 		
 		DebugOutputGrid(grid); 
+
+		return grid;
 	}
 	
 	// outputs the content of a 2D array, useful for checking the importer
