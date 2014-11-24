@@ -13,7 +13,13 @@ public class GameManager : MonoBehaviour {
 	/* Prefabs needed for game */
 	public GameObject TilePrefab;
 	public GameObject SandTilePrefab;
-	public GameObject WaterTilePrefab;
+	public GameObject Water1TilePrefab;
+	public GameObject Water2TilePrefab;
+	public GameObject Water3TilePrefab;
+	public GameObject Tree1TilePrefab;
+	public GameObject Tree2TilePrefab;
+	public GameObject Tree3TilePrefab;
+	public GameObject Tree4TilePrefab;
 	public GameObject AIPrefab;
 	public GameObject tile;
 	public GameObject jetPrefab; 
@@ -539,8 +545,20 @@ public class GameManager : MonoBehaviour {
 				//Tiles spawn around the center tile
 				if(mapDate[i,j] == "SAND"){
 					tile = Instantiate(SandTilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "WATER"){
-					tile = Instantiate(WaterTilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "WATER1"){
+					tile = Instantiate(Water1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "WATER2"){
+					tile = Instantiate(Water2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "WATER3"){
+					tile = Instantiate(Water3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TREE1"){
+					tile = Instantiate(Tree1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TREE2"){
+					tile = Instantiate(Tree2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TREE3"){
+					tile = Instantiate(Tree3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TREE4"){
+					tile = Instantiate(Tree4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else{
 					tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				};
