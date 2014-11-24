@@ -11,15 +11,35 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	
 	/* Prefabs needed for game */
-	public GameObject TilePrefab;
-	public GameObject SandTilePrefab;
+
+	//for maps
+	public GameObject Grass0TilePrefab;
+	public GameObject Grass1TilePrefab;
+	public GameObject Grass2TilePrefab;
+	public GameObject Grass3TilePrefab;
+	public GameObject MountainGrass1TilePrefab;
+	public GameObject MountainGrass2TilePrefab;
+	public GameObject MountainGrass3TilePrefab;
+	public GameObject MountainSand1TilePrefab;
+	public GameObject MountainSand2TilePrefab;
+	public GameObject MountainSand3TilePrefab;
+	public GameObject Sand0TilePrefab;
+	public GameObject Sand1TilePrefab;
+	public GameObject Sand2TilePrefab;
+	public GameObject Sand3TilePrefab;
+	public GameObject Sand4TilePrefab;
 	public GameObject Water1TilePrefab;
 	public GameObject Water2TilePrefab;
 	public GameObject Water3TilePrefab;
-	public GameObject Tree1TilePrefab;
-	public GameObject Tree2TilePrefab;
-	public GameObject Tree3TilePrefab;
-	public GameObject Tree4TilePrefab;
+	public GameObject Water4TilePrefab;
+	public GameObject TreeGrass1TilePrefab;
+	public GameObject TreeGrass2TilePrefab;
+	public GameObject TreeGrass3TilePrefab;
+	public GameObject TreeSand1TilePrefab;
+	public GameObject TreeSand2TilePrefab;
+	public GameObject TreeSand3TilePrefab;
+
+
 	public GameObject AIPrefab;
 	public GameObject tile;
 	public GameObject jetPrefab; 
@@ -521,7 +541,7 @@ public class GameManager : MonoBehaviour {
 			
 			for (int j = 0; j < mapSize; j++) {
 				//Tiles spawn around the center tile
-				tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				tile = Instantiate(Grass0TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				Tile maptemp = tile.GetComponent<Tile>();
 				maptemp.gridPosition = new Vector2(i,j);
 				
@@ -535,7 +555,7 @@ public class GameManager : MonoBehaviour {
 	// TODO: For future implementation
 	// Reads from CSV file and generates a map
 	public void loadMapFromCsv() {
-		string[,] mapDate = CSVReader.read ("map1");
+		string[,] mapDate = CSVReader.read ("Map_Level1");
 		map = new List<List<GameObject>>();
 		
 		for (int i = 0; i < mapSize; i++) {
@@ -543,24 +563,60 @@ public class GameManager : MonoBehaviour {
 			
 			for (int j = 0; j < mapSize; j++) {
 				//Tiles spawn around the center tile
-				if(mapDate[i,j] == "SAND"){
-					tile = Instantiate(SandTilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "WATER1"){
+				if(mapDate[i,j] == "Grass0"){
+					tile = Instantiate(Grass0TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Grass1"){
+					tile = Instantiate(Grass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Grass2"){
+					tile = Instantiate(Grass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Grass3"){
+					tile = Instantiate(Grass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Water1"){
 					tile = Instantiate(Water1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "WATER2"){
+				}else if(mapDate[i,j] == "Water2"){
 					tile = Instantiate(Water2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "WATER3"){
+				}else if(mapDate[i,j] == "Water3"){
 					tile = Instantiate(Water3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "TREE1"){
-					tile = Instantiate(Tree1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "TREE2"){
-					tile = Instantiate(Tree2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "TREE3"){
-					tile = Instantiate(Tree3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Water4"){
+					tile = Instantiate(Water4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "MountainSand1"){
+					tile = Instantiate(MountainSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "MountainSand2"){
+					tile = Instantiate(MountainSand2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "MountainSand3"){
+					tile = Instantiate(MountainSand3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "MountainGrass1"){
+					tile = Instantiate(MountainGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "MountainGrass2"){
+					tile = Instantiate(MountainGrass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "MountainGrass3"){
+					tile = Instantiate(MountainGrass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TreeSand1"){
+					tile = Instantiate(TreeSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TreeSand2"){
+					tile = Instantiate(TreeSand2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TreeSand3"){
+					tile = Instantiate(TreeSand3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TreeGrass1"){
+					tile = Instantiate(TreeGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TreeGrass2"){
+					tile = Instantiate(TreeGrass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "TreeGrass3"){
+					tile = Instantiate(TreeGrass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "TREE4"){
-					tile = Instantiate(Tree4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile = Instantiate(TreeGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Sand0"){
+					tile = Instantiate(Sand0TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Sand1"){
+					tile = Instantiate(Sand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Sand2"){
+					tile = Instantiate(Sand2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Sand3"){
+					tile = Instantiate(Sand3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "Sand4"){
+					tile = Instantiate(Sand4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else{
-					tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile = Instantiate(Grass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				};
 				Tile maptemp = tile.GetComponent<Tile>();
 				maptemp.gridPosition = new Vector2(i,j);
