@@ -13,8 +13,8 @@ public class Jet : Player {
 	public int attackRange = 2;
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
-	public bool isHit;
-	public bool isDefend;
+	//public bool isHit;
+	//public bool isDefend;
 	private Animator anim;
 
 
@@ -74,30 +74,30 @@ public class Jet : Player {
 		}
 	}
 	
-	// Hit rate
-	public bool Hit(){
-		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
-			isHit=true;
-		}
-		else{
-			isHit=false;
-		}
-		return isHit;
-	}
-	
-	// HP is decrease after every hit
-	public float HPChange (){
-		//if hit, do damage; otherwise no damage
-		if(isHit==true){
-			if(isDefend==false){
-				HP=HP-10.0f;
-			}
-			else{
-				HP=HP-10.0f*defenseReduceRate;
-			}
-		}
-		return HP;
-	}
+//	// Hit rate
+//	public bool Hit(){
+//		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
+//			isHit=true;
+//		}
+//		else{
+//			isHit=false;
+//		}
+//		return isHit;
+//	}
+//	
+//	// HP is decrease after every hit
+//	public float HPChange (){
+//		//if hit, do damage; otherwise no damage
+//		if(isHit==true){
+//			if(isDefend==false){
+//				HP=HP-10.0f;
+//			}
+//			else{
+//				HP=HP-10.0f*defenseReduceRate;
+//			}
+//		}
+//		return HP;
+//	}
 
 	/*
 	 * Gets current player's grid position
@@ -173,7 +173,6 @@ public class Jet : Player {
 				GameManager.instance.nextTurn();
 			}
 		}
-
 	}
 
 	//Return the class name of unit
@@ -221,8 +220,7 @@ public class Jet : Player {
 				isAttacking = true;
 				//Enables attack hightlight range
 				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
-
-			} 
+			}
 			//otherwise disable all Highlight
 			else {
 				moving = false;
