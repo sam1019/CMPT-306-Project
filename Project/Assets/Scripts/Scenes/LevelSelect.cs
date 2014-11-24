@@ -17,28 +17,31 @@ public class LevelSelect : MonoBehaviour {
 
 	void OnGUI(){
 
+		float widthScale = 0.2f;
+		float heightScale = 0.05f;
+
 		//Pause Button
-		if (GUI.Button (new Rect (400, 150, 160, 20), "Level 1")) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale - 0.15f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 1")) 
 		{
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (400, 180, 160, 20), "Level 2")) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale - 0.0f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 2")) 
 		{
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (400, 210, 160, 20), "Level 3")) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.15f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 3")) 
 		{
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (400, 240, 160, 20), "Level 4")) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.3f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 4")) 
 		{
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (400, 270, 160, 20), "Level 5"))
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 5"))
 		{
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (400, 300, 160, 20), "Go Back")) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.6f)/2, Screen.width * widthScale, Screen.height * heightScale), "Go Back")) 
 		{
 			Application.LoadLevel ("");
 		}
