@@ -105,9 +105,7 @@ public class UserPlayer : Player {
 		if (GUI.Button(buttonRect, "End Turn")) {
 			actionPoints = 2;
 			moving = false;
-			isAttacking = false;
-			moveTurn = false;
-			attackTurn = false;
+			isAttacking = false;			
 			GameManager.instance.nextTurn();
 		}
 		base.TurnOnGUI ();
@@ -190,7 +188,6 @@ public class UserPlayer : Player {
 
 			if(isTargetInRange(playerTemp,target)){
 				playerTemp.actionPoints--;
-				playerTemp.attackTurn = true;
 				playerTemp.attacking = false;			
 				
 				//attack logic

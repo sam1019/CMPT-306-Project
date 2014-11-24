@@ -11,8 +11,8 @@ public class Specialist : Player {
 	public int attackRange = 3;
 	public float attackHitRate = 0.95f;
 	public float defenseReduceRate = 0.2f;
-//	public bool isHit;
-//	public bool isDefend;
+	public bool isHit;
+	public bool isDefend;
 	public int movementRange;
 	public float HP;
 	
@@ -56,47 +56,39 @@ public class Specialist : Player {
 			//Used to check if the player has reached it's destination, if so next turn
 			if (Vector3.Distance(moveDestination, transform.position) <= 0.1f) {
 				transform.position = moveDestination;// + Vector3.back;
-				//GameManager.instance.nextTurn();
-				moveTurn  = true;
-				GameManager.instance.disableHightLight();
-				if(moveTurn&&attackTurn){
-					moveTurn = false;
-					attackTurn = false;
-					
-					GameManager.instance.nextTurn();
-				}
+				GameManager.instance.nextTurn();
 			}
 			base.TurnUpdate ();
 		}
 	}
 	
-//	//Hit rate
-//	public bool Hit(){
-//
-//		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
-//			isHit=true;
-//		}
-//		else{
-//			isHit=false;
-//		}
-//		return isHit;
-//	}
-//	
-//	//HP is decrease after every hit
-//	public float HPChange (){
-//
-//		//if hit, do damage; otherwise no damage
-//		if(isHit==true){
-//
-//			if(isDefend==false){
-//				HP=HP-10.0f;
-//			}
-//			else{
-//				HP=HP-10.0f*defenseReduceRate;
-//			}
-//		}
-//		return HP;
-//	}
+	//Hit rate
+	public bool Hit(){
+
+		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
+			isHit=true;
+		}
+		else{
+			isHit=false;
+		}
+		return isHit;
+	}
+	
+	//HP is decrease after every hit
+	public float HPChange (){
+
+		//if hit, do damage; otherwise no damage
+		if(isHit==true){
+
+			if(isDefend==false){
+				HP=HP-10.0f;
+			}
+			else{
+				HP=HP-10.0f*defenseReduceRate;
+			}
+		}
+		return HP;
+	}
 
 	/*
 	 * Gets current player's grid position
@@ -113,62 +105,54 @@ public class Specialist : Player {
 	 * Finds the enemy's class on the selected tile to attack
 	 */
 	public void getEnemyToAttack(Tile tile){
-		if (!attackTurn) {
-			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 
-				if(p.GetComponent<AlienShip>() != null){
-					AlienShip target = null;
-					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						SpecialistAttack.attackAlienShip(target); //Attacks the specific enemy unit
-					}
-				}
-				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
-					AlienSoldier target = null;
-					AlienSoldier temp = p.GetComponent<AlienSoldier>(); //Gets enemy script
+		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						SpecialistAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
-					}
-				}
-				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
-					AlienSupport target = null;
-					AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script	
-
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						SpecialistAttack.attackAlienSupport(target); //Attacks the specific enemy unit
-					}
-				}
-				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
-					Berserker target = null;
-					Berserker temp = p.GetComponent<Berserker>();	//Gets enemy script 		
-
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						SpecialistAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
-					}
-				}
-				/**********TEST class************/
-				else if(p.GetComponent<AiPlayer>() != null){
-					AiPlayer target = null;
-					AiPlayer temp = p.GetComponent<AiPlayer>();	//Gets enemy script		
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-
-						target = temp;
-						SpecialistAttack.attackAIPlayer(target); //Attacks the specific enemy unit
-					}
+			if(p.GetComponent<AlienShip>() != null){
+				AlienShip target = null;
+				AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
+				
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					SpecialistAttack.attackAlienShip(target); //Attacks the specific enemy unit
 				}
 			}
-			attackTurn = true;
-			if(moveTurn&&attackTurn){
-				moveTurn = false;
-				attackTurn = false;
-				
-				GameManager.instance.nextTurn();
+			else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
+				AlienSoldier target = null;
+				AlienSoldier temp = p.GetComponent<AlienSoldier>(); //Gets enemy script
+
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					SpecialistAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+				}
+			}
+			else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
+				AlienSupport target = null;
+				AlienSupport temp = p.GetComponent<AlienSupport>();	 //Gets enemy script	
+
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					SpecialistAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+				}
+			}
+			else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
+				Berserker target = null;
+				Berserker temp = p.GetComponent<Berserker>();	//Gets enemy script 		
+
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+					target = temp;
+					SpecialistAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+				}
+			}
+			/**********TEST class************/
+			else if(p.GetComponent<AiPlayer>() != null){
+				AiPlayer target = null;
+				AiPlayer temp = p.GetComponent<AiPlayer>();	//Gets enemy script		
+				if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+
+					target = temp;
+					SpecialistAttack.attackAIPlayer(target); //Attacks the specific enemy unit
+				}
 			}
 		}
 	}
@@ -187,8 +171,7 @@ public class Specialist : Player {
 		if (GUI.Button(buttonRect, "Move")) {
 			//if not moving, first disable all Highlight 
 			//enable Move Highlight
-			moving = false;
-			if ((!moving)&&(!moveTurn)) {
+			if (!moving) {
 				GameManager.instance.disableHightLight();
 				moving = true;
 				isAttacking = false;
@@ -209,8 +192,7 @@ public class Specialist : Player {
 		if (GUI.Button(buttonRect, "Attack")) {
 			//if not attacking, first disable all Highlight 
 			//enable Attack Highlight
-			isAttacking = false;
-			if ((!isAttacking)&&(!attackTurn)){
+			if (!isAttacking) {
 				GameManager.instance.disableHightLight();
 				moving = false;
 				isAttacking = true;
@@ -229,10 +211,9 @@ public class Specialist : Player {
 		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
 		
 		if (GUI.Button(buttonRect, "End Turn")) {
+			//actionPoints = 2;
 			moving = false;
-			isAttacking = false;
-			moveTurn = false;
-			attackTurn =false;
+			isAttacking = false;			
 			GameManager.instance.nextTurn();
 		}
 		base.TurnOnGUI ();

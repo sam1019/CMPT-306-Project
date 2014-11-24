@@ -46,7 +46,7 @@ public class SoldierAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				//GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -79,7 +79,7 @@ public class SoldierAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				//GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -112,7 +112,7 @@ public class SoldierAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				//GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -145,7 +145,7 @@ public class SoldierAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				//GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -175,7 +175,7 @@ public class SoldierAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				//GameManager.instance.nextTurn(); //After attacking end turn
+				GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
