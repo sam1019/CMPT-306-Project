@@ -47,7 +47,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				//GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -80,7 +80,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				//GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -113,7 +113,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				//GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -146,7 +146,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				//GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
@@ -176,7 +176,7 @@ public class SpecialistAttack : MonoBehaviour {
 					print ("Missed");
 				}
 				
-				GameManager.instance.nextTurn(); //After attacking end turn
+				//GameManager.instance.nextTurn(); //After attacking end turn
 			} else {
 				Debug.Log ("Target is out of range!");
 			}

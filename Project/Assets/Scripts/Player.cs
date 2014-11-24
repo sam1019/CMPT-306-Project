@@ -26,7 +26,9 @@ public class Player : MonoBehaviour {
 	public float baseDefense;
 	public float attackBonus;
 	public int K = 100; // reference on Google Drive; it's used for culculating demage	
-
+	
+	public bool moveTurn = false;
+	public bool attackTurn = false;
 	//For movement in GameManager.MovePlayer()
 	public List<Vector3> positionQueue = new List<Vector3>();
 
@@ -42,7 +44,9 @@ public class Player : MonoBehaviour {
 		if (actionPoints <= 0) {
 			actionPoints = 2;
 			moving = false;
-			attacking = false;			
+			attacking = false;
+			moveTurn = false;
+			attackTurn = false;
 			GameManager.instance.nextTurn();
 		}
 	}

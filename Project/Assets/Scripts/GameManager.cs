@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 	
 	/* Prefabs needed for game */
 	public GameObject TilePrefab;
+	public GameObject SandTilePrefab;
+	public GameObject WaterTilePrefab;
 	public GameObject AIPrefab;
 	public GameObject tile;
 	public GameObject jetPrefab; 
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		
 		instance = this;
+
+		loadMapFromCsv ();
 	}
 	
 	void Start () {
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour {
 		currentAIIndex = 0;
 		playerCount = 0;
 		aiCount = 0;
-		generateMap (); //Generate map
+		//generateMap (); //Generate map
 		spawnPlayers(); //spawn players to be controlled by users
 		spawnAI(); //Spawn AI opponent for the player
 		
@@ -523,8 +527,32 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// TODO: For future implementation
-	// Reads from xml file and generates a map
-	public void loadMapFromXml() { }
+	// Reads from CSV file and generates a map
+	public void loadMapFromCsv() {
+		string[,] mapDate = CSVReader.read ("map1");
+		map = new List<List<GameObject>>();
+		
+		for (int i = 0; i < mapSize; i++) {
+			List <GameObject> row = new List<GameObject>();
+			
+			for (int j = 0; j < mapSize; j++) {
+				//Tiles spawn around the center tile
+				if(mapDate[i,j] == "SAND"){
+					tile = Instantiate(SandTilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else if(mapDate[i,j] == "WATER"){
+					tile = Instantiate(WaterTilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				}else{
+					tile = Instantiate(TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+				};
+				Tile maptemp = tile.GetComponent<Tile>();
+				maptemp.gridPosition = new Vector2(i,j);
+				
+				row.Add (tile);
+			}
+			//Add each cube to a list
+			map.Add(row);
+		}
+	}
 	
 	/*
 	 * Spawns players onto the map and increment player count
@@ -659,14 +687,14 @@ public class GameManager : MonoBehaviour {
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
-		
+
 		//Save botton
 		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Save")) // this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
 		}
-		
+
 		//Here is the GUI for outputing score, now do nothing yet.
 		// we will add the player's scores here
 		//GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
