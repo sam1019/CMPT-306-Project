@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 	public bool moving= false;
 	public bool attacking=false;
 	public int actionPoints = 2;
+	public bool moveTurn = false;
+	public bool attackTurn = false;
 	
 	//For movement in GameManager.MovePlayer()
 	public List<Vector3> positionQueue = new List<Vector3>();
@@ -32,7 +34,9 @@ public class Player : MonoBehaviour {
 		if (actionPoints <= 0) {
 			actionPoints = 2;
 			moving = false;
-			attacking = false;			
+			attacking = false;
+			moveTurn = false;
+			attackTurn = false;
 			GameManager.instance.nextTurn();
 		}
 	}

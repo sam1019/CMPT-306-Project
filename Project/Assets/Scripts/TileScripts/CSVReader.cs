@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-public class CSVReader : MonoBehaviour {
+public class CSVReader {
 
 	public string mapFileName;
 	public TextAsset csvFile; 
