@@ -1,15 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HumanUnitScripts/Jet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scenes/LevelSelect.cs">
     <Files>
-      <File FileName="Assets/Scripts/HumanUnitScripts/Tank.cs" Line="35" Column="1" />
-      <File FileName="Assets/Scripts/HumanUnitScripts/Jet.cs" Line="20" Column="15" />
-      <File FileName="Assets/Scripts/Player.cs" Line="23" Column="2" />
-      <File FileName="Assets/Scripts/HumanUnitScripts/Soldier.cs" Line="242" Column="1" />
-      <File FileName="Assets/Scripts/Aliens/Berserker.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/Aliens/AlienShip.cs" Line="35" Column="2" />
-      <File FileName="Assets/Scripts/Aliens/AlienSoldier.cs" Line="13" Column="27" />
-      <File FileName="Assets/Scripts/Aliens/AlienSupport.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Scenes/LevelSelect.cs" Line="37" Column="30" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="560" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

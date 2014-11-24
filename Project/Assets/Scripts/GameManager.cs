@@ -555,7 +555,7 @@ public class GameManager : MonoBehaviour {
 	// TODO: For future implementation
 	// Reads from CSV file and generates a map
 	public void loadMapFromCsv() {
-		string[,] mapDate = CSVReader.read ("Map_Level1");
+		string[,] mapDate = CSVReader.read (LevelSelect.instance.levelMap);
 		map = new List<List<GameObject>>();
 		
 		for (int i = 0; i < mapSize; i++) {
