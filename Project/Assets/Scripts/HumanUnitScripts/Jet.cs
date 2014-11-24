@@ -5,10 +5,6 @@ public class Jet : Player {
 
 	// character properties
 	public const string className = "Jet";
-	public const float baseDamage = 25.0f;
-	public const float baseDefense = 15.0f;
-	public int movementRange = 5;
-	public float HP;
 	public bool isAttacking =false;
 	public int attackRange = 2;
 	public float attackHitRate = 0.8f;
@@ -19,8 +15,11 @@ public class Jet : Player {
 
 
 	void Start () {
-
-		HP = 120.0f;
+		this.baseDamage = 25.0f;
+		this.baseDefense = 15.0f;
+		this.HP = 120.0f;
+		this.baseHP = 120.0f;
+		this.movementRange = 5;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
