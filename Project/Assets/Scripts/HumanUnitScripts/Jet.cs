@@ -241,10 +241,5 @@ public class Jet : Player {
 		base.TurnOnGUI ();
 	}
 	
-	//Display HP
-	public void OnGUI(){
 
-		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
-		GUI.Label(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
-	}
 }

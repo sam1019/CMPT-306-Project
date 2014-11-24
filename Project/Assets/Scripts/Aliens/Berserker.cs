@@ -10,7 +10,6 @@ public class Berserker : Player {
 	public const float attackHitRate = 1.0f;
 	public const float defenseReduceRate = 0.02f;
 	public int movementRange;
-	public float HP;
 
 	// GUI components properties
 	private Animator anim;
@@ -32,11 +31,5 @@ public class Berserker : Player {
 	}
 
 	public override void TurnOnGUI(){}
-	
-	//Display HP
-	public void OnGUI(){
 
-		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
-		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
-	}
 }

@@ -58,4 +58,14 @@ public class Player : MonoBehaviour {
 	public virtual string roleName () {
 		return null;
 	}
+
+	//Display HP
+	public void OnGUI(){
+		
+		
+		GUIStyle hpStyle = new GUIStyle ();
+		hpStyle.fontStyle = FontStyle.BoldAndItalic;
+		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*26+ Vector3.left*15;
+		GUI.Label(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString(), hpStyle);
+	}
 }

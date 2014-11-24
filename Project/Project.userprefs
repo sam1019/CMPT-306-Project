@@ -1,10 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HumanUnitScripts/Jet.cs">
     <Files>
-      <File FileName="Assets/Resources/map1.csv" Line="1" Column="15" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="558" Column="49" />
-      <File FileName="Assets/Resources/Map_Level1.csv" Line="11" Column="91" />
+      <File FileName="Assets/Scripts/HumanUnitScripts/Tank.cs" Line="35" Column="1" />
+      <File FileName="Assets/Scripts/HumanUnitScripts/Jet.cs" Line="20" Column="15" />
+      <File FileName="Assets/Scripts/Player.cs" Line="23" Column="2" />
+      <File FileName="Assets/Scripts/HumanUnitScripts/Soldier.cs" Line="242" Column="1" />
+      <File FileName="Assets/Scripts/Aliens/Berserker.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/Aliens/AlienShip.cs" Line="35" Column="2" />
+      <File FileName="Assets/Scripts/Aliens/AlienSoldier.cs" Line="13" Column="27" />
+      <File FileName="Assets/Scripts/Aliens/AlienSupport.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

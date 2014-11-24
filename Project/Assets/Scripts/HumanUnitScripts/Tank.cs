@@ -12,7 +12,6 @@ public class Tank : Player {
 	public bool isHit;
 	public bool isDefend;
 	public int movementRange;
-	public float HP;
 	private Animator anim;
 
 
@@ -247,12 +246,5 @@ public class Tank : Player {
 			GameManager.instance.nextTurn();
 		}
 		base.TurnOnGUI ();
-	}
-	
-	//Display HP
-	public void OnGUI(){
-
-		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
-		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
 	}
 }

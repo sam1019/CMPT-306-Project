@@ -11,7 +11,6 @@ public class AlienSoldier : Player {
 	public const float attackHitRate = 0.8f;
 	public const float defenseReduceRate = 0.2f;
 	public int movementRange;
-	public float HP;
 
 	// GUI components properties
 	private Animator anim;
@@ -33,11 +32,5 @@ public class AlienSoldier : Player {
 	}
 
 	public override void TurnOnGUI(){}
-	
-	//Display HP
-	public void OnGUI(){
 
-		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
-		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
-	}
 }

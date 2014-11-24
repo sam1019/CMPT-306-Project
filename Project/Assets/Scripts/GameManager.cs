@@ -638,11 +638,11 @@ public class GameManager : MonoBehaviour {
 		//Spawn first player and add it to the list
 		/********************Spawning tank*****************************/
 		GameObject tank;
-		tank = Instantiate(tankPrefab, new Vector3(0 - Mathf.Floor(mapSize/2), -0 + Mathf.Floor(mapSize/2), PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+		tank = Instantiate(tankPrefab, new Vector3(4, 4, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 		playerList.Add(tank); //Add to player list
 		humanList.Add(tank); //Add to Human list
 		Tank tankTemp = tank.GetComponent<Tank> ();
-		tankTemp.gridPosition = new Vector2 (0, 0); //Setting grid position to their fixed spawn location
+		tankTemp.gridPosition = new Vector2 (10, 2); //Setting grid position to their fixed spawn location
 		playerCount += 1; //Increment player count
 		
 		/********************Spawning Jet*****************************/
