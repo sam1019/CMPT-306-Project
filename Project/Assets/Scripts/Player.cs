@@ -25,6 +25,7 @@ public class Player : MonoBehaviour {
 	public float baseDamage;
 	public float baseDefense;
 	public float attackBonus;
+	public float attackHitRate;
 	public int K = 100; // reference on Google Drive; it's used for culculating demage	
 	
 	public bool moveTurn = false;
