@@ -292,6 +292,8 @@ public class GameManager : MonoBehaviour {
 		Maptemp.isOccupied = false;
 		//Setting new position to occupied
 		destination.isOccupied=true;
+		destination.occupiedName = player.roleName ();
+		Debug.Log (player.roleName());
 	}
 	
 	/* Helper function for MovePlayer() and MoveAlien() */
@@ -586,33 +588,43 @@ public class GameManager : MonoBehaviour {
 				}else if(mapDate[i,j] == "Water1"){
 					tile = Instantiate(Water1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "Water2"){
 					tile = Instantiate(Water2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "Water3"){
 					tile = Instantiate(Water3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "Water4"){
 					tile = Instantiate(Water4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "MountainSand1"){
 					tile = Instantiate(MountainSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainSand2"){
 					tile = Instantiate(MountainSand2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainSand3"){
 					tile = Instantiate(MountainSand3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainGrass1"){
 					tile = Instantiate(MountainGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainGrass2"){
 					tile = Instantiate(MountainGrass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainGrass3"){
 					tile = Instantiate(MountainGrass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "TreeSand1"){
 					tile = Instantiate(TreeSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "TreeSand2"){

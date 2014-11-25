@@ -4,7 +4,7 @@ using System.Collections;
 public class AlienSoldier : Player {
 
 	// character properties
-	public const string className = "Alien Soldier";
+	public const string className = "AlienSoldier";
 	public const float baseDamage = 18.5f;
 	public const float baseDefense = 18.5f;
 	public const int attackRange = 1;
@@ -32,5 +32,10 @@ public class AlienSoldier : Player {
 	}
 
 	public override void TurnOnGUI(){}
+
+	public override string roleName(){
+		
+		return className;
+	}
 
 }

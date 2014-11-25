@@ -4,7 +4,7 @@ using System.Collections;
 public class Berserker : Player {
 
 	// character properties
-	public const string className = "Bezerker";
+	public const string className = "Berserker";
 	public const float baseDamage = 10.0f;
 	public const float baseDefense = 90.0f;
 	public const float attackHitRate = 1.0f;
@@ -31,5 +31,10 @@ public class Berserker : Player {
 	}
 
 	public override void TurnOnGUI(){}
+
+	public override string roleName(){
+		
+		return className;
+	}
 
 }
