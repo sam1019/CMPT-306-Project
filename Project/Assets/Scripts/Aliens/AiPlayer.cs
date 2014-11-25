@@ -19,10 +19,10 @@ public class AiPlayer : Player {
 	// Decision tree code
 	private const int ATTACK = 0;
 	private const int KILL_ONE = 1;
-	private const int CHOOSE_HIGH_HP = 4;
-	private const int ATTACK_MOST_DEMAGE = 5;
-	private const int MOVE_TO_PLAYER = 6;
-	private const int MOVE_TO_ENEMY = 7;
+	private const int CHOOSE_HIGH_HP = 2;
+	private const int ATTACK_MOST_DEMAGE = 3;
+	private const int MOVE_TO_PLAYER = 4;
+	private const int MOVE_TO_ENEMY = 5;
 
 	private bool isPlayerInAttackRange = false;
 	private bool existPlayerBeKilled = false;

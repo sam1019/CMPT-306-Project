@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AI\AI.cs" />
+     <Compile Include="Assets\Scripts\Algorithms\PathFinding.cs" />
      <Compile Include="Assets\Scripts\Aliens\AiPlayer.cs" />
      <Compile Include="Assets\Scripts\Aliens\AlienShip.cs" />
      <Compile Include="Assets\Scripts\Aliens\AlienSoldier.cs" />
