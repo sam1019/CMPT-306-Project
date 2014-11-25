@@ -462,6 +462,7 @@ public class GameManager : MonoBehaviour {
 		/* Iterate through the map to highlight the tiles that in its attack range
 		 * different part of the map has different methods to choose tiles
 		 */
+		/*
 		if (originLocationX >= originLocationY) {
 			for (int i = 0; i < mapSize; i++) {
 				for (int j = 0; j < mapSize; j++) {
@@ -483,6 +484,8 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
+		*/
+		PathFinding.doPathFinding (originLocationX, originLocationY, range, "move");
 	}
 	
 	// TODO: need fully implementation
