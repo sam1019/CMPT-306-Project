@@ -112,11 +112,11 @@ public class GameManager : MonoBehaviour {
 		// winner detect
 		if(playerCount <= 0){
 			print ("You lose");
-			Application.Quit(); 	// TODO: Temp game over, will be removed
+			Application.LoadLevel("Victory");
 		}
 		if(aiCount <= 0){
 			print ("You win");
-			Application.Quit(); 	// TODO: Temp game over, will be removed
+			Application.LoadLevel("Defeat");
 		}
 		
 		if( playerList.Count > 0){
