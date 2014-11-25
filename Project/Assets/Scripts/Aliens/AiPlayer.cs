@@ -26,6 +26,8 @@ public class AiPlayer : Player {
 	private bool isPlayerInAttackRange = false;
 	private bool existPlayerBeKilled = false;
 
+	public bool isDecisionMade = false;
+
 	public int preferenceTileX, preferenceTileY;
 	
 	/*
@@ -40,8 +42,6 @@ public class AiPlayer : Player {
 	public override void Update () {}
 
 	public override void TurnUpdate (){
-
-		GameManager.instance.nextTurn();
 		base.TurnUpdate ();
 	}
 
@@ -88,6 +88,8 @@ public class AiPlayer : Player {
 						if(anyPlayerInAttackRangeHelper(GameManager.instance.map [i] [j].GetComponent<Tile> ())){
 							isPlayerInAttackRange = true;
 						}
+						GameManager.instance.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+						//System.Threading.Thread.Sleep(1000);
 					}
 				}
 			}
@@ -102,6 +104,8 @@ public class AiPlayer : Player {
 						if(anyPlayerInAttackRangeHelper(GameManager.instance.map [i] [j].GetComponent<Tile> ())){
 							isPlayerInAttackRange = true;
 						}
+						GameManager.instance.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+						//System.Threading.Thread.Sleep(1000);
 					}
 				}
 			}
@@ -137,28 +141,41 @@ public class AiPlayer : Player {
 
 	// Decision tree
 	public int decisionTree() {
+		anyPlayerInAttackRange ();
 		if (isPlayerInAttackRange) {
+			Debug.Log("isPlayerInAttackRange == true");
 			if(targets.Count == 1) {
+				Debug.Log("targets.Count == 1");
 				return ATTACK;
 			} else {
+				Debug.Log("targets.Count != 1");
 				if(existPlayerBeKilled) {
+					Debug.Log("existPlayerBeKilled == true");
 					if(ableToBeKilledTargets.Count == 1) {
+						Debug.Log("ableToBeKilledTargets.Count == 1");
 						return KILL_ONE;
 					} else {
+						Debug.Log("ableToBeKilledTargets.Count != 1");
 						return CHOOSE_HIGH_HP;
 					}
 				} else {
+					Debug.Log("existPlayerBeKilled == false");
 					return ATTACK_MOST_DEMAGE;
 				}
 			}
 
 		} else {
+			Debug.Log("isPlayerInAttackRange == false");
 			if(this.HP > this.baseHP * 0.7) {
+				Debug.Log("HPHigh == true");
 				return MOVE_TO_PLAYER;
 			} else {
+				Debug.Log("HPHigh == false");
 				if(GameManager.instance.aiList.Count <= 1) {
+					Debug.Log("GameManager.instance.aiList.Count <= 1");
 					return MOVE_TO_ENEMY;
 				} else {
+					Debug.Log("GameManager.instance.aiList.Count > 1");
 					return MOVE_TO_PLAYER;
 				}
 			}
@@ -200,7 +217,7 @@ public class AiPlayer : Player {
 								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
 							}
 						}
-						Debug.Log(tempPreference);
+						//Debug.Log(tempPreference);
 						if(tempPreference > highestPreference) {
 							highestPreference = tempPreference;
 							preferenceTileX = j;
@@ -244,19 +261,111 @@ public class AiPlayer : Player {
 		}
 	}
 
-	// Search for targets on the map
-	private void searchTargets() {
-		/*List <List<GameObject>> tempMap = GameManager.instance.map;
-		for (int y = 0; y < GameManager.instance.mapSize; y ++) {
-			for (int x = 0; x < GameManager.instance.mapSize; x++) {
-				if(tempMap [x] [y].GetComponent<Tile> ().isOccupied == true) {
-					targets.Add(tempMap [x] [y].GetComponent<Tile> ());
+	/*
+	 * Finds the enemy's class on the selected tile to attack
+	 */
+	public void getEnemyToAttack(Tile tile){
+			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+				
+				if(p.GetComponent<AlienShip>() != null){
+					AlienShip target = null;
+					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
+					
+					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+						target = temp;
+						JetAttack.attackAlienShip(target); //Attacks the specific enemy unit
+					}
+				}
+				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
+					AlienSoldier target = null;
+					AlienSoldier temp = p.GetComponent<AlienSoldier>();	//Gets enemy script		
+					
+					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+						target = temp;
+						JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+					}
+				}
+				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
+					AlienSupport target = null;
+					AlienSupport temp = p.GetComponent<AlienSupport>();	//Gets enemy script			
+					
+					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+						target = temp;
+						JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+					}
+				}
+				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
+					Berserker target = null;
+					Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	
+					
+					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+						target = temp;
+						JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+					}
+				}
+				/**********TEST class************/
+				else if(p.GetComponent<AiPlayer>() != null){ //Checks for enemy class on tile target
+					AiPlayer target = null;
+					AiPlayer temp = p.GetComponent<AiPlayer>();	 //Gets enemy script
+					
+					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
+						target = temp;
+						JetAttack.attackAIPlayer(target); //Attacks the specific enemy unit
+					}
 				}
 			}
-		}*/
-
 	}
 
-	public override void TurnOnGUI(){}
+	public void attackAction0(Player target) {
+		// used for checking the available tile when destination tile is occupied
+		bool upAvailable = false;
+		bool downAvailable = false;
+		bool leftAvailable = false;
+		bool rightAvailable = false;
 
+		int targetX = (int) target.gridPosition.x;
+		int targetY = (int) target.gridPosition.y;
+		
+		// Check if the destination is out of border
+		if (targetY + 1 >= 0 && targetY + 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX] [targetY + 1].GetComponent<Tile> ().isOccupied) upAvailable = true;
+		if (targetY - 1 >= 0 && targetY - 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX] [targetY - 1].GetComponent<Tile> ().isOccupied) downAvailable = true;
+		if (targetX - 1 >= 0 && targetX - 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX - 1] [targetY].GetComponent<Tile> ().isOccupied) leftAvailable = true;
+		if (targetX + 1 >= 0 && targetX + 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ().isOccupied) rightAvailable = true;
+
+		Tile destTile = null;
+		if(upAvailable) destTile = GameManager.instance.map [targetX] [targetY + 1].GetComponent<Tile> ();
+		if(downAvailable) destTile = GameManager.instance.map [targetX] [targetY - 1].GetComponent<Tile> ();
+		if(leftAvailable) destTile = GameManager.instance.map [targetX - 1] [targetY].GetComponent<Tile> ();
+		if(rightAvailable) destTile = GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ();
+
+		GameManager.instance.moveAlien (destTile);
+	}
+	
+	public void moveToHighPrefenceAction() {
+
+		// used for checking the available tile when destination tile is occupied
+		bool upAvailable = false;
+		bool downAvailable = false;
+		bool leftAvailable = false;
+		bool rightAvailable = false;
+
+		// Check if the destination is out of border
+		if (preferenceTileY + 1 >= 0 && preferenceTileY + 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX] [preferenceTileY + 1].GetComponent<Tile> ().isOccupied) upAvailable = true;
+		if (preferenceTileY - 1 >= 0 && preferenceTileY - 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX] [preferenceTileY - 1].GetComponent<Tile> ().isOccupied) downAvailable = true;
+		if (preferenceTileX - 1 >= 0 && preferenceTileX - 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX - 1] [preferenceTileY].GetComponent<Tile> ().isOccupied) leftAvailable = true;
+		if (preferenceTileX + 1 >= 0 && preferenceTileX + 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX + 1] [preferenceTileY].GetComponent<Tile> ().isOccupied) rightAvailable = true;
+		
+		Tile destTile = null;
+		
+		if (GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ().isOccupied) {
+			if(upAvailable) destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY + 1].GetComponent<Tile> ();
+			if(downAvailable) destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY - 1].GetComponent<Tile> ();
+			if(leftAvailable) destTile = GameManager.instance.map [preferenceTileX - 1] [preferenceTileY].GetComponent<Tile> ();
+			if(rightAvailable) destTile = GameManager.instance.map [preferenceTileX + 1] [preferenceTileY].GetComponent<Tile> ();
+		} else {
+			destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ();
+		}
+
+		GameManager.instance.moveAlien (destTile);
+	}
 }
