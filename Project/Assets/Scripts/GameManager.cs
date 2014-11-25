@@ -485,7 +485,10 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		*/
-		PathFinding.doPathFinding (originLocationX, originLocationY, range, "move");
+		Debug.Log (originLocationX);
+		Debug.Log (originLocationY);
+		Debug.Log (range);
+		PathFinding.doPathFinding (originLocationX, originLocationY, range, "attack");
 	}
 	
 	// TODO: need fully implementation
@@ -495,6 +498,7 @@ public class GameManager : MonoBehaviour {
 		/* Iterate through the map to highlight the tiles that in its move range
 		 * different part of the map has different methods to choose tiles
 		 */
+		/*
 		if (originLocationX >= originLocationY) {
 			for (int i = 0; i < mapSize; i++) {
 				for (int j = 0; j < mapSize; j++) {
@@ -519,6 +523,11 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
+		*/
+		Debug.Log (originLocationX);
+		Debug.Log (originLocationY);
+		Debug.Log (range);
+		PathFinding.doPathFinding (originLocationX, originLocationY, range, "move");
 	}
 	
 	
