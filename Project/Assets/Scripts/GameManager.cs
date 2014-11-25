@@ -293,7 +293,7 @@ public class GameManager : MonoBehaviour {
 		//Setting new position to occupied
 		destination.isOccupied=true;
 		destination.occupiedName = player.roleName ();
-		//Debug.Log (player.roleName());
+		Debug.Log (player.roleName());
 	}
 	
 	/* Helper function for MovePlayer() and MoveAlien() */
@@ -363,9 +363,7 @@ public class GameManager : MonoBehaviour {
 		if (canPlayerMove(destination)) { //Checks if player can move to tile
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
-				//Debug.Log ("AlienSoldier moveAlien() called");
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
-
 				MoveHelper(alienTemp, destination);
 			}
 		}
