@@ -15,8 +15,8 @@ public class PathFinding : MonoBehaviour {
 	}
 
 	public void doPathFinding(Player playerPosition) {
-		int x = playerPosition.gridPosition.x;
-		int y = playerPosition.gridPosition.y;
+		float x = playerPosition.gridPosition.x;
+		float y = playerPosition.gridPosition.y;
 		int range = playerPosition.movementRange;
 
 		List <List<GameObject>> tempMap = GameManager.instance.map;
