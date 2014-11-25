@@ -33,7 +33,7 @@ public class Jet : Player {
 			    && GameManager.instance.playerList.Count > 0) {
 
 				anim.SetBool("focus", true); //when in its turn, play animation
-				transform.renderer.material.color = Color.cyan;
+				transform.renderer.material.color = Color.Lerp(Color.white,Color.cyan, Time.time%2);
 			}
 			//Otherwise charactor is blue
 			else {
