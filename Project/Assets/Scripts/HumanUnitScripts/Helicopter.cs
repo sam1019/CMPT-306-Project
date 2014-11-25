@@ -11,8 +11,6 @@ public class Helicopter : Player {
 	public int attackRange = 2;
 	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
-	//public bool isHit;
-	//public bool isDefend;
 	public int movementRange;
 	public float HP;
 
@@ -38,13 +36,13 @@ public class Helicopter : Player {
 			}
 			// Otherwise charactor is blue
 			else {
-				transform.renderer.material.color = Color.blue;
+				transform.renderer.material.color = Color.white;
 			}
 		}
 
-		if (this.HP <= 0) {
-			transform.renderer.material.color = Color.black;		
-		}
+//		if (this.HP <= 0) {
+//			transform.renderer.material.color = Color.black;		
+//		}
 		base.Update();
 	}
 	
@@ -70,33 +68,7 @@ public class Helicopter : Player {
 			base.TurnUpdate ();
 		}
 	}
-	
-//	//Hit rate
-//	public bool Hit(){
-//
-//		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
-//			isHit=true;
-//		}
-//		else{
-//			isHit=false;
-//		}
-//		return isHit;
-//	}
-//	
-//	//HP is decrease after every hit
-//	public float HPChange (){
-//
-//		//if hit, do damage; otherwise no damage
-//		if(isHit==true){
-//			if(isDefend==false){
-//				HP=HP-10.0f;
-//			}
-//			else{
-//				HP=HP-10.0f*defenseReduceRate;
-//			}
-//		}
-//		return HP;
-//	}
+
 
 	/*
 	 * Gets current player's grid position
@@ -233,11 +205,5 @@ public class Helicopter : Player {
 		}
 		base.TurnOnGUI ();
 	}
-	
-	//Display HP
-	public void OnGUI(){
 
-		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
-		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
-	}
 }

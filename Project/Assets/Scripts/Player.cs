@@ -64,9 +64,10 @@ public class Player : MonoBehaviour {
 	public void OnGUI(){
 		
 		
-		GUIStyle hpStyle = new GUIStyle ();
+		GUIStyle hpStyle = new GUIStyle ("box");
 		hpStyle.fontStyle = FontStyle.BoldAndItalic;
+		hpStyle.fontSize = 10;
 		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*26+ Vector3.left*15;
-		GUI.Label(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString(), hpStyle);
+		GUI.Label(new Rect(location.x, Screen.height - location.y, 28, 18), HP.ToString(), hpStyle);
 	}
 }

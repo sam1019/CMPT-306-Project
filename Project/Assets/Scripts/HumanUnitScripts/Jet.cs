@@ -6,11 +6,7 @@ public class Jet : Player {
 	// character properties
 	public const string className = "Jet";
 	public bool isAttacking =false;
-	public int attackRange = 2;
-	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
-	//public bool isHit;
-	//public bool isDefend;
 	private Animator anim;
 
 
@@ -20,6 +16,8 @@ public class Jet : Player {
 		this.HP = 120.0f;
 		this.baseHP = 120.0f;
 		this.movementRange = 5;
+		this.attackRange = 2;
+		this.attackHitRate = 0.8f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
@@ -40,12 +38,12 @@ public class Jet : Player {
 			//Otherwise charactor is blue
 			else {
 				anim.SetBool("focus", false);//when out its turn, play idle animation
-				transform.renderer.material.color = Color.blue;
+				transform.renderer.material.color = Color.white;
 			}
 		}
-		if (this.HP <= 0) {
-			transform.renderer.material.color = Color.black;		
-		}
+//		if (this.HP <= 0) {
+//			transform.renderer.material.color = Color.black;		
+//		}
 		base.Update();
 	}
 
@@ -72,31 +70,7 @@ public class Jet : Player {
 			base.TurnUpdate ();
 		}
 	}
-	
-//	// Hit rate
-//	public bool Hit(){
-//		if(Random.Range(0,10000).CompareTo(attackHitRate*10000)<=0){
-//			isHit=true;
-//		}
-//		else{
-//			isHit=false;
-//		}
-//		return isHit;
-//	}
-//	
-//	// HP is decrease after every hit
-//	public float HPChange (){
-//		//if hit, do damage; otherwise no damage
-//		if(isHit==true){
-//			if(isDefend==false){
-//				HP=HP-10.0f;
-//			}
-//			else{
-//				HP=HP-10.0f*defenseReduceRate;
-//			}
-//		}
-//		return HP;
-//	}
+
 
 	/*
 	 * Gets current player's grid position

@@ -19,7 +19,17 @@ public class PathFinding {
 		if (posX == x && posY == y) {
 		} else {
 			if (GameManager.instance.map [posX] [posY].GetComponent<Tile> ().isOccupied) {
-				return;
+				if(action == "move"){
+					return;
+				}else if (action == "attack"){
+					if(GameManager.instance.map[posX][posY].GetComponent<Tile>().occupiedName == "Mountain" ||
+					   GameManager.instance.map[posX][posY].GetComponent<Tile>().occupiedName == "Water" ||
+					   GameManager.instance.map[posX][posY].GetComponent<Tile>().occupiedName == "Soldier" ||
+					   GameManager.instance.map[posX][posY].GetComponent<Tile>().occupiedName == "Jet" ||
+					   GameManager.instance.map[posX][posY].GetComponent<Tile>().occupiedName == "Tank" ){
+						return;
+					}
+				}
 			}
 		}
 		if (range > 0) {
