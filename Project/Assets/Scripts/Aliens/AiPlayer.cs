@@ -27,7 +27,7 @@ public class AiPlayer : Player {
 	private bool isPlayerInAttackRange = false;
 	private bool existPlayerBeKilled = false;
 
-	private int preferenceTileX, preferenceTileY;
+	public int preferenceTileX, preferenceTileY;
 	
 	/*
 	 * Class Methods
@@ -137,7 +137,7 @@ public class AiPlayer : Player {
 	}
 
 	// Decision tree
-	private int decisionTree() {
+	public int decisionTree() {
 		if (isPlayerInAttackRange) {
 			if(targets.Count == 1) {
 				return ATTACK;
@@ -173,11 +173,11 @@ public class AiPlayer : Player {
 			this.attackBonus * K;
 	}
 
-	private void findHighestPreferenceTile() {
+	public void findHighestPreferenceTile() {
 		/* Iterate through the map to highlight the tiles that in its move range
 		 * different part of the map has different methods to choose tiles
 		 */
-		float highestPreference = 0;
+		float highestPreference = -1000.0f;
 		if (this.gridPosition.x >= this.gridPosition.y) {
 			for (int i = 0; i < GameManager.instance.mapSize; i++) {
 				for (int j = 0; j < GameManager.instance.mapSize; j++) {
@@ -201,6 +201,7 @@ public class AiPlayer : Player {
 								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
 							}
 						}
+						Debug.Log(tempPreference);
 						if(tempPreference > highestPreference) {
 							highestPreference = tempPreference;
 							preferenceTileX = j;
