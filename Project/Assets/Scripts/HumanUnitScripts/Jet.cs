@@ -187,44 +187,48 @@ public class Jet : Player {
 
 		// move button
 		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
-		if (GUI.Button(buttonRect, "Move")) {
-			//if not moving, first disable all Highlight 
-			//enable Move Highlight
-			moving = false;
-			if ((!moving)&&(!moveTurn)) {
-				GameManager.instance.disableHightLight();
-				moving = true;
-				isAttacking = false;
-				//Enables highlight path hightlight
-				GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
-			} 
-			//otherwise disable all Highlight
-			else {
+		if(!moveTurn){
+			if (GUI.Button(buttonRect, "Move")) {
+				//if not moving, first disable all Highlight 
+				//enable Move Highlight
 				moving = false;
-				isAttacking = false;
-				GameManager.instance.disableHightLight();
+				if (!moving) {
+					GameManager.instance.disableHightLight();
+					moving = true;
+					isAttacking = false;
+					//Enables highlight path hightlight
+					GameManager.instance.enableMoveHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
+				} 
+				//otherwise disable all Highlight
+				else {
+					moving = false;
+					isAttacking = false;
+					GameManager.instance.disableHightLight();
+				}
 			}
 		}
-		
-		//attack button
-		buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
-		
-		if (GUI.Button(buttonRect, "Attack")) {
-			//if not attacking, first disable all Highlight 
-			//enable Attack Highlight
-			isAttacking = false;
-			if ((!isAttacking)&&(!attackTurn)) {
-				GameManager.instance.disableHightLight();
-				moving = false;
-				isAttacking = true;
-				//Enables attack hightlight range
-				GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
-			}
-			//otherwise disable all Highlight
-			else {
-				moving = false;
+
+		if(!attackTurn){
+			//attack button
+			buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
+			
+			if (GUI.Button(buttonRect, "Attack")) {
+				//if not attacking, first disable all Highlight 
+				//enable Attack Highlight
 				isAttacking = false;
-				GameManager.instance.disableHightLight();
+				if (!isAttacking) {
+					GameManager.instance.disableHightLight();
+					moving = false;
+					isAttacking = true;
+					//Enables attack hightlight range
+					GameManager.instance.enableAttackHighlight((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange);
+				}
+				//otherwise disable all Highlight
+				else {
+					moving = false;
+					isAttacking = false;
+					GameManager.instance.disableHightLight();
+				}
 			}
 		}
 		
