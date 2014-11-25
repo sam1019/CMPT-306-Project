@@ -10,6 +10,12 @@ public class Tile : MonoBehaviour {
 	public GameObject visual;
     private Color tempColorRecord;
     
+
+	//class name of units
+	//For obstacle: Mountain, Water
+	//For player: Soldier, Jet, Tank
+	//For AI: Berserker, AlienShip, AlienSoldier
+	public string occupiedName; 
 	//
 	//Preformed attributes for future implement
 	//

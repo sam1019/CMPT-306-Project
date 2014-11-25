@@ -112,11 +112,11 @@ public class GameManager : MonoBehaviour {
 		// winner detect
 		if(playerCount <= 0){
 			print ("You lose");
-			Application.Quit(); 	// TODO: Temp game over, will be removed
+			Application.LoadLevel("Victory");
 		}
 		if(aiCount <= 0){
 			print ("You win");
-			Application.Quit(); 	// TODO: Temp game over, will be removed
+			Application.LoadLevel("Defeat");
 		}
 		
 		if( playerList.Count > 0){
@@ -292,6 +292,8 @@ public class GameManager : MonoBehaviour {
 		Maptemp.isOccupied = false;
 		//Setting new position to occupied
 		destination.isOccupied=true;
+		destination.occupiedName = player.roleName ();
+		//Debug.Log (player.roleName());
 	}
 	
 	/* Helper function for MovePlayer() and MoveAlien() */
@@ -361,7 +363,9 @@ public class GameManager : MonoBehaviour {
 		if (canPlayerMove(destination)) { //Checks if player can move to tile
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
+				//Debug.Log ("AlienSoldier moveAlien() called");
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
+
 				MoveHelper(alienTemp, destination);
 			}
 		}
@@ -586,33 +590,43 @@ public class GameManager : MonoBehaviour {
 				}else if(mapDate[i,j] == "Water1"){
 					tile = Instantiate(Water1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "Water2"){
 					tile = Instantiate(Water2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "Water3"){
 					tile = Instantiate(Water3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "Water4"){
 					tile = Instantiate(Water4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Water";
 				}else if(mapDate[i,j] == "MountainSand1"){
 					tile = Instantiate(MountainSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainSand2"){
 					tile = Instantiate(MountainSand2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainSand3"){
 					tile = Instantiate(MountainSand3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainGrass1"){
 					tile = Instantiate(MountainGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainGrass2"){
 					tile = Instantiate(MountainGrass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "MountainGrass3"){
 					tile = Instantiate(MountainGrass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
+					tile.GetComponent<Tile>().occupiedName = "Mountain";
 				}else if(mapDate[i,j] == "TreeSand1"){
 					tile = Instantiate(TreeSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "TreeSand2"){
@@ -846,17 +860,23 @@ public class GameManager : MonoBehaviour {
 	void OnGUI() {	
 		float widthScale = 0.08f;
 
-		//Move Button
+		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
 		
-		//Pause Button
+		//Restart Button
 		if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale, 20), "Restart")) // make the GUI button with name "pause"
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
 
 		//Save botton
-		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Save")) // this function to save the game
+		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Exit Game")) // this function to save the game
+		{
+			Application.LoadLevel ("LevelSelectScene");
+		}
+
+		//Save botton
+		if (GUI.Button (new Rect (5, 50,  Screen.width * widthScale, 20), "Save")) // this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
