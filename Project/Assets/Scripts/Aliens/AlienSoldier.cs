@@ -36,14 +36,11 @@ public class AlienSoldier : AiPlayer {
 				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.cyan;
 			}
-			//Otherwise charactor is blue
+			//Otherwise charactor is white
 			else {
 				anim.SetBool("focus", false);//when out its turn, play idle animation
-				transform.renderer.material.color = Color.blue;
+				transform.renderer.material.color = Color.white;
 			}
-		}
-		if (this.HP <= 0) {
-			transform.renderer.material.color = Color.black;		
 		}
 		base.Update();
 	}
