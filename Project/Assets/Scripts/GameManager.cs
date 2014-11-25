@@ -858,17 +858,23 @@ public class GameManager : MonoBehaviour {
 	void OnGUI() {	
 		float widthScale = 0.08f;
 
-		//Move Button
+		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
 		
-		//Pause Button
+		//Restart Button
 		if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale, 20), "Restart")) // make the GUI button with name "pause"
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
 
 		//Save botton
-		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Save")) // this function to save the game
+		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Exit Game")) // this function to save the game
+		{
+			Application.LoadLevel ("LevelSelectScene");
+		}
+
+		//Save botton
+		if (GUI.Button (new Rect (5, 50,  Screen.width * widthScale, 20), "Save")) // this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
