@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour {
 		
 		//Setting the old position to unoccupied
 		Tile Maptemp = map [x] [y].GetComponent<Tile>();
-		map [x] [y].GetComponent<Tile> ().isOccupied = false;
+		//map [x] [y].GetComponent<Tile> ().isOccupied = false;
 		Maptemp.isOccupied = false;
 		//Setting new position to occupied
 		destination.isOccupied=true;
@@ -573,24 +573,34 @@ public class GameManager : MonoBehaviour {
 					tile = Instantiate(Grass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "Water1"){
 					tile = Instantiate(Water1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "Water2"){
 					tile = Instantiate(Water2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "Water3"){
 					tile = Instantiate(Water3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "Water4"){
 					tile = Instantiate(Water4TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "MountainSand1"){
 					tile = Instantiate(MountainSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "MountainSand2"){
 					tile = Instantiate(MountainSand2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "MountainSand3"){
 					tile = Instantiate(MountainSand3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "MountainGrass1"){
 					tile = Instantiate(MountainGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "MountainGrass2"){
 					tile = Instantiate(MountainGrass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "MountainGrass3"){
 					tile = Instantiate(MountainGrass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
+					tile.GetComponent<Tile>().isOccupied = true; // this tile is occupied initially, cannot move to this tile
 				}else if(mapDate[i,j] == "TreeSand1"){
 					tile = Instantiate(TreeSand1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "TreeSand2"){
@@ -603,8 +613,6 @@ public class GameManager : MonoBehaviour {
 					tile = Instantiate(TreeGrass2TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "TreeGrass3"){
 					tile = Instantiate(TreeGrass3TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
-				}else if(mapDate[i,j] == "TREE4"){
-					tile = Instantiate(TreeGrass1TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "Sand0"){
 					tile = Instantiate(Sand0TilePrefab, new Vector2(i - Mathf.Floor(mapSize/2), -j + Mathf.Floor(mapSize/2)),Quaternion.identity) as GameObject;
 				}else if(mapDate[i,j] == "Sand1"){
@@ -645,6 +653,7 @@ public class GameManager : MonoBehaviour {
 					Tank tankTemp = tank.GetComponent<Tank> ();
 					tankTemp.gridPosition = new Vector2 (i, j); //Setting grid position to their fixed spawn location
 					playerCount += 1; //Increment player count
+					setOccupied(map[i][j].GetComponent<Tile>(), tankTemp);
 				}else if(UnitsDate[i,j] == "Jet"){
 					/********************Spawning Jet*****************************/
 					GameObject jet;
@@ -654,6 +663,7 @@ public class GameManager : MonoBehaviour {
 					Jet jetTemp=jet.GetComponent<Jet> ();
 					jetTemp.gridPosition = new Vector2 (i, j); //Setting grid position to their fixed spawn location
 					playerCount += 1; //Increment player count
+					setOccupied(map[i][j].GetComponent<Tile>(), jetTemp);
 				}else if(UnitsDate[i,j] == "Soldier"){ 
 					/********************Spawning solider*****************************/
 					GameObject soldier;
@@ -663,6 +673,7 @@ public class GameManager : MonoBehaviour {
 					Soldier soldierTemp=soldier.GetComponent<Soldier> ();
 					soldierTemp.gridPosition = new Vector2 (i, j); //Setting grid position to their fixed spawn location
 					playerCount += 1; //Increment player count
+					setOccupied(map[i][j].GetComponent<Tile>(), soldierTemp);
 				}else if(UnitsDate[i,j] == "AlienSoldier"){ 
 					/********************Spawning alien solider*****************************/
 					GameObject aiplayer = Instantiate(AlienTroopPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
@@ -670,6 +681,7 @@ public class GameManager : MonoBehaviour {
 					aiCount += 1; //Increment AI count
 					aiList.Add(aiplayer); //Add to ailist
 					AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
+					setOccupied(map[i][j].GetComponent<Tile>(), temp);
 					temp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
 				}else if(UnitsDate[i,j] == "AlienShip"){ 
 					/********************Spawning alien ship*****************************/
@@ -679,6 +691,7 @@ public class GameManager : MonoBehaviour {
 					aiList.Add(ship); //Add to ailist
 					AlienShip shipTemp = ship.GetComponent<AlienShip> ();
 					shipTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
+					setOccupied(map[i][j].GetComponent<Tile>(), shipTemp);
 				}else if(UnitsDate[i,j] == "Berserk"){ 
 					/*******************Spawning alien berserker*****************************/
 					
@@ -688,6 +701,7 @@ public class GameManager : MonoBehaviour {
 					aiList.Add(berserk); //Add to ailist
 					Berserker berserkTemp = berserk.GetComponent<Berserker> ();
 					berserkTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point 
+					setOccupied(map[i][j].GetComponent<Tile>(), berserkTemp);
 				}else{ 
 					
 				}
