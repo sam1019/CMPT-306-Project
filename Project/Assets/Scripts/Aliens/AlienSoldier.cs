@@ -232,9 +232,4 @@ public class AlienSoldier : AiPlayer {
 		return className;
 	}
 
-	public override string roleName(){
-		
-		return className;
-	}
-
 }
