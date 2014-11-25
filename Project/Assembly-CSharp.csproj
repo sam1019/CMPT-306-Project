@@ -68,7 +68,9 @@
      <Compile Include="Assets\Scripts\Interfaces\GameManagerInteferface.cs" />
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Scenes\Defeat.cs" />
      <Compile Include="Assets\Scripts\Scenes\LevelSelect.cs" />
+     <Compile Include="Assets\Scripts\Scenes\Victory.cs" />
      <Compile Include="Assets\Scripts\TileScripts\CSVReader.cs" />
      <Compile Include="Assets\Scripts\TileScripts\Tile.cs" />
      <Compile Include="Assets\Scripts\UserPlayer.cs" />
