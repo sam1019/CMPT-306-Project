@@ -5,10 +5,7 @@ public class UserPlayer : Player {
 	
 	// charactor properties
 	public string playerName = "Guardian";
-	public int attackRange = 1;
-	public int movementRange= 5;
-	public float HP=100.0f;
-	public float attackHitRate = 0.9f;
+
 	public float defenseReduceRate = 0.2f;
 	public bool isAttacking =false;
 	//public int damageBase = 5;

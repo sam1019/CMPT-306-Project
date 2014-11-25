@@ -5,13 +5,10 @@ public class Tank : Player {
 	
 	// character properties
 	public const string className = "Tank";
-	public int attackRange = 1;
-	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
 	public bool isAttacking =false;
 	public bool isHit;
 	public bool isDefend;
-	public int movementRange;
 	private Animator anim;
 
 
@@ -27,6 +24,8 @@ public class Tank : Player {
 		this.HP = 150.0f;
 		this.baseHP = 150.0f;
 		this.movementRange = 2;
+		this.attackRange = 1;
+		this.attackHitRate = 0.8f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	

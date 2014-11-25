@@ -8,8 +8,7 @@ public class AiPlayer : Player {
 	/*
 	 * Variables
 	 */
-
-	public float HP = 100.0f;
+	
 
 	private List<Tile> moveTiles = new List<Tile>();
 	private List<Player> targets = new List<Player> ();
@@ -259,11 +258,5 @@ public class AiPlayer : Player {
 	}
 
 	public override void TurnOnGUI(){}
-	
-	//Display HP
-	public void OnGUI(){
 
-		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*30+ Vector3.left*15;
-		GUI.TextArea(new Rect(location.x, Screen.height - location.y, 30, 20), HP.ToString());
-	}
 }

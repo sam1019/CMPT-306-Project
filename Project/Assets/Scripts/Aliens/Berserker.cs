@@ -9,7 +9,6 @@ public class Berserker : Player {
 	public const float baseDefense = 90.0f;
 	public const float attackHitRate = 1.0f;
 	public const float defenseReduceRate = 0.02f;
-	public int movementRange;
 
 	// GUI components properties
 	private Animator anim;

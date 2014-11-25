@@ -6,8 +6,6 @@ public class Soldier : Player {
 	// character properties
 	public const string className = "Soldier";
 	public bool isAttacking =false;
-	public int attackRange = 1;
-	public float attackHitRate = 0.75f;
 	public float defenseReduceRate = 0.2f;
 	public bool isHit;
 	public bool isDefend;
@@ -20,6 +18,8 @@ public class Soldier : Player {
 		this.baseDamage = 15.0f;
 		this.baseDefense = 15.0f;
 		this.movementRange = 3;
+		this.attackRange = 1;
+		this.attackHitRate = 0.75f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	

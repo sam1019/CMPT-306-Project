@@ -10,7 +10,6 @@ public class AlienShip : Player {
 	public const int attackRange = 2;
 	public const float attackHitRate = 0.8f;
 	public const float defenseReduceRate = 0.2f;
-	public int movementRange;
 
 	// GUI component properties
 	private Animator anim;

@@ -6,8 +6,6 @@ public class Jet : Player {
 	// character properties
 	public const string className = "Jet";
 	public bool isAttacking =false;
-	public int attackRange = 2;
-	public float attackHitRate = 0.8f;
 	public float defenseReduceRate = 0.2f;
 	//public bool isHit;
 	//public bool isDefend;
@@ -20,6 +18,8 @@ public class Jet : Player {
 		this.HP = 120.0f;
 		this.baseHP = 120.0f;
 		this.movementRange = 5;
+		this.attackRange = 2;
+		this.attackHitRate = 0.8f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
