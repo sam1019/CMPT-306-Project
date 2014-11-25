@@ -89,9 +89,10 @@ public class GameManager : MonoBehaviour {
 		playerCount = 0;
 		aiCount = 0;
 		//generateMap (); //Generate map
-		spawnPlayers(); //spawn players to be controlled by users
-		spawnAI(); //Spawn AI opponent for the player
-		
+		//spawnPlayers(); //spawn players to be controlled by users
+		//spawnAI(); //Spawn AI opponent for the player
+		spawnUnitsFromCsv ();
+
 		IsPause = true;
 		scores = 0;
 	}
@@ -551,8 +552,7 @@ public class GameManager : MonoBehaviour {
 			map.Add(row);
 		}
 	}
-	
-	// TODO: For future implementation
+
 	// Reads from CSV file and generates a map
 	public void loadMapFromCsv() {
 		string[,] mapDate = CSVReader.read (LevelSelect.instance.levelMap);
@@ -627,7 +627,74 @@ public class GameManager : MonoBehaviour {
 			map.Add(row);
 		}
 	}
+
+	/*
+	 * Spawns units onto the map from csv and increment player count
+	 */
+	public void spawnUnitsFromCsv(){
+		string[,] UnitsDate = CSVReader.read (LevelSelect.instance.levelUnits);
 	
+		for (int i = 0; i < mapSize; i++) {
+			for (int j = 0; j < mapSize; j++) {
+				if(UnitsDate[i,j] == "Tank"){
+					/********************Spawning tank*****************************/
+					GameObject tank;
+					tank = Instantiate(tankPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+					playerList.Add(tank); //Add to player list
+					humanList.Add(tank); //Add to Human list
+					Tank tankTemp = tank.GetComponent<Tank> ();
+					tankTemp.gridPosition = new Vector2 (i, j); //Setting grid position to their fixed spawn location
+					playerCount += 1; //Increment player count
+				}else if(UnitsDate[i,j] == "Jet"){
+					/********************Spawning Jet*****************************/
+					GameObject jet;
+					jet = Instantiate(jetPrefab, new Vector3(i - 6, 6 - j,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+					playerList.Add(jet); //Add to player list
+					humanList.Add(jet); //Add to Human list
+					Jet jetTemp=jet.GetComponent<Jet> ();
+					jetTemp.gridPosition = new Vector2 (i, j); //Setting grid position to their fixed spawn location
+					playerCount += 1; //Increment player count
+				}else if(UnitsDate[i,j] == "Soldier"){ 
+					/********************Spawning solider*****************************/
+					GameObject soldier;
+					soldier = Instantiate(soldierPrefab, new Vector3(i - 6, 6 - j,PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+					playerList.Add(soldier); //Add to player list
+					humanList.Add(soldier); //Add to Human list
+					Soldier soldierTemp=soldier.GetComponent<Soldier> ();
+					soldierTemp.gridPosition = new Vector2 (i, j); //Setting grid position to their fixed spawn location
+					playerCount += 1; //Increment player count
+				}else if(UnitsDate[i,j] == "AlienSoldier"){ 
+					/********************Spawning alien solider*****************************/
+					GameObject aiplayer = Instantiate(AlienTroopPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+					playerList.Add(aiplayer); //Add to playerlist
+					aiCount += 1; //Increment AI count
+					aiList.Add(aiplayer); //Add to ailist
+					AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
+					temp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
+				}else if(UnitsDate[i,j] == "AlienShip"){ 
+					/********************Spawning alien ship*****************************/
+					GameObject ship = Instantiate(alienShipPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+					playerList.Add(ship); //Add to playerlist
+					aiCount += 1; //Increment AI count
+					aiList.Add(ship); //Add to ailist
+					AlienShip shipTemp = ship.GetComponent<AlienShip> ();
+					shipTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
+				}else if(UnitsDate[i,j] == "Berserk"){ 
+					/*******************Spawning alien berserker*****************************/
+					
+					GameObject berserk = Instantiate(berserkerPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
+					playerList.Add(berserk); //Add to playerlist
+					aiCount += 1; //Increment AI count
+					aiList.Add(berserk); //Add to ailist
+					Berserker berserkTemp = berserk.GetComponent<Berserker> ();
+					berserkTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point 
+				}else{ 
+					
+				}
+			}
+		}
+	}
+
 	/*
 	 * Spawns players onto the map and increment player count
 	 * Currently spawned at fixed locations
