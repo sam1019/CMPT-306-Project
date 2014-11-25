@@ -340,7 +340,7 @@ public class AiPlayer : Player {
 
 		GameManager.instance.moveAlien (destTile);
 	}
-
+	
 	public void moveToHighPrefenceAction() {
 
 		// used for checking the available tile when destination tile is occupied
@@ -368,7 +368,4 @@ public class AiPlayer : Player {
 
 		GameManager.instance.moveAlien (destTile);
 	}
-
-	public override void TurnOnGUI(){}
-
 }

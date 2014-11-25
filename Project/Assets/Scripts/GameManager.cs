@@ -293,7 +293,6 @@ public class GameManager : MonoBehaviour {
 		//Setting new position to occupied
 		destination.isOccupied=true;
 		destination.occupiedName = player.roleName ();
-		//Debug.Log (player.roleName());
 	}
 	
 	/* Helper function for MovePlayer() and MoveAlien() */
