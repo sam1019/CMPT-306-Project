@@ -6,10 +6,10 @@ CMPT 306 class project --- tactics game.
 Team Name: Brilliant Star
 
 Contributors (Alphabetical Order):
-1. David
+1. David Thai
 2. Lujie Duan
 3. Rongli Han
 4. Xianming Luo
-5. Jun Ying
+5. Yingjun He
 
-Game must start from level select scenes;Otherwise it will not work properly.
+Game must start from level select scenes; Otherwise it will not work properly.
