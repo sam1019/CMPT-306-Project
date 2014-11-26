@@ -103,6 +103,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienShip(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -112,6 +113,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -121,6 +123,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -130,6 +133,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				/**********TEST class************/

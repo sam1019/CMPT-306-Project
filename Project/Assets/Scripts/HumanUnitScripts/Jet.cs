@@ -99,6 +99,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienShip(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -108,6 +109,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -117,6 +119,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -126,6 +129,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				/**********TEST class************/

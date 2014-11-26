@@ -96,6 +96,7 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienShip(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -105,6 +106,7 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -114,6 +116,7 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -123,6 +126,7 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				/**********TEST class************/
@@ -133,6 +137,7 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAIPlayer(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 			}
