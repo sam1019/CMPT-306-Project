@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Jet : Player {
 
@@ -8,6 +9,7 @@ public class Jet : Player {
 	public bool isAttacking =false;
 	public float defenseReduceRate = 0.2f;
 	private Animator anim;
+	public List<Tile> path;
 
 
 	void Start () {
@@ -53,6 +55,15 @@ public class Jet : Player {
 		
 		//Moving the player to destination
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
+
+			//For future development, move from tile to tile
+//			path = PathFinding.getTilesPath((int)transform.position.x, (int)transform.position.y, (int)moveDestination.x, (int)moveDestination.y, this.attackRange, 1, "HUMAN");
+//			int i = 1;
+//			foreach(Tile t in path){
+//				Debug.Log ("Tile" + i + t.gridPosition.x + "," + t.gridPosition.y);
+//				i ++;
+//			}
+
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 			
 			//Used to check if the player has reached it's destination, if so next turn
