@@ -33,7 +33,7 @@ public class Jet : Player {
 
 			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>() == this 
 			    && GameManager.instance.playerList.Count > 0) {
-
+				//SendMessage("Play","jetActive");
 				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.Lerp(Color.white,Color.cyan, Time.time%2);
 				transform.renderer.material.color = Color.Lerp(Color.cyan,Color.white, Time.time%2);
@@ -59,7 +59,7 @@ public class Jet : Player {
 //				Debug.Log ("Tile" + i + t.gridPosition.x + "," + t.gridPosition.y);
 //				i ++;
 //			}
-
+			SendMessage("Play","jetMove");
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 			
 			//Used to check if the player has reached it's destination, if so next turn
