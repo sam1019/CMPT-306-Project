@@ -12,13 +12,25 @@ public class PathFinding {
 	public const int ATTACK_HIGHLIGHT = 0;
 	public const int MOVE_HIGHLIGHT = 1;
 
+	public static List<KeyValuePair<int, Tile>> tilesPath;
 
 	
-	private static void tileActionHandler(int x, int y, int actionCode) {
+	private static void tileActionHandler(int x, int y, int actionCode, int range) {
 		if (actionCode == ATTACK_HIGHLIGHT) {
 			GameManager.instance.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
 		} else if (actionCode == MOVE_HIGHLIGHT) {
 			GameManager.instance.map [x] [y].GetComponent<Tile>().transform.renderer.material.color = Color.blue;
+			bool exists = false;
+			foreach(KeyValuePair<int, Tile> t in tilesPath){
+				if(t.Value.Equals(GameManager.instance.map [x] [y].GetComponent<Tile> ())){
+					exists = true;
+					break;
+				}
+			};
+			if(!exists){
+				tilesPath.Add(new KeyValuePair<int, Tile>(range, GameManager.instance.map [x] [y].GetComponent<Tile> ()));
+			}
+			exists = false;
 		}
 	}
 
@@ -58,14 +70,16 @@ public class PathFinding {
 					if(alienTileAttackCheck(posX, posY)){
 						return;
 					}
+				}else if (GameManager.instance.map [x] [y].GetComponent<Tile> ().isOccupied){
+					return;
 				}
 			}
 		}
 		if (range > 0) {
-			tileActionHandler(posX, posY, action);
+			tileActionHandler(posX, posY, action, range);
 		}
 		if (range == 0) {
-			tileActionHandler(posX, posY, action);
+			tileActionHandler(posX, posY, action, range);
 			return;
 		}
 		
@@ -91,6 +105,38 @@ public class PathFinding {
 	public static void doPathFinding(int posX, int posY, int range, int action, string user) {
 		int x = posX;
 		int y = posY;
+		tilesPath = new List<KeyValuePair<int, Tile>>();
 		pathFindingAlgorithm (x, y, posX, posY, range, action, user);
+
+	}
+
+	public static List<Tile> getTilesPath(int originalx, int originaly, int destinationx, int destinationy, int range, int action, string user){
+		PathFinding.doPathFinding (originalx, originaly, range, action, user);
+		List<Tile> path = new List<Tile>();
+		KeyValuePair<int, Tile> original = new KeyValuePair<int, Tile>();
+		KeyValuePair<int, Tile> des = new KeyValuePair<int, Tile>();
+
+		//find the original and destination tiles in the range list first
+		foreach(KeyValuePair<int, Tile> t in tilesPath){
+			if(t.Value.gridPosition.x == destinationx && t.Value.gridPosition.y == destinationy){
+				des = t;
+			}
+			if(t.Value.gridPosition.x == originalx && t.Value.gridPosition.y == originaly){
+				original = t;
+			}
+		}	
+
+		//add the destinarion tiles
+		path.Add (des.Value);
+		// then find the path from 
+		while (des.Key != original.Key) {
+			foreach(KeyValuePair<int, Tile> t in tilesPath){
+				if(t.Key == des.Key + 1 &&(t.Value.gridPosition.x == des.Value.gridPosition.x || t.Value.gridPosition.y == des.Value.gridPosition.y)){
+					path.Insert(1, t.Value);
+					des = t;
+				}
+			}	
+		}
+		return path;
 	}
 }
