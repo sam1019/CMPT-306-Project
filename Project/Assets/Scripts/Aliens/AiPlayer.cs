@@ -5,38 +5,36 @@ using System.Collections.Generic;
 
 public class AiPlayer : Player {
 
-	/*
-	 * Variables
-	 */
-	
-
-	private List<Tile> moveTiles = new List<Tile>();
-	private List<Player> targets = new List<Player> ();
-	private List<Player> ableToBeKilledTargets = new List<Player> ();
-	private List<List<GameObject>> stateTree;
+	// ============= Variables =============
+		
+	public List<Player> targets = new List<Player> ();
+	public List<Player> ableToBeKilledTargets = new List<Player> ();
 
 	// Decision tree code
-	private const int ATTACK = 0;
-	private const int KILL_ONE = 1;
-	private const int CHOOSE_HIGH_HP = 2;
-	private const int ATTACK_MOST_DEMAGE = 3;
-	private const int MOVE_TO_PLAYER = 4;
-	private const int MOVE_TO_ENEMY = 5;
+	public int ATTACK = 0;
+	public int KILL_ONE = 1;
+	public int CHOOSE_HIGH_HP = 2;
+	public int ATTACK_MOST_DEMAGE = 3;
+	public int MOVE_TO_PLAYER = 4;
+	public int MOVE_TO_ENEMY = 5;
 
 	private bool isPlayerInAttackRange = false;
 	private bool existPlayerBeKilled = false;
 
 	public bool isDecisionMade = false;
+	public bool moveToAttack = false;
+
+	public Player target = null;
+
+	public bool decisionExecuted = false;
 
 	public int preferenceTileX, preferenceTileY;
-	
-	/*
-	 * Class Methods
-	 */
 
-	public  void Start () {
-		stateTree = new List<List<GameObject>> ();
-	}
+	public int decisionTreeReturnedCode = -1;
+	
+	// ============= Class Methods =============
+
+	public  void Start () {}
 
 	// Update is called once per frame
 	public override void Update () {}
@@ -151,6 +149,7 @@ public class AiPlayer : Player {
 				return ATTACK;
 			} else {
 				Debug.Log("targets.Count != 1");
+				targetCanbeKilledInThisRound();
 				if(existPlayerBeKilled) {
 					Debug.Log("existPlayerBeKilled == true");
 					if(ableToBeKilledTargets.Count == 1) {
@@ -318,7 +317,9 @@ public class AiPlayer : Player {
 			}
 	}
 
-	public void attackAction0(Player target) {
+	public void moveToAttackableRangeAction() {
+		// TODO: needed replaced by the new algorithm
+
 		// used for checking the available tile when destination tile is occupied
 		bool upAvailable = false;
 		bool downAvailable = false;
@@ -327,6 +328,8 @@ public class AiPlayer : Player {
 
 		int targetX = (int) target.gridPosition.x;
 		int targetY = (int) target.gridPosition.y;
+		Debug.Log ("Target X: " + targetX);
+		Debug.Log ("Target Y: " + targetY);
 		
 		// Check if the destination is out of border
 		if (targetY + 1 >= 0 && targetY + 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX] [targetY + 1].GetComponent<Tile> ().isOccupied) upAvailable = true;
@@ -339,6 +342,8 @@ public class AiPlayer : Player {
 		if(downAvailable) destTile = GameManager.instance.map [targetX] [targetY - 1].GetComponent<Tile> ();
 		if(leftAvailable) destTile = GameManager.instance.map [targetX - 1] [targetY].GetComponent<Tile> ();
 		if(rightAvailable) destTile = GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ();
+
+		this.moveToAttack = true;
 
 		GameManager.instance.moveAlien (destTile);
 	}
@@ -371,15 +376,13 @@ public class AiPlayer : Player {
 		GameManager.instance.moveAlien (destTile);
 	}
 
-	public void AttackHelper(Player target){
-
+	public void doAttack(){
+		Debug.Log("Doing Attack");
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
-		attackTurn = true;
-		if (moveTurn&&attackTurn) {
-			moveTurn = false;
-			attackTurn = false;
-			this.isDecisionMade = false;
-			GameManager.instance.nextTurn ();
-		}
+	}
+
+	public void resetTargets() {
+		targets.Clear();
+		ableToBeKilledTargets.Clear ();
 	}
 }

@@ -29,7 +29,6 @@ public class Tank : Player {
 	
 	// Update is called once per frame
 	public override void Update () {
-
 		//Basic charactor color is blue
 		//When a charactor is chosen, it's color will turn to cyan
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
@@ -47,7 +46,10 @@ public class Tank : Player {
 				transform.renderer.material.color = Color.white;
 			}
 		}
-
+		if (HP <= 0) {
+			GameManager.instance.playerCount --;
+			Destroy(this.gameObject, 1);		
+		}
 		base.Update();
 	}
 	

@@ -30,7 +30,7 @@ public class AlienSoldier : AiPlayer {
 		// When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
 			
-			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>() == this 
+			if (GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<AlienSoldier>() == this 
 			    && GameManager.instance.playerList.Count > 0) {
 				
 				anim.SetBool("focus", true); //when in its turn, play animation
@@ -41,6 +41,10 @@ public class AlienSoldier : AiPlayer {
 				anim.SetBool("focus", false);//when out its turn, play idle animation
 				transform.renderer.material.color = Color.white;
 			}
+		}
+		if (HP <= 0) {
+			GameManager.instance.playerCount --;
+			Destroy(this.gameObject, 1);		
 		}
 		base.Update();
 	}
@@ -58,14 +62,20 @@ public class AlienSoldier : AiPlayer {
 				
 				//Used to check if the player has reached it's destination, if so next turn
 				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f) {
-					//print ("Reached");
+					print ("Reached");
 					transform.position = moveDestination;
-					moveTurn = true;
+
+					if(this.decisionTreeReturnedCode == this.ATTACK || this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || this.decisionTreeReturnedCode == this.KILL_ONE || this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
+						this.doAttack();
+					}
+
+					this.decisionExecuted = true;
 					GameManager.instance.disableHightLight ();
-					if (moveTurn) {
-						moveTurn = false;
-						attackTurn = false;
+					if (this.decisionExecuted) {
+						this.decisionExecuted = false;
+						//attackTurn = false;
 						this.isDecisionMade = false;
+						this.resetTargets();
 						GameManager.instance.nextTurn ();
 					}
 				}			
@@ -73,11 +83,35 @@ public class AlienSoldier : AiPlayer {
 			}
 
 		} else {
-			Debug.Log ("Decision Tree Code: " + this.decisionTree ());
-			this.findHighestPreferenceTile ();
-			//Debug.Log ("Preference Tile X: " + this.preferenceTileX);
-			//Debug.Log ("Preference Tile Y: " + this.preferenceTileY);
-			this.moveToHighPrefenceAction();
+			if(GameManager.instance.playerCount <= 0) return;
+
+			this.decisionTreeReturnedCode = this.decisionTree();
+			Debug.Log ("Decision Tree Code: " + this.decisionTreeReturnedCode);
+
+			if (this.decisionTreeReturnedCode == this.ATTACK || this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || this.decisionTreeReturnedCode == this.KILL_ONE || this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
+				//Debug.Log ("Called");
+				this.target = this.targets[0].GetComponent<Player>();
+				if (this.target != null) {
+					this.moveToAttackableRangeAction();
+				} else {
+					Debug.LogError("AI Attack Target is NULL!!!");
+				}
+			} else if (false) {
+
+				this.target = this.ableToBeKilledTargets[0].GetComponent<Player>();
+				if (this.target != null) {
+					this.moveToAttackableRangeAction();
+				} else {
+					Debug.LogError("AI Attack Target is NULL!!!");
+				}
+			} else if (this.decisionTreeReturnedCode == this.MOVE_TO_PLAYER) {
+
+				this.findHighestPreferenceTile ();
+				//Debug.Log ("Preference Tile X: " + this.preferenceTileX);
+				//Debug.Log ("Preference Tile Y: " + this.preferenceTileY);
+				this.moveToHighPrefenceAction();
+			}
+
 			this.isDecisionMade = true;
 		}
 	}

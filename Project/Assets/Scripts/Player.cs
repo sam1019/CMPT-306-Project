@@ -68,6 +68,7 @@ public class Player : MonoBehaviour {
 		hpStyle.fontStyle = FontStyle.BoldAndItalic;
 		hpStyle.fontSize = 10;
 		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*26+ Vector3.left*15;
-		GUI.Label(new Rect(location.x, Screen.height - location.y, 28, 18), HP.ToString(), hpStyle);
+		int hpint = (int)HP;
+		GUI.Label(new Rect(location.x, Screen.height - location.y, 28, 18), hpint.ToString(), hpStyle);
 	}
 }
