@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Aliens\AlienSoldier.cs" />
      <Compile Include="Assets\Scripts\Aliens\AlienSupport.cs" />
      <Compile Include="Assets\Scripts\Aliens\Berserker.cs" />
+     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\HelicopterAttack.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\JetAttack.cs" />
