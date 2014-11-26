@@ -31,6 +31,9 @@ public class AiPlayer : Player {
 	public int preferenceTileX, preferenceTileY;
 
 	public int decisionTreeReturnedCode = -1;
+
+	public int HighHPforAbleToKillIndex = -1;
+	public int MostDamageTargetIndex = -1;
 	
 	// ============= Class Methods =============
 
@@ -262,61 +265,6 @@ public class AiPlayer : Player {
 		}
 	}
 
-	/*
-	 * Finds the enemy's class on the selected tile to attack
-	 */
-	public void getEnemyToAttack(Tile tile){
-			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
-				
-				if(p.GetComponent<AlienShip>() != null){
-					AlienShip target = null;
-					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						JetAttack.attackAlienShip(target); //Attacks the specific enemy unit
-					}
-				}
-				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
-					AlienSoldier target = null;
-					AlienSoldier temp = p.GetComponent<AlienSoldier>();	//Gets enemy script		
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
-					}
-				}
-				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
-					AlienSupport target = null;
-					AlienSupport temp = p.GetComponent<AlienSupport>();	//Gets enemy script			
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
-					}
-				}
-				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
-					Berserker target = null;
-					Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
-					}
-				}
-				/**********TEST class************/
-				else if(p.GetComponent<AiPlayer>() != null){ //Checks for enemy class on tile target
-					AiPlayer target = null;
-					AiPlayer temp = p.GetComponent<AiPlayer>();	 //Gets enemy script
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						JetAttack.attackAIPlayer(target); //Attacks the specific enemy unit
-					}
-				}
-			}
-	}
-
 	public void moveToAttackableRangeAction() {
 		// TODO: needed replaced by the new algorithm
 
@@ -381,6 +329,28 @@ public class AiPlayer : Player {
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
 	}
 
+	public void findHighHPforAbleToKill() {
+		int tempHighestHP = (int) ableToBeKilledTargets[0].GetComponent<Player>().HP;
+		HighHPforAbleToKillIndex = 0;
+		for (int i = 1; i < ableToBeKilledTargets.Count; i ++) {
+			if(tempHighestHP <= ableToBeKilledTargets[i].GetComponent<Player>().HP) {
+				tempHighestHP = (int) ableToBeKilledTargets[i].GetComponent<Player>().HP;
+				HighHPforAbleToKillIndex = i;
+			}
+		}
+	}
+
+	public void findMostDamageTarget() {
+		int tempHighestDamage = (int) targets[0].GetComponent<Player>().baseDamage;
+		MostDamageTargetIndex = 0;
+		for (int i = 1; i < targets.Count; i ++) {
+			if(tempHighestDamage <= targets[i].GetComponent<Player>().baseDamage) {
+				tempHighestDamage = (int) targets[i].GetComponent<Player>().baseDamage;
+				MostDamageTargetIndex = i;
+			}
+		}
+	}
+	
 	public void resetTargets() {
 		targets.Clear();
 		ableToBeKilledTargets.Clear ();

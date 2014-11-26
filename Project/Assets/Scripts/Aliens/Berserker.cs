@@ -59,9 +59,14 @@ public class Berserker : AiPlayer {
 				
 				//Used to check if the player has reached it's destination, if so next turn
 				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f) {
+					print ("Reached");
 					transform.position = moveDestination;
 					
-					if(this.decisionTreeReturnedCode == this.ATTACK || this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || this.decisionTreeReturnedCode == this.KILL_ONE || this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
+					if(this.decisionTreeReturnedCode == this.ATTACK || 
+					   this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || 
+					   this.decisionTreeReturnedCode == this.KILL_ONE || 
+					   this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
+						
 						this.doAttack();
 					}
 					
@@ -82,9 +87,9 @@ public class Berserker : AiPlayer {
 			if(GameManager.instance.playerCount <= 0) return;
 			
 			this.decisionTreeReturnedCode = this.decisionTree();
-			Debug.Log ("Decision Tree Code: " + this.decisionTreeReturnedCode);
+			Debug.Log ("AlienSoldier Decision Tree Code: " + this.decisionTreeReturnedCode);
 			
-			if (this.decisionTreeReturnedCode == this.ATTACK || this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || this.decisionTreeReturnedCode == this.KILL_ONE || this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
+			if (this.decisionTreeReturnedCode == this.ATTACK) {
 				//Debug.Log ("Called");
 				this.target = this.targets[0].GetComponent<Player>();
 				if (this.target != null) {
@@ -92,9 +97,25 @@ public class Berserker : AiPlayer {
 				} else {
 					Debug.LogError("AI Attack Target is NULL!!!");
 				}
-			} else if (false) {
+			} else if (this.decisionTreeReturnedCode == this.KILL_ONE) {
 				
 				this.target = this.ableToBeKilledTargets[0].GetComponent<Player>();
+				if (this.target != null) {
+					this.moveToAttackableRangeAction();
+				} else {
+					Debug.LogError("AI Attack Target is NULL!!!");
+				}
+			} else if (this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
+				this.findHighHPforAbleToKill();
+				this.target = this.ableToBeKilledTargets[this.HighHPforAbleToKillIndex].GetComponent<Player>();
+				if (this.target != null) {
+					this.moveToAttackableRangeAction();
+				} else {
+					Debug.LogError("AI Attack Target is NULL!!!");
+				}
+			} else if (this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE) {
+				this.findMostDamageTarget();
+				this.target = this.targets[this.MostDamageTargetIndex].GetComponent<Player>();
 				if (this.target != null) {
 					this.moveToAttackableRangeAction();
 				} else {
