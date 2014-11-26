@@ -39,6 +39,7 @@ public class Tank : Player {
 
 				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.Lerp(Color.white,Color.cyan, Time.time%2);
+				transform.renderer.material.color = Color.Lerp(Color.cyan,Color.white, Time.time%2);
 			}
 			//Otherwise charactor is white
 			else {
@@ -99,6 +100,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienShip(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -108,6 +110,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -117,6 +120,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -126,6 +130,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				/**********TEST class************/

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Jet : Player {
 
@@ -8,6 +9,7 @@ public class Jet : Player {
 	public bool isAttacking =false;
 	public float defenseReduceRate = 0.2f;
 	private Animator anim;
+	public List<Tile> path;
 
 
 	void Start () {
@@ -34,6 +36,7 @@ public class Jet : Player {
 
 				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.Lerp(Color.white,Color.cyan, Time.time%2);
+				transform.renderer.material.color = Color.Lerp(Color.cyan,Color.white, Time.time%2);
 			}
 			//Otherwise charactor is white
 			else {
@@ -48,6 +51,15 @@ public class Jet : Player {
 		
 		//Moving the player to destination
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
+
+			//For future development, move from tile to tile
+//			path = PathFinding.getTilesPath((int)transform.position.x, (int)transform.position.y, (int)moveDestination.x, (int)moveDestination.y, this.attackRange, 1, "HUMAN");
+//			int i = 1;
+//			foreach(Tile t in path){
+//				Debug.Log ("Tile" + i + t.gridPosition.x + "," + t.gridPosition.y);
+//				i ++;
+//			}
+
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 			
 			//Used to check if the player has reached it's destination, if so next turn
@@ -95,6 +107,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienShip(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -104,6 +117,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -113,6 +127,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -122,6 +137,7 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
+						audio.Play ();
 					}
 				}
 				/**********TEST class************/

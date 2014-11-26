@@ -41,7 +41,8 @@ public class Berserker : AiPlayer {
 			}
 		}
 		if (this.HP <= 0) {
-			transform.renderer.material.color = Color.black;		
+			GameManager.instance.playerCount --;
+			Destroy(this.gameObject, 1);		
 		}
 		base.Update();
 	}
