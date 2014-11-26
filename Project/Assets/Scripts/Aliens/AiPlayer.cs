@@ -110,6 +110,8 @@ public class AiPlayer : Player {
 				}
 			}
 		}
+
+		//PathFinding.doPathFinding ((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange, PathFinding.ATTACK_HIGHLIGHT, PathFinding.ALIEN);
 	}
 
 	private void targetCanbeKilledInThisRound() {

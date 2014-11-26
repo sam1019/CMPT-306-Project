@@ -488,10 +488,10 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		*/
-		Debug.Log (originLocationX);
-		Debug.Log (originLocationY);
-		Debug.Log (range);
-		PathFinding.doPathFinding (originLocationX, originLocationY, range, "attack");
+		//Debug.Log (originLocationX);
+		//Debug.Log (originLocationY);
+		//Debug.Log (range);
+		PathFinding.doPathFinding (originLocationX, originLocationY, range, PathFinding.ATTACK_HIGHLIGHT, PathFinding.HUMAN);
 	}
 	
 	// TODO: need fully implementation
@@ -527,10 +527,10 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		*/
-		Debug.Log (originLocationX);
-		Debug.Log (originLocationY);
-		Debug.Log (range);
-		PathFinding.doPathFinding (originLocationX, originLocationY, range, "move");
+		//Debug.Log (originLocationX);
+		//Debug.Log (originLocationY);
+		//Debug.Log (range);
+		PathFinding.doPathFinding (originLocationX, originLocationY, range, PathFinding.MOVE_HIGHLIGHT, PathFinding.HUMAN);
 	}
 	
 	
