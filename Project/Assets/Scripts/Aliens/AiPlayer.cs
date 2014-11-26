@@ -368,4 +368,16 @@ public class AiPlayer : Player {
 
 		GameManager.instance.moveAlien (destTile);
 	}
+
+	public void AttackHelper(Player target){
+
+		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
+		attackTurn = true;
+		if (moveTurn&&attackTurn) {
+			moveTurn = false;
+			attackTurn = false;
+			this.isDecisionMade = false;
+			GameManager.instance.nextTurn ();
+		}
+	}
 }
