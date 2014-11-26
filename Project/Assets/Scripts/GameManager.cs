@@ -100,11 +100,9 @@ public class GameManager : MonoBehaviour {
 	/* Delete player character when it's dead
 	 * helper function 
 	 */
-	public void deleteChar(int charCount){
-		
+	public void deleteChar(){
 		Destroy(playerList[currentPlayerIndex]);
 		playerList.RemoveAt(currentPlayerIndex);
-		charCount -=1;
 	}
 	
 	void Update () {
@@ -131,7 +129,7 @@ public class GameManager : MonoBehaviour {
 				player.TurnUpdate ();
 				
 				if (player.HP <= 0){
-					deleteChar(playerCount);
+					deleteChar();
 				}
 			}
 			else if(temp.GetComponent<AiPlayer>() != null){
@@ -139,7 +137,7 @@ public class GameManager : MonoBehaviour {
 				ai.TurnUpdate ();
 				
 				if (ai.HP <= 0){
-					deleteChar(aiCount);
+					deleteChar();
 				}
 			}
 		}
@@ -158,46 +156,22 @@ public class GameManager : MonoBehaviour {
 			Tank tank  = temp.GetComponent<Tank>();
 			
 			if (tank.HP <= 0){ //Check if player is not dead
-				deleteChar(playerCount);
+				deleteChar();
 			}
 			tank.TurnUpdate ();			
 		}
 		else if(temp.GetComponent<Soldier>() != null){
 			Soldier soldier  = temp.GetComponent<Soldier>();
 			if (soldier.HP <= 0){
-				deleteChar(playerCount);
+				deleteChar();
 			}
 			soldier.TurnUpdate ();
-		}
-		else if(temp.GetComponent<Medic>() != null){
-			Medic medic  = temp.GetComponent<Medic>();
-			
-			if (medic.HP <= 0){
-				deleteChar(playerCount);
-			}
-			medic.TurnUpdate ();			
-		}
-		else if(temp.GetComponent<Specialist>() != null){
-			Specialist spec  = temp.GetComponent<Specialist>();
-			
-			if (spec.HP <= 0){
-				deleteChar(playerCount);
-			}
-			spec.TurnUpdate ();		
-		}
-		else if(temp.GetComponent<Helicopter>() != null){
-			Helicopter heli  = temp.GetComponent<Helicopter>();
-			
-			if (heli.HP <= 0){
-				deleteChar(playerCount);
-			}	
-			heli.TurnUpdate ();			
 		}
 		else if(temp.GetComponent<Jet>() != null){
 			Jet jet  = temp.GetComponent<Jet>();
 			
 			if (jet.HP <= 0){
-				deleteChar(playerCount);
+				deleteChar();
 			}	
 			jet.TurnUpdate ();
 		}
@@ -218,7 +192,7 @@ public class GameManager : MonoBehaviour {
 			AlienShip ship  = temp.GetComponent<AlienShip>();	//Get the current player script
 			
 			if (ship.HP <= 0){	// If AI is dead, remove from game
-				deleteChar(aiCount);
+				deleteChar();
 			}
 			ship.TurnUpdate (); // AI's turn
 		}
@@ -226,7 +200,7 @@ public class GameManager : MonoBehaviour {
 			AlienSoldier alienSoldier  = temp.GetComponent<AlienSoldier>();
 			
 			if (alienSoldier.HP <= 0){
-				deleteChar(aiCount);
+				deleteChar();
 			}
 			alienSoldier.TurnUpdate ();
 		}
@@ -234,7 +208,7 @@ public class GameManager : MonoBehaviour {
 			AlienSupport alienSupport  = temp.GetComponent<AlienSupport>();
 			
 			if (alienSupport.HP <= 0){
-				deleteChar(aiCount);
+				deleteChar();
 			}
 			alienSupport.TurnUpdate ();
 		}
@@ -242,7 +216,7 @@ public class GameManager : MonoBehaviour {
 			Berserker berserker  = temp.GetComponent<Berserker>();
 			
 			if (berserker.HP <= 0){
-				deleteChar(aiCount);
+				deleteChar();
 			}
 			berserker.TurnUpdate ();
 		}
