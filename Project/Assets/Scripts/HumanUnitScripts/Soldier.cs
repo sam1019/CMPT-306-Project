@@ -34,6 +34,7 @@ public class Soldier : Player {
 
 				anim.SetBool("focus", true); //when in its turn, play animation
 				transform.renderer.material.color = Color.Lerp(Color.white,Color.cyan, Time.time%2);
+				transform.renderer.material.color = Color.Lerp(Color.cyan,Color.white, Time.time%2);
 			}
 			//Otherwise charactor is white
 			else {
