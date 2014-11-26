@@ -46,10 +46,6 @@ public class Tank : Player {
 				transform.renderer.material.color = Color.white;
 			}
 		}
-		if (HP <= 0) {
-			GameManager.instance.playerCount --;
-			Destroy(this.gameObject, 1);		
-		}
 		base.Update();
 	}
 	

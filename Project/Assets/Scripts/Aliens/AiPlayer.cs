@@ -327,6 +327,10 @@ public class AiPlayer : Player {
 	public void doAttack(){
 		Debug.Log("Doing Attack");
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
+		if (target.HP <= 0) {
+			GameManager.instance.playerCount --;
+			Destroy(target.gameObject, 1);
+		}
 	}
 
 	public void findHighHPforAbleToKill() {
@@ -352,6 +356,7 @@ public class AiPlayer : Player {
 	}
 	
 	public void resetTargets() {
+		Debug.Log ("Targets reset");
 		targets.Clear();
 		ableToBeKilledTargets.Clear ();
 	}
