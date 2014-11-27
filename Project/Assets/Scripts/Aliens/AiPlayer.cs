@@ -46,73 +46,47 @@ public class AiPlayer : Player {
 		base.TurnUpdate ();
 	}
 
-	private bool anyPlayerInAttackRangeHelper(Tile targetTile){
+	//A helper that decide which unit is on the target tile
+	//return the unit on that tile
+	private Player playerInAttackRangeHelper(Tile targetTile){
 
 		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 
 			if(p.GetComponent<Tank>() != null){
 				Tank temp = p.GetComponent<Tank>(); //Gets enemy script
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
-					targets.Add(temp);
-					return true;
+					return temp;
 				}
 			}
 			else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
 				Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
-					targets.Add(temp);
-					return true;
+					return temp;
 				}
 			}
 			else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
 				Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
-					targets.Add(temp);
-					return true;
+					return temp;
 				}
 			}
 		}
-		return false;
+		return null;
 	}
 
-	private void anyPlayerInAttackRange() {
-		/* Iterate through the map to highlight the tiles that in its move range
-		 * different part of the map has different methods to choose tiles
-		 */
-		if (this.gridPosition.x >= this.gridPosition.y) {
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= this.gridPosition.x + this.gridPosition.y + this.attackRange && i + j >= this.gridPosition.x + this.gridPosition.y - this.attackRange 
-					   && i<= this.gridPosition.x + this.attackRange && i >= this.gridPosition.x - this.attackRange &&  j<= this.gridPosition.y + this.attackRange && j >= this.gridPosition.y - this.attackRange
-					   && (i - j) <= Mathf.Abs(this.gridPosition.x - this.gridPosition.y) + this.attackRange &&  (i - j) >= Mathf.Abs(this.gridPosition.x - this.gridPosition.y) - this.attackRange){
-						if(anyPlayerInAttackRangeHelper(GameManager.instance.map [i] [j].GetComponent<Tile> ())){
-							isPlayerInAttackRange = true;
-						}
-						GameManager.instance.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
-						//System.Threading.Thread.Sleep(1000);
-					}
-				}
-			}
-		}
-		else if(this.gridPosition.x < this.gridPosition.y){
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= this.gridPosition.x + this.gridPosition.y + this.attackRange && i + j >= this.gridPosition.x + this.gridPosition.y - this.attackRange 
-					   && i<= this.gridPosition.x + this.attackRange && i >= this.gridPosition.x - this.attackRange &&  j<= this.gridPosition.y + this.attackRange && j >= this.gridPosition.y - this.attackRange
-					   && (i - j) <= (this.gridPosition.x - this.gridPosition.y + this.attackRange) &&  (i - j) >= (this.gridPosition.x - this.gridPosition.y - this.attackRange)){
-						if(anyPlayerInAttackRangeHelper(GameManager.instance.map [i] [j].GetComponent<Tile> ())){
-							isPlayerInAttackRange = true;
-						}
-						GameManager.instance.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
-						//System.Threading.Thread.Sleep(1000);
-					}
-				}
-			}
-		}
 
-		//PathFinding.doPathFinding ((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange, PathFinding.ATTACK_HIGHLIGHT, PathFinding.ALIEN);
+	//find all played in attack range
+	private List<Player> playersInAttackRange() {
+		List<KeyValuePair<int, Tile>> tiles = PathFinding.doPathFinding ((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange, PathFinding.ATTACK_HIGHLIGHT, PathFinding.ALIEN);
+		List<Player> targets = new List<Player>();
+		foreach (KeyValuePair<int, Tile> t in tiles) {
+			if(t.Value.isOccupied){
+				if(t.Value.occupiedName == "Soldier" ||t.Value.occupiedName == "Jet" ||t.Value.occupiedName == "Tank"){
+					 targets.Add(playerInAttackRangeHelper(t.Value));
+				}
+			}		
+		}
+		return targets;
 	}
 
 	private void targetCanbeKilledInThisRound() {
@@ -144,7 +118,7 @@ public class AiPlayer : Player {
 
 	// Decision tree
 	public int decisionTree() {
-		anyPlayerInAttackRange ();
+		playersInAttackRange ();
 		if (isPlayerInAttackRange) {
 			Debug.Log("isPlayerInAttackRange == true");
 			if(targets.Count == 1) {
@@ -286,14 +260,21 @@ public class AiPlayer : Player {
 		if (targetX + 1 >= 0 && targetX + 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ().isOccupied) rightAvailable = true;
 
 		Tile destTile = null;
-		if(upAvailable) destTile = GameManager.instance.map [targetX] [targetY + 1].GetComponent<Tile> ();
-		if(downAvailable) destTile = GameManager.instance.map [targetX] [targetY - 1].GetComponent<Tile> ();
-		if(leftAvailable) destTile = GameManager.instance.map [targetX - 1] [targetY].GetComponent<Tile> ();
-		if(rightAvailable) destTile = GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ();
+		if (GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ().isOccupied) {
+			if(upAvailable) destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY + 1].GetComponent<Tile> ();
+			if(downAvailable) destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY - 1].GetComponent<Tile> ();
+			if(leftAvailable) destTile = GameManager.instance.map [preferenceTileX - 1] [preferenceTileY].GetComponent<Tile> ();
+			if(rightAvailable) destTile = GameManager.instance.map [preferenceTileX + 1] [preferenceTileY].GetComponent<Tile> ();
+		} else {
+			destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ();
+		}
 
 		this.moveToAttack = true;
-
-		GameManager.instance.moveAlien (destTile);
+		if(destTile != null){
+			GameManager.instance.moveAlien (destTile);
+		}else{
+			GameManager.instance.moveAlien (GameManager.instance.map [(int)this.gridPosition.x][(int)this.gridPosition.y].GetComponent<Tile>());
+		}
 	}
 	
 	public void moveToHighPrefenceAction() {
@@ -321,7 +302,11 @@ public class AiPlayer : Player {
 			destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ();
 		}
 
-		GameManager.instance.moveAlien (destTile);
+		if(destTile != null){
+			GameManager.instance.moveAlien (destTile);
+		}else{
+			GameManager.instance.moveAlien (GameManager.instance.map [(int)this.gridPosition.x][(int)this.gridPosition.y].GetComponent<Tile>());
+		}
 	}
 
 	public void doAttack(){

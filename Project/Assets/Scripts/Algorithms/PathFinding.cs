@@ -18,6 +18,17 @@ public class PathFinding {
 	private static void tileActionHandler(int x, int y, int actionCode, int range) {
 		if (actionCode == ATTACK_HIGHLIGHT) {
 			GameManager.instance.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
+			bool exists = false;
+			foreach(KeyValuePair<int, Tile> t in tilesPath){
+				if(t.Value.Equals(GameManager.instance.map [x] [y].GetComponent<Tile> ())){
+					exists = true;
+					break;
+				}
+			};
+			if(!exists){
+				tilesPath.Add(new KeyValuePair<int, Tile>(range, GameManager.instance.map [x] [y].GetComponent<Tile> ()));
+			}
+			exists = false;
 		} else if (actionCode == MOVE_HIGHLIGHT) {
 			GameManager.instance.map [x] [y].GetComponent<Tile>().transform.renderer.material.color = Color.blue;
 			bool exists = false;
@@ -102,12 +113,12 @@ public class PathFinding {
 	 * 		 range --- player attack range or move range
 	 * 		 action --- ONLY "attack" or "move"
 	 */
-	public static void doPathFinding(int posX, int posY, int range, int action, string user) {
+	public static List<KeyValuePair<int, Tile>> doPathFinding(int posX, int posY, int range, int action, string user) {
 		int x = posX;
 		int y = posY;
 		tilesPath = new List<KeyValuePair<int, Tile>>();
 		pathFindingAlgorithm (x, y, posX, posY, range, action, user);
-
+		return tilesPath;
 	}
 
 	public static List<Tile> getTilesPath(int originalx, int originaly, int destinationx, int destinationy, int range, int action, string user){
