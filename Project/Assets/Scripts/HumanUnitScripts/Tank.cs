@@ -54,6 +54,8 @@ public class Tank : Player {
 		
 		//Moving the player to destination
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
+
+			SendMessage("Play","tankMove");
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 			moving=false;
 
@@ -100,7 +102,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienShip(target); //Attacks the specific enemy unit
-						audio.Play ();
+						SendMessage("Play","tankHit");
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -111,6 +113,7 @@ public class Tank : Player {
 						target = temp;
 						TankAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
 						audio.Play ();
+						SendMessage("Play","tankHit");
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -121,6 +124,7 @@ public class Tank : Player {
 						target = temp;
 						TankAttack.attackAlienSupport(target); //Attacks the specific enemy unit
 						audio.Play ();
+						SendMessage("Play","tankHit");
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -131,6 +135,7 @@ public class Tank : Player {
 						target = temp;
 						TankAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
 						audio.Play ();
+						SendMessage("Play","tankHit");
 					}
 				}
 				/**********TEST class************/
@@ -141,6 +146,7 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAIPlayer(target); //Attacks the specific enemy unit
+						SendMessage("Play","tankHit");
 					}
 				}
 			}

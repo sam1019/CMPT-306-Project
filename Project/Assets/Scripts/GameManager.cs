@@ -126,9 +126,7 @@ public class GameManager : MonoBehaviour {
 			
 			if(temp.GetComponent<UserPlayer>() != null){
 				UserPlayer player  = temp.GetComponent<UserPlayer>();
-//				if(player.roleName()== "Jet"){
-//					SendMessage("Play","jetActive");
-//				}
+
 				player.TurnUpdate ();
 
 				if (player.HP <= 0){
@@ -171,7 +169,7 @@ public class GameManager : MonoBehaviour {
 			soldier.TurnUpdate ();
 		}
 		else if(temp.GetComponent<Jet>() != null){
-			SendMessage("Play","jetActive");
+			//SendMessage("Play","jetActive")
 			Jet jet  = temp.GetComponent<Jet>();
 
 			if (jet.HP <= 0){
