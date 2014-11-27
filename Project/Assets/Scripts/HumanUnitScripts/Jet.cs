@@ -19,14 +19,14 @@ public class Jet : Player {
 		this.baseHP = 120.0f;
 		this.movementRange = 5;
 		this.attackRange = 2;
-		this.attackHitRate = 0.8f;
+		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
 
-		// Basic charactor color is blue
+		// Basic charactor color is white
 		// When a charactor is chosen, it's color will turn to cyan
 		// When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
@@ -99,7 +99,8 @@ public class Jet : Player {
 	public void getEnemyToAttack(Tile tile){
 		if (!attackTurn) {
 			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
-				
+
+				SendMessage("Play","jetHit");	//Play jet attack audio;
 				if(p.GetComponent<AlienShip>() != null){
 					AlienShip target = null;
 					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
@@ -107,7 +108,6 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienShip(target); //Attacks the specific enemy unit
-						SendMessage("Play","jetHit");
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -117,7 +117,6 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
-						SendMessage("Play","jetHit");
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -127,7 +126,6 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
-						SendMessage("Play","jetHit");
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -137,7 +135,6 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
-						SendMessage("Play","jetHit");
 					}
 				}
 				/**********TEST class************/
@@ -148,7 +145,6 @@ public class Jet : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						JetAttack.attackAIPlayer(target); //Attacks the specific enemy unit
-						SendMessage("Play","jetHit");
 					}
 				}
 			}

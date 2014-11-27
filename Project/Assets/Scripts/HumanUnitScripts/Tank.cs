@@ -23,13 +23,13 @@ public class Tank : Player {
 		this.baseHP = 150.0f;
 		this.movementRange = 2;
 		this.attackRange = 1;
-		this.attackHitRate = 0.8f;
+		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
-		//Basic charactor color is blue
+		//Basic charactor color is white
 		//When a charactor is chosen, it's color will turn to cyan
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
@@ -95,6 +95,7 @@ public class Tank : Player {
 		if (!attackTurn) {
 			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 
+				SendMessage("Play","tankHit");	//play tank attack audio
 				if(p.GetComponent<AlienShip>() != null){
 					AlienShip target = null;
 					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
@@ -102,7 +103,6 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienShip(target); //Attacks the specific enemy unit
-						SendMessage("Play","tankHit");
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -113,7 +113,6 @@ public class Tank : Player {
 						target = temp;
 						TankAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
 						audio.Play ();
-						SendMessage("Play","tankHit");
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -124,7 +123,6 @@ public class Tank : Player {
 						target = temp;
 						TankAttack.attackAlienSupport(target); //Attacks the specific enemy unit
 						audio.Play ();
-						SendMessage("Play","tankHit");
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -135,7 +133,6 @@ public class Tank : Player {
 						target = temp;
 						TankAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
 						audio.Play ();
-						SendMessage("Play","tankHit");
 					}
 				}
 				/**********TEST class************/
@@ -146,7 +143,6 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAIPlayer(target); //Attacks the specific enemy unit
-						SendMessage("Play","tankHit");
 					}
 				}
 			}

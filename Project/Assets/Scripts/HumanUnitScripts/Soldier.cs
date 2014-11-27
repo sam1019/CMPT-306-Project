@@ -17,14 +17,14 @@ public class Soldier : Player {
 		this.baseDefense = 15.0f;
 		this.movementRange = 3;
 		this.attackRange = 1;
-		this.attackHitRate = 0.75f;
+		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
 
-		//Basic charactor color is blue
+		//Basic charactor color is white
 		//When a charactor is chosen, it's color will turn to cyan
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
@@ -87,6 +87,8 @@ public class Soldier : Player {
 	public void getEnemyToAttack(Tile tile){
 		if (!attackTurn) {
 			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+
+				SendMessage("Play","soldierHit");	//play soldier attack audio
 				if(p.GetComponent<AlienShip>() != null){
 					AlienShip target = null;
 					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
@@ -94,7 +96,6 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienShip(target); //Attacks the specific enemy unit
-						SendMessage("Play","soldierHit");
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target
@@ -104,7 +105,6 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
-						SendMessage("Play","soldierHit");
 					}
 				}
 				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
@@ -114,7 +114,6 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienSupport(target); //Attacks the specific enemy unit
-						SendMessage("Play","soldierHit");
 					}
 				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
@@ -124,7 +123,6 @@ public class Soldier : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						SoldierAttack.attackAlienBerserker(target); //Attacks the specific enemy unit
-						SendMessage("Play","soldierHit");
 					}
 				}
 				/**********TEST class************/
@@ -136,7 +134,6 @@ public class Soldier : Player {
 						target = temp;
 						SoldierAttack.attackAIPlayer(target); //Attacks the specific enemy unit
 						audio.Play ();
-						SendMessage("Play","soldierHit");
 					}
 				}
 			}
