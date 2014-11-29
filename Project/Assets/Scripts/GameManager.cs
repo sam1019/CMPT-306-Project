@@ -126,8 +126,9 @@ public class GameManager : MonoBehaviour {
 			
 			if(temp.GetComponent<UserPlayer>() != null){
 				UserPlayer player  = temp.GetComponent<UserPlayer>();
+
 				player.TurnUpdate ();
-				
+
 				if (player.HP <= 0){
 					deleteChar();
 				}
@@ -168,8 +169,9 @@ public class GameManager : MonoBehaviour {
 			soldier.TurnUpdate ();
 		}
 		else if(temp.GetComponent<Jet>() != null){
+			//SendMessage("Play","jetActive")
 			Jet jet  = temp.GetComponent<Jet>();
-			
+
 			if (jet.HP <= 0){
 				deleteChar();
 			}	

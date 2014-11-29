@@ -43,6 +43,7 @@ public class AlienSoldier : AiPlayer {
 			}
 		}
 		if (HP <= 0) {
+			SendMessage("Play","AlienSoldierDestroy");
 			GameManager.instance.playerCount --;
 			Destroy(this.gameObject, 1);		
 		}

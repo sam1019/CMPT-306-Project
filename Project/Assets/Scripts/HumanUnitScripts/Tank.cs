@@ -23,13 +23,13 @@ public class Tank : Player {
 		this.baseHP = 150.0f;
 		this.movementRange = 2;
 		this.attackRange = 1;
-		this.attackHitRate = 0.8f;
+		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
-		//Basic charactor color is blue
+		//Basic charactor color is white
 		//When a charactor is chosen, it's color will turn to cyan
 		//When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
@@ -54,6 +54,8 @@ public class Tank : Player {
 		
 		//Moving the player to destination
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
+
+			SendMessage("Play","tankMove");
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 			moving=false;
 
@@ -93,6 +95,7 @@ public class Tank : Player {
 		if (!attackTurn) {
 			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 
+				SendMessage("Play","tankHit");	//play tank attack audio
 				if(p.GetComponent<AlienShip>() != null){
 					AlienShip target = null;
 					AlienShip temp = p.GetComponent<AlienShip>(); //Gets enemy script
@@ -100,7 +103,6 @@ public class Tank : Player {
 					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
 						target = temp;
 						TankAttack.attackAlienShip(target); //Attacks the specific enemy unit
-						audio.Play ();
 					}
 				}
 				else if(p.GetComponent<AlienSoldier>() != null){ //Checks for enemy class on tile target

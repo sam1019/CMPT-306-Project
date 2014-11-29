@@ -38,10 +38,11 @@ public class AlienShip : AiPlayer {
 			//Otherwise charactor is blue
 			else {
 				anim.SetBool("focus", false);//when out its turn, play idle animation
-				transform.renderer.material.color = Color.blue;
+				transform.renderer.material.color = Color.white;
 			}
 		}
 		if (this.HP <= 0) {
+			SendMessage("Play", "AlienshipDestroy");
 			GameManager.instance.playerCount --;
 			Destroy(this.gameObject, 1);		
 		}
@@ -57,6 +58,7 @@ public class AlienShip : AiPlayer {
 			//print ("HELLO");
 			if (Vector3.Distance (moveDestination, transform.position) > 0.1f) {
 				//print ("Goodbye");
+				SendMessage("Play", "AlienshipMove");
 				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 				
 				//Used to check if the player has reached it's destination, if so next turn

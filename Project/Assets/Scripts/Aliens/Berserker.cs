@@ -37,10 +37,11 @@ public class Berserker : AiPlayer {
 			//Otherwise charactor is blue
 			else {
 				anim.SetBool("focus", false);//when out its turn, play idle animation
-				transform.renderer.material.color = Color.blue;
+				transform.renderer.material.color = Color.white;
 			}
 		}
 		if (this.HP <= 0) {
+			SendMessage("Play","BerserkerDestroy");
 			GameManager.instance.playerCount --;
 			Destroy(this.gameObject, 1);		
 		}
