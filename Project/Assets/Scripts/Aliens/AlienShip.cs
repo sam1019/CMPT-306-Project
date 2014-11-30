@@ -43,7 +43,7 @@ public class AlienShip : AiPlayer {
 		}
 		if (this.HP <= 0) {
 			SendMessage("Play", "AlienshipDestroy");
-			GameManager.instance.playerCount --;
+			GameManager.instance.aiCount --;
 			Destroy(this.gameObject, 1);		
 		}
 		base.Update();
@@ -80,7 +80,7 @@ public class AlienShip : AiPlayer {
 						this.decisionExecuted = false;
 						//attackTurn = false;
 						this.isDecisionMade = false;
-						this.resetTargets();
+						this.resetAiPlayer();
 						GameManager.instance.nextTurn ();
 					}
 				}			

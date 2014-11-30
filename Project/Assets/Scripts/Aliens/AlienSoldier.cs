@@ -44,7 +44,7 @@ public class AlienSoldier : AiPlayer {
 		}
 		if (HP <= 0) {
 			SendMessage("Play","AlienSoldierDestroy");
-			GameManager.instance.playerCount --;
+			GameManager.instance.aiCount --;
 			Destroy(this.gameObject, 1);		
 		}
 		base.Update();
@@ -80,7 +80,7 @@ public class AlienSoldier : AiPlayer {
 						this.decisionExecuted = false;
 						//attackTurn = false;
 						this.isDecisionMade = false;
-						this.resetTargets();
+						this.resetAiPlayer();
 						GameManager.instance.nextTurn ();
 					}
 				}			
