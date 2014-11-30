@@ -437,33 +437,6 @@ public class GameManager : MonoBehaviour {
 
 	// When click move botton, the available range for player will Highlighted
 	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
-		
-		/* Iterate through the map to highlight the tiles that in its attack range
-		 * different part of the map has different methods to choose tiles
-		 */
-		/*
-		if (originLocationX >= originLocationY) {
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					if (i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-						&& i <= originLocationX + range && i >= originLocationX - range && j <= originLocationY + range && j >= originLocationY - range
-						&& (i - j) <= Mathf.Abs (originLocationX - originLocationY) + range && (i - j) >= Mathf.Abs (originLocationX - originLocationY) - range) {
-							highlightAttackedTile (i, j);
-						}
-				}
-			}
-		} else if (originLocationX < originLocationY) {
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					if (i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-						&& i <= originLocationX + range && i >= originLocationX - range && j <= originLocationY + range && j >= originLocationY - range
-						&& (i - j) <= (originLocationX - originLocationY + range) && (i - j) >= (originLocationX - originLocationY - range)) {
-							highlightAttackedTile (i, j);
-						}
-				}
-			}
-		}
-		*/
 		//Debug.Log (originLocationX);
 		//Debug.Log (originLocationY);
 		//Debug.Log (range);
@@ -473,36 +446,7 @@ public class GameManager : MonoBehaviour {
 	// TODO: need fully implementation
 	// When click move botton, the available range for player will Highlighted
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
-		
-		/* Iterate through the map to highlight the tiles that in its move range
-		 * different part of the map has different methods to choose tiles
-		 */
-		/*
-		if (originLocationX >= originLocationY) {
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					
-					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
-					   && (i - j) <= Mathf.Abs(originLocationX - originLocationY) + range &&  (i - j) >= Mathf.Abs(originLocationX - originLocationY) - range){
-						highlightMoveTile(i,j);
-					}
-				}
-			}
-		}
-		else if(originLocationX < originLocationY){
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					
-					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
-					   && (i - j) <= (originLocationX - originLocationY + range) &&  (i - j) >= (originLocationX - originLocationY - range)){
-						highlightMoveTile(i,j);
-					}
-				}
-			}
-		}
-		*/
+
 		//Debug.Log (originLocationX);
 		//Debug.Log (originLocationY);
 		//Debug.Log (range);

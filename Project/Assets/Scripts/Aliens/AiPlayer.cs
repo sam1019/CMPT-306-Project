@@ -28,7 +28,8 @@ public class AiPlayer : Player {
 
 	public bool decisionExecuted = false;
 
-	public int preferenceTileX, preferenceTileY;
+	public int preferenceTileX = -1;
+	public int preferenceTileY = -1;
 
 	public int decisionTreeReturnedCode = -1;
 
@@ -52,22 +53,28 @@ public class AiPlayer : Player {
 
 			if(p.GetComponent<Tank>() != null){
 				Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+				Debug.Log("Tank is in Attack Range");
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
 					targets.Add(temp);
+					Debug.Log("Tank is added into target list");
 					return true;
 				}
 			}
 			else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
 				Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+				Debug.Log("Jet is in Attack Range");
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
 					targets.Add(temp);
+					Debug.Log("Jet is added into target list");
 					return true;
 				}
 			}
 			else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
-				Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+				Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script	
+				Debug.Log("Soldier is in Attack Range");
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
 					targets.Add(temp);
+					Debug.Log("Soldier is added into target list");
 					return true;
 				}
 			}
@@ -266,30 +273,63 @@ public class AiPlayer : Player {
 	}
 
 	public void moveToAttackableRangeAction() {
-		// TODO: needed replaced by the new algorithm
-
-		// used for checking the available tile when destination tile is occupied
-		bool upAvailable = false;
-		bool downAvailable = false;
-		bool leftAvailable = false;
-		bool rightAvailable = false;
 
 		int targetX = (int) target.gridPosition.x;
 		int targetY = (int) target.gridPosition.y;
 		Debug.Log ("Target X: " + targetX);
 		Debug.Log ("Target Y: " + targetY);
-		
-		// Check if the destination is out of border
-		if (targetY + 1 >= 0 && targetY + 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX] [targetY + 1].GetComponent<Tile> ().isOccupied) upAvailable = true;
-		if (targetY - 1 >= 0 && targetY - 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX] [targetY - 1].GetComponent<Tile> ().isOccupied) downAvailable = true;
-		if (targetX - 1 >= 0 && targetX - 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX - 1] [targetY].GetComponent<Tile> ().isOccupied) leftAvailable = true;
-		if (targetX + 1 >= 0 && targetX + 1 < GameManager.instance.mapSize && !GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ().isOccupied) rightAvailable = true;
 
 		Tile destTile = null;
-		if(upAvailable) destTile = GameManager.instance.map [targetX] [targetY + 1].GetComponent<Tile> ();
-		if(downAvailable) destTile = GameManager.instance.map [targetX] [targetY - 1].GetComponent<Tile> ();
-		if(leftAvailable) destTile = GameManager.instance.map [targetX - 1] [targetY].GetComponent<Tile> ();
-		if(rightAvailable) destTile = GameManager.instance.map [targetX + 1] [targetY].GetComponent<Tile> ();
+		List<Tile> temp = new List<Tile> ();
+
+
+		bool hasFoundTile = false;
+
+		/* Iterate through the map to highlight the tiles that in its move range
+		 * different part of the map has different methods to choose tiles
+		 */
+		//int x = (int) GameManager.instance.map [1] [1].transform.position.x;
+		if (targetX >= targetY) {
+			for (int i = 0; i < GameManager.instance.mapSize; i++) {
+				for (int j = 0; j < GameManager.instance.mapSize; j++) {
+					
+					if( i + j <= targetX + targetY + this.attackRange && i + j >= targetX + targetY - this.attackRange 
+					   && i<= targetX + this.attackRange && i >= targetX - this.attackRange &&  j<= targetY + this.attackRange && j >= targetY - this.attackRange
+					   && (i - j) <= Mathf.Abs(targetX - targetY) + this.attackRange &&  (i - j) >= Mathf.Abs(targetX - targetY) - this.attackRange){
+
+						if(!hasFoundTile && !GameManager.instance.map [i] [j].GetComponent<Tile> ().isOccupied) {
+							temp.Add(GameManager.instance.map [i] [j].GetComponent<Tile> ());
+							hasFoundTile = true;
+						}
+					}
+				}
+			}
+		}
+		else if(targetX < targetY){
+			for (int i = 0; i < GameManager.instance.mapSize; i++) {
+				for (int j = 0; j < GameManager.instance.mapSize; j++) {
+					
+					if( i + j <= targetX + targetY + this.attackRange && i + j >= targetX + targetY - this.attackRange 
+					   && i<= targetX + this.attackRange && i >= targetX - this.attackRange &&  j<= targetY + this.attackRange && j >= targetY - this.attackRange
+					   && (i - j) <= (targetX - targetY + this.attackRange) &&  (i - j) >= (targetX - targetY - this.attackRange)){
+
+						if(!hasFoundTile && !GameManager.instance.map [i] [j].GetComponent<Tile> ().isOccupied) {
+							temp.Add(GameManager.instance.map [i] [j].GetComponent<Tile> ());
+							hasFoundTile = true;
+						}
+					}
+				}
+			}
+		}
+
+		int randIndex = Random.Range (0, temp.Count);
+
+		destTile = temp[randIndex].GetComponent<Tile>();
+
+		if (destTile == null) {
+			Debug.Log("Can't find an attackable tile");
+			return;
+		}
 
 		this.moveToAttack = true;
 
@@ -328,7 +368,8 @@ public class AiPlayer : Player {
 		Debug.Log("Doing Attack");
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
 		if (target.HP <= 0) {
-			GameManager.instance.playerCount --;
+			print ("HELLO");
+			GameManager.instance.playerCount-=1;
 			Destroy(target.gameObject, 1);
 		}
 	}
@@ -355,9 +396,26 @@ public class AiPlayer : Player {
 		}
 	}
 	
-	public void resetTargets() {
+	public void resetAiPlayer() {
 		Debug.Log ("Targets reset");
 		targets.Clear();
 		ableToBeKilledTargets.Clear ();
+		isPlayerInAttackRange = false;
+		existPlayerBeKilled = false;
+		
+		isDecisionMade = false;
+		moveToAttack = false;
+		
+		Player target = null;
+		
+		decisionExecuted = false;
+		
+		preferenceTileX = -1; 
+		preferenceTileY = -1;
+		
+		decisionTreeReturnedCode = -1;
+		
+		HighHPforAbleToKillIndex = -1;
+		MostDamageTargetIndex = -1;
 	}
 }

@@ -42,7 +42,7 @@ public class Berserker : AiPlayer {
 		}
 		if (this.HP <= 0) {
 			SendMessage("Play","BerserkerDestroy");
-			GameManager.instance.playerCount --;
+			GameManager.instance.aiCount --;
 			Destroy(this.gameObject, 1);		
 		}
 		base.Update();
@@ -78,7 +78,7 @@ public class Berserker : AiPlayer {
 						this.decisionExecuted = false;
 						//attackTurn = false;
 						this.isDecisionMade = false;
-						this.resetTargets();
+						this.resetAiPlayer();
 						GameManager.instance.nextTurn ();
 					}
 				}			
