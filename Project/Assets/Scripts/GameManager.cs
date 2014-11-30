@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	
 	/* Prefabs needed for game */
-
+	
 	//for maps
 	public GameObject Grass0TilePrefab;
 	public GameObject Grass1TilePrefab;
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject TreeSand1TilePrefab;
 	public GameObject TreeSand2TilePrefab;
 	public GameObject TreeSand3TilePrefab;
-
-
+	
+	
 	public GameObject AIPrefab;
 	public GameObject tile;
 	public GameObject jetPrefab; 
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
 	private const float AI_HEIGHT = -0.25f;
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
-	
+	private int howManyTurns;
 	/* Map components */
 	Tile grid;
 	public List <List<GameObject>> map;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		
 		instance = this;
-
+		
 		loadMapFromCsv ();
 	}
 	
@@ -88,11 +88,12 @@ public class GameManager : MonoBehaviour {
 		currentAIIndex = 0;
 		playerCount = 0;
 		aiCount = 0;
+		howManyTurns = 0;
 		//generateMap (); //Generate map
 		//spawnPlayers(); //spawn players to be controlled by users
 		//spawnAI(); //Spawn AI opponent for the player
 		spawnUnitsFromCsv ();
-
+		
 		IsPause = true;
 		scores = 0;
 	}
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour {
 			Application.LoadLevel("Victory");
 		}
 		
+		
 		if( playerList.Count > 0){
 			
 			getHumanTurn(); 		// TODO: For the future
@@ -126,9 +128,9 @@ public class GameManager : MonoBehaviour {
 			
 			if(temp.GetComponent<UserPlayer>() != null){
 				UserPlayer player  = temp.GetComponent<UserPlayer>();
-
+				
 				player.TurnUpdate ();
-
+				
 				if (player.HP <= 0){
 					deleteChar();
 				}
@@ -142,6 +144,7 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 		}
+		
 	}
 	
 	/*
@@ -171,7 +174,7 @@ public class GameManager : MonoBehaviour {
 		else if(temp.GetComponent<Jet>() != null){
 			//SendMessage("Play","jetActive")
 			Jet jet  = temp.GetComponent<Jet>();
-
+			
 			if (jet.HP <= 0){
 				deleteChar();
 			}	
@@ -231,6 +234,12 @@ public class GameManager : MonoBehaviour {
 		 */
 		this.disableHightLight ();
 		
+		/*Increment the turn counter*/
+		if (this.currentPlayerIndex <= this.playerList.Count) {
+			this.howManyTurns+=1;
+		}
+		checkTurnPassed ();
+		
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
 		}
@@ -243,6 +252,164 @@ public class GameManager : MonoBehaviour {
 		} 
 		
 	}
+	public void checkTurnPassed(){
+		if (this.howManyTurns%5==0) {
+			findEmptyTile();
+		}
+	}
+	public void findEmptyTile()
+	{
+		int i = 0;
+		while (i<this.mapSize) {
+			int randX = Random.Range(0, mapSize-1);
+			int randY = Random.Range(0, mapSize-1);
+			Tile temp = this.map[randX][randY].GetComponent<Tile>();
+			if(!temp.isOccupied){
+				int isAllies = Random.Range(0,2);
+				int count = Random.Range(0,5);
+				determineSpawnCase(count, isAllies, randX, randY);
+			}
+			if(i == this.map.Count)		
+			{
+				Debug.Log("No empty tile found");
+				break;
+			}
+			i+=1;
+		}
+	}
+	
+	/*
+	 * allies 0 is false so spawn AI units 
+	 */
+	public void determineSpawnCase(int count, int allies, int spawnX, int spawnY){
+		
+		float RNG = Random.Range(0.00f, 1.00f);
+		switch (allies) {			
+		case 0:	
+			float chanceForBerserker = 0.20f;
+			float chanceForAlienSoldier = 0.85f;
+			float chanceForShip = 0.15f;
+			if(RNG <= chanceForBerserker){
+				spawnEnemyUnits("Tank", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForAlienSoldier){
+				spawnEnemyUnits("Soldier", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForShip){
+				spawnEnemyUnits("Jet", spawnX, spawnY);
+			}
+			break;
+			
+		case 1:
+			float chanceForTank = 0.25f;
+			float chanceForSoldier = 0.75f;
+			float chanceForJet = 0.1f;
+			if(RNG <= chanceForTank){
+				spawnAlliedUnits("Tank", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForSoldier){
+				spawnAlliedUnits("Soldier", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForJet){
+				spawnAlliedUnits("Jet", spawnX, spawnY);
+			}
+			break;
+		}
+		
+		
+	}
+	public void spawnAlliedUnits(string unitToSpawn,  int spawnX, int spawnY){
+		
+		/*Getting the tile actual game position, not the cooridinates for map[][]*/
+		int x = (int) this.map[spawnX][spawnY].transform.position.x;
+		int y = (int) this.map[spawnX][spawnY].transform.position.y;
+		Vector3 spawn = new Vector3(x,y,PLAYER_HEIGHT);
+		switch (unitToSpawn) {
+			
+		case "Soldier":
+			GameObject soldier;
+			soldier = Instantiate(soldierPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(soldier); //Add to player list
+			humanList.Add(soldier); //Add to Human list
+			Soldier soldTemp = soldier.GetComponent<Soldier> ();
+			soldTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), soldTemp);
+			break;
+			
+		case "Tank":
+			GameObject tank;
+			tank = Instantiate(tankPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(tank); //Add to player list
+			humanList.Add(tank); //Add to Human list
+			Tank tankTemp = tank.GetComponent<Tank> ();
+			tankTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), tankTemp);
+			break;
+			
+		case "Jet":
+			GameObject jet;
+			jet = Instantiate(jetPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(jet); //Add to player list
+			humanList.Add(jet); //Add to Human list
+			Jet jetTemp = jet.GetComponent<Jet> ();
+			jetTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), jetTemp);
+			break;
+			
+			/* Something went wrong, exit function*/
+		default:
+			return;
+		}
+		
+		playerCount += 1; //Increment player count
+	}
+	
+	public void spawnEnemyUnits(string unitToSpawn,  int spawnX, int spawnY){
+		
+		/*Getting the tile actual game position, not the cooridinates for map[][]*/
+		int x = (int) this.map[spawnX][spawnY].transform.position.x;
+		int y = (int) this.map[spawnX][spawnY].transform.position.y;
+		Vector3 spawn = new Vector3(x,y,PLAYER_HEIGHT);
+		switch (unitToSpawn) {
+			
+		case "AlienSoldier":
+			GameObject alienSol;
+			alienSol = Instantiate(AlienTroopPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(alienSol); //Add to player list
+			aiList.Add(alienSol); //Add to ai list
+			AlienSoldier alienSolTemp = alienSol.GetComponent<AlienSoldier> ();
+			alienSolTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), alienSolTemp);
+			break;
+			
+		case "Berserker":
+			GameObject berserk;
+			berserk = Instantiate(berserkerPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(berserk); //Add to player list
+			aiList.Add(berserk); //Add to ai list
+			Berserker berserkTemp = berserk.GetComponent<Berserker> ();
+			berserkTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), berserkTemp);
+			break;
+			
+		case "Ship":
+			GameObject ship;
+			ship = Instantiate(alienShipPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(ship); //Add to player list
+			aiList.Add(ship); //Add to ai list
+			AlienShip shipTemp = ship.GetComponent<AlienShip> ();
+			shipTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), shipTemp);
+			break;
+			
+			/* Something went wrong, exit function*/
+		default:
+			return;
+		}
+		
+		aiCount += 1; //Increment ai count
+	}
+	
 	
 	/*
 	 * Checks if tile selected by player is occupied or not
@@ -283,10 +450,10 @@ public class GameManager : MonoBehaviour {
 	public void MovePlayer(Tile destination){
 		
 		if (canPlayerMove(destination)) { // If tile is unoccupied player can move to there
-
+			
 			int i=(int)destination.gridPosition.x;
 			int j=(int)destination.gridPosition.y;
-
+			
 			/****Test unit******/
 			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){
 				
@@ -340,7 +507,7 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
 				//Debug.Log ("AlienSoldier moveAlien() called");
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
-
+				
 				MoveHelper(alienTemp, destination);
 			}
 		}
@@ -428,45 +595,15 @@ public class GameManager : MonoBehaviour {
 	private void highlightAttackedTile(int x, int y) {
 		this.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
 	}
-
+	
 	// highlight a tile according to x and y for move range
 	private void highlightMoveTile(int x, int y) {
 		this.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 	}
 	
-
+	
 	// When click move botton, the available range for player will Highlighted
 	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
-		
-		/* Iterate through the map to highlight the tiles that in its attack range
-		 * different part of the map has different methods to choose tiles
-		 */
-		/*
-		if (originLocationX >= originLocationY) {
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					if (i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-						&& i <= originLocationX + range && i >= originLocationX - range && j <= originLocationY + range && j >= originLocationY - range
-						&& (i - j) <= Mathf.Abs (originLocationX - originLocationY) + range && (i - j) >= Mathf.Abs (originLocationX - originLocationY) - range) {
-							highlightAttackedTile (i, j);
-						}
-				}
-			}
-		} else if (originLocationX < originLocationY) {
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					if (i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-						&& i <= originLocationX + range && i >= originLocationX - range && j <= originLocationY + range && j >= originLocationY - range
-						&& (i - j) <= (originLocationX - originLocationY + range) && (i - j) >= (originLocationX - originLocationY - range)) {
-							highlightAttackedTile (i, j);
-						}
-				}
-			}
-		}
-		*/
-		//Debug.Log (originLocationX);
-		//Debug.Log (originLocationY);
-		//Debug.Log (range);
 		PathFinding.doPathFinding (originLocationX, originLocationY, range, PathFinding.ATTACK_HIGHLIGHT, PathFinding.HUMAN);
 	}
 	
@@ -474,38 +611,6 @@ public class GameManager : MonoBehaviour {
 	// When click move botton, the available range for player will Highlighted
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
 		
-		/* Iterate through the map to highlight the tiles that in its move range
-		 * different part of the map has different methods to choose tiles
-		 */
-		/*
-		if (originLocationX >= originLocationY) {
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					
-					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
-					   && (i - j) <= Mathf.Abs(originLocationX - originLocationY) + range &&  (i - j) >= Mathf.Abs(originLocationX - originLocationY) - range){
-						highlightMoveTile(i,j);
-					}
-				}
-			}
-		}
-		else if(originLocationX < originLocationY){
-			for (int i = 0; i < mapSize; i++) {
-				for (int j = 0; j < mapSize; j++) {
-					
-					if( i + j <= originLocationX + originLocationY + range && i + j >= originLocationX + originLocationY - range 
-					   && i<= originLocationX + range && i >= originLocationX - range &&  j<= originLocationY + range && j >= originLocationY - range
-					   && (i - j) <= (originLocationX - originLocationY + range) &&  (i - j) >= (originLocationX - originLocationY - range)){
-						highlightMoveTile(i,j);
-					}
-				}
-			}
-		}
-		*/
-		//Debug.Log (originLocationX);
-		//Debug.Log (originLocationY);
-		//Debug.Log (range);
 		PathFinding.doPathFinding (originLocationX, originLocationY, range, PathFinding.MOVE_HIGHLIGHT, PathFinding.HUMAN);
 	}
 	
@@ -543,7 +648,7 @@ public class GameManager : MonoBehaviour {
 			map.Add(row);
 		}
 	}
-
+	
 	// Reads from CSV file and generates a map
 	public void loadMapFromCsv() {
 		string[,] mapDate = CSVReader.read (LevelSelect.instance.levelMap);
@@ -636,13 +741,13 @@ public class GameManager : MonoBehaviour {
 			map.Add(row);
 		}
 	}
-
+	
 	/*
 	 * Spawns units onto the map from csv and increment player count
 	 */
 	public void spawnUnitsFromCsv(){
 		string[,] UnitsDate = CSVReader.read (LevelSelect.instance.levelUnits);
-	
+		
 		for (int i = 0; i < mapSize; i++) {
 			for (int j = 0; j < mapSize; j++) {
 				if(UnitsDate[i,j] == "Tank"){
@@ -677,7 +782,7 @@ public class GameManager : MonoBehaviour {
 					setOccupied(map[i][j].GetComponent<Tile>(), soldierTemp);
 				}else if(UnitsDate[i,j] == "AlienSoldier"){ 
 					/********************Spawning alien solider*****************************/
-
+					
 					GameObject aiplayer = Instantiate(AlienTroopPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 					playerList.Add(aiplayer); //Add to playerlist
 					aiCount += 1; //Increment AI count
@@ -685,10 +790,10 @@ public class GameManager : MonoBehaviour {
 					AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
 					setOccupied(map[i][j].GetComponent<Tile>(), temp);
 					temp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
-
+					
 				}else if(UnitsDate[i,j] == "AlienShip"){ 
 					/********************Spawning alien ship*****************************/
-
+					
 					GameObject ship = Instantiate(alienShipPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 					playerList.Add(ship); //Add to playerlist
 					aiCount += 1; //Increment AI count
@@ -696,10 +801,10 @@ public class GameManager : MonoBehaviour {
 					AlienShip shipTemp = ship.GetComponent<AlienShip> ();
 					shipTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
 					setOccupied(map[i][j].GetComponent<Tile>(), shipTemp);
-
+					
 				}else if(UnitsDate[i,j] == "Berserk"){ 
 					/*******************Spawning alien berserker*****************************/
-
+					
 					GameObject berserk = Instantiate(berserkerPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 					playerList.Add(berserk); //Add to playerlist
 					aiCount += 1; //Increment AI count
@@ -707,7 +812,7 @@ public class GameManager : MonoBehaviour {
 					Berserker berserkTemp = berserk.GetComponent<Berserker> ();
 					berserkTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point 
 					setOccupied(map[i][j].GetComponent<Tile>(), berserkTemp);
-
+					
 				}else{ 
 					
 				}
@@ -715,7 +820,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	
-
+	
 	/*
 	 *Finds the class of the current player unit to disable the button GUI 
 	 */
@@ -771,7 +876,7 @@ public class GameManager : MonoBehaviour {
 	
 	void OnGUI() {	
 		float widthScale = 0.08f;
-
+		
 		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
 		
@@ -780,20 +885,20 @@ public class GameManager : MonoBehaviour {
 		{
 			Application.LoadLevel(Application.loadedLevel);
 		}
-
+		
 		//Save botton
 		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Exit Game")) // this function to save the game
 		{
 			Application.LoadLevel ("LevelSelectScene");
 		}
-
+		
 		//Save botton
 		if (GUI.Button (new Rect (5, 50,  Screen.width * widthScale, 20), "Save")) // this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
 		}
-
+		
 		//Here is the GUI for outputing score, now do nothing yet.
 		// we will add the player's scores here
 		//GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
