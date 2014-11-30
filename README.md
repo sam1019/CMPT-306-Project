@@ -11,5 +11,3 @@ Contributors (Alphabetical Order):
 3. Rongli Han
 4. Xianming Luo
 5. Yingjun He
-
-Game must start from level select scenes; Otherwise it will not work properly.
