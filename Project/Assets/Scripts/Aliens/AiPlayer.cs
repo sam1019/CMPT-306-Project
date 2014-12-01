@@ -368,8 +368,7 @@ public class AiPlayer : Player {
 		Debug.Log("Doing Attack");
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
 		if (target.HP <= 0) {
-			print ("HELLO");
-			GameManager.instance.playerCount-=1;
+			GameManager.instance.decrementPlayerCount();
 			Destroy(target.gameObject, 1);
 		}
 	}

@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
 	private int howManyTurns;
-	
+	private bool hasDecremented;
 	/* Map components */
 	Tile grid;
 	public List <List<GameObject>> map;
@@ -105,7 +105,21 @@ public class GameManager : MonoBehaviour {
 		Destroy(playerList[currentPlayerIndex]);
 		playerList.RemoveAt(currentPlayerIndex);
 	}
-	
+	public void decrementPlayerCount(){
+		if(hasDecremented){
+			return;
+		}
+		this.playerCount -= 1;
+		hasDecremented = true;
+	}
+
+	public void decrementAICount(){
+		if(hasDecremented){
+			return;
+		}
+		this.playerCount -= 1;
+		hasDecremented = true;
+	}
 	void Update () {
 		
 		// winner detect
@@ -231,9 +245,9 @@ public class GameManager : MonoBehaviour {
 		 * When it reaches the length of the list goes back to player at index 0 turn 
 		 */
 		this.disableHightLight ();
-		
+
 		/*Increment the turn counter*/
-		if (this.currentPlayerIndex <= this.playerList.Count) {
+		if (this.currentPlayerIndex >= this.playerList.Count - 1) {
 			this.howManyTurns+=1;
 		}
 		checkTurnPassed ();
@@ -249,10 +263,11 @@ public class GameManager : MonoBehaviour {
 		else {
 			currentPlayerIndex=0;
 		} 
+		hasDecremented = false;
 		
 	}
 	public void checkTurnPassed(){
-		if (this.howManyTurns%5==0) {
+		if (this.howManyTurns%5==0 && this.howManyTurns !=0) {
 			findEmptyTile();
 		}
 	}
@@ -267,6 +282,7 @@ public class GameManager : MonoBehaviour {
 				int isAllies = Random.Range(0,2);
 				int count = Random.Range(0,5);
 				determineSpawnCase(count, isAllies, randX, randY);
+				break;
 			}
 			if(i == this.map.Count)		
 			{
