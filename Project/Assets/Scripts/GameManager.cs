@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading;
 /* Core game manager */
 
 public class GameManager : MonoBehaviour {
@@ -72,7 +72,8 @@ public class GameManager : MonoBehaviour {
 	/* Panel components */
 	public bool IsPause; 
 	public int scores;	
-	
+
+	static Semaphore sem;
 	
 	void Awake(){
 		
@@ -93,9 +94,10 @@ public class GameManager : MonoBehaviour {
 		//spawnPlayers(); //spawn players to be controlled by users
 		//spawnAI(); //Spawn AI opponent for the player
 		spawnUnitsFromCsv ();
-
+		hasDecremented = false;
 		IsPause = true;
 		scores = 0;
+		sem = new Semaphore (0, 1);
 	}
 	
 	/* Delete player character when it's dead
@@ -106,19 +108,21 @@ public class GameManager : MonoBehaviour {
 		playerList.RemoveAt(currentPlayerIndex);
 	}
 	public void decrementPlayerCount(){
-		if(hasDecremented){
-			return;
+		if(!hasDecremented){
+			Debug.LogWarning ("PLAYER DEC");
+			this.playerCount -= 1;
+			hasDecremented = true;
 		}
-		this.playerCount -= 1;
-		hasDecremented = true;
+
 	}
 
 	public void decrementAICount(){
-		if(hasDecremented){
-			return;
+		if(!hasDecremented){
+			Debug.LogWarning ("AI DEC");
+			this.aiCount -= 1;
+			hasDecremented = true;
 		}
-		this.playerCount -= 1;
-		hasDecremented = true;
+
 	}
 	void Update () {
 		
@@ -250,7 +254,7 @@ public class GameManager : MonoBehaviour {
 		if (this.currentPlayerIndex >= this.playerList.Count - 1) {
 			this.howManyTurns+=1;
 		}
-		checkTurnPassed ();
+		//checkTurnPassed ();
 		
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
@@ -286,7 +290,7 @@ public class GameManager : MonoBehaviour {
 			}
 			if(i == this.map.Count)		
 			{
-				Debug.Log("No empty tile found");
+				Debug.LogError("No empty tile found");
 				break;
 			}
 			i+=1;
@@ -305,13 +309,13 @@ public class GameManager : MonoBehaviour {
 			float chanceForAlienSoldier = 0.85f;
 			float chanceForShip = 0.15f;
 			if(RNG <= chanceForBerserker){
-				spawnEnemyUnits("Tank", spawnX, spawnY);
+				spawnEnemyUnits("Berserker", spawnX, spawnY);
 			}
 			else if(RNG <= chanceForAlienSoldier){
-				spawnEnemyUnits("Soldier", spawnX, spawnY);
+				spawnEnemyUnits("AlienSoldier", spawnX, spawnY);
 			}
 			else if(RNG <= chanceForShip){
-				spawnEnemyUnits("Jet", spawnX, spawnY);
+				spawnEnemyUnits("Ship", spawnX, spawnY);
 			}
 			break;
 			
