@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour {
 	private const float AI_HEIGHT = -0.25f;
 	public int currentPlayerIndex;//Iterates throught the player list
 	public int currentAIIndex; //Iterates throught the AI list
+	private int howManyTurns;
 	
 	/* Map components */
 	Tile grid;
@@ -231,8 +232,15 @@ public class GameManager : MonoBehaviour {
 		 */
 		this.disableHightLight ();
 		
+		/*Increment the turn counter*/
+		if (this.currentPlayerIndex <= this.playerList.Count) {
+			this.howManyTurns+=1;
+		}
+		checkTurnPassed ();
+		
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
+			
 		}
 		
 		if (currentPlayerIndex + 1 < playerList.Count) {
@@ -242,6 +250,163 @@ public class GameManager : MonoBehaviour {
 			currentPlayerIndex=0;
 		} 
 		
+	}
+	public void checkTurnPassed(){
+		if (this.howManyTurns%5==0) {
+			findEmptyTile();
+		}
+	}
+	public void findEmptyTile()
+	{
+		int i = 0;
+		while (i<this.mapSize) {
+			int randX = Random.Range(0, mapSize-1);
+			int randY = Random.Range(0, mapSize-1);
+			Tile temp = this.map[randX][randY].GetComponent<Tile>();
+			if(!temp.isOccupied){
+				int isAllies = Random.Range(0,2);
+				int count = Random.Range(0,5);
+				determineSpawnCase(count, isAllies, randX, randY);
+			}
+			if(i == this.map.Count)		
+			{
+				Debug.Log("No empty tile found");
+				break;
+			}
+			i+=1;
+		}
+	}
+	
+	/*
+	 * allies 0 is false so spawn AI units 
+	 */
+	public void determineSpawnCase(int count, int allies, int spawnX, int spawnY){
+		
+		float RNG = Random.Range(0.00f, 1.00f);
+		switch (allies) {			
+		case 0:	
+			float chanceForBerserker = 0.20f;
+			float chanceForAlienSoldier = 0.85f;
+			float chanceForShip = 0.15f;
+			if(RNG <= chanceForBerserker){
+				spawnEnemyUnits("Tank", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForAlienSoldier){
+				spawnEnemyUnits("Soldier", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForShip){
+				spawnEnemyUnits("Jet", spawnX, spawnY);
+			}
+			break;
+			
+		case 1:
+			float chanceForTank = 0.25f;
+			float chanceForSoldier = 0.75f;
+			float chanceForJet = 0.1f;
+			if(RNG <= chanceForTank){
+				spawnAlliedUnits("Tank", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForSoldier){
+				spawnAlliedUnits("Soldier", spawnX, spawnY);
+			}
+			else if(RNG <= chanceForJet){
+				spawnAlliedUnits("Jet", spawnX, spawnY);
+			}
+			break;
+		}
+		
+		
+	}
+	public void spawnAlliedUnits(string unitToSpawn,  int spawnX, int spawnY){
+		
+		/*Getting the tile actual game position, not the cooridinates for map[][]*/
+		int x = (int) this.map[spawnX][spawnY].transform.position.x;
+		int y = (int) this.map[spawnX][spawnY].transform.position.y;
+		Vector3 spawn = new Vector3(x,y,PLAYER_HEIGHT);
+		switch (unitToSpawn) {
+			
+		case "Soldier":
+			GameObject soldier;
+			soldier = Instantiate(soldierPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(soldier); //Add to player list
+			humanList.Add(soldier); //Add to Human list
+			Soldier soldTemp = soldier.GetComponent<Soldier> ();
+			soldTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), soldTemp);
+			break;
+			
+		case "Tank":
+			GameObject tank;
+			tank = Instantiate(tankPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(tank); //Add to player list
+			humanList.Add(tank); //Add to Human list
+			Tank tankTemp = tank.GetComponent<Tank> ();
+			tankTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), tankTemp);
+			break;
+			
+		case "Jet":
+			GameObject jet;
+			jet = Instantiate(jetPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(jet); //Add to player list
+			humanList.Add(jet); //Add to Human list
+			Jet jetTemp = jet.GetComponent<Jet> ();
+			jetTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), jetTemp);
+			break;
+			
+			/* Something went wrong, exit function*/
+		default:
+			return;
+		}
+		
+		playerCount += 1; //Increment player count
+	}
+	
+	public void spawnEnemyUnits(string unitToSpawn,  int spawnX, int spawnY){
+		
+		/*Getting the tile actual game position, not the cooridinates for map[][]*/
+		int x = (int) this.map[spawnX][spawnY].transform.position.x;
+		int y = (int) this.map[spawnX][spawnY].transform.position.y;
+		Vector3 spawn = new Vector3(x,y,PLAYER_HEIGHT);
+		switch (unitToSpawn) {
+			
+		case "AlienSoldier":
+			GameObject alienSol;
+			alienSol = Instantiate(AlienTroopPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(alienSol); //Add to player list
+			aiList.Add(alienSol); //Add to ai list
+			AlienSoldier alienSolTemp = alienSol.GetComponent<AlienSoldier> ();
+			alienSolTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), alienSolTemp);
+			break;
+			
+		case "Berserker":
+			GameObject berserk;
+			berserk = Instantiate(berserkerPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(berserk); //Add to player list
+			aiList.Add(berserk); //Add to ai list
+			Berserker berserkTemp = berserk.GetComponent<Berserker> ();
+			berserkTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), berserkTemp);
+			break;
+			
+		case "Ship":
+			GameObject ship;
+			ship = Instantiate(alienShipPrefab,spawn,Quaternion.identity) as GameObject;
+			playerList.Add(ship); //Add to player list
+			aiList.Add(ship); //Add to ai list
+			AlienShip shipTemp = ship.GetComponent<AlienShip> ();
+			shipTemp.gridPosition = new Vector2 (spawnX, spawnY); //Setting grid position to their fixed spawn location
+			setOccupied(map[spawnX][spawnY].GetComponent<Tile>(), shipTemp);
+			break;
+			
+			/* Something went wrong, exit function*/
+		default:
+			return;
+		}
+		
+		aiCount += 1; //Increment ai count
 	}
 	
 	/*
