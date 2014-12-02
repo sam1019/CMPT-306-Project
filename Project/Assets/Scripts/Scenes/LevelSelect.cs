@@ -55,9 +55,9 @@ public class LevelSelect : MonoBehaviour {
 			levelUnits = "Units_Level5";
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.6f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Go Back")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.6f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Quit")) 
 		{
-			Application.LoadLevel ("");
+			Application.Quit();
 		}
 
 

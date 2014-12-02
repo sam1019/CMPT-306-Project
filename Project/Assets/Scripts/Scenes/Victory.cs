@@ -20,7 +20,7 @@ public class Victory : MonoBehaviour {
 
 		//continue button; based on the current level
 		if(LevelSelect.instance.levelMap == "Map_Level1"){
-			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale, Screen.height * heightScale), "Continue: Level 2")) 
+			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Continue: Level 2")) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level2";
 				LevelSelect.instance.levelUnits = "Units_Level2";
@@ -28,7 +28,7 @@ public class Victory : MonoBehaviour {
 			}
 		}
 		if(LevelSelect.instance.levelMap == "Map_Level2"){
-			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale, Screen.height * heightScale), "Continue: Level 3")) 
+			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Continue: Level 3")) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level3";
 				LevelSelect.instance.levelUnits = "Units_Level3";
@@ -36,7 +36,7 @@ public class Victory : MonoBehaviour {
 			}
 		}
 		if(LevelSelect.instance.levelMap == "Map_Level3"){
-			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale, Screen.height * heightScale), "Continue: Level 4")) 
+			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Continue: Level 4")) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level4";
 				LevelSelect.instance.levelUnits = "Units_Level4";
@@ -44,7 +44,7 @@ public class Victory : MonoBehaviour {
 			}
 		}
 		if(LevelSelect.instance.levelMap == "Map_Level4"){
-			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale, Screen.height * heightScale), "Continue: Level 5")) 
+			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Continue: Level 5")) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level5";
 				LevelSelect.instance.levelUnits = "Units_Level5";
@@ -52,7 +52,7 @@ public class Victory : MonoBehaviour {
 			}
 		}
 		//can go back and quit
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.60f)/2, Screen.width * widthScale, Screen.height * heightScale), "Go Back")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.60f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Go Back")) 
 		{
 			Application.LoadLevel ("LevelSelectScene");
 		}
