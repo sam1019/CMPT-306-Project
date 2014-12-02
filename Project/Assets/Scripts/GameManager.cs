@@ -84,7 +84,18 @@ public class GameManager : MonoBehaviour {
 		if(LevelSelect.instance.levelMap=="Map_Level1"){
 			SendMessage("Play","AudioLevel1");
 		}
-
+		else if(LevelSelect.instance.levelMap=="Map_Level2"){
+			SendMessage("Play","AudioLevel2");
+		}
+		else if(LevelSelect.instance.levelMap=="Map_Level3"){
+			SendMessage("Play","AudioLevel3");
+		}
+		else if(LevelSelect.instance.levelMap=="Map_Level4"){
+			SendMessage("Play","AudioLevel4");
+		}
+		else if(LevelSelect.instance.levelMap=="Map_Level5"){
+			SendMessage("Play","AudioLevel5");
+		}
 	}
 	
 	void Start () {

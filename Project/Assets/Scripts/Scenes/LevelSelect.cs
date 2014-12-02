@@ -25,37 +25,37 @@ public class LevelSelect : MonoBehaviour {
 		float heightScale = 0.05f;
 
 		//Pause Button
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale - 0.15f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 1")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale - 0.15f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Level 1")) 
 		{
 			levelMap = "Map_Level1";
 			levelUnits = "Units_Level1";
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale - 0.0f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 2")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale - 0.0f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Level 2")) 
 		{
 			levelMap = "Map_Level2";
 			levelUnits = "Units_Level2";
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.15f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 3")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.15f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Level 3")) 
 		{
 			levelMap = "Map_Level3";
 			levelUnits = "Units_Level3";
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.3f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 4")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.3f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Level 4")) 
 		{
 			levelMap = "Map_Level4";
 			levelUnits = "Units_Level4";
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale, Screen.height * heightScale), "Level 5"))
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.45f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Level 5"))
 		{
 			levelMap = "Map_Level5";
 			levelUnits = "Units_Level5";
 			Application.LoadLevel ("project");
 		}
-		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.6f)/2, Screen.width * widthScale, Screen.height * heightScale), "Go Back")) 
+		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.6f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), "Go Back")) 
 		{
 			Application.LoadLevel ("");
 		}
