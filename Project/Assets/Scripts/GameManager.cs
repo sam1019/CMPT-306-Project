@@ -913,36 +913,63 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	public Rect windowRect = new Rect (Screen.width / 2 - 115, Screen.height / 2 - 45, 375, 187);
+	bool displayPopup = false;
 	void OnGUI() {	
 		float widthScale = 0.08f;
 
 		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
-		
-		//Restart Button
-		if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale, 20), "Restart")) // make the GUI button with name "pause"
-		{
-			Application.LoadLevel(Application.loadedLevel);
+		if(displayPopup){
+			Time.timeScale=0;
+			windowRect = GUI.Window(0, windowRect, ShowPopupWindow, "Pause");
 		}
+		else{
+			//Pause Button
+			if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale, 20), "Pause")) // make the GUI button with name "pause"
+			{
+				displayPopup=true;
+				Debug.Log("In if (showPopUp)");
+			}
+		}
+	}
 
-		//Save botton
-		if (GUI.Button (new Rect (5, 30,  Screen.width * widthScale, 20), "Exit Game")) // this function to save the game
-		{
-			Application.LoadLevel ("LevelSelectScene");
-		}
-
-		//Save botton
-		if (GUI.Button (new Rect (5, 50,  Screen.width * widthScale, 20), "Save")) // this function to save the game
-		{
-			PlayerPrefs.SetInt("save player",currentPlayerIndex);
-			PlayerPrefs.Save();
-		}
 
 		//Here is the GUI for outputing score, now do nothing yet.
 		// we will add the player's scores here
 		//GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
 		// we will add the lives here depending on the player, by passing variable from player attack
 		//GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString 
-	}	
+
+	void ShowPopupWindow(int WindowID){
+		//Restart Button
+		//Debug.Log ("showing window content");
+		if (GUI.Button (new Rect (140, 60, 100, 20), "Restart")) // make the GUI button with name "Restart"
+		{
+			Application.LoadLevel(Application.loadedLevel);
+			Time.timeScale=1;
+			displayPopup = false;
+
+		}
+		
+		//Save botton
+		if (GUI.Button (new Rect (140, 90, 100, 20), "Exit Game")) // this function to save the game
+		{
+			Application.LoadLevel ("LevelSelectScene");
+		}
+		
+		//Save botton
+		if (GUI.Button (new Rect (140, 120, 100, 20), "Save")) // this function to save the game
+		{
+			PlayerPrefs.SetInt("save player",currentPlayerIndex);
+			PlayerPrefs.Save();
+		}
+		
+		if (GUI.Button(new Rect(140, 150, 100, 20), "Back To Game"))
+		{
+			displayPopup = false;	//Disable popup window
+			Time.timeScale=1;		//Game run again
+		}
+	}
 }
