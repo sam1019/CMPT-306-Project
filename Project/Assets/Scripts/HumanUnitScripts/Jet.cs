@@ -53,12 +53,14 @@ public class Jet : Player {
 		if (Vector3.Distance(moveDestination, transform.position) > 0.1f) {
 
 			//For future development, move from tile to tile
-//			path = PathFinding.getTilesPath((int)transform.position.x, (int)transform.position.y, (int)moveDestination.x, (int)moveDestination.y, this.attackRange, 1, "HUMAN");
-//			int i = 1;
-//			foreach(Tile t in path){
-//				Debug.Log ("Tile" + i + t.gridPosition.x + "," + t.gridPosition.y);
-//				i ++;
-//			}
+			Debug.Log((int)transform.position.x+"!!"+ (int)transform.position.y+"!!"+(int)moveDestination.x+"!!"+ (int)moveDestination.y);
+			path = PathFinding.getTilesPath((int)transform.position.x + 6, 6 - (int)transform.position.y, (int)moveDestination.x + 6, 6 -(int)moveDestination.y, this.movementRange, 1, "HUMAN");
+			int i = 1;
+			Debug.Log("!!!!!" + path.Count);
+			foreach(Tile t in path){
+				Debug.Log ("Tile" + i +"."+ t.gridPosition.x + "," + t.gridPosition.y);
+				i ++;
+			}
 			SendMessage("Play","jetMove");
 			transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 			

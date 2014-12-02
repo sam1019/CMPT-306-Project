@@ -129,6 +129,7 @@ public class PathFinding {
 
 		//find the original and destination tiles in the range list first
 		foreach(KeyValuePair<int, Tile> t in tilesPath){
+			Debug.Log("qqq" + t.Value.gridPosition.x + "," + t.Value.gridPosition.y);
 			if(t.Value.gridPosition.x == destinationx && t.Value.gridPosition.y == destinationy){
 				des = t;
 			}
@@ -143,7 +144,7 @@ public class PathFinding {
 		while (des.Key != original.Key) {
 			foreach(KeyValuePair<int, Tile> t in tilesPath){
 				if(t.Key == des.Key + 1 &&(t.Value.gridPosition.x == des.Value.gridPosition.x || t.Value.gridPosition.y == des.Value.gridPosition.y)){
-					path.Insert(1, t.Value);
+					path.Insert(0, t.Value);
 					des = t;
 				}
 			}	

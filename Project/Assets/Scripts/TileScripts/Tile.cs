@@ -127,5 +127,10 @@ public class Tile : MonoBehaviour {
 			GameManager.instance.whatPlayerClassIsAttacking(this);
 		}
 	}
+	//use to debug
+//	void OnGUI() {
+//		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*10+ Vector3.left*10;
+//		GUI.Label(new Rect(location.x, Screen.height - location.y, 28, 18), this.gridPosition.x + "," + this.gridPosition.y);
+//	}
 
 }

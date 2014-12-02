@@ -51,25 +51,27 @@ public class AiPlayer : Player {
 	private Player playerInAttackRangeHelper(Tile targetTile){
 
 		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
-
-			if(p.GetComponent<Tank>() != null){
-				Tank temp = p.GetComponent<Tank>(); //Gets enemy script
-				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
-					return temp;
-				}
+			if(p.GetComponent<Player>().gridPosition == targetTile.gridPosition){
+				return p.GetComponent<Player>();
 			}
-			else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
-				Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
-				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
-					return temp;
-				}
-			}
-			else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
-				Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
-				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
-					return temp;
-				}
-			}
+//			if(p.GetComponent<Tank>() != null){
+//				Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+//				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
+//					return temp;
+//				}
+//			}
+//			else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
+//				Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+//				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
+//					return temp;
+//				}
+//			}
+//			else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
+//				Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+//				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
+//					return temp;
+//				}
+//			}
 		}
 		return null;
 	}
@@ -86,48 +88,52 @@ public class AiPlayer : Player {
 				}
 			}		
 		}
+//		Debug.Log (targets.Count);
 		return targets;
 	}
 
-	private void targetCanbeKilledInThisRound() {
+	private List<Player> targetCanbeKilledInThisRound() {
+		ableToBeKilledTargets = new List<Player>();
 		foreach (Player p in targets) { 
-			
-			if(p.GetComponent<Tank>() != null){
-				Tank temp = p.GetComponent<Tank>();
-				if (temp.HP - ((this.K / (this.K + temp.baseDefense)) * this.baseDamage) < 0) {
-					ableToBeKilledTargets.Add(temp);
-					existPlayerBeKilled = true;
-				}
+
+			if(p.HP <= ((this.K / (this.K + p.baseDefense)) * this.baseDamage)){
+				ableToBeKilledTargets.Add(p);
 			}
-			else if(p.GetComponent<Jet>() != null){ 
-				Jet temp = p.GetComponent<Jet>();	
-				if (temp.HP - ((this.K / (this.K + temp.baseDefense)) * this.baseDamage) < 0) {
-					ableToBeKilledTargets.Add(temp);
-					existPlayerBeKilled = true;
-				}
-			}
-			else if(p.GetComponent<Soldier>() != null){ 
-				Soldier temp = p.GetComponent<Soldier>();
-				if (temp.HP - ((this.K / (this.K + temp.baseDefense)) * this.baseDamage) < 0) {
-					ableToBeKilledTargets.Add(temp);
-					existPlayerBeKilled = true;
-				}
-			}
+//			if(p.GetComponent<Tank>() != null){
+//				Tank temp = p.GetComponent<Tank>();
+//				if (temp.HP - ((this.K / (this.K + temp.baseDefense)) * this.baseDamage) < 0) {
+//					ableToBeKilledTargets.Add(temp);
+//					existPlayerBeKilled = true;
+//				}
+//			}
+//			else if(p.GetComponent<Jet>() != null){ 
+//				Jet temp = p.GetComponent<Jet>();	
+//				if (temp.HP - ((this.K / (this.K + temp.baseDefense)) * this.baseDamage) < 0) {
+//					ableToBeKilledTargets.Add(temp);
+//					existPlayerBeKilled = true;
+//				}
+//			}
+//			else if(p.GetComponent<Soldier>() != null){ 
+//				Soldier temp = p.GetComponent<Soldier>();
+//				if (temp.HP - ((this.K / (this.K + temp.baseDefense)) * this.baseDamage) < 0) {
+//					ableToBeKilledTargets.Add(temp);
+//					existPlayerBeKilled = true;
+//				}
+//			}
 		}
+		return ableToBeKilledTargets;
 	}
 
 	// Decision tree
 	public int decisionTree() {
-		playersInAttackRange ();
-		if (isPlayerInAttackRange) {
+		if (playersInAttackRange ().Count > 0) {
 			Debug.Log("isPlayerInAttackRange == true");
 			if(targets.Count == 1) {
 				Debug.Log("targets.Count == 1");
 				return ATTACK;
 			} else {
 				Debug.Log("targets.Count != 1");
-				targetCanbeKilledInThisRound();
-				if(existPlayerBeKilled) {
+				if(targetCanbeKilledInThisRound().Count > 0) {
 					Debug.Log("existPlayerBeKilled == true");
 					if(ableToBeKilledTargets.Count == 1) {
 						Debug.Log("ableToBeKilledTargets.Count == 1");
