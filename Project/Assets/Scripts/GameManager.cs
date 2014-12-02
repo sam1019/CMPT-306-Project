@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour {
 		instance = this;
 
 		loadMapFromCsv ();
+
+		if(LevelSelect.instance.levelMap=="Map_Level1"){
+			SendMessage("Play","AudioLevel1");
+		}
+
 	}
 	
 	void Start () {
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 	void Update () {
-		
+
 		// winner detect
 		if(playerCount <= 0){
 			print ("You lose");
