@@ -33,6 +33,9 @@ public class Player : MonoBehaviour {
 	//For movement in GameManager.MovePlayer()
 	public List<Vector3> positionQueue = new List<Vector3>();
 
+	public GameObject rocketPrefab;
+	public GameObject rocketInstance;
+
 	void Awake () {
 		moveDestination = transform.position;
 	}
