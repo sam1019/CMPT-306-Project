@@ -19,7 +19,7 @@ public class Jet : Player {
 		this.baseHP = 120.0f;
 		this.movementRange = 5;
 		this.attackRange = 2;
-		this.attackHitRate = 0.95f;
+		this.attackHitRate = 0.25f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	

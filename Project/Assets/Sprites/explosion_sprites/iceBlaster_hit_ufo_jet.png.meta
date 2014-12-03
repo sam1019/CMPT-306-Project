@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 259ed6c0ac68ea54eaa470c2200dee49
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: iceBlaster_hit_ufo_jet_0
+    21300002: iceBlaster_hit_ufo_jet_1
+    21300004: iceBlaster_hit_ufo_jet_2
+    21300006: iceBlaster_hit_ufo_jet_3
+    21300008: iceBlaster_hit_ufo_jet_4
+    21300010: iceBlaster_hit_ufo_jet_5
+    21300012: iceBlaster_hit_ufo_jet_6
+    21300014: iceBlaster_hit_ufo_jet_7
+    21300016: iceBlaster_hit_ufo_jet_8
+    21300018: iceBlaster_hit_ufo_jet_9
+    21300020: iceBlaster_hit_ufo_jet_10
+    21300022: iceBlaster_hit_ufo_jet_11
+    21300024: iceBlaster_hit_ufo_jet_12
+    21300026: iceBlaster_hit_ufo_jet_13
+    21300028: iceBlaster_hit_ufo_jet_14
+    21300030: iceBlaster_hit_ufo_jet_15
+    21300032: iceBlaster_hit_ufo_jet_16
+    21300034: iceBlaster_hit_ufo_jet_17
+    21300036: iceBlaster_hit_ufo_jet_18
+    21300038: iceBlaster_hit_ufo_jet_19
+    21300040: iceBlaster_hit_ufo_jet_20
+    21300042: iceBlaster_hit_ufo_jet_21
+    21300044: iceBlaster_hit_ufo_jet_22
+    21300046: iceBlaster_hit_ufo_jet_23
+    21300048: iceBlaster_hit_ufo_jet_24
+    21300050: iceBlaster_hit_ufo_jet_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: iceBlaster_hit_ufo_jet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_8
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: iceBlaster_hit_ufo_jet_9
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
