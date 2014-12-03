@@ -542,7 +542,7 @@ public class GameManager : MonoBehaviour {
 				//Debug.Log ("AlienSoldier moveAlien() called");
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
 
-				MoveHelper(alienTemp, destination);
+				//MoveHelper(alienTemp, destination);
 			}
 		}
 		if (canPlayerMove(destination)) {
@@ -550,31 +550,40 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<AlienSupport>() != null){  //Checks if script is attached to player
 				AlienSupport alienSupTemp = playerList [currentPlayerIndex].GetComponent<AlienSupport>();
 				MoveHelper(alienSupTemp, destination);
+				//StartCoroutine(WaitAndPrint(0.25F, alienSupTemp, destination));
 			}
 		}
 		if (canPlayerMove(destination)) {
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){  //Checks if script is attached to player
 				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
-				MoveHelper(alienShipTemp, destination);
+				StartCoroutine(WaitAndPrint(0.5F, alienShipTemp, destination));
+
 			}
 		}
 		if (canPlayerMove(destination)) {
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){  //Checks if script is attached to player
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
-				MoveHelper(alienTemp, destination);
+				//MoveHelper(alienTemp, destination);
+				StartCoroutine(WaitAndPrint(0.5F, alienTemp, destination));
 			}
 		}
 		if (canPlayerMove(destination)) {
 			
 			if(playerList [currentPlayerIndex].GetComponent<Berserker>() != null){  //Checks if script is attached to player
 				Berserker berserkerTemp = playerList [currentPlayerIndex].GetComponent<Berserker>();
-				MoveHelper(berserkerTemp, destination);
+				//MoveHelper(berserkerTemp, destination);
+				StartCoroutine(WaitAndPrint(0.5F, berserkerTemp, destination));
 			}
 		}
 	}		
-	
+
+	IEnumerator WaitAndPrint(float waitTime, Player temp, Tile destination) {
+		yield return new WaitForSeconds(waitTime);
+		MoveHelper(temp, destination);
+		print("WaitAndPrint " + Time.time);
+	}
 	
 	/*
 	 * Checks what script is attached to the current player's turn  
@@ -914,7 +923,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public Rect windowRect = new Rect (Screen.width / 2 - 115, Screen.height / 2 - 45, 375, 187);
+	public Rect windowRect = new Rect (Screen.width / 2 - 150, Screen.height / 2 - 45, 300, 187);
 	bool displayPopup = false;
 	void OnGUI() {	
 		float widthScale = 0.08f;

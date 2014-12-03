@@ -3,9 +3,11 @@ using System.Collections;
 
 public class SoldierAttack : MonoBehaviour {
 
+	public static bool isMissed;
+	
 	// Use this for initialization
 	void Start () {
-	
+		isMissed=false;
 	}
 	
 	// Update is called once per frame
@@ -179,6 +181,28 @@ public class SoldierAttack : MonoBehaviour {
 			} else {
 				Debug.Log ("Target is out of range!");
 			}
+		}
+	}
+
+	public Rect windowRect = new Rect (Screen.width / 2 - 115, Screen.height / 2 - 45, 375, 187);
+	
+	void OnGUI(){
+		//Debug.Log ("In OnGUI");
+		if(isMissed){
+			Time.timeScale=0;
+			windowRect = GUI.Window(0, windowRect, ShowPopupWindow, "Attack Missed");
+		}
+	}
+	
+	void ShowPopupWindow(int WindowID){
+		//Restart Button
+		//Debug.Log ("showing window content");
+		
+		
+		if (GUI.Button(new Rect(140, 150, 100, 20), "Back To Game"))
+		{
+			isMissed = false;	//Disable popup window
+			Time.timeScale=1;		//Game run again
 		}
 	}
 }
