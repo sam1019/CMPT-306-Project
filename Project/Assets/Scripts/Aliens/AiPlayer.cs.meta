@@ -2,7 +2,14 @@ fileFormatVersion: 2
 guid: 50e09b94cdfa671479b44b4edd3ddaba
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rocketPrefab: {instanceID: 0}
+  - rocketInstance: {instanceID: 0}
+  - TurnGUISkin: {fileID: 11400000, guid: ecf70c4deb1d84b45a2ef1b306f26abf, type: 2}
+  - AttackButtonTexture: {instanceID: 0}
+  - MoveButtonTexture: {instanceID: 0}
+  - EndTurnButtonTexture: {instanceID: 0}
+  - target: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

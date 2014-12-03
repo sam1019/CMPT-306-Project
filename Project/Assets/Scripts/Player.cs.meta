@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 3642e7a8a9adbd54e84ef43f3bcae7c1
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rocketPrefab: {instanceID: 0}
+  - rocketInstance: {instanceID: 0}
+  - TurnGUISkin: {fileID: 11400000, guid: ecf70c4deb1d84b45a2ef1b306f26abf, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -169,13 +169,14 @@ public class Jet : Player {
 
 	public override void TurnOnGUI(){
 
-		float buttonHeight = 50;
-		float buttonWidth = 100;
+		GUI.skin = TurnGUISkin;
+		float buttonHeight = Screen.height / 3;
+		float buttonWidth = Screen.width / 4;
 
 		// move button
-		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
+		Rect buttonRect = new Rect(Screen.width - buttonWidth, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if(!moveTurn){
-			if (GUI.Button(buttonRect, "Move")) {
+			if (GUI.Button(buttonRect, MoveButtonTexture)) {
 				//if not moving, first disable all Highlight 
 				//enable Move Highlight
 				moving = false;
@@ -197,9 +198,9 @@ public class Jet : Player {
 
 		if(!attackTurn){
 			//attack button
-			buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
+			buttonRect = new Rect(Screen.width - buttonWidth, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
 			
-			if (GUI.Button(buttonRect, "Attack")) {
+			if (GUI.Button(buttonRect, AttackButtonTexture)) {
 				//if not attacking, first disable all Highlight 
 				//enable Attack Highlight
 				isAttacking = false;
@@ -220,9 +221,9 @@ public class Jet : Player {
 		}
 		
 		//end turn button
-		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
+		buttonRect = new Rect(Screen.width - buttonWidth, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
 		
-		if (GUI.Button(buttonRect, "End Turn")) {
+		if (GUI.Button(buttonRect, EndTurnButtonTexture)) {
 			moving = false;
 			isAttacking = false;
 			moveTurn = false;

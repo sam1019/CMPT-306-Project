@@ -35,6 +35,10 @@ public class Player : MonoBehaviour {
 
 	public GameObject rocketPrefab;
 	public GameObject rocketInstance;
+	public GUISkin TurnGUISkin;
+	public Texture AttackButtonTexture;
+	public Texture MoveButtonTexture;
+	public Texture EndTurnButtonTexture;
 
 	void Awake () {
 		moveDestination = transform.position;
