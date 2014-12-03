@@ -155,14 +155,13 @@ public class Soldier : Player {
 	}
 	public override void TurnOnGUI(){
 
-		GUI.skin = TurnGUISkin;
-		float buttonHeight = Screen.height / 3;
-		float buttonWidth = Screen.width / 4;
+		float buttonHeight = 50;
+		float buttonWidth = 100;
 
 		// move button
-		Rect buttonRect = new Rect(Screen.width - buttonWidth, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
+		Rect buttonRect = new Rect(0, Screen.height - buttonHeight * 3, buttonWidth, buttonHeight);
 		if(!moveTurn){
-			if (GUI.Button(buttonRect, MoveButtonTexture)) {
+			if (GUI.Button(buttonRect, "Move")) {
 				//if not moving, first disable all Highlight 
 				//enable Move Highlight
 				moving = false;
@@ -184,9 +183,9 @@ public class Soldier : Player {
 
 		if(!attackTurn){
 			//attack button
-			buttonRect = new Rect(Screen.width - buttonWidth, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
+			buttonRect = new Rect(0, Screen.height - buttonHeight * 2, buttonWidth, buttonHeight);
 			
-			if (GUI.Button(buttonRect, AttackButtonTexture)) {
+			if (GUI.Button(buttonRect, "Attack")) {
 				//if not attacking, first disable all Highlight 
 				//enable Attack Highlig
 				isAttacking = false;
@@ -207,9 +206,9 @@ public class Soldier : Player {
 			}
 		}
 		//end turn button
-		buttonRect = new Rect(Screen.width - buttonWidth, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
+		buttonRect = new Rect(0, Screen.height - buttonHeight * 1, buttonWidth, buttonHeight);		
 		
-		if (GUI.Button(buttonRect, EndTurnButtonTexture)) { 
+		if (GUI.Button(buttonRect, "End Turn")) { 
 			moving = false;
 			isAttacking = false;
 			moveTurn = false;

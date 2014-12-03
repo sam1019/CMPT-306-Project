@@ -931,40 +931,15 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	
-<<<<<<< Updated upstream
 	
 	
-=======
-<<<<<<< HEAD
-		
-	public Texture PauseButtonTexture;
-	public GUISkin PauseGuiSkin;
-=======
-	
-	
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
 	bool displayPopup = false;
 	void OnGUI() {	
-		GUI.skin = PauseGuiSkin;
 		float widthScale = 0.40f;
 		float heightScale = 0.5f;
-<<<<<<< Updated upstream
 		
 		float widthScale2 = 0.08f;
 		
-=======
-<<<<<<< HEAD
-
-		float pauseHeight = Screen.height / 3;
-		float pauseWidth = Screen.width / 4;
-
-=======
-		
-		float widthScale2 = 0.08f;
-		
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
 		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
 		if(displayPopup){
@@ -974,7 +949,7 @@ public class GameManager : MonoBehaviour {
 		}
 		else{
 			//Pause Button
-			if (GUI.Button (new Rect (0, 0, pauseWidth, pauseHeight), PauseButtonTexture)) // make the GUI button with name "pause"
+			if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale2, 20), "Pause")) // make the GUI button with name "pause"
 			{
 				displayPopup=true;
 				Debug.Log("In if (showPopUp)");
