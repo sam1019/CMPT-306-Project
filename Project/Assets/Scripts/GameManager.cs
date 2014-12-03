@@ -557,7 +557,7 @@ public class GameManager : MonoBehaviour {
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){  //Checks if script is attached to player
 				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
-				StartCoroutine(WaitAndPrint(0.5F, alienShipTemp, destination));
+				StartCoroutine(DelayCallMethod(0.5F, alienShipTemp, destination));
 
 			}
 		}
@@ -566,7 +566,7 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){  //Checks if script is attached to player
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
 				//MoveHelper(alienTemp, destination);
-				StartCoroutine(WaitAndPrint(0.5F, alienTemp, destination));
+				StartCoroutine(DelayCallMethod(0.5F, alienTemp, destination));
 			}
 		}
 		if (canPlayerMove(destination)) {
@@ -574,12 +574,12 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<Berserker>() != null){  //Checks if script is attached to player
 				Berserker berserkerTemp = playerList [currentPlayerIndex].GetComponent<Berserker>();
 				//MoveHelper(berserkerTemp, destination);
-				StartCoroutine(WaitAndPrint(0.5F, berserkerTemp, destination));
+				StartCoroutine(DelayCallMethod(0.5F, berserkerTemp, destination));
 			}
 		}
 	}		
 
-	IEnumerator WaitAndPrint(float waitTime, Player temp, Tile destination) {
+	IEnumerator DelayCallMethod(float waitTime, Player temp, Tile destination) {
 		yield return new WaitForSeconds(waitTime);
 		MoveHelper(temp, destination);
 		print("WaitAndPrint " + Time.time);

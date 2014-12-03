@@ -48,7 +48,14 @@ public class AlienShip : AiPlayer {
 		}
 		base.Update();
 	}
-	
+
+	IEnumerator DelayCallMethod(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
+		this.doAttack();
+		print("WaitAndPrint " + Time.time);
+	}
+
+
 	public override void TurnUpdate (){
 		
 		if (this.isDecisionMade) {
@@ -71,7 +78,7 @@ public class AlienShip : AiPlayer {
 					   this.decisionTreeReturnedCode == this.KILL_ONE || 
 					   this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
 						
-						this.doAttack();
+						StartCoroutine(DelayCallMethod(0.5F));
 					}
 					
 					this.decisionExecuted = true;
