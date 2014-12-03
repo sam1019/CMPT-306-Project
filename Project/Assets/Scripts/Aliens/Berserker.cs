@@ -47,7 +47,7 @@ public class Berserker : AiPlayer {
 		}
 		base.Update();
 	}
-	
+
 	public override void TurnUpdate (){
 		
 		if (this.isDecisionMade) {
@@ -69,9 +69,10 @@ public class Berserker : AiPlayer {
 					   this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || 
 					   this.decisionTreeReturnedCode == this.KILL_ONE || 
 					   this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
-						
-						this.doAttack();
+
 						SendMessage("Play","BerserkerAttack");
+						this.doAttack();
+
 					}
 					
 					this.decisionExecuted = true;
