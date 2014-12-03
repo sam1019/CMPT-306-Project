@@ -922,21 +922,26 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}
+	
+		
 
-	public Rect windowRect = new Rect (Screen.width / 2 - 150, Screen.height / 2 - 45, 300, 187);
 	bool displayPopup = false;
 	void OnGUI() {	
-		float widthScale = 0.08f;
+		float widthScale = 0.40f;
+		float heightScale = 0.5f;
+
+		float widthScale2 = 0.08f;
 
 		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
 		if(displayPopup){
 			Time.timeScale=0;
+			Rect windowRect = new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale)/2, Screen.width * widthScale, Screen.height * heightScale);
 			windowRect = GUI.Window(0, windowRect, ShowPopupWindow, "Pause");
 		}
 		else{
 			//Pause Button
-			if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale, 20), "Pause")) // make the GUI button with name "pause"
+			if (GUI.Button (new Rect (5, 10,  Screen.width * widthScale2, 20), "Pause")) // make the GUI button with name "pause"
 			{
 				displayPopup=true;
 				Debug.Log("In if (showPopUp)");

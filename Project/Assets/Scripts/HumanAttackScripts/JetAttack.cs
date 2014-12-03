@@ -187,13 +187,15 @@ public class JetAttack : MonoBehaviour {
 			}
 		}
 	}
-
-	public Rect windowRect = new Rect (Screen.width / 2 -150, Screen.height / 2 - 45, 300, 187);
+	
 
 	void OnGUI(){
+		float widthScale = 0.40f;
+		float heightScale = 0.5f;
 		//Debug.Log ("In OnGUI");
 		if(isMissed){
 			Time.timeScale=0;
+			Rect windowRect = new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale)/2, Screen.width * widthScale, Screen.height * heightScale);
 			windowRect = GUI.Window(0, windowRect, ShowPopupWindow, "Attack Missed");
 		}
 	}
