@@ -98,9 +98,9 @@ public class Jet : Player {
 	 * Finds the enemy's class on the selected tile to attack
 	 */
 	public void getEnemyToAttack(Tile tile){
-		rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as GameObject;
-		rocketInstance.GetComponent<rocket>().moveDestination = tile.transform.position;
 		if (!attackTurn) {
+			rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as GameObject;
+			rocketInstance.GetComponent<rocket>().moveDestination = tile.transform.position;
 			foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 
 				SendMessage("Play","jetHit");	//Play jet attack audio;
