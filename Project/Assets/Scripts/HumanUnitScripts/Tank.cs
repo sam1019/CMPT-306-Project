@@ -23,15 +23,7 @@ public class Tank : Player {
 		this.baseHP = 150.0f;
 		this.movementRange = 2;
 		this.attackRange = 1;
-<<<<<<< Updated upstream
 		this.attackHitRate = 0.95f;
-=======
-<<<<<<< HEAD
-		this.attackHitRate = 0.99f;
-=======
-		this.attackHitRate = 0.95f;
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
