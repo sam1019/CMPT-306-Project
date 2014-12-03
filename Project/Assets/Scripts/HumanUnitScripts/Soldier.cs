@@ -17,7 +17,7 @@ public class Soldier : Player {
 		this.baseDefense = 15.0f;
 		this.movementRange = 3;
 		this.attackRange = 1;
-		this.attackHitRate = 0.05f;
+		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	

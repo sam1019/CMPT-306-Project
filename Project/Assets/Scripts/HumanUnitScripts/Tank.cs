@@ -23,7 +23,7 @@ public class Tank : Player {
 		this.baseHP = 150.0f;
 		this.movementRange = 2;
 		this.attackRange = 1;
-		this.attackHitRate = 0.05f;
+		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
 	
