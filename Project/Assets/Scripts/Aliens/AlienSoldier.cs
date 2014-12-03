@@ -59,6 +59,7 @@ public class AlienSoldier : AiPlayer {
 			//print ("HELLO");
 			if (Vector3.Distance (moveDestination, transform.position) > 0.1f) {
 				//print ("Goodbye");
+				SendMessage("Play", "AlienSoldierMove");
 				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
 				
 				//Used to check if the player has reached it's destination, if so next turn
@@ -72,6 +73,7 @@ public class AlienSoldier : AiPlayer {
 					   this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
 						
 						this.doAttack();
+						SendMessage("Play", "AlienSoldierAttack");
 					}
 					
 					this.decisionExecuted = true;

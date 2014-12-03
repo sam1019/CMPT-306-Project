@@ -557,7 +557,7 @@ public class GameManager : MonoBehaviour {
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){  //Checks if script is attached to player
 				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
-				StartCoroutine(DelayCallMethod(0.5F, alienShipTemp, destination));
+				StartCoroutine(DelayCallMethod(1.5F, alienShipTemp, destination));
 
 			}
 		}
@@ -566,7 +566,7 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){  //Checks if script is attached to player
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
 				//MoveHelper(alienTemp, destination);
-				StartCoroutine(DelayCallMethod(0.5F, alienTemp, destination));
+				StartCoroutine(DelayCallMethod(1.5F, alienTemp, destination));
 			}
 		}
 		if (canPlayerMove(destination)) {

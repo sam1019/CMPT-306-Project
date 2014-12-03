@@ -52,6 +52,7 @@ public class AlienShip : AiPlayer {
 	IEnumerator DelayCallMethod(float waitTime) {
 		yield return new WaitForSeconds(waitTime);
 		this.doAttack();
+		SendMessage("Play", "AlienShipAttack");
 		print("WaitAndPrint " + Time.time);
 	}
 
