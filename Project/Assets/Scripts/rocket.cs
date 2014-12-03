@@ -30,7 +30,7 @@ public class rocket : MonoBehaviour {
 				transform.position = moveDestination;
 				explore = Instantiate(explorePrefabList[UnityEngine.Random.Range(0,explorePrefabList.Count-1)], transform.position + Vector3.back *2, transform.rotation) as GameObject;
 				Destroy(gameObject);
-				Destroy(explore.gameObject,2);
+				Destroy(explore.gameObject,1);
 			}
 		}
 	}
