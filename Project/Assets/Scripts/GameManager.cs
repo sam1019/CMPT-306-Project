@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	
 	/* Prefabs needed for game */
-
+	
 	//for maps
 	public GameObject Grass0TilePrefab;
 	public GameObject Grass1TilePrefab;
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject TreeSand1TilePrefab;
 	public GameObject TreeSand2TilePrefab;
 	public GameObject TreeSand3TilePrefab;
-
-
+	
+	
 	public GameObject AIPrefab;
 	public GameObject tile;
 	public GameObject jetPrefab; 
@@ -72,15 +72,15 @@ public class GameManager : MonoBehaviour {
 	/* Panel components */
 	public bool IsPause; 
 	public int scores;	
-
+	private bool showMessage = false;
 	static Semaphore sem;
 	
 	void Awake(){
 		
 		instance = this;
-
+		
 		loadMapFromCsv ();
-
+		
 		if(LevelSelect.instance.levelMap=="Map_Level1"){
 			SendMessage("Play","AudioLevel1");
 		}
@@ -129,19 +129,19 @@ public class GameManager : MonoBehaviour {
 			this.playerCount -= 1;
 			hasDecremented = true;
 		}
-
+		
 	}
-
+	
 	public void decrementAICount(){
 		if(!hasDecremented){
 			Debug.LogWarning ("AI DEC");
 			this.aiCount -= 1;
 			hasDecremented = true;
 		}
-
+		
 	}
 	void Update () {
-
+		
 		// winner detect
 		if(playerCount <= 0){
 			print ("You lose");
@@ -161,9 +161,9 @@ public class GameManager : MonoBehaviour {
 			
 			if(temp.GetComponent<UserPlayer>() != null){
 				UserPlayer player  = temp.GetComponent<UserPlayer>();
-
+				
 				player.TurnUpdate ();
-
+				
 				if (player.HP <= 0){
 					deleteChar();
 				}
@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour {
 		else if(temp.GetComponent<Jet>() != null){
 			//SendMessage("Play","jetActive")
 			Jet jet  = temp.GetComponent<Jet>();
-
+			
 			if (jet.HP <= 0){
 				deleteChar();
 			}	
@@ -265,12 +265,13 @@ public class GameManager : MonoBehaviour {
 		 * When it reaches the length of the list goes back to player at index 0 turn 
 		 */
 		this.disableHightLight ();
-
+		
 		/*Increment the turn counter*/
 		if (this.currentPlayerIndex >= this.playerList.Count - 1) {
 			this.howManyTurns+=1;
 		}
-		//checkTurnPassed ();
+		/*TODO: Fix bug where game would crash after the 2nd random reinforcement spawn*/
+		//checkTurnPassed (); /*Checks how many turned passed*/
 		
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
@@ -286,11 +287,15 @@ public class GameManager : MonoBehaviour {
 		hasDecremented = false;
 		
 	}
+	/*Checks how many turned passed and will spawn units every 5th turn*/
 	public void checkTurnPassed(){
 		if (this.howManyTurns%5==0 && this.howManyTurns !=0) {
+			Debug.LogError(howManyTurns);
 			findEmptyTile();
 		}
 	}
+	
+	/*Find empty tile to spawn the reinforcing unit*/
 	public void findEmptyTile()
 	{
 		int i = 0;
@@ -324,6 +329,7 @@ public class GameManager : MonoBehaviour {
 			float chanceForBerserker = 0.20f;
 			float chanceForAlienSoldier = 0.85f;
 			float chanceForShip = 0.15f;
+			showMessage = true;
 			if(RNG <= chanceForBerserker){
 				spawnEnemyUnits("Berserker", spawnX, spawnY);
 			}
@@ -339,6 +345,7 @@ public class GameManager : MonoBehaviour {
 			float chanceForTank = 0.25f;
 			float chanceForSoldier = 0.75f;
 			float chanceForJet = 0.1f;
+			showMessage = true;
 			if(RNG <= chanceForTank){
 				spawnAlliedUnits("Tank", spawnX, spawnY);
 			}
@@ -353,6 +360,7 @@ public class GameManager : MonoBehaviour {
 		
 		
 	}
+	/*Spawns allied */
 	public void spawnAlliedUnits(string unitToSpawn,  int spawnX, int spawnY){
 		
 		/*Getting the tile actual game position, not the cooridinates for map[][]*/
@@ -484,10 +492,10 @@ public class GameManager : MonoBehaviour {
 	public void MovePlayer(Tile destination){
 		
 		if (canPlayerMove(destination)) { // If tile is unoccupied player can move to there
-
+			
 			int i=(int)destination.gridPosition.x;
 			int j=(int)destination.gridPosition.y;
-
+			
 			/****Test unit******/
 			if(playerList [currentPlayerIndex].GetComponent<UserPlayer>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){
 				
@@ -541,7 +549,7 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
 				//Debug.Log ("AlienSoldier moveAlien() called");
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
-
+				
 				//MoveHelper(alienTemp, destination);
 			}
 		}
@@ -557,8 +565,8 @@ public class GameManager : MonoBehaviour {
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){  //Checks if script is attached to player
 				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
-				StartCoroutine(DelayCallMethod(1.5F, alienShipTemp, destination));
-
+				StartCoroutine(DelayCallMethod(0.5F, alienShipTemp, destination));
+				
 			}
 		}
 		if (canPlayerMove(destination)) {
@@ -566,7 +574,7 @@ public class GameManager : MonoBehaviour {
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){  //Checks if script is attached to player
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
 				//MoveHelper(alienTemp, destination);
-				StartCoroutine(DelayCallMethod(1.5F, alienTemp, destination));
+				StartCoroutine(DelayCallMethod(0.5F, alienTemp, destination));
 			}
 		}
 		if (canPlayerMove(destination)) {
@@ -578,7 +586,7 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}		
-
+	
 	IEnumerator DelayCallMethod(float waitTime, Player temp, Tile destination) {
 		yield return new WaitForSeconds(waitTime);
 		MoveHelper(temp, destination);
@@ -638,13 +646,13 @@ public class GameManager : MonoBehaviour {
 	private void highlightAttackedTile(int x, int y) {
 		this.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
 	}
-
+	
 	// highlight a tile according to x and y for move range
 	private void highlightMoveTile(int x, int y) {
 		this.map [x] [y].GetComponent<Tile> ().transform.renderer.material.color = Color.blue;
 	}
 	
-
+	
 	// When click move botton, the available range for player will Highlighted
 	public void enableAttackHighlight(int originLocationX, int originLocationY, int range){
 		//Debug.Log (originLocationX);
@@ -656,7 +664,7 @@ public class GameManager : MonoBehaviour {
 	// TODO: need fully implementation
 	// When click move botton, the available range for player will Highlighted
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
-
+		
 		//Debug.Log (originLocationX);
 		//Debug.Log (originLocationY);
 		//Debug.Log (range);
@@ -697,7 +705,7 @@ public class GameManager : MonoBehaviour {
 			map.Add(row);
 		}
 	}
-
+	
 	// Reads from CSV file and generates a map
 	public void loadMapFromCsv() {
 		string[,] mapDate = CSVReader.read (LevelSelect.instance.levelMap);
@@ -790,13 +798,13 @@ public class GameManager : MonoBehaviour {
 			map.Add(row);
 		}
 	}
-
+	
 	/*
 	 * Spawns units onto the map from csv and increment player count
 	 */
 	public void spawnUnitsFromCsv(){
 		string[,] UnitsDate = CSVReader.read (LevelSelect.instance.levelUnits);
-	
+		
 		for (int i = 0; i < mapSize; i++) {
 			for (int j = 0; j < mapSize; j++) {
 				if(UnitsDate[i,j] == "Tank"){
@@ -831,7 +839,7 @@ public class GameManager : MonoBehaviour {
 					setOccupied(map[i][j].GetComponent<Tile>(), soldierTemp);
 				}else if(UnitsDate[i,j] == "AlienSoldier"){ 
 					/********************Spawning alien solider*****************************/
-
+					
 					GameObject aiplayer = Instantiate(AlienTroopPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 					playerList.Add(aiplayer); //Add to playerlist
 					aiCount += 1; //Increment AI count
@@ -839,10 +847,10 @@ public class GameManager : MonoBehaviour {
 					AlienSoldier temp = aiplayer.GetComponent<AlienSoldier> ();
 					setOccupied(map[i][j].GetComponent<Tile>(), temp);
 					temp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
-
+					
 				}else if(UnitsDate[i,j] == "AlienShip"){ 
 					/********************Spawning alien ship*****************************/
-
+					
 					GameObject ship = Instantiate(alienShipPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 					playerList.Add(ship); //Add to playerlist
 					aiCount += 1; //Increment AI count
@@ -850,10 +858,10 @@ public class GameManager : MonoBehaviour {
 					AlienShip shipTemp = ship.GetComponent<AlienShip> ();
 					shipTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point
 					setOccupied(map[i][j].GetComponent<Tile>(), shipTemp);
-
+					
 				}else if(UnitsDate[i,j] == "Berserk"){ 
 					/*******************Spawning alien berserker*****************************/
-
+					
 					GameObject berserk = Instantiate(berserkerPrefab, new Vector3(i - 6, 6 - j, PLAYER_HEIGHT),Quaternion.identity) as GameObject;
 					playerList.Add(berserk); //Add to playerlist
 					aiCount += 1; //Increment AI count
@@ -861,7 +869,7 @@ public class GameManager : MonoBehaviour {
 					Berserker berserkTemp = berserk.GetComponent<Berserker> ();
 					berserkTemp.gridPosition = new Vector2 (i, j); //Set the grid postion to the fixed spawn point 
 					setOccupied(map[i][j].GetComponent<Tile>(), berserkTemp);
-
+					
 				}else{ 
 					
 				}
@@ -869,7 +877,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	
-
+	
 	/*
 	 *Finds the class of the current player unit to disable the button GUI 
 	 */
@@ -923,15 +931,15 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	
-		
-
+	
+	
 	bool displayPopup = false;
 	void OnGUI() {	
 		float widthScale = 0.40f;
 		float heightScale = 0.5f;
-
+		
 		float widthScale2 = 0.08f;
-
+		
 		//Move, Attack, End Turn Button
 		whoToTurnOnGui ();
 		if(displayPopup){
@@ -947,15 +955,27 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("In if (showPopUp)");
 			}
 		}
+		if(showMessage){
+			GUIStyle style = new GUIStyle();
+			style.normal.textColor = Color.black;
+			style.fontSize = 15;
+			style.alignment = TextAnchor.UpperCenter;
+			GUI.Label(new Rect(Screen.width/2-100, Screen.height/2, 200f,200f), "Reinforcement arrived!", style);
+			StartCoroutine(turnoffMesage(4.0f));
+		}
 	}
-
-
-		//Here is the GUI for outputing score, now do nothing yet.
-		// we will add the player's scores here
-		//GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
-		// we will add the lives here depending on the player, by passing variable from player attack
-		//GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString 
-
+	IEnumerator turnoffMesage(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
+		showMessage=false;
+	}
+	
+	//Here is the GUI for outputing score, now do nothing yet.
+	// we will add the player's scores here
+	//GUI.Label (new Rect (Screen.width - 100, 10, 100, 50), "Score:" + scores.ToString ());
+	// we will add the lives here depending on the player, by passing variable from player attack
+	//GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString 
+	
 	void ShowPopupWindow(int WindowID){
 		//Restart Button
 		//Debug.Log ("showing window content");
@@ -964,7 +984,7 @@ public class GameManager : MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
 			Time.timeScale=1;
 			displayPopup = false;
-
+			
 		}
 		
 		//Save botton
