@@ -40,11 +40,6 @@ public class Berserker : AiPlayer {
 				transform.renderer.material.color = Color.white;
 			}
 		}
-		if (this.HP <= 0) {
-			SendMessage("Play","BerserkerDestroy");
-			GameManager.instance.decrementAICount();
-			Destroy(this.gameObject, 1);		
-		}
 		base.Update();
 	}
 
@@ -55,13 +50,15 @@ public class Berserker : AiPlayer {
 			//System.Threading.Thread.Sleep(1000);
 			
 			//print ("HELLO");
-			if (Vector3.Distance (moveDestination, transform.position) > 0.1f) {
+			if (Vector3.Distance (moveDestination, transform.position) > 0.1f || this.noNeedToMove) {
 				//print ("Goodbye");
+
 				SendMessage("Play", "BerserkerMove");
-				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
+
+				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime / this.SPEED_CONSTANT;
 				
 				//Used to check if the player has reached it's destination, if so next turn
-				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f) {
+				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f || this.noNeedToMove) {
 					print ("Reached");
 					transform.position = moveDestination;
 					
@@ -92,7 +89,7 @@ public class Berserker : AiPlayer {
 			if(GameManager.instance.playerCount <= 0) return;
 			
 			this.decisionTreeReturnedCode = this.decisionTree();
-			Debug.Log ("AlienSoldier Decision Tree Code: " + this.decisionTreeReturnedCode);
+			Debug.Log ("Berserker Decision Tree Code: " + this.decisionTreeReturnedCode);
 			
 			if (this.decisionTreeReturnedCode == this.ATTACK) {
 				//Debug.Log ("Called");
@@ -128,9 +125,9 @@ public class Berserker : AiPlayer {
 				}
 			} else if (this.decisionTreeReturnedCode == this.MOVE_TO_PLAYER) {
 				
-				this.findHighestPreferenceTile ();
-				//Debug.Log ("Preference Tile X: " + this.preferenceTileX);
-				//Debug.Log ("Preference Tile Y: " + this.preferenceTileY);
+				this.findHighestPreferenceTile (-1);
+				Debug.Log ("Preference Tile X: " + this.preferenceTileX);
+				Debug.Log ("Preference Tile Y: " + this.preferenceTileY);
 				this.moveToHighPrefenceAction();
 			}
 			

@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour {
 	
 	public Vector2 gridPosition = Vector2.zero;
 	public bool isOccupied = false;
+	public bool hasReachedByPathFinding = false;
 	public List<Tile> neighbors = new List<Tile>();
 	public GameObject visual;
     private Color tempColorRecord;

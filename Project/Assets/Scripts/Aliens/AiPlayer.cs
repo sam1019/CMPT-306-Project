@@ -18,6 +18,8 @@ public class AiPlayer : Player {
 	public int MOVE_TO_PLAYER = 4;
 	public int MOVE_TO_ENEMY = 5;
 
+	public int SPEED_CONSTANT = 1;
+
 	private bool isPlayerInAttackRange = false;
 	private bool existPlayerBeKilled = false;
 
@@ -27,6 +29,8 @@ public class AiPlayer : Player {
 	public Player target = null;
 
 	public bool decisionExecuted = false;
+	public bool hasDecreasePlayerCount = false;
+	public bool noNeedToMove = false;
 
 	public int preferenceTileX = -1;
 	public int preferenceTileY = -1;
@@ -43,9 +47,13 @@ public class AiPlayer : Player {
 	// Update is called once per frame
 	public override void Update () {}
 
+
+
 	public override void TurnUpdate (){
 		base.TurnUpdate ();
 	}
+
+
 
 	private bool anyPlayerInAttackRangeHelper(Tile targetTile){
 
@@ -53,7 +61,6 @@ public class AiPlayer : Player {
 
 			if(p.GetComponent<Tank>() != null){
 				Tank temp = p.GetComponent<Tank>(); //Gets enemy script
-				Debug.Log("Tank is in Attack Range");
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
 					targets.Add(temp);
 					Debug.Log("Tank is added into target list");
@@ -62,7 +69,6 @@ public class AiPlayer : Player {
 			}
 			else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
 				Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
-				Debug.Log("Jet is in Attack Range");
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
 					targets.Add(temp);
 					Debug.Log("Jet is added into target list");
@@ -71,7 +77,6 @@ public class AiPlayer : Player {
 			}
 			else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
 				Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script	
-				Debug.Log("Soldier is in Attack Range");
 				if (temp.gridPosition == targetTile.gridPosition) { //Checks if tile selected contains enemy
 					targets.Add(temp);
 					Debug.Log("Soldier is added into target list");
@@ -82,45 +87,21 @@ public class AiPlayer : Player {
 		return false;
 	}
 
-	private void anyPlayerInAttackRange() {
-		/* Iterate through the map to highlight the tiles that in its move range
-		 * different part of the map has different methods to choose tiles
-		 */
-		if (this.gridPosition.x >= this.gridPosition.y) {
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= this.gridPosition.x + this.gridPosition.y + this.attackRange && i + j >= this.gridPosition.x + this.gridPosition.y - this.attackRange 
-					   && i<= this.gridPosition.x + this.attackRange && i >= this.gridPosition.x - this.attackRange &&  j<= this.gridPosition.y + this.attackRange && j >= this.gridPosition.y - this.attackRange
-					   && (i - j) <= Mathf.Abs(this.gridPosition.x - this.gridPosition.y) + this.attackRange &&  (i - j) >= Mathf.Abs(this.gridPosition.x - this.gridPosition.y) - this.attackRange){
-						if(anyPlayerInAttackRangeHelper(GameManager.instance.map [i] [j].GetComponent<Tile> ())){
-							isPlayerInAttackRange = true;
-						}
-						GameManager.instance.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
-						//System.Threading.Thread.Sleep(1000);
-					}
-				}
-			}
-		}
-		else if(this.gridPosition.x < this.gridPosition.y){
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= this.gridPosition.x + this.gridPosition.y + this.attackRange && i + j >= this.gridPosition.x + this.gridPosition.y - this.attackRange 
-					   && i<= this.gridPosition.x + this.attackRange && i >= this.gridPosition.x - this.attackRange &&  j<= this.gridPosition.y + this.attackRange && j >= this.gridPosition.y - this.attackRange
-					   && (i - j) <= (this.gridPosition.x - this.gridPosition.y + this.attackRange) &&  (i - j) >= (this.gridPosition.x - this.gridPosition.y - this.attackRange)){
-						if(anyPlayerInAttackRangeHelper(GameManager.instance.map [i] [j].GetComponent<Tile> ())){
-							isPlayerInAttackRange = true;
-						}
-						GameManager.instance.map [i] [j].GetComponent<Tile> ().transform.renderer.material.color = Color.red;
-						//System.Threading.Thread.Sleep(1000);
-					}
-				}
-			}
-		}
 
-		//PathFinding.doPathFinding ((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange, PathFinding.ATTACK_HIGHLIGHT, PathFinding.ALIEN);
+
+	private void anyPlayerInAttackRange() {
+
+		List<Tile> listTiles = PathFinding.pathFindingReturnList ((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange + this.movementRange);
+
+		for (int i = 0; i < listTiles.Count; i++) {
+			if(anyPlayerInAttackRangeHelper(listTiles[i])){
+				isPlayerInAttackRange = true;
+			}
+			//listTiles[i].transform.renderer.material.color = Color.red;
+		}
 	}
+
+
 
 	private void targetCanbeKilledInThisRound() {
 		foreach (Player p in targets) { 
@@ -148,6 +129,8 @@ public class AiPlayer : Player {
 			}
 		}
 	}
+
+
 
 	// Decision tree
 	public int decisionTree() {
@@ -184,7 +167,7 @@ public class AiPlayer : Player {
 				Debug.Log("HPHigh == false");
 				if(GameManager.instance.aiList.Count <= 1) {
 					Debug.Log("GameManager.instance.aiList.Count <= 1");
-					return MOVE_TO_ENEMY;
+					return MOVE_TO_PLAYER;
 				} else {
 					Debug.Log("GameManager.instance.aiList.Count > 1");
 					return MOVE_TO_PLAYER;
@@ -193,6 +176,8 @@ public class AiPlayer : Player {
 		}
 	}
 
+
+
 	private float calculatePreference (int x, int y, Player target, int K) {
 		return (this.HP - target.HP) + 
 			(1.0f / Mathf.Sqrt((float)Mathf.Pow(target.gridPosition.x - x, 2) + 
@@ -200,77 +185,194 @@ public class AiPlayer : Player {
 			this.attackBonus * K;
 	}
 
-	public void findHighestPreferenceTile() {
+
+
+	public void findHighestPreferenceTile(int lookAhead) {
+
+		float highestPreference = -90000.0f;
+
+		List<Tile> tempList = PathFinding.pathFindingReturnList ((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
+
+		for (int i = 0; i < tempList.Count; i++) {
+			if(!tempList[i].isOccupied) {
+				float tempPreference = 0;
+				foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+					
+					if(p.GetComponent<Tank>() != null){
+						Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+						tempPreference = tempPreference + calculatePreference ((int)tempList[i].gridPosition.x, (int)tempList[i].gridPosition.y, temp, 1);
+					}
+					else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
+						Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+						tempPreference = tempPreference + calculatePreference ((int)tempList[i].gridPosition.x, (int)tempList[i].gridPosition.y, temp, 1);
+					}
+					else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
+						Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+						tempPreference = tempPreference + calculatePreference ((int)tempList[i].gridPosition.x, (int)tempList[i].gridPosition.y, temp, 1);
+					}
+				}
+
+				tempList[i].transform.renderer.material.color = Color.blue;
+
+				//tempPreference = tempPreference + findHighestPreferenceTileWithLoodAhead(lookAhead, tempList[i], this.movementRange);
+
+				if(tempPreference > highestPreference) {
+					highestPreference = tempPreference;
+					preferenceTileX = (int)tempList[i].gridPosition.x;
+					preferenceTileY = (int)tempList[i].gridPosition.y;
+				}
+			}
+		}
+		//System.Threading.Thread.Sleep(1000);
+	}
+	
+
+	
+	public float findHighestPreferenceTileWithLoodAhead(int lookAhead, Tile tile, int moveRange) {
+
+		int tileX = (int)tile.gridPosition.x;
+		int tileY = (int)tile.gridPosition.y;
 		/* Iterate through the map to highlight the tiles that in its move range
 		 * different part of the map has different methods to choose tiles
 		 */
-		float highestPreference = -1000.0f;
-		if (this.gridPosition.x >= this.gridPosition.y) {
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= this.gridPosition.x + this.gridPosition.y + this.movementRange && i + j >= this.gridPosition.x + this.gridPosition.y - this.movementRange 
-					   && i<= this.gridPosition.x + this.movementRange && i >= this.gridPosition.x - this.movementRange &&  j<= this.gridPosition.y + this.movementRange && j >= this.gridPosition.y - this.movementRange
-					   && (i - j) <= Mathf.Abs(this.gridPosition.x - this.gridPosition.y) + this.movementRange &&  (i - j) >= Mathf.Abs(this.gridPosition.x - this.gridPosition.y) - this.movementRange){
-						float tempPreference = 0;
-						foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
-							
-							if(p.GetComponent<Tank>() != null){
-								Tank temp = p.GetComponent<Tank>(); //Gets enemy script
-								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+		if (lookAhead == -1) return 0;
+
+		if (lookAhead == 0) {
+
+			float total = 0;
+
+			if (tileX >= tileY) {
+				for (int i = 0; i < GameManager.instance.mapSize; i++) {
+					for (int j = 0; j < GameManager.instance.mapSize; j++) {
+						
+						if( i + j <= tileX + tileY + moveRange && i + j >= tileX + tileY - moveRange 
+						   && i<= tileX + moveRange && i >= tileX - moveRange &&  j<= tileY + moveRange && j >= tileY - moveRange
+						   && (i - j) <= Mathf.Abs(tileX - tileY) + moveRange &&  (i - j) >= Mathf.Abs(tileX - tileY) - moveRange){
+							float tempPreference = 0;
+							foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+								
+								if(p.GetComponent<Tank>() != null){
+									Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+									tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
+									Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+									tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
+									Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+									tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+								}
 							}
-							else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
-								Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
-								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
-							}
-							else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
-								Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
-								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
-							}
-						}
-						//Debug.Log(tempPreference);
-						if(tempPreference > highestPreference) {
-							highestPreference = tempPreference;
-							preferenceTileX = j;
-							preferenceTileY = i;
+							total = total + tempPreference;
 						}
 					}
 				}
 			}
+			else if(tileX < tileY){
+				for (int i = 0; i < GameManager.instance.mapSize; i++) {
+					for (int j = 0; j < GameManager.instance.mapSize; j++) {
+						
+						if( i + j <= tileX + tileY + moveRange && i + j >= tileX + tileY - moveRange 
+						   && i<= tileX + moveRange && i >= tileX - moveRange &&  j<= tileY + moveRange && j >= tileY - moveRange
+						   && (i - j) <= (tileX - tileY + moveRange) &&  (i - j) >= (tileX - tileY - moveRange)){
+							float tempPreference = 0;
+							foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+								
+								if(p.GetComponent<Tank>() != null){
+									Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+									tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
+									Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+									tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
+									Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+									tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+								}
+							}
+							total = total + tempPreference;
+						}
+					}
+				}
+			}
+
+			return total;
 		}
-		else if(this.gridPosition.x < this.gridPosition.y){
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= this.gridPosition.x + this.gridPosition.y + this.movementRange && i + j >= this.gridPosition.x + this.gridPosition.y - this.movementRange 
-					   && i<= this.gridPosition.x + this.movementRange && i >= this.gridPosition.x - this.movementRange &&  j<= this.gridPosition.y + this.movementRange && j >= this.gridPosition.y - this.movementRange
-					   && (i - j) <= (this.gridPosition.x - this.gridPosition.y + this.movementRange) &&  (i - j) >= (this.gridPosition.x - this.gridPosition.y - this.movementRange)){
-						float tempPreference = 0;
-						foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
-							
-							if(p.GetComponent<Tank>() != null){
-								Tank temp = p.GetComponent<Tank>(); //Gets enemy script
-								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
+
+		else 
+		
+		{
+			float total2 = 0;
+			if (tileX >= tileY) {
+				for (int i = 0; i < GameManager.instance.mapSize; i++) {
+					for (int j = 0; j < GameManager.instance.mapSize; j++) {
+						
+						if( i + j <= tileX + tileY + moveRange && i + j >= tileX + tileY - moveRange 
+						   && i<= tileX + moveRange && i >= tileX - moveRange &&  j<= tileY + moveRange && j >= tileY - moveRange
+						   && (i - j) <= Mathf.Abs(tileX - tileY) + moveRange &&  (i - j) >= Mathf.Abs(tileX - tileY) - moveRange){
+
+							float tempPreference = 0.0f;
+
+							foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+								
+								if(p.GetComponent<Tank>() != null){
+									Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+									tempPreference = calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
+									Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+									tempPreference = calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
+									Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+									tempPreference = calculatePreference (j, i, temp, 1);
+								}
 							}
-							else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
-								Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
-								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
-							}
-							else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
-								Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
-								tempPreference = tempPreference + calculatePreference (j, i, temp, 1);
-							}
-						}
-						if(tempPreference > highestPreference) {
-							highestPreference = tempPreference;
-							preferenceTileX = j;
-							preferenceTileY = i;
+							tempPreference = tempPreference + findHighestPreferenceTileWithLoodAhead(lookAhead - 1, GameManager.instance.map [i] [j].GetComponent<Tile> (), moveRange);
+							total2 = total2 + tempPreference;
 						}
 					}
 				}
 			}
+			else if(tileX < tileY){
+				for (int i = 0; i < GameManager.instance.mapSize; i++) {
+					for (int j = 0; j < GameManager.instance.mapSize; j++) {
+						
+						if( i + j <= tileX + tileY + moveRange && i + j >= tileX + tileY - moveRange 
+						   && i<= tileX + moveRange && i >= tileX - moveRange &&  j<= tileY + moveRange && j >= tileY - moveRange
+						   && (i - j) <= (tileX - tileY + moveRange) &&  (i - j) >= (tileX - tileY - moveRange)){
+
+							float tempPreference = 0.0f;
+							
+							foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
+								
+								if(p.GetComponent<Tank>() != null){
+									Tank temp = p.GetComponent<Tank>(); //Gets enemy script
+									tempPreference = calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Jet>() != null){ //Checks for enemy class on tile target
+									Jet temp = p.GetComponent<Jet>();	//Gets enemy script	
+									tempPreference = calculatePreference (j, i, temp, 1);
+								}
+								else if(p.GetComponent<Soldier>() != null){ //Checks for enemy class on tile target
+									Soldier temp = p.GetComponent<Soldier>();	//Gets enemy script			
+									tempPreference = calculatePreference (j, i, temp, 1);
+								}
+							}
+							tempPreference = tempPreference + findHighestPreferenceTileWithLoodAhead(lookAhead - 1, GameManager.instance.map [i] [j].GetComponent<Tile> (), moveRange);
+							total2 = total2 + tempPreference;
+						}
+					}
+				}
+			}
+
+			return total2;
 		}
 	}
+
+
 
 	public void moveToAttackableRangeAction() {
 
@@ -282,98 +384,78 @@ public class AiPlayer : Player {
 		Tile destTile = null;
 		List<Tile> temp = new List<Tile> ();
 
+		List<Tile> attackTiles = new List<Tile>(); 
+		List<Tile> moveTiles = new List<Tile>();
 
-		bool hasFoundTile = false;
+		attackTiles = PathFinding.pathFindingReturnList ((int)target.gridPosition.x, (int)target.gridPosition.y, this.attackRange);
 
-		/* Iterate through the map to highlight the tiles that in its move range
-		 * different part of the map has different methods to choose tiles
-		 */
-		//int x = (int) GameManager.instance.map [1] [1].transform.position.x;
-		if (targetX >= targetY) {
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= targetX + targetY + this.attackRange && i + j >= targetX + targetY - this.attackRange 
-					   && i<= targetX + this.attackRange && i >= targetX - this.attackRange &&  j<= targetY + this.attackRange && j >= targetY - this.attackRange
-					   && (i - j) <= Mathf.Abs(targetX - targetY) + this.attackRange &&  (i - j) >= Mathf.Abs(targetX - targetY) - this.attackRange){
+		moveTiles = PathFinding.pathFindingReturnList ((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 
-						if(!hasFoundTile && !GameManager.instance.map [i] [j].GetComponent<Tile> ().isOccupied) {
-							temp.Add(GameManager.instance.map [i] [j].GetComponent<Tile> ());
-							hasFoundTile = true;
-						}
-					}
-				}
+		// Highlight the move range tiles
+		for (int i = 0; i < moveTiles.Count; i ++) {
+			if(!moveTiles[i].isOccupied) {
+				moveTiles[i].transform.renderer.material.color = Color.blue;
 			}
 		}
-		else if(targetX < targetY){
-			for (int i = 0; i < GameManager.instance.mapSize; i++) {
-				for (int j = 0; j < GameManager.instance.mapSize; j++) {
-					
-					if( i + j <= targetX + targetY + this.attackRange && i + j >= targetX + targetY - this.attackRange 
-					   && i<= targetX + this.attackRange && i >= targetX - this.attackRange &&  j<= targetY + this.attackRange && j >= targetY - this.attackRange
-					   && (i - j) <= (targetX - targetY + this.attackRange) &&  (i - j) >= (targetX - targetY - this.attackRange)){
 
-						if(!hasFoundTile && !GameManager.instance.map [i] [j].GetComponent<Tile> ().isOccupied) {
-							temp.Add(GameManager.instance.map [i] [j].GetComponent<Tile> ());
-							hasFoundTile = true;
-						}
+		if (attackTiles.Equals(moveTiles)) Debug.LogError("OMG, they are the same");
+
+		Debug.Log (attackTiles.Count);
+		Debug.Log (moveTiles.Count);
+
+		for (int i = 0; i < attackTiles.Count; i ++) {
+			if (!attackTiles[i].isOccupied) {
+				for (int j = 0; j < moveTiles.Count; j++) {
+					if ((int)attackTiles[i].gridPosition.x == (int)moveTiles[j].gridPosition.x && (int)attackTiles[i].gridPosition.y == (int)moveTiles[j].gridPosition.y) {
+						temp.Add(moveTiles[j]);
+						//Debug.Log("Found it");
 					}
 				}
 			}
 		}
 
-		int randIndex = Random.Range (0, temp.Count);
-
-		destTile = temp[randIndex].GetComponent<Tile>();
+		if (temp.Count == 0) {
+			// ai is near by target, no need to move
+			destTile = GameManager.instance.map [(int)this.gridPosition.x] [(int)this.gridPosition.y].GetComponent<Tile> ();
+		} else {
+			int randIndex = Random.Range (0, temp.Count);
+			destTile = temp[randIndex];
+		}
 
 		if (destTile == null) {
-			Debug.Log("Can't find an attackable tile");
-			return;
+			Debug.LogError("Can't find an attackable tile");
+			GameManager.instance.nextTurn();
 		}
 
 		this.moveToAttack = true;
 
-		GameManager.instance.moveAlien (destTile);
-	}
-	
-	public void moveToHighPrefenceAction() {
-
-		// used for checking the available tile when destination tile is occupied
-		bool upAvailable = false;
-		bool downAvailable = false;
-		bool leftAvailable = false;
-		bool rightAvailable = false;
-
-		// Check if the destination is out of border
-		if (preferenceTileY + 1 >= 0 && preferenceTileY + 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX] [preferenceTileY + 1].GetComponent<Tile> ().isOccupied) upAvailable = true;
-		if (preferenceTileY - 1 >= 0 && preferenceTileY - 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX] [preferenceTileY - 1].GetComponent<Tile> ().isOccupied) downAvailable = true;
-		if (preferenceTileX - 1 >= 0 && preferenceTileX - 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX - 1] [preferenceTileY].GetComponent<Tile> ().isOccupied) leftAvailable = true;
-		if (preferenceTileX + 1 >= 0 && preferenceTileX + 1 < GameManager.instance.mapSize && !GameManager.instance.map [preferenceTileX + 1] [preferenceTileY].GetComponent<Tile> ().isOccupied) rightAvailable = true;
-		
-		Tile destTile = null;
-		
-		if (GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ().isOccupied) {
-			if(upAvailable) destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY + 1].GetComponent<Tile> ();
-			if(downAvailable) destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY - 1].GetComponent<Tile> ();
-			if(leftAvailable) destTile = GameManager.instance.map [preferenceTileX - 1] [preferenceTileY].GetComponent<Tile> ();
-			if(rightAvailable) destTile = GameManager.instance.map [preferenceTileX + 1] [preferenceTileY].GetComponent<Tile> ();
+		if (destTile.Equals(GameManager.instance.map [(int)this.gridPosition.x] [(int)this.gridPosition.y].GetComponent<Tile> ())) {
+			Debug.LogWarning("Same Tile");
+			noNeedToMove = true;
+			return;
 		} else {
-			destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ();
+			GameManager.instance.moveAlien (destTile);
 		}
+	}
+
+
+
+	public void moveToHighPrefenceAction() {
+		Tile destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ();
 
 		GameManager.instance.moveAlien (destTile);
 	}
+
+
 
 	public void doAttack(){
 		Debug.Log("Doing Attack");
 		rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as GameObject;
 		rocketInstance.GetComponent<rocket>().moveDestination = target.transform.position;
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
-		if (target.HP <= 0) {
-			GameManager.instance.decrementPlayerCount();
-			Destroy(target.gameObject, 1);
-		}
 	}
+
+
 
 	public void findHighHPforAbleToKill() {
 		int tempHighestHP = (int) ableToBeKilledTargets[0].GetComponent<Player>().HP;
@@ -386,6 +468,8 @@ public class AiPlayer : Player {
 		}
 	}
 
+
+
 	public void findMostDamageTarget() {
 		int tempHighestDamage = (int) targets[0].GetComponent<Player>().baseDamage;
 		MostDamageTargetIndex = 0;
@@ -396,9 +480,10 @@ public class AiPlayer : Player {
 			}
 		}
 	}
-	
+
+
+
 	public void resetAiPlayer() {
-		Debug.Log ("Targets reset");
 		targets.Clear();
 		ableToBeKilledTargets.Clear ();
 		isPlayerInAttackRange = false;
@@ -407,16 +492,20 @@ public class AiPlayer : Player {
 		isDecisionMade = false;
 		moveToAttack = false;
 		
-		Player target = null;
+		target = null;
 		
 		decisionExecuted = false;
 		
 		preferenceTileX = -1; 
 		preferenceTileY = -1;
+
+		hasDecreasePlayerCount = false;
+		noNeedToMove = false;
 		
 		decisionTreeReturnedCode = -1;
 		
 		HighHPforAbleToKillIndex = -1;
 		MostDamageTargetIndex = -1;
+		Debug.Log ("Targets reset");
 	}
 }
