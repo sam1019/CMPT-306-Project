@@ -984,9 +984,14 @@ public class GameManager : MonoBehaviour {
 	//GUI.Label (new Rect (Screen.width - 100, 30, 100, 50), "Lives:" + scores.ToString 
 	
 	void ShowPopupWindow(int WindowID){
+		float widthScale = 0.40f;
+		float heightScale = 0.5f;
+		float widthScale2 = 0.40f;
+		float heightScale2 = 0.15f;
+
 		//Restart Button
 		//Debug.Log ("showing window content");
-		if (GUI.Button (new Rect (140, 60, 100, 20), "Restart")) // make the GUI button with name "Restart"
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2*(1 - widthScale2+0.245f)/2, Screen.height * (1 - heightScale)/2*(1 - heightScale2)/2*0.6f, Screen.width * widthScale*widthScale2, Screen.height * heightScale*heightScale2), "Restart"))// make the GUI button with name "Restart"
 		{
 			Application.LoadLevel(Application.loadedLevel);
 			Time.timeScale=1;
@@ -995,19 +1000,19 @@ public class GameManager : MonoBehaviour {
 		}
 		
 		//Save botton
-		if (GUI.Button (new Rect (140, 90, 100, 20), "Exit Game")) // this function to save the game
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2*(1 - widthScale2+0.245f)/2, Screen.height * (1 - heightScale)/2*(1 - heightScale2+1.0f)/2*0.6f, Screen.width * widthScale*widthScale2, Screen.height * heightScale*heightScale2), "Exit Game")) // this function to save the game
 		{
 			Application.LoadLevel ("LevelSelectScene");
 		}
 		
 		//Save botton
-		if (GUI.Button (new Rect (140, 120, 100, 20), "Save")) // this function to save the game
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2*(1 - widthScale2+0.245f)/2, Screen.height * (1 - heightScale)/2*(1 - heightScale2+2.0f)/2*0.6f, Screen.width * widthScale*widthScale2, Screen.height * heightScale*heightScale2), "Save")) // this function to save the game
 		{
 			PlayerPrefs.SetInt("save player",currentPlayerIndex);
 			PlayerPrefs.Save();
 		}
 		
-		if (GUI.Button(new Rect(140, 150, 100, 20), "Back To Game"))
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2*(1 - widthScale2+0.245f)/2, Screen.height * (1 - heightScale)/2*(1 - heightScale2+3.0f)/2*0.6f, Screen.width * widthScale*widthScale2, Screen.height * heightScale*heightScale2), "Back To Game"))
 		{
 			displayPopup = false;	//Disable popup window
 			Time.timeScale=1;		//Game run again
