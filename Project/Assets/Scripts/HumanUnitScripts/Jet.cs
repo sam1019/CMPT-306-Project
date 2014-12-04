@@ -14,7 +14,7 @@ public class Jet : Player {
 
 
 	void Start () {
-		this.baseDamage = 25.0f;
+		this.baseDamage = 100.0f;
 		this.baseDefense = 15.0f;
 		this.HP = 120.0f;
 		this.baseHP = 120.0f;

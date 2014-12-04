@@ -17,7 +17,7 @@ public class Tank : Player {
 	}
 	
 	void Start () {
-		this.baseDamage = 45.0f;
+		this.baseDamage = 80.0f;
 		this.baseDefense = 40.0f;
 		this.HP = 150.0f;
 		this.baseHP = 150.0f;
