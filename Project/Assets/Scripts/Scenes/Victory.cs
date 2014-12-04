@@ -25,7 +25,7 @@ public class Victory : MonoBehaviour {
 
 		//continue button; based on the current level
 		if(LevelSelect.instance.levelMap == "Map_Level1"){
-			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), continueButtonTexture)) 
+			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), continueButtonTexture)) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level2";
 				LevelSelect.instance.levelUnits = "Units_Level2";
@@ -33,7 +33,7 @@ public class Victory : MonoBehaviour {
 			}
 		}
 		if(LevelSelect.instance.levelMap == "Map_Level2"){
-			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), continueButtonTexture)) 
+			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), continueButtonTexture)) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level3";
 				LevelSelect.instance.levelUnits = "Units_Level3";
@@ -41,7 +41,7 @@ public class Victory : MonoBehaviour {
 			}
 		}
 		if(LevelSelect.instance.levelMap == "Map_Level3"){
-			if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), continueButtonTexture)) 
+			if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), continueButtonTexture)) 
 			{
 				LevelSelect.instance.levelMap = "Map_Level4";
 				LevelSelect.instance.levelUnits = "Units_Level4";

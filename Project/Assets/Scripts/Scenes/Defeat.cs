@@ -20,18 +20,18 @@ public class Defeat : MonoBehaviour {
 	void OnGUI(){
 		
 		GUI.skin = buttonGUISkin;
-		float widthScale = 0.45f;
+		float widthScale = 0.4f;
 		float heightScale = 0.1f;
 
 		//try again on current level
-		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), tryAgainButtonTexture)) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.4f)/2, Screen.width * widthScale, Screen.height * heightScale), tryAgainButtonTexture)) 
 		{
 			Application.LoadLevel ("project");
 		}
 
 
 		// can go back and quit
-		if (GUI.Button (new Rect (25.0f+Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.60f)/2, Screen.width * widthScale/1.5f, Screen.height * heightScale), goBackButtonTexture)) 
+		if (GUI.Button (new Rect (Screen.width * (1 - widthScale)/2, Screen.height * (1 - heightScale + 0.60f)/2, Screen.width * widthScale, Screen.height * heightScale), goBackButtonTexture)) 
 		{
 			Application.LoadLevel ("LevelSelectScene");
 		}

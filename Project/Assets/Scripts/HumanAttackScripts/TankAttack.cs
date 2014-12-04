@@ -171,11 +171,13 @@ public class TankAttack : MonoBehaviour {
 	}
 	
 	void ShowPopupWindow(int WindowID){
-		//Restart Button
-		//Debug.Log ("showing window content");
+		float widthScale = 0.40f;
+		float heightScale = 0.5f;
+		float widthScale2 = 0.40f;
+		float heightScale2 = 0.15f;
 		
-		
-		if (GUI.Button(new Rect(140, 150, 100, 20), "Back To Game"))
+		//Back to Game button
+		if (GUI.Button(new Rect (Screen.width * (1 - widthScale)/2*(1 - widthScale2+0.245f)/2, Screen.height * (1 - heightScale)/2*(1 - heightScale2+1.5f)/2*0.8f, Screen.width * widthScale*widthScale2, Screen.height * heightScale*heightScale2), "Back To Game"))
 		{
 			isMissed = false;	//Disable popup window
 			Time.timeScale=1;		//Game run again
