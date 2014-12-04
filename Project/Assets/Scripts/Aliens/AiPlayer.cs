@@ -441,6 +441,11 @@ public class AiPlayer : Player {
 
 
 	public void moveToHighPrefenceAction() {
+		if(preferenceTileX == -1 || preferenceTileY == -1) {
+			noNeedToMove = true;
+			return;
+		}
+
 		Tile destTile = GameManager.instance.map [preferenceTileX] [preferenceTileY].GetComponent<Tile> ();
 
 		GameManager.instance.moveAlien (destTile);

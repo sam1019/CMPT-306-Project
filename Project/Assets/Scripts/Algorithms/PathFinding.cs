@@ -146,15 +146,6 @@ public class PathFinding {
 			return;
 		}
 
-		// go up
-		pathFindingAlgorithmReturnList(x, y, posX, posY + 1, range - 1);
-		// go right
-		pathFindingAlgorithmReturnList(x, y, posX + 1, posY, range - 1);
-		// go down
-		pathFindingAlgorithmReturnList(x, y, posX, posY - 1, range - 1);
-		// go left
-		pathFindingAlgorithmReturnList(x, y, posX - 1, posY, range - 1);
-
 		if (!(posX == x) || !(posY == y)) {
 			if (GameManager.instance.map [posX] [posY].GetComponent<Tile> ().isOccupied) {
 				if(!tiles.Contains(GameManager.instance.map [posX] [posY].GetComponent<Tile> ())) {
@@ -166,6 +157,15 @@ public class PathFinding {
 				tiles.Add(GameManager.instance.map [posX] [posY].GetComponent<Tile> ());
 			}
 		}
+
+		// go up
+		pathFindingAlgorithmReturnList(x, y, posX, posY + 1, range - 1);
+		// go right
+		pathFindingAlgorithmReturnList(x, y, posX + 1, posY, range - 1);
+		// go down
+		pathFindingAlgorithmReturnList(x, y, posX, posY - 1, range - 1);
+		// go left
+		pathFindingAlgorithmReturnList(x, y, posX - 1, posY, range - 1);
 	}
 
 
