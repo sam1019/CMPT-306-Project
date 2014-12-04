@@ -586,7 +586,11 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 	}		
-	
+
+	/*
+	 * Delay execute MoveHelper method
+	 * In this way, AI enemy can 
+	 */
 	IEnumerator DelayCallMethod(float waitTime, Player temp, Tile destination) {
 		yield return new WaitForSeconds(waitTime);
 		MoveHelper(temp, destination);
