@@ -21,8 +21,8 @@ public class Tank : Player {
 		this.baseDefense = 40.0f;
 		this.HP = 150.0f;
 		this.baseHP = 150.0f;
-		this.movementRange = 3;
-		this.attackRange = 2;
+		this.movementRange = 6;
+		this.attackRange = 4;
 		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
