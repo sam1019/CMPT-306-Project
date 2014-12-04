@@ -106,41 +106,20 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+	
 		// winner detect
 		if(playerCount <= 0){
 			print ("You lose");
 			Application.LoadLevel("Defeat");
 		}
+
 		if(aiCount <= 0){
 			print ("You win");
 			Application.LoadLevel("Victory");
 		}
 		
-		if( playerList.Count > 0){
-			
-			getHumanTurn(); 		// TODO: For the future
-			
-			// TODO: Testing code
-			GameObject temp = playerList [currentPlayerIndex];
-			
-			if(temp.GetComponent<UserPlayer>() != null){
-				UserPlayer player  = temp.GetComponent<UserPlayer>();
-
-				player.TurnUpdate ();
-
-				if (player.HP <= 0){
-					deleteChar();
-				}
-			}
-			else if(temp.GetComponent<AiPlayer>() != null){
-				AiPlayer ai  = temp.GetComponent<AiPlayer>();
-				ai.TurnUpdate ();
-				
-				if (ai.HP <= 0){
-					deleteChar();
-				}
-			}
+		if(playerList.Count > 0){
+			getHumanTurn();
 		}
 	}
 	
@@ -157,14 +136,18 @@ public class GameManager : MonoBehaviour {
 			Tank tank  = temp.GetComponent<Tank>();
 			
 			if (tank.HP <= 0){ //Check if player is not dead
+				map[(int)tank.gridPosition.x][(int)tank.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				playerCount--;
 			}
 			tank.TurnUpdate ();			
 		}
 		else if(temp.GetComponent<Soldier>() != null){
 			Soldier soldier  = temp.GetComponent<Soldier>();
 			if (soldier.HP <= 0){
+				map[(int)soldier.gridPosition.x][(int)soldier.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				playerCount--;
 			}
 			soldier.TurnUpdate ();
 		}
@@ -173,7 +156,9 @@ public class GameManager : MonoBehaviour {
 			Jet jet  = temp.GetComponent<Jet>();
 
 			if (jet.HP <= 0){
+				map[(int)jet.gridPosition.x][(int)jet.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				playerCount--;
 			}	
 			jet.TurnUpdate ();
 		}
@@ -194,7 +179,9 @@ public class GameManager : MonoBehaviour {
 			AlienShip ship  = temp.GetComponent<AlienShip>();	//Get the current player script
 			
 			if (ship.HP <= 0){	// If AI is dead, remove from game
+				map[(int)ship.gridPosition.x][(int)ship.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				aiCount--;
 			}
 			ship.TurnUpdate (); // AI's turn
 		}
@@ -202,7 +189,9 @@ public class GameManager : MonoBehaviour {
 			AlienSoldier alienSoldier  = temp.GetComponent<AlienSoldier>();
 			
 			if (alienSoldier.HP <= 0){
+				map[(int)alienSoldier.gridPosition.x][(int)alienSoldier.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				aiCount--;
 			}
 			alienSoldier.TurnUpdate ();
 		}
@@ -210,7 +199,9 @@ public class GameManager : MonoBehaviour {
 			AlienSupport alienSupport  = temp.GetComponent<AlienSupport>();
 			
 			if (alienSupport.HP <= 0){
+				map[(int)alienSupport.gridPosition.x][(int)alienSupport.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				aiCount--;
 			}
 			alienSupport.TurnUpdate ();
 		}
@@ -218,7 +209,9 @@ public class GameManager : MonoBehaviour {
 			Berserker berserker  = temp.GetComponent<Berserker>();
 			
 			if (berserker.HP <= 0){
+				map[(int)berserker.gridPosition.x][(int)berserker.gridPosition.y].GetComponent<Tile>().isOccupied = false;
 				deleteChar();
+				aiCount--;
 			}
 			berserker.TurnUpdate ();
 		}
@@ -233,13 +226,17 @@ public class GameManager : MonoBehaviour {
 		
 		if (playerList.Count ==1) {
 			currentPlayerIndex =  0;
+			Debug.Log("Come on 1");
 		}
 		
 		if (currentPlayerIndex + 1 < playerList.Count) {
 			currentPlayerIndex++;
+			Debug.Log("Come on 2");
+			Debug.Log(playerList);
 		} 
 		else {
 			currentPlayerIndex=0;
+			Debug.Log("Come on 3");
 		} 
 		
 	}
@@ -249,7 +246,8 @@ public class GameManager : MonoBehaviour {
 	 * If occupied player cannot move to tile
 	 */
 	public bool canPlayerMove(Tile destination){
-		
+		//Debug.Log ("Destination: " + destination.gridPosition.x);
+		//Debug.Log ("Destination: " + destination.gridPosition.y);
 		return (playerList.Count > 0 && !destination.isOccupied);
 	}
 	
@@ -338,7 +336,6 @@ public class GameManager : MonoBehaviour {
 		if (canPlayerMove(destination)) { //Checks if player can move to tile
 			
 			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){
-				//Debug.Log ("AlienSoldier moveAlien() called");
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
 
 				MoveHelper(alienTemp, destination);
@@ -346,23 +343,9 @@ public class GameManager : MonoBehaviour {
 		}
 		if (canPlayerMove(destination)) {
 			
-			if(playerList [currentPlayerIndex].GetComponent<AlienSupport>() != null){  //Checks if script is attached to player
-				AlienSupport alienSupTemp = playerList [currentPlayerIndex].GetComponent<AlienSupport>();
-				MoveHelper(alienSupTemp, destination);
-			}
-		}
-		if (canPlayerMove(destination)) {
-			
 			if(playerList [currentPlayerIndex].GetComponent<AlienShip>() != null){  //Checks if script is attached to player
 				AlienShip alienShipTemp = playerList [currentPlayerIndex].GetComponent<AlienShip>();
 				MoveHelper(alienShipTemp, destination);
-			}
-		}
-		if (canPlayerMove(destination)) {
-			
-			if(playerList [currentPlayerIndex].GetComponent<AlienSoldier>() != null){  //Checks if script is attached to player
-				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>();
-				MoveHelper(alienTemp, destination);
 			}
 		}
 		if (canPlayerMove(destination)) {

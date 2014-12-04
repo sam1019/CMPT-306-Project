@@ -17,8 +17,8 @@ public class AlienSoldier : AiPlayer {
 		this.baseDefense = 18.5f;
 		this.HP = 100.0f;
 		this.baseHP = 100.0f;
-		this.movementRange = 5;
-		this.attackRange = 5;
+		this.movementRange = 4;
+		this.attackRange = 1;
 		this.attackHitRate = 0.8f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
@@ -57,12 +57,12 @@ public class AlienSoldier : AiPlayer {
 			//System.Threading.Thread.Sleep(1000);
 			
 			//print ("HELLO");
-			if (Vector3.Distance (moveDestination, transform.position) > 0.1f) {
+			if (Vector3.Distance (moveDestination, transform.position) > 0.1f || this.noNeedToMove) {
 				//print ("Goodbye");
-				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
+				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime / this.SPEED_CONSTANT;
 				
 				//Used to check if the player has reached it's destination, if so next turn
-				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f) {
+				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f || this.noNeedToMove) {
 					print ("Reached");
 					transform.position = moveDestination;
 					
@@ -127,7 +127,7 @@ public class AlienSoldier : AiPlayer {
 				}
 			} else if (this.decisionTreeReturnedCode == this.MOVE_TO_PLAYER) {
 				
-				this.findHighestPreferenceTile ();
+				this.findHighestPreferenceTile (-1);
 				//Debug.Log ("Preference Tile X: " + this.preferenceTileX);
 				//Debug.Log ("Preference Tile Y: " + this.preferenceTileY);
 				this.moveToHighPrefenceAction();

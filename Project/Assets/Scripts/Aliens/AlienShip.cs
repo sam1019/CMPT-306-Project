@@ -56,13 +56,13 @@ public class AlienShip : AiPlayer {
 			//System.Threading.Thread.Sleep(1000);
 			
 			//print ("HELLO");
-			if (Vector3.Distance (moveDestination, transform.position) > 0.1f) {
+			if (Vector3.Distance (moveDestination, transform.position) > 0.1f || this.noNeedToMove) {
 				//print ("Goodbye");
 				SendMessage("Play", "AlienshipMove");
-				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime;
+				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime / this.SPEED_CONSTANT;
 				
 				//Used to check if the player has reached it's destination, if so next turn
-				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f) {
+				if (Vector3.Distance (moveDestination, transform.position) <= 0.1f || this.noNeedToMove) {
 					print ("Reached");
 					transform.position = moveDestination;
 					
@@ -127,7 +127,7 @@ public class AlienShip : AiPlayer {
 				}
 			} else if (this.decisionTreeReturnedCode == this.MOVE_TO_PLAYER) {
 				
-				this.findHighestPreferenceTile ();
+				this.findHighestPreferenceTile (-1);
 				//Debug.Log ("Preference Tile X: " + this.preferenceTileX);
 				//Debug.Log ("Preference Tile Y: " + this.preferenceTileY);
 				this.moveToHighPrefenceAction();

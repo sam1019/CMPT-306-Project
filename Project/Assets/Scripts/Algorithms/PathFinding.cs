@@ -14,6 +14,9 @@ public class PathFinding {
 
 	public static List<KeyValuePair<int, Tile>> tilesPath;
 
+	public static List<Tile> tiles = new List<Tile>();
+
+
 	
 	private static void tileActionHandler(int x, int y, int actionCode, int range) {
 		if (actionCode == ATTACK_HIGHLIGHT) {
@@ -34,6 +37,8 @@ public class PathFinding {
 		}
 	}
 
+
+
 	private static bool humanTileAttackCheck (int x, int y) {
 		if (GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Mountain" ||
 			GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Water" ||
@@ -46,6 +51,8 @@ public class PathFinding {
 		}
 	}
 
+
+
 	private static bool alienTileAttackCheck (int x, int y) {
 		if (GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Mountain" ||
 		    GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Water" ||
@@ -57,6 +64,8 @@ public class PathFinding {
 			return false;
 		}
 	}
+
+
 
 	private static void pathFindingAlgorithm(int x, int y, int posX, int posY, int range, int action, string user) {
 		if(posX < 0 || posY < 0 || posX >= GameManager.instance.mapSize || posY >= GameManager.instance.mapSize) return;
@@ -94,6 +103,7 @@ public class PathFinding {
 	}
 
 
+
 	/* Path Finding
 	 * Precondition: posX >= 0, posY >= 0, range >= 0, action != null, map != 0
 	 * Postcondition: Highlight the tile according to action code
@@ -103,12 +113,62 @@ public class PathFinding {
 	 * 		 action --- ONLY "attack" or "move"
 	 */
 	public static void doPathFinding(int posX, int posY, int range, int action, string user) {
+		tiles.Clear();
 		int x = posX;
 		int y = posY;
 		tilesPath = new List<KeyValuePair<int, Tile>>();
 		pathFindingAlgorithm (x, y, posX, posY, range, action, user);
-
 	}
+
+
+
+	public static List<Tile> pathFindingReturnList(int posX, int posY, int range) {
+		tiles.Clear();
+		int x = posX;
+		int y = posY;
+		pathFindingAlgorithmReturnList (x, y, posX, posY, range);
+		Debug.Log ("Path Finding Returned List Count: " + tiles.Count);
+
+		// make a copy of tiles
+		List<Tile> copy = new List<Tile> (tiles);
+		return copy;
+	}
+
+
+
+	private static void pathFindingAlgorithmReturnList(int x, int y, int posX, int posY, int range) {
+		if(posX < 0 || posY < 0 || posX >= GameManager.instance.mapSize || posY >= GameManager.instance.mapSize) return;
+
+		if (range == 0) {
+			if(!tiles.Contains(GameManager.instance.map [posX] [posY].GetComponent<Tile> ())) {
+				tiles.Add(GameManager.instance.map [posX] [posY].GetComponent<Tile> ());
+			}
+			return;
+		}
+
+		// go up
+		pathFindingAlgorithmReturnList(x, y, posX, posY + 1, range - 1);
+		// go right
+		pathFindingAlgorithmReturnList(x, y, posX + 1, posY, range - 1);
+		// go down
+		pathFindingAlgorithmReturnList(x, y, posX, posY - 1, range - 1);
+		// go left
+		pathFindingAlgorithmReturnList(x, y, posX - 1, posY, range - 1);
+
+		if (!(posX == x) || !(posY == y)) {
+			if (GameManager.instance.map [posX] [posY].GetComponent<Tile> ().isOccupied) {
+				if(!tiles.Contains(GameManager.instance.map [posX] [posY].GetComponent<Tile> ())) {
+					tiles.Add(GameManager.instance.map [posX] [posY].GetComponent<Tile> ());
+				}
+				return;
+			}
+			if(!tiles.Contains(GameManager.instance.map [posX] [posY].GetComponent<Tile> ())) {
+				tiles.Add(GameManager.instance.map [posX] [posY].GetComponent<Tile> ());
+			}
+		}
+	}
+
+
 
 	public static List<Tile> getTilesPath(int originalx, int originaly, int destinationx, int destinationy, int range, int action, string user){
 		PathFinding.doPathFinding (originalx, originaly, range, action, user);
