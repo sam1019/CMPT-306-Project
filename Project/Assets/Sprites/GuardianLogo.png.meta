@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: be01de0ef57f0495b8cb88598a3ddff2
+guid: bc0910f561af544f7acf23eb746d48ec
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GuardianLogo
+    21300000: coollogo_com-100083171
+    21300002: GuardianLogo
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
