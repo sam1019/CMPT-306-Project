@@ -166,7 +166,7 @@ public class Jet : Player {
 		float pauseHeight = Screen.height / 3;
 
 		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
-		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+(int)this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
 
 

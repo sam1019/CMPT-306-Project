@@ -11,7 +11,7 @@ public class Berserker : AiPlayer {
 	private Animator anim;
 		
 	void Start () {
-		this.baseDamage = 10.0f;
+		this.baseDamage = 30.0f;
 		this.baseDefense = 25.0f;
 		this.HP = 150.0f;
 		this.baseHP = 150.0f;
@@ -169,7 +169,7 @@ public class Berserker : AiPlayer {
 		float pauseHeight = Screen.height / 3;
 		
 		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
-		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+(int)this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");	
 	}
 

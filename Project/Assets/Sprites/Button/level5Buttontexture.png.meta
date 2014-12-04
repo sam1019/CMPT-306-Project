@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 6ea6f813e2dca4e7887d70a0dedae6cf
+guid: a90e8e29aa11d4f12afa3725743b99b3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: level5Buttontexture
+    21300000: level5ButtonTexture
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
