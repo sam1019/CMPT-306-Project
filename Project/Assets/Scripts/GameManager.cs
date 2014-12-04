@@ -214,16 +214,7 @@ public class GameManager : MonoBehaviour {
 			}
 			alienSoldier.TurnUpdate ();
 		}
-		else if (temp.GetComponent<AlienSupport>() != null){
-			AlienSupport alienSupport  = temp.GetComponent<AlienSupport>();
-			
-			if (alienSupport.HP <= 0){
-				map[(int)alienSupport.gridPosition.x][(int)alienSupport.gridPosition.y].GetComponent<Tile>().isOccupied = false;
-				deleteChar();
-				aiCount--;
-			}
-			alienSupport.TurnUpdate ();
-		}
+
 		else if (temp.GetComponent<Berserker>() != null){
 			Berserker berserker  = temp.GetComponent<Berserker>();
 			
@@ -511,14 +502,6 @@ public class GameManager : MonoBehaviour {
 				AlienSoldier alienTemp = playerList [currentPlayerIndex].GetComponent<AlienSoldier>(); //Checks if script is attached to player
 				
 				//MoveHelper(alienTemp, destination);
-			}
-		}
-		if (canPlayerMove(destination)) {
-	
-			if(playerList [currentPlayerIndex].GetComponent<AlienSupport>() != null){  //Checks if script is attached to player
-				AlienSupport alienSupTemp = playerList [currentPlayerIndex].GetComponent<AlienSupport>();
-				MoveHelper(alienSupTemp, destination);
-				//StartCoroutine(WaitAndPrint(0.25F, alienSupTemp, destination));
 			}
 		}
 		if (canPlayerMove(destination)) {

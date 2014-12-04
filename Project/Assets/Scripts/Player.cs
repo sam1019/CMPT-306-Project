@@ -68,7 +68,7 @@ public class Player : MonoBehaviour {
 	}
 
 	//Display HP
-	public void OnGUI(){
+	public virtual void OnGUI(){
 		
 		
 		GUIStyle hpStyle = new GUIStyle ("box");

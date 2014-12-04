@@ -89,40 +89,7 @@ public class JetAttack : MonoBehaviour {
 			}
 		}
 	}
-	
-	/*
-	 * If target is alien support it will attack correct enemy 
-	 */
-	public static void attackAlienSupport(AlienSupport target){
-		if (target != null) {
-			Jet jet = GameManager.instance.playerList[GameManager.instance.currentPlayerIndex].GetComponent<Jet>();
-			if(isTargetInRange((int)jet.gridPosition.x, (int)jet.gridPosition.y,
-			                   (int)target.gridPosition.x,(int)target.gridPosition.y, jet.attackRange)){
-				jet.actionPoints--;
-				
-				jet.attacking = false;			
-				
-				//attack logic
-				//roll to hit
-				bool hit = Random.Range(0.0f, 1.0f) <= jet.attackHitRate;
-				
-				if (hit) {
-					//damage logic
-					//In future damage dealt will take in account for target's defense
-					int amountOfDamage = (int)Mathf.Floor(10 + Random.Range(0, 6));
-					
-					target.HP -= amountOfDamage;
-				} else {
-					print ("Missed");
-					isMissed=true;
-				}
-				
-				//GameManager.instance.nextTurn(); //After attacking end turn
-			} else {
-				Debug.Log ("Target is out of range!");
-			}
-		}
-	}
+
 	
 	/*
 	 * If target is alien berserker it will attack correct enemy 

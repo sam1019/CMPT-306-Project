@@ -122,15 +122,6 @@ public class Jet : Player {
 						JetAttack.attackAlienSoldier(target); //Attacks the specific enemy unit
 					}
 				}
-				else if(p.GetComponent<AlienSupport>() != null){ //Checks for enemy class on tile target
-					AlienSupport target = null;
-					AlienSupport temp = p.GetComponent<AlienSupport>();	//Gets enemy script			
-					
-					if (temp.gridPosition == tile.gridPosition) { //Checks if tile selected contains enemy
-						target = temp;
-						JetAttack.attackAlienSupport(target); //Attacks the specific enemy unit
-					}
-				}
 				else if(p.GetComponent<Berserker>() != null){ //Checks for enemy class on tile target
 					Berserker target = null;
 					Berserker temp = p.GetComponent<Berserker>(); //Gets enemy script	

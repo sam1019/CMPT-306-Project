@@ -25,7 +25,6 @@ public class AlienSoldier : AiPlayer {
 	
 	// Update is called once per frame
 	public override void Update () {
-		// Basic charactor color is blue
 		// When a charactor is chosen, it's color will turn to cyan
 		// When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
@@ -67,9 +66,10 @@ public class AlienSoldier : AiPlayer {
 					   this.decisionTreeReturnedCode == this.ATTACK_MOST_DEMAGE || 
 					   this.decisionTreeReturnedCode == this.KILL_ONE || 
 					   this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
-						
+
+						//AlienSolider attack
 						this.doAttack();
-						SendMessage("Play", "AlienSoldierAttack");
+						SendMessage("Play", "AlienSoldierAttack");	//Play AlienSoldier Attack Audio Clip
 					}
 					
 					this.decisionExecuted = true;
@@ -148,11 +148,17 @@ public class AlienSoldier : AiPlayer {
 	}
 
 
-	//Return the class name of unit
+	/*
+	 * Return the class name of unit
+	 */ 
 	public override string roleName(){
 		
 		return className;
 	}
+
+	/*
+	 * Display Game info(Charactor name, HP, attack, defense, move range, attack range)
+	 */ 
 	public override void TurnOnGUI(){
 		
 		GUI.skin = TurnGUISkin;
@@ -165,5 +171,20 @@ public class AlienSoldier : AiPlayer {
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
 		
 		
+	}
+
+	/*
+	 * Display HP
+	 */
+	public override void OnGUI(){
+		
+		
+		GUIStyle hpStyle = new GUIStyle ("box");
+		hpStyle.fontStyle = FontStyle.BoldAndItalic;
+		hpStyle.fontSize = 10;
+		hpStyle.normal.textColor = Color.yellow;
+		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*26+ Vector3.left*15;
+		int hpint = (int)HP;
+		GUI.Label(new Rect(location.x, Screen.height - location.y, 28, 18), hpint.ToString(), hpStyle);
 	}
 }

@@ -24,7 +24,6 @@ public class AlienShip : AiPlayer {
 	
 	// Update is called once per frame
 	public override void Update () {
-		// Basic charactor color is blue
 		// When a charactor is chosen, it's color will turn to cyan
 		// When a charactor die, it will turn to black and destroy, check Player.cs Script Update()
 		if(GameManager.instance.playerList.Count > 0 && this.HP > 0){
@@ -53,7 +52,7 @@ public class AlienShip : AiPlayer {
 			//print ("HELLO");
 			if (Vector3.Distance (moveDestination, transform.position) > 0.1f || this.noNeedToMove) {
 				//print ("Goodbye");
-				SendMessage("Play", "AlienshipMove");
+				SendMessage("Play", "AlienshipMove");	//Play Berserker Move Audio Clip
 				transform.position += (moveDestination - transform.position).normalized * moveSpeed * Time.deltaTime / this.SPEED_CONSTANT;
 				
 				//Used to check if the player has reached it's destination, if so next turn
@@ -66,7 +65,8 @@ public class AlienShip : AiPlayer {
 					   this.decisionTreeReturnedCode == this.KILL_ONE || 
 					   this.decisionTreeReturnedCode == this.CHOOSE_HIGH_HP) {
 
-						SendMessage("Play","BerserkerAttack");
+						//AlienShip attack
+						SendMessage("Play","AlienshipAttack");		//Play Alienship Attack Audio Clip
 						this.doAttack();
 						if (this.noNeedToMove) {
 							//System.Threading.Thread.Sleep(1000);
@@ -149,11 +149,17 @@ public class AlienShip : AiPlayer {
 	}
 	
 	
-	//Return the class name of unit
+	/*
+	 * Return the class name of unit
+	 */ 
 	public override string roleName(){
 		
 		return className;
 	}
+
+	/*
+	 * Display Game info(Charactor name, HP, attack, defense, move range, attack range)
+	 */ 
 	public override void TurnOnGUI(){
 		
 		GUI.skin = TurnGUISkin;
@@ -164,8 +170,20 @@ public class AlienShip : AiPlayer {
 		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
 		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
-		
-		
+	}
+
+	/*
+	 * Display HP
+	 */
+	public override void OnGUI(){
+
+		GUIStyle hpStyle = new GUIStyle ("box");
+		hpStyle.fontStyle = FontStyle.BoldAndItalic;
+		hpStyle.fontSize = 10;
+		hpStyle.normal.textColor = Color.yellow;
+		Vector3 location = Camera.main.WorldToScreenPoint (transform.position)+ Vector3.up*26+ Vector3.left*15;
+		int hpint = (int)HP;
+		GUI.Label(new Rect(location.x, Screen.height - location.y, 28, 18), hpint.ToString(), hpStyle);
 	}
 
 }
