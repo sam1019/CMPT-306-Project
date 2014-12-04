@@ -76,14 +76,8 @@ public class Tile : MonoBehaviour {
 		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Soldier> () != null) {
 			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Soldier> ().moving;
 		}
-		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Medic> () != null) {
-			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Medic> ().moving;
-		}
 		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Tank> () != null) {
 			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Tank> ().moving;
-		}
-		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Helicopter> () != null) {
-			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Helicopter> ().moving;
 		}
 		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Jet> () != null) {
 			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Jet> ().moving;
@@ -99,14 +93,8 @@ public class Tile : MonoBehaviour {
 		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Soldier> () != null) {
 			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Soldier> ().isAttacking;
 		}
-		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Medic> () != null) {
-			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Medic> ().isAttacking;
-		}
 		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Tank> () != null) {
 			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Tank> ().isAttacking;
-		}
-		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Helicopter> () != null) {
-			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Helicopter> ().isAttacking;
 		}
 		else if (GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Jet> () != null) {
 			return GameManager.instance.playerList [GameManager.instance.currentPlayerIndex].GetComponent<Jet> ().isAttacking;

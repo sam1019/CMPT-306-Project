@@ -493,26 +493,6 @@ public class GameManager : MonoBehaviour {
 				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
 				MoveHelper(soldierTemp, destination);
 			}
-			else if(playerList [currentPlayerIndex].GetComponent<Medic>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){ //Checks for what script is attached to player
-				
-				Medic medicTemp = playerList [currentPlayerIndex].GetComponent<Medic>();
-				MoveHelper(medicTemp, destination);
-			}
-			else if(playerList [currentPlayerIndex].GetComponent<Specialist>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){ //Checks for what script is attached to player
-				
-				Specialist specTemp = playerList [currentPlayerIndex].GetComponent<Specialist>();
-				MoveHelper(specTemp, destination);
-			}
-			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){ //Checks for what script is attached to player
-				
-				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
-				MoveHelper(jetTemp, destination);
-			}
-			else if(playerList [currentPlayerIndex].GetComponent<Helicopter>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){ //Checks for what script is attached to player
-				
-				Helicopter heliTemp = playerList [currentPlayerIndex].GetComponent<Helicopter>();
-				MoveHelper(heliTemp, destination);
-			}
 		}
 		else{
 			print ("Cannot move there");
@@ -595,16 +575,6 @@ public class GameManager : MonoBehaviour {
 			Soldier temp = playerList [currentPlayerIndex].GetComponent<Soldier>();//Get the script of the player
 			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class			 			
 		}
-		else if (playerList [currentPlayerIndex].GetComponent<Medic> () != null) {//Checks if script is attached to player
-			
-			Medic temp = playerList [currentPlayerIndex].GetComponent<Medic>();//Get the script of the player
-			temp.getEnemyToAttack(targetTile); //Calls the attack function of the class								
-		}
-		else if (playerList [currentPlayerIndex].GetComponent<Specialist> () != null) {//Checks if script is attached to player
-			
-			Specialist temp = playerList [currentPlayerIndex].GetComponent<Specialist>();
-			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class							
-		}
 		else if (playerList [currentPlayerIndex].GetComponent<Tank> () != null) {//Checks if script is attached to player
 			
 			Tank temp = playerList [currentPlayerIndex].GetComponent<Tank>();//Get the script of the player
@@ -614,11 +584,6 @@ public class GameManager : MonoBehaviour {
 			
 			Jet temp = playerList [currentPlayerIndex].GetComponent<Jet>();//Get the script of the player
 			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class							
-		}
-		else if (playerList [currentPlayerIndex].GetComponent<Helicopter> () != null) {//Checks if script is attached to player
-			
-			Helicopter temp = playerList [currentPlayerIndex].GetComponent<Helicopter>();//Get the script of the player
-			temp.getEnemyToAttack(targetTile);	//Calls the attack function of the class						
 		}
 		else{
 			Debug.Log("Something went wrong");

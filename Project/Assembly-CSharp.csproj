@@ -54,17 +54,11 @@
      <Compile Include="Assets\Scripts\Aliens\Berserker.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\HumanAttackScripts\HelicopterAttack.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\JetAttack.cs" />
-     <Compile Include="Assets\Scripts\HumanAttackScripts\MedicAttack.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\SoldierAttack.cs" />
-     <Compile Include="Assets\Scripts\HumanAttackScripts\SpecialistAttack.cs" />
      <Compile Include="Assets\Scripts\HumanAttackScripts\TankAttack.cs" />
-     <Compile Include="Assets\Scripts\HumanUnitScripts\Helicopter.cs" />
      <Compile Include="Assets\Scripts\HumanUnitScripts\Jet.cs" />
-     <Compile Include="Assets\Scripts\HumanUnitScripts\Medic.cs" />
      <Compile Include="Assets\Scripts\HumanUnitScripts\Soldier.cs" />
-     <Compile Include="Assets\Scripts\HumanUnitScripts\Specialist.cs" />
      <Compile Include="Assets\Scripts\HumanUnitScripts\Tank.cs" />
      <Compile Include="Assets\Scripts\Interfaces\GameManagerInteferface.cs" />
      <Compile Include="Assets\Scripts\Interfaces\PlayerInterface.cs" />
