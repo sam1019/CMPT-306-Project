@@ -69,7 +69,9 @@ public class Berserker : AiPlayer {
 
 						SendMessage("Play","BerserkerAttack");
 						this.doAttack();
-
+						if (this.noNeedToMove) {
+							//System.Threading.Thread.Sleep(1000);
+						}
 					}
 					
 					this.decisionExecuted = true;
