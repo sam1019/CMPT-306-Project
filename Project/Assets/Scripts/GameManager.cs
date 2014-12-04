@@ -481,6 +481,11 @@ public class GameManager : MonoBehaviour {
 				Soldier soldierTemp = playerList [currentPlayerIndex].GetComponent<Soldier>();
 				MoveHelper(soldierTemp, destination);
 			}
+			else if(playerList [currentPlayerIndex].GetComponent<Jet>() != null && map[i][j].GetComponent<Tile> ().transform.renderer.material.color == Color.magenta){ //Checks for what script is attached to player
+				
+				Jet jetTemp = playerList [currentPlayerIndex].GetComponent<Jet>();
+				MoveHelper(jetTemp, destination);
+			}
 		}
 		else{
 			print ("Cannot move there");
