@@ -146,7 +146,6 @@ public class GameManager : MonoBehaviour {
 	 * Finds the current player player's type 
 	 * (Ex. Tank, Soldier, Medic,etc)
 	 */
-	// TODO: Can possibly refactor code in the future
 	public void getHumanTurn(){
 		
 		GameObject temp = playerList [currentPlayerIndex];
@@ -189,7 +188,6 @@ public class GameManager : MonoBehaviour {
 	/*
 	 * Finds the current AI's type 
 	 */
-	// TODO: Can possibly refactor code in the future
 	public void getAlienTurn(){
 		
 		GameObject temp = playerList [currentPlayerIndex];
@@ -460,7 +458,6 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	// To realize the player movement
-	// TODO: Can possibly refactor code in the future
 	public void MovePlayer(Tile destination){
 		
 		if (canPlayerMove(destination)) { // If tile is unoccupied player can move to there
@@ -545,7 +542,6 @@ public class GameManager : MonoBehaviour {
 	 * Then calls the attack function of that player's class
 	 * Attacks the unit on the target tile
 	 */
-	// TODO: Can possibly refactor in the future
 	public void whatPlayerClassIsAttacking(Tile targetTile){
 		
 		/******Test player unit**********/
@@ -592,8 +588,7 @@ public class GameManager : MonoBehaviour {
 		//Debug.Log (range);
 		PathFinding.doPathFinding (originLocationX, originLocationY, range, PathFinding.ATTACK_HIGHLIGHT, PathFinding.HUMAN);
 	}
-	
-	// TODO: need fully implementation
+
 	// When click move botton, the available range for player will Highlighted
 	public void enableMoveHighlight(int originLocationX, int originLocationY, int range){
 		
