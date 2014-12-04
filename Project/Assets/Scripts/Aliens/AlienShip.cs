@@ -12,7 +12,7 @@ public class AlienShip : AiPlayer {
 
 	
 	void Start () {
-		this.baseDamage = 30.0f;
+		this.baseDamage = 50.0f;
 		this.baseDefense = 10.0f;
 		this.HP = 90.0f;
 		this.baseHP = 90.0f;
@@ -168,7 +168,7 @@ public class AlienShip : AiPlayer {
 		float pauseHeight = Screen.height / 3;
 		
 		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
-		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+(int)this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
 	}
 

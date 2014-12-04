@@ -1,9 +1,8 @@
 fileFormatVersion: 2
-guid: f1346e1598e3d4c70b12d372068654fc
+guid: cfaeb61d6d1bc4fe0a5573f67aa31bb6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: level1ButtonTuxture
-    21300002: level3ButtonTuxture
+    21300000: level3ButtonTexture
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

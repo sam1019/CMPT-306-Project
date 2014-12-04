@@ -13,7 +13,7 @@ public class AlienSoldier : AiPlayer {
 
 
 	void Start () {
-		this.baseDamage = 18.5f;
+		this.baseDamage = 20.0f;
 		this.baseDefense = 18.5f;
 		this.HP = 100.0f;
 		this.baseHP = 100.0f;
@@ -167,7 +167,7 @@ public class AlienSoldier : AiPlayer {
 		float pauseHeight = Screen.height / 3;
 		
 		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
-		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+(int)this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
 		
 		

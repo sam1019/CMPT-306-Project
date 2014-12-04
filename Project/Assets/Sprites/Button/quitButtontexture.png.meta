@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 035c76941b7aa4680ba95078ccc2adad
+guid: d771c837804ff4342be624cc0462885e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: quitButtontexture
+    21300000: quitButtonTexture
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

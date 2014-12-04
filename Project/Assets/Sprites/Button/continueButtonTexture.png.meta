@@ -1,10 +1,8 @@
 fileFormatVersion: 2
-guid: e5d8c2f568ec142e188d67fd9ae9e72e
+guid: e50b20568bec4402d904e767efc219c0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: coollogo_com-322082352
-    21300002: continueButtontexture
-    21300004: continueButtonTexture
+    21300000: continueButtonTexture
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

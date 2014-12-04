@@ -21,8 +21,8 @@ public class Tank : Player {
 		this.baseDefense = 40.0f;
 		this.HP = 150.0f;
 		this.baseHP = 150.0f;
-		this.movementRange = 2;
-		this.attackRange = 1;
+		this.movementRange = 3;
+		this.attackRange = 2;
 		this.attackHitRate = 0.95f;
 		anim = gameObject.GetComponent<Animator> ();
 	}
@@ -162,7 +162,7 @@ public class Tank : Player {
 		float pauseHeight = Screen.height / 3;
 
 		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
-		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+(int)this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
 		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
 
 		//move button
