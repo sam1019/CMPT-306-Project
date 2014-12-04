@@ -18,6 +18,7 @@ public class AiPlayer : Player {
 	public int MOVE_TO_PLAYER = 4;
 	public int MOVE_TO_ENEMY = 5;
 
+	// speed constant to slow down the ai animation (higher -> slower)
 	public int SPEED_CONSTANT = 1;
 
 	private bool isPlayerInAttackRange = false;
@@ -26,6 +27,7 @@ public class AiPlayer : Player {
 	public bool isDecisionMade = false;
 	public bool moveToAttack = false;
 
+	// attack target
 	public Player target = null;
 
 	public bool decisionExecuted = false;
@@ -39,7 +41,8 @@ public class AiPlayer : Player {
 
 	public int HighHPforAbleToKillIndex = -1;
 	public int MostDamageTargetIndex = -1;
-	
+
+
 	// ============= Class Methods =============
 
 	public  void Start () {}
@@ -55,6 +58,9 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * helper function for anyPlayerInAttackRange()
+	 */ 
 	private bool anyPlayerInAttackRangeHelper(Tile targetTile){
 
 		foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
@@ -89,6 +95,7 @@ public class AiPlayer : Player {
 
 
 
+	// find if there exists a target in the AI attackable range (attack range + move range)
 	private void anyPlayerInAttackRange() {
 
 		List<Tile> listTiles = PathFinding.pathFindingReturnList ((int)this.gridPosition.x, (int)this.gridPosition.y, this.attackRange + this.movementRange);
@@ -103,7 +110,9 @@ public class AiPlayer : Player {
 
 
 
+	// find if there exists a target can be killed in this round
 	private void targetCanbeKilledInThisRound() {
+
 		foreach (Player p in targets) { 
 			
 			if(p.GetComponent<Tank>() != null){
@@ -132,7 +141,9 @@ public class AiPlayer : Player {
 
 
 
-	// Decision tree
+	/*
+	 * Decision tree, return a dicison code
+	 */ 
 	public int decisionTree() {
 		anyPlayerInAttackRange ();
 		if (isPlayerInAttackRange) {
@@ -178,6 +189,9 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * Preferenc algorithm
+	 */ 
 	private float calculatePreference (int x, int y, Player target, int K) {
 		return (this.HP - target.HP) + 
 			(1.0f / Mathf.Sqrt((float)Mathf.Pow(target.gridPosition.x - x, 2) + 
@@ -187,14 +201,21 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * Find the highest preference tile within movement tiles
+	 */ 
 	public void findHighestPreferenceTile(int lookAhead) {
 
+		// initial the highest preference for comparing
 		float highestPreference = -90000.0f;
 
+		// get list by pathfinding
 		List<Tile> tempList = PathFinding.pathFindingReturnList ((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
 
 		for (int i = 0; i < tempList.Count; i++) {
+
 			if(!tempList[i].isOccupied) {
+
 				float tempPreference = 0;
 				foreach (GameObject p in GameManager.instance.playerList) { //Checks for enemy class on tile target
 					
@@ -212,6 +233,7 @@ public class AiPlayer : Player {
 					}
 				}
 
+				// highlight movement tile
 				tempList[i].transform.renderer.material.color = Color.blue;
 
 				//tempPreference = tempPreference + findHighestPreferenceTileWithLoodAhead(lookAhead, tempList[i], this.movementRange);
@@ -223,11 +245,14 @@ public class AiPlayer : Player {
 				}
 			}
 		}
-		//System.Threading.Thread.Sleep(1000);
 	}
 	
 
-	
+
+	/*
+	 * TODO: AI Look Ahead, shut down since it's seriously affecting the performance
+	 */
+	/*
 	public float findHighestPreferenceTileWithLoodAhead(int lookAhead, Tile tile, int moveRange) {
 
 		int tileX = (int)tile.gridPosition.x;
@@ -235,6 +260,7 @@ public class AiPlayer : Player {
 		/* Iterate through the map to highlight the tiles that in its move range
 		 * different part of the map has different methods to choose tiles
 		 */
+	/*
 		if (lookAhead == -1) return 0;
 
 		if (lookAhead == 0) {
@@ -371,13 +397,18 @@ public class AiPlayer : Player {
 			return total2;
 		}
 	}
+	*/
 
 
 
+	/*
+	 * Move AI character to attackable range to attack target
+	 */ 
 	public void moveToAttackableRangeAction() {
 
 		int targetX = (int) target.gridPosition.x;
 		int targetY = (int) target.gridPosition.y;
+
 		Debug.Log ("Target X: " + targetX);
 		Debug.Log ("Target Y: " + targetY);
 
@@ -387,9 +418,13 @@ public class AiPlayer : Player {
 		List<Tile> attackTiles = new List<Tile>(); 
 		List<Tile> moveTiles = new List<Tile>();
 
-		attackTiles = PathFinding.pathFindingReturnList ((int)target.gridPosition.x, (int)target.gridPosition.y, this.attackRange);
 
+		// generate two list using pathfinding to find out the tiles which are attackable and not out of move range
+		attackTiles = PathFinding.pathFindingReturnList ((int)target.gridPosition.x, (int)target.gridPosition.y, this.attackRange);
 		moveTiles = PathFinding.pathFindingReturnList ((int)this.gridPosition.x, (int)this.gridPosition.y, this.movementRange);
+
+		Debug.Log (attackTiles.Count);
+		Debug.Log (moveTiles.Count);
 
 		// Highlight the move range tiles
 		for (int i = 0; i < moveTiles.Count; i ++) {
@@ -398,30 +433,31 @@ public class AiPlayer : Player {
 			}
 		}
 
-		if (attackTiles.Equals(moveTiles)) Debug.LogError("OMG, they are the same");
-
-		Debug.Log (attackTiles.Count);
-		Debug.Log (moveTiles.Count);
-
+		// find the common tiles which means AI can move there to attack
 		for (int i = 0; i < attackTiles.Count; i ++) {
+
 			if (!attackTiles[i].isOccupied) {
+
 				for (int j = 0; j < moveTiles.Count; j++) {
+
 					if ((int)attackTiles[i].gridPosition.x == (int)moveTiles[j].gridPosition.x && (int)attackTiles[i].gridPosition.y == (int)moveTiles[j].gridPosition.y) {
 						temp.Add(moveTiles[j]);
-						//Debug.Log("Found it");
 					}
 				}
 			}
 		}
 
+
 		if (temp.Count == 0) {
 			// ai is near by target, no need to move
 			destTile = GameManager.instance.map [(int)this.gridPosition.x] [(int)this.gridPosition.y].GetComponent<Tile> ();
 		} else {
+			// randomly pick one tile to move there
 			int randIndex = Random.Range (0, temp.Count);
 			destTile = temp[randIndex];
 		}
 
+		// 
 		if (destTile == null) {
 			Debug.LogError("Can't find an attackable tile");
 			GameManager.instance.nextTurn();
@@ -440,7 +476,12 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * Set destination for moveAilien() in GameManager
+	 */ 
 	public void moveToHighPrefenceAction() {
+
+		// no need to move since ai can attack directly
 		if(preferenceTileX == -1 || preferenceTileY == -1) {
 			noNeedToMove = true;
 			return;
@@ -453,22 +494,36 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * Attack the target which local target variable refers to
+	 */ 
 	public void doAttack(){
+
 		Debug.Log("Doing Attack");
-		Debug.Log (target.gridPosition.x);
-		Debug.Log (target.gridPosition.y);
+		Debug.Log ("target x: " + target.gridPosition.x);
+		Debug.Log ("target y: " + target.gridPosition.y);
+
+		// showing animation
 		rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as GameObject;
 		rocketInstance.GetComponent<rocket>().moveDestination = target.transform.position;
+
+		// damage algorithm
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
 	}
 
 
 
+	/*
+	 * Find the highest hp target
+	 */ 
 	public void findHighHPforAbleToKill() {
+
 		int tempHighestHP = (int) ableToBeKilledTargets[0].GetComponent<Player>().HP;
 		HighHPforAbleToKillIndex = 0;
+
 		for (int i = 1; i < ableToBeKilledTargets.Count; i ++) {
 			if(tempHighestHP <= ableToBeKilledTargets[i].GetComponent<Player>().HP) {
+
 				tempHighestHP = (int) ableToBeKilledTargets[i].GetComponent<Player>().HP;
 				HighHPforAbleToKillIndex = i;
 			}
@@ -477,11 +532,17 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * Find the most damage target 
+	 */ 
 	public void findMostDamageTarget() {
+
 		int tempHighestDamage = (int) targets[0].GetComponent<Player>().baseDamage;
 		MostDamageTargetIndex = 0;
+
 		for (int i = 1; i < targets.Count; i ++) {
 			if(tempHighestDamage <= targets[i].GetComponent<Player>().baseDamage) {
+
 				tempHighestDamage = (int) targets[i].GetComponent<Player>().baseDamage;
 				MostDamageTargetIndex = i;
 			}
@@ -490,29 +551,27 @@ public class AiPlayer : Player {
 
 
 
+	/*
+	 * Reset all the variables for next decision make
+	 */ 
 	public void resetAiPlayer() {
+
 		targets.Clear();
 		ableToBeKilledTargets.Clear ();
 		isPlayerInAttackRange = false;
 		existPlayerBeKilled = false;
-		
 		isDecisionMade = false;
 		moveToAttack = false;
-		
 		target = null;
-		
 		decisionExecuted = false;
-		
 		preferenceTileX = -1; 
 		preferenceTileY = -1;
-
 		hasDecreasePlayerCount = false;
 		noNeedToMove = false;
-		
 		decisionTreeReturnedCode = -1;
-		
 		HighHPforAbleToKillIndex = -1;
 		MostDamageTargetIndex = -1;
+
 		Debug.Log ("Targets reset");
 	}
 }

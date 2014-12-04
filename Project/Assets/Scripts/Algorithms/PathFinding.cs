@@ -39,6 +39,7 @@ public class PathFinding {
 
 
 
+	// check the block
 	private static bool humanTileAttackCheck (int x, int y) {
 		if (GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Mountain" ||
 			GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Water" ||
@@ -53,6 +54,7 @@ public class PathFinding {
 
 
 
+	// check the block
 	private static bool alienTileAttackCheck (int x, int y) {
 		if (GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Mountain" ||
 		    GameManager.instance.map [x] [y].GetComponent<Tile> ().occupiedName == "Water" ||
@@ -67,8 +69,14 @@ public class PathFinding {
 
 
 
+	/*
+	 * pathfinding with action executing
+	 */ 
 	private static void pathFindingAlgorithm(int x, int y, int posX, int posY, int range, int action, string user) {
+		// check if the search is out of border
 		if(posX < 0 || posY < 0 || posX >= GameManager.instance.mapSize || posY >= GameManager.instance.mapSize) return;
+
+		// avoid checking original tile
 		if (!(posX == x) || !(posY == y)) {
 			if (GameManager.instance.map [posX] [posY].GetComponent<Tile> ().isOccupied) {
 				if (action == ATTACK_HIGHLIGHT && user == HUMAN){
@@ -87,6 +95,8 @@ public class PathFinding {
 		if (range > 0) {
 			tileActionHandler(posX, posY, action, range);
 		}
+
+		// base case
 		if (range == 0) {
 			tileActionHandler(posX, posY, action, range);
 			return;
@@ -122,23 +132,37 @@ public class PathFinding {
 
 
 
+	/*
+	 * Return a tile list found by pathfinding
+	 */ 
 	public static List<Tile> pathFindingReturnList(int posX, int posY, int range) {
+
+		// remove search history
 		tiles.Clear();
+
+		// used for avoid searching original tile
 		int x = posX;
 		int y = posY;
+
 		pathFindingAlgorithmReturnList (x, y, posX, posY, range);
+
 		Debug.Log ("Path Finding Returned List Count: " + tiles.Count);
 
-		// make a copy of tiles
+		// make a copy of tiles, otherwise it will hold the reference to the local tiles variable
 		List<Tile> copy = new List<Tile> (tiles);
 		return copy;
 	}
 
 
-
+	/*
+	 * Pathfinding find all the tiles and push into tile list, generated list will not contain duplicated tile
+	 */
 	private static void pathFindingAlgorithmReturnList(int x, int y, int posX, int posY, int range) {
+
+		// check if the search is out of border
 		if(posX < 0 || posY < 0 || posX >= GameManager.instance.mapSize || posY >= GameManager.instance.mapSize) return;
 
+		// base case
 		if (range == 0) {
 			if(!tiles.Contains(GameManager.instance.map [posX] [posY].GetComponent<Tile> ())) {
 				tiles.Add(GameManager.instance.map [posX] [posY].GetComponent<Tile> ());
@@ -146,7 +170,10 @@ public class PathFinding {
 			return;
 		}
 
+		// avoid the original tile
 		if (!(posX == x) || !(posY == y)) {
+
+			// if there is a block tile, stop the search
 			if (GameManager.instance.map [posX] [posY].GetComponent<Tile> ().isOccupied) {
 				if(!tiles.Contains(GameManager.instance.map [posX] [posY].GetComponent<Tile> ())) {
 					tiles.Add(GameManager.instance.map [posX] [posY].GetComponent<Tile> ());
@@ -169,7 +196,7 @@ public class PathFinding {
 	}
 
 
-
+	
 	public static List<Tile> getTilesPath(int originalx, int originaly, int destinationx, int destinationy, int range, int action, string user){
 		PathFinding.doPathFinding (originalx, originaly, range, action, user);
 		List<Tile> path = new List<Tile>();
