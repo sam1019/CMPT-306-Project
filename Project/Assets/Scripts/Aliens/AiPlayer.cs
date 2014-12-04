@@ -450,6 +450,8 @@ public class AiPlayer : Player {
 
 	public void doAttack(){
 		Debug.Log("Doing Attack");
+		Debug.Log (target.gridPosition.x);
+		Debug.Log (target.gridPosition.y);
 		rocketInstance = Instantiate(rocketPrefab, transform.position, transform.rotation) as GameObject;
 		rocketInstance.GetComponent<rocket>().moveDestination = target.transform.position;
 		target.HP = target.HP - this.baseDamage * (K / (K + target.baseDefense));
