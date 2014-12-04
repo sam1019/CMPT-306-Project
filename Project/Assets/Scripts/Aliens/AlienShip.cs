@@ -163,5 +163,18 @@ public class AlienShip : AiPlayer {
 		
 		return className;
 	}
+	public override void TurnOnGUI(){
+		
+		GUI.skin = TurnGUISkin;
+		float buttonHeight = Screen.height / 3;
+		float buttonWidth = Screen.width / 4;
+		float pauseHeight = Screen.height / 3;
+		
+		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
+		
+		
+	}
 
 }

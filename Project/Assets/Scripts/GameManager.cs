@@ -915,22 +915,22 @@ public class GameManager : MonoBehaviour {
 				playerList[currentPlayerIndex].GetComponent<Soldier>().TurnOnGUI(); //Turn on the GUI for player
 			}
 		}
-		else if(playerList[currentPlayerIndex].GetComponent<Medic>()!=null){ //Checks if script is attached
+		else if(playerList[currentPlayerIndex].GetComponent<Berserker>()!=null){ //Checks if script is attached
 			
-			if (playerList[currentPlayerIndex].GetComponent<Medic>().HP > 0){ //Get the script
-				playerList[currentPlayerIndex].GetComponent<Medic>().TurnOnGUI(); //Turn on the GUI for player
+			if (playerList[currentPlayerIndex].GetComponent<Berserker>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<Berserker>().TurnOnGUI(); //Turn on the GUI for player
 			}
 		}
-		else if(playerList[currentPlayerIndex].GetComponent<Specialist>()!=null){ //Checks if script is attached
+		else if(playerList[currentPlayerIndex].GetComponent<AlienShip>()!=null){ //Checks if script is attached
 			
-			if (playerList[currentPlayerIndex].GetComponent<Specialist>().HP > 0){ //Get the script
-				playerList[currentPlayerIndex].GetComponent<Specialist>().TurnOnGUI();
+			if (playerList[currentPlayerIndex].GetComponent<AlienShip>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<AlienShip>().TurnOnGUI();
 			}
 		}
-		else if(playerList[currentPlayerIndex].GetComponent<Helicopter>()!=null){ //Checks if script is attached
+		else if(playerList[currentPlayerIndex].GetComponent<AlienSoldier>()!=null){ //Checks if script is attached
 			
-			if (playerList[currentPlayerIndex].GetComponent<Helicopter>().HP > 0){ //Get the script
-				playerList[currentPlayerIndex].GetComponent<Helicopter>().TurnOnGUI(); //Turn on the GUI for player
+			if (playerList[currentPlayerIndex].GetComponent<AlienSoldier>().HP > 0){ //Get the script
+				playerList[currentPlayerIndex].GetComponent<AlienSoldier>().TurnOnGUI(); //Turn on the GUI for player
 			}
 		}
 	}

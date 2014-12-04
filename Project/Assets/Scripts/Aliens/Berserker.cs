@@ -12,7 +12,7 @@ public class Berserker : AiPlayer {
 		
 	void Start () {
 		this.baseDamage = 10.0f;
-		this.baseDefense = 90.0f;
+		this.baseDefense = 25.0f;
 		this.HP = 200.0f;
 		this.baseHP = 200.0f;
 		this.movementRange = 5;
@@ -156,6 +156,18 @@ public class Berserker : AiPlayer {
 		
 		return className;
 	}
+	public override void TurnOnGUI(){
+		
+		GUI.skin = TurnGUISkin;
+		float buttonHeight = Screen.height / 3;
+		float buttonWidth = Screen.width / 4;
+		float pauseHeight = Screen.height / 3;
+		
+		GUI.Box(new Rect (0, pauseHeight, buttonWidth, Screen.height-pauseHeight),
+		        "GAME INFO\n"+"Charactor: "+roleName()+"\nHP: "+this.HP+"\nBase Damage: "+this.baseDamage+"\nDefence: "+this.baseDefense
+		        +"\nAttackHitRate: "+this.attackHitRate+"\nMovement Range: "+this.movementRange+"\nAttack Range: "+this.attackRange,"Box");
+		
 
+	}
 
 }
