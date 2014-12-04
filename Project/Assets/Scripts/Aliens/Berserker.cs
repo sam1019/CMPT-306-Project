@@ -12,7 +12,7 @@ public class Berserker : AiPlayer {
 		
 	void Start () {
 		this.baseDamage = 30.0f;
-		this.baseDefense = 25.0f;
+		this.baseDefense = 15.0f;
 		this.HP = 150.0f;
 		this.baseHP = 150.0f;
 		this.movementRange = 5;
